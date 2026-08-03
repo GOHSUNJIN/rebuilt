@@ -66,7 +66,7 @@ export default function ContactForm() {
           <option value="Performance">Performance</option>
           <option value="Physiotherapy (waitlist)">Physiotherapy (waitlist)</option>
         </select>
-        <textarea name="message" placeholder="Your question or message" rows={5} style={{ ...inputStyle, resize: 'vertical' }} />
+        <textarea name="message" placeholder="Your question or message" rows={5} style={{ ...inputStyle, resize: 'none' }} />
         {status === 'error' && (
           <p style={{ fontSize: 13, color: '#e07070', margin: 0 }}>{errorMsg}</p>
         )}

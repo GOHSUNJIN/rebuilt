@@ -1,9 +1,26 @@
+'use client'
+import { usePathname } from 'next/navigation'
 import { SITE } from '@/lib/site'
 
+const MESSAGES: Record<string, string> = {
+  '/rehab': "Hi, I'm interested in the Rehab service at Rebuilt. Could you tell me more?",
+  '/strength': "Hi, I'm interested in Personal Training at Rebuilt. Could you tell me more?",
+  '/performance': "Hi, I'm interested in the Performance service at Rebuilt. Could you tell me more?",
+  '/physio': "Hi, I'd like to join the physiotherapy waitlist at Rebuilt. Could you let me know when it launches?",
+  '/book': "Hi, I'd like to book a session at Rebuilt. Could you help me get started?",
+  '/about': "Hi, I have a question about Rebuilt. Could you help me?",
+}
+
+const DEFAULT_MESSAGE = "Hi, I'd like to find out more about Rebuilt."
+
 export default function WhatsAppButton() {
+  const pathname = usePathname()
+  const message = MESSAGES[pathname] ?? DEFAULT_MESSAGE
+  const href = `${SITE.contact.whatsapp}?text=${encodeURIComponent(message)}`
+
   return (
     <a
-      href={SITE.contact.whatsapp}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

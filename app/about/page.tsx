@@ -7,6 +7,7 @@ import FadeIn from '@/components/ui/FadeIn'
 import { SITE } from '@/lib/site'
 import ContactForm from '@/components/ui/ContactForm'
 import TeamBioModal from '@/components/ui/TeamBioModal'
+import CopyText from '@/components/ui/CopyText'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -253,13 +254,17 @@ export default function AboutPage() {
                   {label}
                 </p>
                 {label === 'CONTACT' ? (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                    <a href={`mailto:${SITE.contact.email}`} style={{ fontSize: 13.5, color: '#a3aab4', textDecoration: 'none' }} className="hover-gold">
-                      {SITE.contact.email}
-                    </a>
-                    <a href={SITE.contact.phoneTel} style={{ fontSize: 13.5, color: '#a3aab4', textDecoration: 'none' }} className="hover-gold">
-                      {SITE.contact.phone}
-                    </a>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    <CopyText value={SITE.contact.email}>
+                      <a href={`mailto:${SITE.contact.email}`} style={{ fontSize: 13.5, color: '#a3aab4', textDecoration: 'none' }} className="hover-gold">
+                        {SITE.contact.email}
+                      </a>
+                    </CopyText>
+                    <CopyText value={SITE.contact.phone}>
+                      <a href={SITE.contact.phoneTel} style={{ fontSize: 13.5, color: '#a3aab4', textDecoration: 'none' }} className="hover-gold">
+                        {SITE.contact.phone}
+                      </a>
+                    </CopyText>
                   </div>
                 ) : (
                   <p

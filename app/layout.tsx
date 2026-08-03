@@ -4,6 +4,8 @@ import './globals.css'
 import { SITE } from '@/lib/site'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
 import ScrollProgress from '@/components/ui/ScrollProgress'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const archivo = Archivo({
   subsets: ['latin'],
@@ -88,6 +90,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ScrollProgress />
         {children}
         <WhatsAppButton />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

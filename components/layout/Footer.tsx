@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SITE } from '@/lib/site'
+import OpenStatus from '@/components/ui/OpenStatus'
 
 type SocialTarget = { label: string; href: string; note: string } | null
 
@@ -122,7 +123,7 @@ export default function Footer() {
         }}
       >
         {/* Left */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 26, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
             <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={28} height={28} style={{ display: 'block' }} />
             <div>
@@ -134,6 +135,8 @@ export default function Footer() {
               </div>
             </div>
           </Link>
+          <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
+          <OpenStatus />
         </div>
 
         {/* Right */}

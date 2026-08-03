@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer'
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 
 export const metadata: Metadata = {
-  title: 'Rebuilt – Rehab, Personal Training & Performance in Singapore',
+  title: 'Rebuilt',
 }
 
 const dash = (

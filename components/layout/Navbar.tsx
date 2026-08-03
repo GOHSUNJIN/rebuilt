@@ -59,7 +59,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
           <img
             src="/logo.jpeg"
             alt="Rebuilt"
-            style={{ position: 'absolute', width: '250%', height: 'auto', top: '-41%', left: '-75%' }}
+            style={{ position: 'absolute', width: '200%', height: 'auto', top: '-4%', left: '-50%' }}
           />
         </span>
         <span

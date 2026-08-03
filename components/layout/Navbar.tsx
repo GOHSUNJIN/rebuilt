@@ -4,25 +4,15 @@ import { useState } from 'react'
 
 type NavbarProps = { activePage?: string }
 
+const NAV_LINKS = [
+  { href: '/rehab', label: 'Rehab', page: 'rehab' },
+  { href: '/strength', label: 'Personal Training', page: 'strength' },
+  { href: '/performance', label: 'Performance', page: 'performance' },
+  { href: '/about', label: 'About', page: 'about' },
+]
+
 export default function Navbar({ activePage = '' }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
-
-  const navLink = (href: string, label: string, page: string) => {
-    const isActive = activePage === page
-    return (
-      <Link
-        href={href}
-        style={{
-          paddingBottom: 4,
-          color: isActive ? '#f2f4f7' : '#c2c7ce',
-          borderBottom: isActive ? '1px solid #d99e5c' : 'none',
-        }}
-        className={isActive ? '' : 'hover-nav'}
-      >
-        {label}
-      </Link>
-    )
-  }
 
   return (
     <nav
@@ -30,123 +20,148 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
         position: 'sticky',
         top: 0,
         zIndex: 50,
+        height: 70,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '22px 48px',
-        background: '#0b0c0e',
-        borderBottom: '1px solid #212429',
+        padding: '0 48px',
+        background: 'rgba(11,12,14,.97)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid #1e2126',
       }}
     >
-      {/* Logo */}
-      <Link
-        href="/"
-        style={{ display: 'flex', alignItems: 'center', gap: 14, cursor: 'pointer' }}
-      >
-        <span
-          style={{
-            width: 38,
-            height: 38,
-            borderRadius: '50%',
-            overflow: 'hidden',
-            display: 'block',
-            flexShrink: 0,
-            background: '#0b0c0e',
-            position: 'relative',
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo.jpeg"
-            alt="Rebuilt"
-            style={{ position: 'absolute', width: '200%', height: 'auto', top: '-4%', left: '-50%' }}
-          />
-        </span>
-        <span
-          style={{ fontSize: 17, fontWeight: 700, letterSpacing: '.34em', color: '#f2f4f7' }}
-        >
-          REBUILT
-        </span>
+      {/* ── Logo ─────────────────────────────────── */}
+      <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, flexShrink: 0 }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/rebuilt-mark.svg"
+          alt="Rebuilt"
+          width={34}
+          height={34}
+          style={{ display: 'block' }}
+        />
+        <div>
+          <div
+            style={{
+              fontSize: 15,
+              fontWeight: 800,
+              letterSpacing: '.36em',
+              color: '#f2f4f7',
+              lineHeight: 1,
+            }}
+          >
+            REBUILT
+          </div>
+          <div
+            style={{
+              marginTop: 4,
+              font: '8px/1 ui-monospace,Menlo,monospace',
+              letterSpacing: '.22em',
+              color: '#d99e5c',
+            }}
+          >
+            SINGAPORE
+          </div>
+        </div>
       </Link>
 
-      {/* Desktop nav */}
+      {/* ── Desktop nav ──────────────────────────── */}
       <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 38,
-          fontSize: 12,
-          fontWeight: 500,
-          letterSpacing: '.16em',
-          textTransform: 'uppercase',
-        }}
         className="desktop-nav"
+        style={{ display: 'flex', alignItems: 'center', gap: 32 }}
       >
-        {navLink('/rehab', 'Rehab', 'rehab')}
-        {navLink('/strength', 'Personal training', 'strength')}
-        {navLink('/performance', 'Performance', 'performance')}
+        {NAV_LINKS.map(({ href, label, page }) => {
+          const active = activePage === page
+          return (
+            <Link
+              key={page}
+              href={href}
+              style={{
+                fontSize: 11,
+                fontWeight: 600,
+                letterSpacing: '.2em',
+                textTransform: 'uppercase',
+                color: active ? '#d99e5c' : '#8d95a0',
+                transition: 'color .15s',
+              }}
+              className={active ? '' : 'hover-nav'}
+            >
+              {label}
+            </Link>
+          )
+        })}
+
+        {/* Physio – coming soon */}
         <Link
           href="/physio"
           style={{
-            cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
-            paddingBottom: 4,
-            color: activePage === 'physio' ? '#f2f4f7' : '#8d95a0',
-            borderBottom: activePage === 'physio' ? '1px solid #d99e5c' : 'none',
+            gap: 7,
+            fontSize: 11,
+            fontWeight: 600,
+            letterSpacing: '.2em',
+            textTransform: 'uppercase',
+            color: activePage === 'physio' ? '#d99e5c' : '#525960',
+            transition: 'color .15s',
           }}
         >
           Physiotherapy
           <span
             style={{
-              fontSize: 9,
-              letterSpacing: '.1em',
+              fontSize: 8,
+              letterSpacing: '.14em',
               color: '#d99e5c',
-              border: '1px solid #4a3d2b',
-              padding: '3px 6px',
-              whiteSpace: 'nowrap',
+              border: '1px solid rgba(217,158,92,.3)',
+              padding: '2px 5px',
             }}
           >
             SOON
           </span>
         </Link>
-        {navLink('/about', 'About', 'about')}
       </div>
 
-      {/* Book CTA */}
-      <Link href="/book" className="btn-gold" style={{ padding: '13px 24px' }}>
+      {/* ── Book CTA ─────────────────────────────── */}
+      <Link
+        href="/book"
+        className="btn-gold"
+        style={{ padding: '11px 22px', fontSize: 11, letterSpacing: '.2em' }}
+        // hide on mobile alongside desktop-nav
+      >
         Book a session
       </Link>
 
-      {/* Mobile hamburger */}
+      {/* ── Mobile hamburger ─────────────────────── */}
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Menu"
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         style={{
           display: 'none',
           background: 'none',
-          border: 'none',
+          border: '1px solid #2a2e34',
           color: '#c2c7ce',
           cursor: 'pointer',
+          padding: '7px 9px',
+          lineHeight: 0,
         }}
         className="mobile-menu-btn"
       >
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
+        {menuOpen ? (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        ) : (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        )}
       </button>
 
-      {/* Mobile dropdown */}
+      {/* ── Mobile dropdown ──────────────────────── */}
       {menuOpen && (
         <div
           style={{
@@ -155,37 +170,46 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
             left: 0,
             right: 0,
             background: '#0b0c0e',
-            borderBottom: '1px solid #212429',
+            borderBottom: '1px solid #1e2126',
             zIndex: 100,
           }}
-          className="mobile-dropdown"
         >
-          {[
-            { href: '/rehab', label: 'Rehab', page: 'rehab' },
-            { href: '/strength', label: 'Personal Training', page: 'strength' },
-            { href: '/performance', label: 'Performance', page: 'performance' },
-            { href: '/physio', label: 'Physiotherapy', page: 'physio' },
-            { href: '/about', label: 'About', page: 'about' },
-            { href: '/book', label: 'Book a session', page: 'book' },
-          ].map(({ href, label, page }) => (
-            <Link
-              key={page}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                display: 'block',
-                padding: '16px 24px',
-                borderBottom: '1px solid #1a1d22',
-                fontSize: 12,
-                fontWeight: 600,
-                letterSpacing: '.16em',
-                textTransform: 'uppercase',
-                color: activePage === page ? '#d99e5c' : '#e9ecf0',
-              }}
-            >
-              {label}
-            </Link>
-          ))}
+          {[...NAV_LINKS, { href: '/physio', label: 'Physiotherapy', page: 'physio' }].map(
+            ({ href, label, page }) => (
+              <Link
+                key={page}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  display: 'block',
+                  padding: '14px 24px',
+                  borderBottom: '1px solid #1a1d22',
+                  fontSize: 11,
+                  fontWeight: 600,
+                  letterSpacing: '.2em',
+                  textTransform: 'uppercase',
+                  color: activePage === page ? '#d99e5c' : '#b0b7c0',
+                }}
+              >
+                {label}
+              </Link>
+            )
+          )}
+          <Link
+            href="/book"
+            onClick={() => setMenuOpen(false)}
+            style={{
+              display: 'block',
+              padding: '14px 24px',
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: '.2em',
+              textTransform: 'uppercase',
+              color: '#d99e5c',
+            }}
+          >
+            Book a session
+          </Link>
         </div>
       )}
     </nav>

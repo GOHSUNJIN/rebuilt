@@ -18,45 +18,18 @@ export default function Footer() {
       <div
         style={{ display: 'flex', alignItems: 'center', gap: 26, flexWrap: 'wrap' }}
       >
-        <Link
-          href="/"
-          style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }}
-        >
-          <span
-            style={{
-              width: 34,
-              height: 34,
-              borderRadius: '50%',
-              overflow: 'hidden',
-              display: 'block',
-              flexShrink: 0,
-              background: '#0b0c0e',
-              position: 'relative',
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logo.jpeg"
-              alt="Rebuilt"
-              style={{ position: 'absolute', width: '200%', height: 'auto', top: '-4%', left: '-50%' }}
-            />
-          </span>
-          <span
-            style={{ fontSize: 14, fontWeight: 700, letterSpacing: '.3em', color: '#f2f4f7' }}
-          >
-            REBUILT
-          </span>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/rebuilt-mark.svg" alt="Rebuilt" width={28} height={28} style={{ display: 'block' }} />
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.34em', color: '#f2f4f7', lineHeight: 1 }}>
+              REBUILT
+            </div>
+            <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: '#d99e5c' }}>
+              SINGAPORE
+            </div>
+          </div>
         </Link>
-        <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
-        <span
-          style={{
-            font: '10px/1 ui-monospace,Menlo,monospace',
-            letterSpacing: '.2em',
-            color: '#79818c',
-          }}
-        >
-          SINGAPORE
-        </span>
       </div>
 
       {/* Right */}

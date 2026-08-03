@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import ImagePlaceholder from '@/components/ImagePlaceholder'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 
 export const metadata: Metadata = { title: 'About' }
 
@@ -383,7 +383,7 @@ export default function AboutPage() {
               { label: 'STUDIO', value: '12 Tanjong Pagar Road\n#02-01, Singapore 088443' },
               {
                 label: 'HOURS',
-                value: 'Mon–Fri: 7am – 9pm\nSaturday: 8am – 2pm\nSunday: Closed',
+                value: 'Mon-Fri: 7am-9pm\nSaturday: 8am-2pm\nSunday: Closed',
               },
               {
                 label: 'CONTACT',

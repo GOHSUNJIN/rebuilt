@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import ImagePlaceholder from '@/components/ImagePlaceholder'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 
 export const metadata: Metadata = { title: 'Personal Training' }
 
@@ -279,15 +279,15 @@ export default function StrengthPage() {
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {[
               {
-                wk: 'WK 1–2',
+                wk: 'WK 1-2',
                 desc: 'Week one is about learning the main lifts and finding starting weights that are honest rather than flattering.',
               },
               {
-                wk: 'WK 3–6',
+                wk: 'WK 3-6',
                 desc: 'The middle weeks add load in small steps, so the jump is never big enough to break your form.',
               },
               {
-                wk: 'WK 7–9',
+                wk: 'WK 7-9',
                 desc: 'Near the end we back the volume off and let the work show up as strength.',
               },
               {

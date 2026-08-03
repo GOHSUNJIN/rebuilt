@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -35,11 +34,10 @@ export default function Footer() {
               position: 'relative',
             }}
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/logo.jpeg"
               alt="Rebuilt"
-              width={84}
-              height={84}
               style={{ position: 'absolute', width: '250%', height: 'auto', top: '-41%', left: '-75%' }}
             />
           </span>

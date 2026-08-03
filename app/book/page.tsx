@@ -140,7 +140,7 @@ export default function BookPage() {
             letterSpacing: '.14em',
           }}
         >
-          SINGAPORE · Mon–Fri 7am–9pm · Sat 8am–2pm
+          SINGAPORE · Mon-Fri 7am-9pm · Sat 8am-2pm
         </span>
       </div>
 

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import ImagePlaceholder from '@/components/ImagePlaceholder'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 
 export const metadata: Metadata = { title: 'Physiotherapy – Coming Soon' }
 
@@ -256,7 +256,7 @@ export default function PhysioPage() {
             {
               num: '03',
               title: 'Rebuild',
-              desc: 'Strength and conditioning that follows on from treatment, so discharge does not mean the end — it means the next stage.',
+              desc: 'Strength and conditioning that follows on from treatment, so discharge does not mean the end. It means the next stage.',
             },
           ].map(({ num, title, desc }) => (
             <div

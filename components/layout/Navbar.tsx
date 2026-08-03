@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState } from 'react'
 
 type NavbarProps = { activePage?: string }
@@ -56,11 +55,10 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
             position: 'relative',
           }}
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo.jpeg"
             alt="Rebuilt"
-            width={96}
-            height={96}
             style={{ position: 'absolute', width: '250%', height: 'auto', top: '-41%', left: '-75%' }}
           />
         </span>

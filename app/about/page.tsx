@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import FadeIn from '@/components/ui/FadeIn'
 import { SITE } from '@/lib/site'
 import ContactForm from '@/components/ui/ContactForm'
+import TeamBioModal from '@/components/ui/TeamBioModal'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -167,134 +168,11 @@ export default function AboutPage() {
             CLICK ANY NAME FOR A FULL BIO
           </span>
         </div>
-        <div
-          className="r3"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 2,
-            background: '#212429',
-          }}
-        >
-          {/* Coach 1 */}
-          <div
-            className="hover-border"
-            style={{
-              border: '1px solid #1e2126',
-              cursor: 'pointer',
-              transition: 'border-color .2s ease',
-            }}
-          >
-            <div className="img-zoom" style={{ height: 340, overflow: 'hidden', position: 'relative' }}>
-              <Image src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80" alt="James Lim" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
-            </div>
-            <div style={{ padding: '24px 22px 26px' }}>
-              <p
-                style={{
-                  font: '10px/1 ui-monospace,Menlo,monospace',
-                  color: '#d99e5c',
-                  letterSpacing: '.2em',
-                  marginTop: 0,
-                  marginBottom: 10,
-                }}
-              >
-                HEAD OF REHAB
-              </p>
-              <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10 }}>
-                James Lim
-              </h3>
-              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: 0 }}>
-                Registered physiotherapist with 9 years in clinical rehab, specialising in lower limb reconstruction and return-to-sport testing across football and rugby.
-              </p>
-            </div>
-          </div>
-
-          {/* Coach 2 */}
-          <div
-            className="hover-border"
-            style={{
-              border: '1px solid #1e2126',
-              cursor: 'pointer',
-              transition: 'border-color .2s ease',
-            }}
-          >
-            <div className="img-zoom" style={{ height: 340, overflow: 'hidden', position: 'relative' }}>
-              <Image src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="Marcus Tan" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
-            </div>
-            <div style={{ padding: '24px 22px 26px' }}>
-              <p
-                style={{
-                  font: '10px/1 ui-monospace,Menlo,monospace',
-                  color: '#d99e5c',
-                  letterSpacing: '.2em',
-                  marginTop: 0,
-                  marginBottom: 10,
-                }}
-              >
-                STRENGTH COACH
-              </p>
-              <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10 }}>
-                Marcus Tan
-              </h3>
-              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: 0 }}>
-                Strength and conditioning coach with a background in competitive powerlifting and 7 years coaching athletes from amateur club level to national representation.
-              </p>
-            </div>
-          </div>
-
-          {/* Hiring card */}
-          <div
-            style={{
-              border: '1px solid #1e2126',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <div
-              style={{
-                flex: 1,
-                background: '#111316',
-                display: 'grid',
-                placeItems: 'center',
-                minHeight: 340,
-              }}
-            >
-              <span
-                style={{
-                  font: '11px/1 ui-monospace,Menlo,monospace',
-                  color: '#2a2e34',
-                  letterSpacing: '.2em',
-                }}
-              >
-                PHYSIOTHERAPIST
-              </span>
-            </div>
-            <div style={{ padding: '24px 22px 26px' }}>
-              <p
-                style={{
-                  font: '10px/1 ui-monospace,Menlo,monospace',
-                  color: '#4a3d2b',
-                  letterSpacing: '.2em',
-                  marginTop: 0,
-                  marginBottom: 10,
-                }}
-              >
-                COMING SOON
-              </p>
-              <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10, color: '#5f6670' }}>
-                Physiotherapist
-              </h3>
-              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#4a4f57', margin: 0 }}>
-                Joining ahead of the physiotherapy launch.
-              </p>
-            </div>
-          </div>
-        </div>
+        <TeamBioModal />
       </section>
       </FadeIn>
 
       {/* ── Contact form ────────────────────────── */}
-      <FadeIn>
       <section
         id="contact"
         className="r2"
@@ -302,6 +180,7 @@ export default function AboutPage() {
           borderTop: '1px solid #212429',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
+          scrollMarginTop: 90,
         }}
       >
         {/* Left – form */}
@@ -400,7 +279,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      </FadeIn>
 
       {/* ── Teams & corporate ───────────────────── */}
       <FadeIn>

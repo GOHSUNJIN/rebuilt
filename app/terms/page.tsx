@@ -66,8 +66,7 @@ export default function TermsPage() {
             marginBottom: 32,
           }}
         >
-          [ T-67 · 20-30 word introduction to the terms of service — what these terms
-          govern and who they apply to ]
+          These terms govern your use of the Rebuilt website and the services we provide at our Singapore studio. By booking a session, you agree to these terms.
         </p>
         <p
           style={{
@@ -77,7 +76,7 @@ export default function TermsPage() {
             marginTop: 0,
           }}
         >
-          LAST UPDATED: [ V-42 · date last updated ]
+          LAST UPDATED: 1 JANUARY 2025
         </p>
 
         {/* Placeholder sections */}

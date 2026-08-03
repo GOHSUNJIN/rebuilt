@@ -130,7 +130,7 @@ export default function StrengthPage() {
                 letterSpacing: '-.02em',
               }}
             >
-              [ V-13 · price per session ]
+              SGD 150
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
@@ -187,7 +187,7 @@ export default function StrengthPage() {
                 letterSpacing: '-.02em',
               }}
             >
-              [ V-14 · price per session ]
+              SGD 90
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
@@ -230,7 +230,7 @@ export default function StrengthPage() {
                 letterSpacing: '-.02em',
               }}
             >
-              [ V-15 · price per session ]
+              SGD 70
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[

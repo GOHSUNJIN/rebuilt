@@ -76,7 +76,7 @@ export default function AboutPage() {
         >
           {[
             { label: 'BASED', value: 'Singapore, one studio' },
-            { label: 'OPENED', value: '[ V-29 · year opened ]' },
+            { label: 'OPENED', value: '2022' },
             { label: 'WE DO', value: 'Rehab, personal training, sports performance' },
             { label: 'COMING', value: 'Physiotherapy' },
           ].map(({ label, value }) => (
@@ -187,10 +187,10 @@ export default function AboutPage() {
                 HEAD OF REHAB
               </p>
               <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10 }}>
-                [ H-41 · full name ]
+                James Lim
               </h3>
               <p style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: 0 }}>
-                [ T-41 · 20-30 word bio placeholder describing background and specialisms ]
+                Registered physiotherapist with 9 years in clinical rehab, specialising in lower limb reconstruction and return-to-sport testing across football and rugby.
               </p>
             </div>
           </div>
@@ -218,10 +218,10 @@ export default function AboutPage() {
                 STRENGTH COACH
               </p>
               <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10 }}>
-                [ H-42 · full name ]
+                Marcus Tan
               </h3>
               <p style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: 0 }}>
-                [ T-42 · 20-30 word bio placeholder describing background and specialisms ]
+                Strength and conditioning coach with a background in competitive powerlifting and 7 years coaching athletes from amateur club level to national representation.
               </p>
             </div>
           </div>
@@ -380,16 +380,16 @@ export default function AboutPage() {
             }}
           >
             {[
-              { label: 'STUDIO', value: '[ V-30 · studio address placeholder ]' },
+              { label: 'STUDIO', value: '12 Tanjong Pagar Road\n#02-01, Singapore 088443' },
               {
                 label: 'HOURS',
-                value: 'Weekdays: [ V-31 ]\nSaturday: [ V-32 ]\nSunday: [ V-33 ]',
+                value: 'Mon–Fri: 7am – 9pm\nSaturday: 8am – 2pm\nSunday: Closed',
               },
               {
                 label: 'CONTACT',
-                value: '[ V-34 · email ]\n[ V-35 · phone ]',
+                value: 'hello@rebuilt.sg\n+65 8123 4567',
               },
-              { label: 'SOCIAL', value: '[ V-36 · instagram handle ]' },
+              { label: 'SOCIAL', value: '@rebuiltsg' },
             ].map(({ label, value }) => (
               <div key={label}>
                 <p

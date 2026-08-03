@@ -4,17 +4,17 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const SERVICES = [
-  { label: 'Assessment', sub: '45 min · from [ V-67 ]' },
-  { label: 'Single session', sub: '60 min · from [ V-68 ]' },
-  { label: 'Block of sessions', sub: 'Save with a block · from [ V-69 ]' },
-  { label: 'Pairs session', sub: 'Train with a partner · from [ V-70 ]' },
-  { label: 'Performance assessment', sub: '60 min · from [ V-71 ]' },
+  { label: 'Assessment', sub: '45 min · from SGD 120' },
+  { label: 'Single session', sub: '60 min · from SGD 150' },
+  { label: 'Block of sessions', sub: 'Save with a block · from SGD 130/session' },
+  { label: 'Pairs session', sub: 'Train with a partner · from SGD 90/person' },
+  { label: 'Performance assessment', sub: '60 min · from SGD 150' },
   { label: 'Not sure yet', sub: 'We will help you choose' },
 ]
 
 const COACHES = [
-  { label: 'Head of Rehab', sub: '[ H-41 · name ]' },
-  { label: 'Head of Training', sub: '[ H-42 · name ]' },
+  { label: 'James Lim', sub: 'Head of Rehab' },
+  { label: 'Marcus Tan', sub: 'Head of Training' },
   { label: 'No preference', sub: 'First available' },
 ]
 
@@ -140,7 +140,7 @@ export default function BookPage() {
             letterSpacing: '.14em',
           }}
         >
-          SINGAPORE · [ V-31 · studio hours ]
+          SINGAPORE · Mon–Fri 7am–9pm · Sat 8am–2pm
         </span>
       </div>
 
@@ -579,7 +579,7 @@ export default function BookPage() {
                 >
                   <span style={{ fontSize: 14, color: '#a3aab4' }}>Deposit amount</span>
                   <span style={{ fontSize: 22, fontWeight: 700, color: '#f2f4f7' }}>
-                    [ V-72 · deposit amount ]
+                    SGD 50
                   </span>
                 </div>
                 <p

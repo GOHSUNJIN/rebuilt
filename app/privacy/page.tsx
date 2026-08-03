@@ -66,8 +66,7 @@ export default function PrivacyPage() {
             marginBottom: 32,
           }}
         >
-          [ T-66 · 20-30 word introduction to the privacy policy — what data is collected
-          and how it is used ]
+          This page sets out how Rebuilt collects, uses and stores personal information when you use our website or book a session with us.
         </p>
         <p
           style={{
@@ -77,7 +76,7 @@ export default function PrivacyPage() {
             marginTop: 0,
           }}
         >
-          LAST UPDATED: [ V-41 · date last updated ]
+          LAST UPDATED: 1 JANUARY 2025
         </p>
 
         {/* Placeholder sections */}

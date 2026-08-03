@@ -196,7 +196,7 @@ export default function PhysioPage() {
               textAlign: 'center',
             }}
           >
-            LAUNCH DATE: [ V-28 · launch date ]
+            LAUNCHING: Q1 2026
           </p>
         </div>
       </section>

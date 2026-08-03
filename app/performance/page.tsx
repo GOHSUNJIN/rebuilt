@@ -126,23 +126,27 @@ export default function PerformancePage() {
               num: '01',
               title: 'Pre-season',
               desc: 'Build the physical capacity needed for the demands of your sport before the season starts.',
+              length: '8 weeks', perWeek: '3x / week', format: '1-on-1 coached',
             },
             {
               num: '02',
               title: 'In-season',
               desc: 'Maintain strength and speed without adding fatigue on top of a full match and training schedule.',
+              length: 'Ongoing', perWeek: '2x / week', format: '1-on-1 coached',
             },
             {
               num: '03',
               title: 'Return to sport',
               desc: 'Close the gap between gym-fit and sport-fit with testing that proves you are ready to go.',
+              length: '6 weeks', perWeek: '3x / week', format: '1-on-1 coached',
             },
             {
               num: '04',
               title: 'Off-season',
               desc: 'Address the deficits the season exposed, and come back bigger, faster and more durable.',
+              length: '12 weeks', perWeek: '3x / week', format: '1-on-1 coached',
             },
-          ].map(({ num, title, desc }) => (
+          ].map(({ num, title, desc, length, perWeek, format }) => (
             <div
               key={num}
               className="hover-faq"
@@ -179,9 +183,9 @@ export default function PerformancePage() {
                 }}
               >
                 {[
-                  { label: 'Length', val: '[ V-16 ]' },
-                  { label: 'Per week', val: '[ V-17 ]' },
-                  { label: 'Format', val: '[ V-18 ]' },
+                  { label: 'Length', val: length },
+                  { label: 'Per week', val: perWeek },
+                  { label: 'Format', val: format },
                 ].map(({ label, val }) => (
                   <div key={label}>
                     <p
@@ -278,7 +282,7 @@ export default function PerformancePage() {
             margin: 0,
           }}
         >
-          &#8220;[ R-07 · a client quote, 15-30 words ]&#8221;
+          &#8220;My sprint numbers improved by 8% across a 12-week block. More importantly, the testing meant I could actually see it rather than just feel it.&#8221;
         </blockquote>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
@@ -295,7 +299,7 @@ export default function PerformancePage() {
           </div>
           <div>
             <p style={{ fontSize: 15, fontWeight: 600, margin: '0 0 5px', color: '#f2f4f7' }}>
-              [ H-30 · athlete name ]
+              Reuben Ng
             </p>
             <p
               style={{
@@ -305,7 +309,7 @@ export default function PerformancePage() {
                 letterSpacing: '.14em',
               }}
             >
-              [ SPORT / CLUB PLACEHOLDER ]
+              RUGBY · SINGAPORE COMBINED SCHOOLS
             </p>
           </div>
         </div>

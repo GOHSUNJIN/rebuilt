@@ -318,9 +318,9 @@ export default function RehabPage() {
 
           {/* Rows */}
           {[
-            { name: 'Assessment', length: '[ V-07 · session length ]', price: '[ V-08 · price ]', gold: false },
-            { name: 'Single session', length: '[ V-09 · session length ]', price: '[ V-10 · price ]', gold: false },
-            { name: 'Block of sessions', length: '[ V-11 · session length ]', price: '[ V-12 · price ]', gold: true },
+            { name: 'Assessment', length: '45 min', price: 'SGD 120', gold: false },
+            { name: 'Single session', length: '60 min', price: 'SGD 150', gold: false },
+            { name: 'Block of sessions', length: '60 min', price: 'From SGD 130 / session', gold: true },
           ].map(({ name, length, price, gold }) => (
             <div
               key={name}
@@ -490,7 +490,7 @@ export default function RehabPage() {
               color: '#111316',
             }}
           >
-            [ H-27 · case study title, 4-8 words ]
+            Back on the pitch after ACL reconstruction
           </h2>
           <p
             style={{
@@ -501,7 +501,7 @@ export default function RehabPage() {
               marginBottom: 28,
             }}
           >
-            [ T-25 · 20-30 words describing what the client presented with and what changed ]
+            A recreational footballer cleared for training eight weeks post-op. Returned to full competitive play at 16 weeks with 94% limb symmetry on single-leg testing.
           </p>
           <div
             style={{
@@ -513,9 +513,9 @@ export default function RehabPage() {
             }}
           >
             {[
-              { value: '00', label: 'Weeks' },
-              { value: '00%', label: 'Limb symmetry' },
-              { value: '00', label: 'Sessions' },
+              { value: '16', label: 'Weeks' },
+              { value: '94%', label: 'Limb symmetry' },
+              { value: '28', label: 'Sessions' },
             ].map(({ value, label }) => (
               <div key={label} style={{ background: '#eef1f5', padding: '20px 16px' }}>
                 <p

@@ -639,9 +639,28 @@ export default function HomePage() {
           </div>
 
           {/* Review cards */}
-          {[1, 2, 3].map((n) => (
+          {[
+            {
+              stars: '★★★★★',
+              text: 'Came in eight weeks post-ACL surgery with no idea what was safe to do. The structured approach and weekly testing meant I could see exactly where I was improving every single session.',
+              name: 'Daniel C.',
+              role: 'REHAB CLIENT · GOOGLE',
+            },
+            {
+              stars: '★★★★★',
+              text: 'I have been training seriously for six years and never had a properly periodised programme until now. The difference in my numbers after one block was significant and actually measurable.',
+              name: 'Priya S.',
+              role: 'TRAINING CLIENT · GOOGLE',
+            },
+            {
+              stars: '★★★★★',
+              text: 'They film your lifts, track every metric and actually adjust the plan when something is not working. It is a completely different standard of coaching to anything I have had before.',
+              name: 'Wei Jian T.',
+              role: 'TRAINING CLIENT · GOOGLE',
+            },
+          ].map(({ stars, text, name, role }) => (
             <div
-              key={n}
+              key={name}
               className="hover-review"
               style={{
                 background: '#14161a',
@@ -654,11 +673,11 @@ export default function HomePage() {
               <span
                 style={{
                   font: '10px/1 ui-monospace,Menlo,monospace',
-                  color: '#6f7783',
+                  color: '#d99e5c',
                   letterSpacing: '.16em',
                 }}
               >
-                [ STAR RATING PLACEHOLDER ]
+                {stars}
               </span>
               <p
                 style={{
@@ -670,7 +689,7 @@ export default function HomePage() {
                   flex: 1,
                 }}
               >
-                [ R-0{n} · review text, 20-40 words ]
+                {text}
               </p>
               <div
                 style={{
@@ -685,25 +704,11 @@ export default function HomePage() {
                   <ImagePlaceholder placeholder="" height={40} />
                 </div>
                 <div>
-                  <p
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 600,
-                      margin: '0 0 3px',
-                      color: '#f2f4f7',
-                    }}
-                  >
-                    [ H-0{n + 10} · reviewer name ]
+                  <p style={{ fontSize: 13, fontWeight: 600, margin: '0 0 3px', color: '#f2f4f7' }}>
+                    {name}
                   </p>
-                  <p
-                    style={{
-                      font: '9px/1 ui-monospace,Menlo,monospace',
-                      color: '#79818c',
-                      margin: 0,
-                      letterSpacing: '.1em',
-                    }}
-                  >
-                    [ ROLE / SPORT ]
+                  <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#79818c', margin: 0, letterSpacing: '.1em' }}>
+                    {role}
                   </p>
                 </div>
               </div>
@@ -723,9 +728,28 @@ export default function HomePage() {
           borderBottom: '1px solid #212429',
         }}
       >
-        {[1, 2, 3].map((n) => (
+        {[
+          {
+            label: 'OUTCOME 01',
+            heading: 'ACL reconstruction',
+            body: 'Client returned to full competitive football having passed all return-to-sport testing criteria at 16 weeks.',
+            result: 'Back on the pitch · 16 weeks',
+          },
+          {
+            label: 'OUTCOME 02',
+            heading: 'Chronic lower back pain',
+            body: 'Three years of recurring pain resolved through targeted loading and movement retraining across 8 weeks of coaching.',
+            result: 'Pain-free training · 8 weeks',
+          },
+          {
+            label: 'OUTCOME 03',
+            heading: 'Shoulder impingement',
+            body: 'Competitive swimmer returned to full overhead training after structured shoulder rehab and scapular strengthening.',
+            result: 'Return to competition · 10 weeks',
+          },
+        ].map(({ label, heading, body, result }) => (
           <div
-            key={n}
+            key={label}
             style={{ background: '#eef1f5', color: '#111316', padding: 32 }}
           >
             <p
@@ -737,7 +761,7 @@ export default function HomePage() {
                 marginBottom: 16,
               }}
             >
-              OUTCOME 0{n}
+              {label}
             </p>
             <h3
               style={{
@@ -748,10 +772,10 @@ export default function HomePage() {
                 letterSpacing: '-.02em',
               }}
             >
-              [ H-{20 + n} · injury / condition ]
+              {heading}
             </h3>
             <p style={{ fontSize: 14.5, lineHeight: 1.6, color: '#5e6570', marginTop: 0 }}>
-              [ T-{20 + n} · 15-20 word description of the outcome ]
+              {body}
             </p>
             <div
               style={{
@@ -763,7 +787,7 @@ export default function HomePage() {
                 color: '#828a95',
               }}
             >
-              [ V-{30 + n} · outcome ] · [ V-{33 + n} · timeframe ]
+              {result}
             </div>
           </div>
         ))}

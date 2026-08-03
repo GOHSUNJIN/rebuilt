@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import FadeIn from '@/components/ui/FadeIn'
+import CountUp from '@/components/ui/CountUp'
 
 export const metadata: Metadata = {
   title: 'Rebuilt',
@@ -26,6 +28,7 @@ export default function HomePage() {
 
       {/* ── 1. Hero ─────────────────────────────── */}
       <section
+        className="r-hero"
         style={{
           height: 620,
           position: 'relative',
@@ -44,11 +47,13 @@ export default function HomePage() {
             animation: 'slowZoom 14s ease both',
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1778828494354-9b717d36dc99?auto=format&fit=crop&w=1400&q=85"
             alt=""
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+            sizes="100vw"
           />
         </div>
 
@@ -63,7 +68,7 @@ export default function HomePage() {
         />
 
         {/* Content */}
-        <div style={{ position: 'relative', padding: '0 48px 60px', maxWidth: 900 }}>
+        <div className="r-hero-content r-px" style={{ position: 'relative', padding: '0 48px 60px', maxWidth: 900 }}>
           <p
             style={{
               fontSize: 11,
@@ -78,6 +83,7 @@ export default function HomePage() {
             REHAB · TRAINING · PERFORMANCE
           </p>
           <h1
+            className="r-h1"
             style={{
               fontSize: 88,
               fontWeight: 800,
@@ -110,7 +116,7 @@ export default function HomePage() {
             <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>
               Book an assessment
             </Link>
-            <Link href="/about" className="btn-outline" style={{ padding: '16px 30px' }}>
+            <Link href="/about#contact" className="btn-outline" style={{ padding: '16px 30px' }}>
               Ask a question
             </Link>
           </div>
@@ -118,9 +124,9 @@ export default function HomePage() {
       </section>
 
       {/* ── 2. Pillars ──────────────────────────── */}
-      <FadeIn>
-      <section style={{ padding: '92px 48px', borderTop: '1px solid #212429' }}>
+      <section className="r-px" style={{ padding: '92px 48px', borderTop: '1px solid #212429' }}>
         {/* Header row */}
+        <FadeIn>
         <div
           style={{
             display: 'flex',
@@ -152,9 +158,11 @@ export default function HomePage() {
             THREE STAGES · ONE SYSTEM
           </span>
         </div>
+        </FadeIn>
 
         {/* Cards grid */}
         <div
+          className="r3"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -164,13 +172,13 @@ export default function HomePage() {
           }}
         >
           {/* Card 01 – Rehab */}
+          <FadeIn delay={0}>
           <div
             className="hover-card"
-            style={{ background: '#14161a', padding: '0 0 36px' }}
+            style={{ background: '#14161a', padding: '0 0 36px', height: '100%' }}
           >
-            <div style={{ height: 200, overflow: 'hidden' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?auto=format&fit=crop&w=800&q=80" alt="Rehab" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <div className="img-zoom" style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
+              <Image src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?auto=format&fit=crop&w=800&q=80" alt="Rehab" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
             <div style={{ padding: '28px 24px 0' }}>
             <p
@@ -215,19 +223,20 @@ export default function HomePage() {
             </div>
             </div>
           </div>
+          </FadeIn>
 
           {/* Card 02 – Personal Training */}
+          <FadeIn delay={100}>
           <div
             className="hover-card"
             style={{
               background: '#14161a',
               padding: '0 0 36px',
-              animation: 'revIn .6s ease 0.09s both',
+              height: '100%',
             }}
           >
-            <div style={{ height: 200, overflow: 'hidden' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Personal Training" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <div className="img-zoom" style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
+              <Image src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Personal Training" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
             <div style={{ padding: '28px 24px 0' }}>
             <p
@@ -272,19 +281,20 @@ export default function HomePage() {
             </div>
             </div>
           </div>
+          </FadeIn>
 
           {/* Card 03 – Sports Performance */}
+          <FadeIn delay={200}>
           <div
             className="hover-card"
             style={{
               background: '#14161a',
               padding: '0 0 36px',
-              animation: 'revIn .6s ease 0.18s both',
+              height: '100%',
             }}
           >
-            <div style={{ height: 200, overflow: 'hidden' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80" alt="Sports Performance" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <div className="img-zoom" style={{ height: 200, overflow: 'hidden', position: 'relative' }}>
+              <Image src="https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80" alt="Sports Performance" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
             <div style={{ padding: '28px 24px 0' }}>
             <p
@@ -329,13 +339,14 @@ export default function HomePage() {
             </div>
             </div>
           </div>
+          </FadeIn>
         </div>
       </section>
-      </FadeIn>
 
       {/* ── 3. Physio coming soon ───────────────── */}
       <FadeIn>
       <section
+        className="r2 r-mx"
         style={{
           margin: '0 48px',
           border: '1px solid #262a30',
@@ -424,9 +435,8 @@ export default function HomePage() {
         </div>
 
         {/* Right */}
-        <div style={{ minHeight: 330, overflow: 'hidden' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=800&q=80" alt="Physiotherapy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <div className="img-zoom" style={{ minHeight: 330, overflow: 'hidden', position: 'relative' }}>
+          <Image src="https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=800&q=80" alt="Physiotherapy" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
         </div>
       </section>
       </FadeIn>
@@ -434,6 +444,7 @@ export default function HomePage() {
       {/* ── 4. Approach ─────────────────────────── */}
       <FadeIn>
       <section
+        className="r2 r-px"
         style={{
           padding: '92px 48px',
           display: 'grid',
@@ -443,9 +454,8 @@ export default function HomePage() {
         }}
       >
         {/* Left – image */}
-        <div style={{ height: 390, overflow: 'hidden' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://images.unsplash.com/photo-1761971975769-97e598bf526b?auto=format&fit=crop&w=900&q=80" alt="Our studio" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <div className="img-zoom" style={{ height: 390, overflow: 'hidden', position: 'relative' }}>
+          <Image src="https://images.unsplash.com/photo-1761971975769-97e598bf526b?auto=format&fit=crop&w=900&q=80" alt="Our studio" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
         </div>
 
         {/* Right – steps */}
@@ -516,7 +526,7 @@ export default function HomePage() {
 
       {/* ── 5. Referrals & insurers ─────────────── */}
       <FadeIn>
-      <section style={{ padding: '0 48px 54px' }}>
+      <section className="r-px" style={{ padding: '0 48px 54px' }}>
         <div
           style={{
             display: 'flex',
@@ -548,25 +558,34 @@ export default function HomePage() {
             WE WORK ALONGSIDE YOUR CLINICIAN
           </span>
         </div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            gap: 12,
-          }}
-        >
-          {['NTUC Income', 'AIA', 'Prudential', 'Great Eastern', 'AXA'].map((name) => (
+        <div style={{ border: '1px solid #1e2126', display: 'flex', flexWrap: 'wrap' }}>
+          <div
+            style={{
+              padding: '18px 24px',
+              borderRight: '1px solid #1e2126',
+              display: 'flex',
+              alignItems: 'center',
+              flexShrink: 0,
+            }}
+          >
+            <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em' }}>
+              ACCEPTED
+            </span>
+          </div>
+          {['NTUC Income', 'AIA', 'Prudential', 'Great Eastern', 'AXA'].map((name, i) => (
             <div
               key={name}
               style={{
-                border: '1px solid #1e2126',
-                height: 84,
-                display: 'grid',
-                placeItems: 'center',
-                background: '#14161a',
+                padding: '18px 24px',
+                borderRight: i < 4 ? '1px solid #1e2126' : 'none',
+                flex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minWidth: 100,
               }}
             >
-              <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em', color: '#4a5060' }}>
+              <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', letterSpacing: '.12em', color: '#868e99' }}>
                 {name.toUpperCase()}
               </span>
             </div>
@@ -578,6 +597,7 @@ export default function HomePage() {
       {/* ── 6. Reviews ──────────────────────────── */}
       <FadeIn>
       <section
+        className="r-px"
         style={{
           background: '#0e1013',
           borderTop: '1px solid #212429',
@@ -586,6 +606,7 @@ export default function HomePage() {
         }}
       >
         <div
+          className="r-reviews"
           style={{
             display: 'grid',
             gridTemplateColumns: '.8fr 1fr 1fr 1fr',
@@ -621,18 +642,18 @@ export default function HomePage() {
                 marginBottom: 18,
               }}
             >
-              <span
+              <CountUp
+                to={4.9}
+                decimals={1}
                 style={{
                   fontSize: 76,
                   fontWeight: 800,
                   lineHeight: 0.82,
                   letterSpacing: '-.04em',
-                  color: '#3a3f47',
+                  color: '#d99e5c',
                 }}
-              >
-                4.9
-              </span>
-              <span style={{ fontSize: 20, fontWeight: 600, color: '#3a3f47' }}>/5</span>
+              />
+              <span style={{ fontSize: 20, fontWeight: 600, color: '#5f6670' }}>/5</span>
             </div>
             <span
               style={{
@@ -760,6 +781,7 @@ export default function HomePage() {
       {/* ── 7. Outcomes strip ───────────────────── */}
       <FadeIn>
       <section
+        className="r3"
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
@@ -838,6 +860,7 @@ export default function HomePage() {
       {/* ── 8. CTA section ──────────────────────── */}
       <FadeIn>
       <section
+        className="r2"
         style={{
           background: '#0e1013',
           borderTop: '1px solid #262a30',
@@ -848,6 +871,7 @@ export default function HomePage() {
       >
         {/* Left */}
         <div
+          className="r-px"
           style={{
             padding: '80px 48px',
             display: 'flex',
@@ -892,7 +916,7 @@ export default function HomePage() {
             <Link href="/book" className="btn-gold" style={{ padding: '17px 32px' }}>
               Book an assessment
             </Link>
-            <Link href="/about" className="btn-outline" style={{ padding: '17px 32px' }}>
+            <Link href="/about#contact" className="btn-outline" style={{ padding: '17px 32px' }}>
               Ask a question
             </Link>
           </div>

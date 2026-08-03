@@ -1,6 +1,16 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
+import { SITE } from '@/lib/site'
+
+const SERVICE_PARAM_MAP: Record<string, string> = {
+  performance: 'Performance assessment',
+  rehab: 'Assessment',
+  strength: 'Single session',
+  pairs: 'Pairs session',
+}
 
 const SERVICES = [
   { label: 'Assessment', sub: '45 min · from SGD 120' },
@@ -29,7 +39,8 @@ const STEPS = [
   { num: 6, label: 'Confirmed' },
 ]
 
-export default function BookPage() {
+function BookContent() {
+  const searchParams = useSearchParams()
   const [step, setStep] = useState(1)
   const [service, setService] = useState<string | null>(null)
   const [coach, setCoach] = useState<string | null>(null)
@@ -38,6 +49,16 @@ export default function BookPage() {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [notes, setNotes] = useState('')
+
+  useEffect(() => {
+    const param = searchParams.get('service')
+    if (param && SERVICE_PARAM_MAP[param]) {
+      setService(SERVICE_PARAM_MAP[param])
+      setStep(2)
+    }
+  }, [searchParams])
+
+  const advance = (fn: () => void) => { fn(); setTimeout(() => setStep(s => s + 1), 280) }
 
   const canContinue = () => {
     if (step === 1) return service !== null
@@ -73,8 +94,7 @@ export default function BookPage() {
         }}
       >
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/rebuilt-mark.svg" alt="Rebuilt" width={30} height={30} style={{ display: 'block' }} />
+          <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={30} height={30} style={{ display: 'block' }} />
           <div>
             <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.34em', color: '#f2f4f7', lineHeight: 1 }}>
               REBUILT
@@ -131,7 +151,16 @@ export default function BookPage() {
       </div>
 
       {/* Step indicator */}
+      <style>{`
+        @media (max-width: 640px) {
+          .book-step-label { display: none !important; }
+          .book-step-bar { padding: 0 20px !important; overflow-x: auto; }
+          .book-step-connector { margin-right: 12px !important; width: 16px !important; }
+          .book-step-item { padding-right: 12px !important; }
+        }
+      `}</style>
       <div
+        className="book-step-bar"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -149,9 +178,11 @@ export default function BookPage() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
+                flexShrink: 0,
               }}
             >
               <div
+                className="book-step-item"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -177,6 +208,7 @@ export default function BookPage() {
                   {done ? '✓' : num}
                 </span>
                 <span
+                  className="book-step-label"
                   style={{
                     fontSize: 11,
                     fontWeight: 600,
@@ -190,12 +222,14 @@ export default function BookPage() {
               </div>
               {i < STEPS.length - 1 && (
                 <span
+                  className="book-step-connector"
                   style={{
                     width: 24,
                     height: 1,
                     background: '#1e2126',
                     display: 'block',
                     marginRight: 32,
+                    flexShrink: 0,
                   }}
                 />
               )}
@@ -206,6 +240,7 @@ export default function BookPage() {
 
       {/* Main content */}
       <div
+        className="r2"
         style={{
           flex: 1,
           display: 'grid',
@@ -235,7 +270,7 @@ export default function BookPage() {
                 {SERVICES.map(({ label, sub }) => (
                   <button
                     key={label}
-                    onClick={() => setService(label)}
+                    onClick={() => advance(() => setService(label))}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -285,7 +320,7 @@ export default function BookPage() {
                 {COACHES.map(({ label, sub }) => (
                   <button
                     key={label}
-                    onClick={() => setCoach(label)}
+                    onClick={() => advance(() => setCoach(label))}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -369,7 +404,7 @@ export default function BookPage() {
                     return (
                       <button
                         key={key}
-                        onClick={() => setSlot(key)}
+                        onClick={() => advance(() => setSlot(key))}
                         style={{
                           padding: '10px 4px',
                           fontSize: 12,
@@ -600,7 +635,7 @@ export default function BookPage() {
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                   {[
-                    { label: 'UEN / Phone', value: '+65 8123 4567' },
+                    { label: 'UEN / Phone', value: SITE.contact.phone },
                     { label: 'Amount', value: 'SGD 50' },
                     { label: 'Reference', value: 'Your name + service' },
                   ].map(({ label, value }) => (
@@ -658,6 +693,7 @@ export default function BookPage() {
 
         {/* Right – sticky summary */}
         <div
+          className="book-sidebar"
           style={{
             background: '#0e1013',
             borderLeft: '1px solid #1e2126',
@@ -834,5 +870,13 @@ export default function BookPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function BookPage() {
+  return (
+    <Suspense>
+      <BookContent />
+    </Suspense>
   )
 }

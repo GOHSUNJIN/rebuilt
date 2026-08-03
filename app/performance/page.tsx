@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import FadeIn from '@/components/ui/FadeIn'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 
-export const metadata: Metadata = { title: 'Performance' }
+export const metadata: Metadata = {
+  title: 'Performance',
+  description: 'Sports performance training in Singapore. Tested, coached blocks for athletes who need speed, power and the conditioning to repeat it.',
+}
 
 export default function PerformancePage() {
   return (
@@ -24,6 +28,7 @@ export default function PerformancePage() {
 
       {/* ── Hero grid ───────────────────────────── */}
       <section
+        className="r2"
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
@@ -31,17 +36,12 @@ export default function PerformancePage() {
         }}
       >
         {/* Left – image */}
-        <div style={{ minHeight: 420, overflow: 'hidden' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1519766304817-4f37bda74a26?auto=format&fit=crop&w=900&q=80"
-            alt="Sports performance"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
+        <div style={{ minHeight: 420, overflow: 'hidden', position: 'relative' }}>
+          <Image src="https://images.unsplash.com/photo-1519766304817-4f37bda74a26?auto=format&fit=crop&w=900&q=80" alt="Sports performance" fill priority style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
         </div>
 
         {/* Right */}
-        <div style={{ padding: '66px 48px' }}>
+        <div className="r-px" style={{ padding: '66px 48px' }}>
           <p
             style={{
               fontSize: 11,
@@ -55,6 +55,7 @@ export default function PerformancePage() {
             SERVICE 03
           </p>
           <h1
+            className="r-h2"
             style={{
               fontSize: 54,
               fontWeight: 800,
@@ -79,7 +80,7 @@ export default function PerformancePage() {
             Testing, training blocks and retesting for athletes who need speed, power and
             the conditioning to repeat it when it counts.
           </p>
-          <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>
+          <Link href="/book?service=performance" className="btn-gold" style={{ padding: '16px 30px' }}>
             Book an assessment
           </Link>
         </div>
@@ -87,7 +88,7 @@ export default function PerformancePage() {
 
       {/* ── Programmes ──────────────────────────── */}
       <FadeIn>
-      <section style={{ padding: '76px 48px 0' }}>
+      <section className="r-px" style={{ padding: '76px 48px 0' }}>
         <div
           style={{
             display: 'flex',
@@ -120,6 +121,7 @@ export default function PerformancePage() {
           </span>
         </div>
         <div
+          className="r2"
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
@@ -215,8 +217,9 @@ export default function PerformancePage() {
 
       {/* ── Test / Train / Retest ───────────────── */}
       <FadeIn>
-      <section style={{ padding: '76px 48px 56px' }}>
+      <section className="r-px" style={{ padding: '76px 48px 56px' }}>
         <div
+          className="r3"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -271,6 +274,7 @@ export default function PerformancePage() {
       {/* ── Quote ───────────────────────────────── */}
       <FadeIn>
       <section
+        className="r2 r-px"
         style={{
           borderTop: '1px solid #212429',
           padding: '66px 48px',
@@ -332,7 +336,7 @@ export default function PerformancePage() {
 
       {/* ── FAQ ─────────────────────────────────── */}
       <FadeIn>
-      <section style={{ padding: '66px 48px', borderTop: '1px solid #212429' }}>
+      <section className="r-px" style={{ padding: '66px 48px', borderTop: '1px solid #212429' }}>
         <div
           style={{
             display: 'flex',
@@ -388,6 +392,115 @@ export default function PerformancePage() {
             },
           ]}
         />
+      </section>
+      </FadeIn>
+
+      {/* ── CTA ─────────────────────────────────── */}
+      <FadeIn>
+      <section
+        className="r2"
+        style={{
+          background: '#0e1013',
+          borderTop: '1px solid #262a30',
+          borderBottom: '1px solid #262a30',
+          display: 'grid',
+          gridTemplateColumns: '1.15fr 1fr',
+        }}
+      >
+        <div
+          className="r-px"
+          style={{
+            padding: '80px 48px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}
+        >
+          <div style={{ width: 44, height: 3, background: '#d99e5c', marginBottom: 28 }} />
+          <h2
+            style={{
+              fontSize: 52,
+              fontWeight: 800,
+              lineHeight: 0.98,
+              letterSpacing: '-.03em',
+              marginBottom: 20,
+              marginTop: 0,
+            }}
+          >
+            Ready to test what you have?
+          </h2>
+          <p
+            style={{
+              fontSize: 16.5,
+              lineHeight: 1.65,
+              color: '#a3aab4',
+              maxWidth: 480,
+              marginBottom: 34,
+              marginTop: 0,
+            }}
+          >
+            Every block starts with a baseline. Book an assessment and we will test where you stand before we build anything.
+          </p>
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <Link href="/book?service=performance" className="btn-gold" style={{ padding: '17px 32px' }}>
+              Book an assessment
+            </Link>
+            <Link href="/about#contact" className="btn-outline" style={{ padding: '17px 32px' }}>
+              Ask a question
+            </Link>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderLeft: '1px solid #1e2126',
+            background: '#0b0c0e',
+            padding: '88px 48px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}
+        >
+          <p
+            style={{
+              font: '10px/1 ui-monospace,Menlo,monospace',
+              color: '#6f7783',
+              letterSpacing: '.2em',
+              marginTop: 0,
+              marginBottom: 26,
+            }}
+          >
+            THE PROCESS
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+            {[
+              { num: '01', title: 'Baseline test', desc: 'Sprint, power and strength numbers before we add anything.' },
+              { num: '02', title: 'Your programme', desc: 'A block built around the gaps the testing exposed.' },
+              { num: '03', title: 'Retest', desc: 'Same tests at the end. Numbers go up or we find out why.' },
+            ].map(({ num, title, desc }) => (
+              <div key={num} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                <span
+                  style={{
+                    width: 26,
+                    height: 26,
+                    border: '1px solid #4a3d2b',
+                    color: '#d99e5c',
+                    font: '10px/1 ui-monospace,Menlo,monospace',
+                    display: 'grid',
+                    placeItems: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  {num}
+                </span>
+                <div>
+                  <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 5px', color: '#f2f4f7' }}>{title}</p>
+                  <p style={{ fontSize: 13.5, lineHeight: 1.6, color: '#a3aab4', margin: 0 }}>{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
       </FadeIn>
 

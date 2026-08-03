@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 
 type NavbarProps = { activePage?: string }
@@ -33,14 +34,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
     >
       {/* ── Logo ─────────────────────────────────── */}
       <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, flexShrink: 0 }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/rebuilt-mark.svg"
-          alt="Rebuilt"
-          width={34}
-          height={34}
-          style={{ display: 'block' }}
-        />
+        <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
         <div>
           <div
             style={{

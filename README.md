@@ -1,73 +1,87 @@
-# Rebuilt
+# Rebuilt Singapore
 
 Coaching-led rehabilitation, personal training, and sports performance — Singapore.
 
-## Overview
+## Stack
 
-Rebuilt is a single-studio facility in Singapore offering:
-- **Rehab** — coached return to sport and daily function after injury or surgery
-- **Personal Training** — one-to-one, pairs, and small group coaching
-- **Sports Performance** — testing, training blocks, and retesting for athletes
-- **Physiotherapy** — in-house assessment and treatment (coming soon)
-
-## Development
-
-```bash
-npm run dev     # local dev server at http://localhost:3000
-npm run build   # production build
-npm run lint    # lint check
-```
-
-## Branches
-
-| Branch | Purpose |
-|--------|---------|
-| `main` | Live / public site |
-| `dev`  | In-progress work (preview URL per push) |
-
-Work on `dev`, merge to `main` when ready to go live.
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Inline styles + `globals.css` utilities
+- **Fonts**: Archivo (Google Fonts)
+- **Images**: Unsplash via `next/image`
+- **Deployment**: Vercel
 
 ## Project structure
 
 ```
 app/
-  page.tsx           Home — hero, service pillars, approach, reviews, CTA
-  rehab/             Rehab service page
-  strength/          Personal training page
-  performance/       Sports performance page
-  physio/            Physiotherapy coming-soon page
-  about/             About + contact form
-  book/              Multi-step booking flow (service → coach → time → details → deposit)
-  privacy/           Privacy policy
-  terms/             Terms of service
-  icon.svg           Favicon (rounded-square, dark background)
+  layout.tsx              # Site shell, metadata, fonts
+  page.tsx                # Home
+  not-found.tsx           # 404
+  opengraph-image.tsx     # Auto-generated OG image (1200×630)
+  robots.ts               # robots.txt
+  sitemap.ts              # sitemap.xml
+  about/page.tsx
+  book/page.tsx
+  performance/page.tsx
+  physio/page.tsx         # Coming soon — waitlist
+  privacy/page.tsx
+  rehab/page.tsx
+  strength/page.tsx
+  terms/page.tsx
 
 components/
   layout/
-    Navbar.tsx       Sticky glassmorphic navbar with mobile toggle
-    Footer.tsx       Site footer with social links
+    Navbar.tsx
+    Footer.tsx
   ui/
-    FadeIn.tsx       Intersection-Observer scroll-in animation wrapper
-    FAQAccordion.tsx Interactive accordion for FAQ sections
+    ContactForm.tsx       # Form with success state
+    FadeIn.tsx            # Scroll-triggered fade
+    FAQAccordion.tsx
+    WaitlistTags.tsx      # Physio waitlist tag toggles
+
+lib/
+  site.ts                 # All contact details, URLs, social handles
 
 public/
-  rebuilt-mark.svg   SVG R-in-circle mark (transparent background, used in nav + footer)
+  rebuilt-mark.svg        # Logo mark (used as favicon)
+  logo.jpeg
 ```
 
-## Images
+## Site config
 
-All photos are sourced from Unsplash CDN (`images.unsplash.com`). Allowed in `next.config.ts` via `remotePatterns`. Replace with owned photography when available by swapping the `src` URLs in each page.
+All contact details, social handles, address, and URLs live in **`lib/site.ts`** — update once, applies everywhere.
 
-## Booking / payment
+```ts
+// lib/site.ts
+export const SITE = {
+  contact: {
+    email: 'hello@rebuilt.sg',
+    phone: '+65 8123 4567',
+    whatsapp: 'https://wa.me/6581234567',
+  },
+  social: {
+    instagram: 'https://www.instagram.com/rebuiltsg/',
+  },
+  address: {
+    full: '12 Tanjong Pagar Road, #02-01, Singapore 088443',
+    ...
+  },
+}
+```
 
-The booking flow (step 5) shows PayNow payment instructions. To integrate a real payment processor, replace the PayNow block in `app/book/page.tsx` (step 5 panel) with a Stripe Elements or similar embed.
+## Dev
 
-## Things still to do
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build
+npm run lint
+```
 
-- Wire up the contact form on `/about` to a backend (Formspree, Resend, or similar)
-- Add real Google Maps embed to the contact section
-- Replace Unsplash photos with owned studio and coach photography
-- Add real Instagram profile URL to footer social link
-- Add WhatsApp number to footer WhatsApp link
-- Add Google Reviews embed or pull live rating
-- Physiotherapy page content (currently a holding page)
+## Deployment
+
+```bash
+vercel           # Preview
+vercel --prod    # Production
+```

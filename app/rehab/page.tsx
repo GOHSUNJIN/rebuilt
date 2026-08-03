@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import FadeIn from '@/components/ui/FadeIn'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 
-export const metadata: Metadata = { title: 'Rehab' }
+export const metadata: Metadata = {
+  title: 'Rehab',
+  description: 'Coached rehabilitation in Singapore for people coming back from injury or surgery. Post-surgery, long-standing pain and return to sport.',
+}
 
 export default function RehabPage() {
   return (
@@ -24,6 +28,7 @@ export default function RehabPage() {
 
       {/* ── Hero grid ───────────────────────────── */}
       <section
+        className="r2"
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
@@ -31,7 +36,7 @@ export default function RehabPage() {
         }}
       >
         {/* Left */}
-        <div style={{ padding: '66px 48px' }}>
+        <div className="r-px" style={{ padding: '66px 48px' }}>
           <p
             style={{
               font: '11px/1 ui-monospace,Menlo,monospace',
@@ -56,6 +61,7 @@ export default function RehabPage() {
             SERVICE 01
           </p>
           <h1
+            className="r-h1"
             style={{
               fontSize: 76,
               fontWeight: 800,
@@ -81,29 +87,24 @@ export default function RehabPage() {
             around what your body handles today and where you want it to be.
           </p>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>
+            <Link href="/book?service=rehab" className="btn-gold" style={{ padding: '16px 30px' }}>
               Book an assessment
             </Link>
-            <Link href="/about" className="btn-outline" style={{ padding: '16px 30px' }}>
+            <Link href="/about#contact" className="btn-outline" style={{ padding: '16px 30px' }}>
               Ask a question
             </Link>
           </div>
         </div>
 
         {/* Right */}
-        <div style={{ minHeight: 400, overflow: 'hidden' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=80"
-            alt="Rehab session"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
+        <div style={{ minHeight: 400, overflow: 'hidden', position: 'relative' }}>
+          <Image src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=80" alt="Rehab session" fill priority style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
         </div>
       </section>
 
       {/* ── Who it's for ────────────────────────── */}
       <FadeIn>
-      <section style={{ padding: '76px 48px 56px' }}>
+      <section className="r-px" style={{ padding: '76px 48px 56px' }}>
         <div
           style={{
             display: 'flex',
@@ -136,6 +137,7 @@ export default function RehabPage() {
           </span>
         </div>
         <div
+          className="r4"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
@@ -188,7 +190,7 @@ export default function RehabPage() {
 
       {/* ── How it runs ─────────────────────────── */}
       <FadeIn>
-      <section style={{ padding: '0 48px 56px' }}>
+      <section className="r-px" style={{ padding: '0 48px 56px' }}>
         <div
           style={{
             display: 'flex',
@@ -221,6 +223,7 @@ export default function RehabPage() {
           </span>
         </div>
         <div
+          className="r4"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
@@ -287,7 +290,7 @@ export default function RehabPage() {
 
       {/* ── Sessions & pricing ──────────────────── */}
       <FadeIn>
-      <section style={{ padding: '0 48px 56px' }}>
+      <section className="r-px" style={{ padding: '0 48px 56px' }}>
         <p
           style={{
             fontSize: 15,
@@ -301,7 +304,8 @@ export default function RehabPage() {
         >
           Sessions &amp; pricing
         </p>
-        <div style={{ border: '1px solid #212429' }}>
+        <div style={{ overflowX: 'auto' }}>
+        <div style={{ border: '1px solid #212429', minWidth: 560 }}>
           {/* Header row */}
           <div
             style={{
@@ -345,7 +349,7 @@ export default function RehabPage() {
               <span style={{ fontSize: 13.5, color: '#a3aab4' }}>{length}</span>
               <span style={{ fontSize: 13.5, color: '#a3aab4' }}>{price}</span>
               <Link
-                href="/book"
+                href="/book?service=rehab"
                 className={gold ? 'btn-gold' : 'btn-outline'}
                 style={{ padding: '12px 20px', fontSize: 11 }}
               >
@@ -354,12 +358,14 @@ export default function RehabPage() {
             </div>
           ))}
         </div>
+        </div>
       </section>
       </FadeIn>
 
       {/* ── Common questions ────────────────────── */}
       <FadeIn>
       <section
+        className="r-px"
         style={{
           borderTop: '1px solid #212429',
           padding: '66px 48px',
@@ -426,6 +432,7 @@ export default function RehabPage() {
       {/* ── Case study ──────────────────────────── */}
       <FadeIn>
       <section
+        className="r2 r-px"
         style={{
           borderTop: '1px solid #212429',
           background: '#eef1f5',
@@ -438,13 +445,8 @@ export default function RehabPage() {
         }}
       >
         {/* Left */}
-        <div style={{ height: 380, overflow: 'hidden' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80"
-            alt="Training session"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
+        <div style={{ height: 380, overflow: 'hidden', position: 'relative' }}>
+          <Image src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Training session" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
         </div>
 
         {/* Right */}

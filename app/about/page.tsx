@@ -1,10 +1,16 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import FadeIn from '@/components/ui/FadeIn'
+import { SITE } from '@/lib/site'
+import ContactForm from '@/components/ui/ContactForm'
 
-export const metadata: Metadata = { title: 'About' }
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Rebuilt is a Singapore studio for rehabilitation, personal training and sports performance. One place, one team, one set of notes.',
+}
 
 export default function AboutPage() {
   return (
@@ -21,11 +27,11 @@ export default function AboutPage() {
       {/* ── Header ──────────────────────────────── */}
       <section
         style={{
-          background: '#0b0c0e',
+          background: 'radial-gradient(ellipse 80% 60% at 50% 0%, #141208 0%, #0b0c0e 65%)',
           borderBottom: '1px solid #212429',
         }}
       >
-        <div style={{ padding: '88px 48px 0', maxWidth: 1100 }}>
+        <div className="r-px r-px-top" style={{ padding: '88px 48px 0', maxWidth: 1100 }}>
           <p
             style={{
               font: '11px/1 ui-monospace,Menlo,monospace',
@@ -38,6 +44,7 @@ export default function AboutPage() {
             ABOUT REBUILT
           </p>
           <h1
+            className="r-h2"
             style={{
               fontSize: 72,
               fontWeight: 800,
@@ -67,6 +74,7 @@ export default function AboutPage() {
 
         {/* Stats */}
         <div
+          className="r-stats r-px"
           style={{
             padding: '60px 48px 56px',
             display: 'grid',
@@ -105,6 +113,7 @@ export default function AboutPage() {
 
       {/* ── Facility photos ──────────────────────── */}
       <section
+        className="r3"
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
@@ -118,20 +127,15 @@ export default function AboutPage() {
           'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
           'https://images.unsplash.com/photo-1571019613576-2b22c76fd955?auto=format&fit=crop&w=800&q=80',
         ].map((src, i) => (
-          <div key={i} style={{ height: 340, overflow: 'hidden' }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={src}
-              alt="Rebuilt studio"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-            />
+          <div key={i} className="img-zoom" style={{ height: 340, overflow: 'hidden', position: 'relative' }}>
+            <Image src={src} alt="Rebuilt studio" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
           </div>
         ))}
       </section>
 
       {/* ── The team ────────────────────────────── */}
       <FadeIn>
-      <section style={{ padding: '76px 48px' }}>
+      <section className="r-px" style={{ padding: '76px 48px' }}>
         <div
           style={{
             display: 'flex',
@@ -164,6 +168,7 @@ export default function AboutPage() {
           </span>
         </div>
         <div
+          className="r3"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -180,13 +185,8 @@ export default function AboutPage() {
               transition: 'border-color .2s ease',
             }}
           >
-            <div style={{ height: 340, overflow: 'hidden' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80"
-                alt="James Lim"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
+            <div className="img-zoom" style={{ height: 340, overflow: 'hidden', position: 'relative' }}>
+              <Image src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80" alt="James Lim" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
             <div style={{ padding: '24px 22px 26px' }}>
               <p
@@ -218,13 +218,8 @@ export default function AboutPage() {
               transition: 'border-color .2s ease',
             }}
           >
-            <div style={{ height: 340, overflow: 'hidden' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80"
-                alt="Marcus Tan"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
+            <div className="img-zoom" style={{ height: 340, overflow: 'hidden', position: 'relative' }}>
+              <Image src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="Marcus Tan" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
             <div style={{ padding: '24px 22px 26px' }}>
               <p
@@ -301,6 +296,8 @@ export default function AboutPage() {
       {/* ── Contact form ────────────────────────── */}
       <FadeIn>
       <section
+        id="contact"
+        className="r2"
         style={{
           borderTop: '1px solid #212429',
           display: 'grid',
@@ -308,108 +305,43 @@ export default function AboutPage() {
         }}
       >
         {/* Left – form */}
-        <div style={{ padding: '66px 48px', borderRight: '1px solid #212429' }}>
-          <h2
-            style={{
-              fontSize: 44,
-              fontWeight: 800,
-              lineHeight: 1.02,
-              letterSpacing: '-.02em',
-              marginTop: 0,
-              marginBottom: 32,
-            }}
-          >
-            Book or ask a question
-          </h2>
-          <form style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-              <input
-                type="text"
-                placeholder="Your name"
-                style={{
-                  padding: '14px 16px',
-                  background: '#14161a',
-                  border: '1px solid #262a30',
-                  color: '#f2f4f7',
-                  fontSize: 14,
-                  fontFamily: 'inherit',
-                }}
-              />
-              <input
-                type="email"
-                placeholder="your@email.com"
-                style={{
-                  padding: '14px 16px',
-                  background: '#14161a',
-                  border: '1px solid #262a30',
-                  color: '#f2f4f7',
-                  fontSize: 14,
-                  fontFamily: 'inherit',
-                }}
-              />
-            </div>
-            <select
-              style={{
-                padding: '14px 16px',
-                background: '#14161a',
-                border: '1px solid #262a30',
-                color: '#a3aab4',
-                fontSize: 14,
-                fontFamily: 'inherit',
-              }}
-            >
-              <option value="">Select a service</option>
-              <option value="rehab">Rehab</option>
-              <option value="strength">Personal Training</option>
-              <option value="performance">Performance</option>
-              <option value="physio">Physiotherapy (waitlist)</option>
-            </select>
-            <textarea
-              placeholder="Your question or message"
-              rows={5}
-              style={{
-                padding: '14px 16px',
-                background: '#14161a',
-                border: '1px solid #262a30',
-                color: '#f2f4f7',
-                fontSize: 14,
-                fontFamily: 'inherit',
-                resize: 'vertical',
-              }}
-            />
-            <button
-              type="submit"
-              className="btn-gold"
-              style={{ padding: '15px 28px', alignSelf: 'flex-start' }}
-            >
-              Submit
-            </button>
-          </form>
+        <div className="r-px" style={{ padding: '66px 48px', borderRight: '1px solid #212429' }}>
+          <ContactForm />
         </div>
 
         {/* Right */}
         <div>
           {/* Map placeholder */}
-          <div
+          <a
+            href={SITE.address.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               height: 320,
               background: '#111316',
               borderBottom: '1px solid #212429',
               display: 'grid',
               placeItems: 'center',
+              textDecoration: 'none',
+              transition: 'background .2s ease',
             }}
+            className="hover-approach"
           >
             <div style={{ textAlign: 'center' }}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d99e5c" strokeWidth="1.5" style={{ display: 'block', margin: '0 auto 12px' }}>
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
                 <circle cx="12" cy="9" r="2.5" />
               </svg>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#4a5060', letterSpacing: '.2em', margin: 0 }}>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#4a5060', letterSpacing: '.2em', margin: '0 0 8px' }}>
                 12 TANJONG PAGAR ROAD
               </p>
+              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47', letterSpacing: '.16em', margin: 0 }}>
+                OPEN IN MAPS ↗
+              </p>
             </div>
-          </div>
+          </a>
           <div
+            className="r2 r-px"
             style={{
               padding: 48,
               display: 'grid',
@@ -418,14 +350,14 @@ export default function AboutPage() {
             }}
           >
             {[
-              { label: 'STUDIO', value: '12 Tanjong Pagar Road\n#02-01, Singapore 088443' },
+              { label: 'STUDIO', value: `${SITE.address.street}\n${SITE.address.city}` },
               {
                 label: 'HOURS',
                 value: 'Mon-Fri: 7am-9pm\nSaturday: 8am-2pm\nSunday: Closed',
               },
               {
                 label: 'CONTACT',
-                value: 'hello@rebuilt.sg\n+65 8123 4567',
+                value: `${SITE.contact.email}\n${SITE.contact.phone}`,
               },
               { label: 'SOCIAL', value: '@rebuiltsg' },
             ].map(({ label, value }) => (
@@ -441,17 +373,28 @@ export default function AboutPage() {
                 >
                   {label}
                 </p>
-                <p
-                  style={{
-                    fontSize: 13.5,
-                    lineHeight: 1.7,
-                    color: '#a3aab4',
-                    margin: 0,
-                    whiteSpace: 'pre-line',
-                  }}
-                >
-                  {value}
-                </p>
+                {label === 'CONTACT' ? (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <a href={`mailto:${SITE.contact.email}`} style={{ fontSize: 13.5, color: '#a3aab4', textDecoration: 'none' }} className="hover-gold">
+                      {SITE.contact.email}
+                    </a>
+                    <a href={SITE.contact.phoneTel} style={{ fontSize: 13.5, color: '#a3aab4', textDecoration: 'none' }} className="hover-gold">
+                      {SITE.contact.phone}
+                    </a>
+                  </div>
+                ) : (
+                  <p
+                    style={{
+                      fontSize: 13.5,
+                      lineHeight: 1.7,
+                      color: '#a3aab4',
+                      margin: 0,
+                      whiteSpace: 'pre-line',
+                    }}
+                  >
+                    {value}
+                  </p>
+                )}
               </div>
             ))}
           </div>
@@ -461,7 +404,7 @@ export default function AboutPage() {
 
       {/* ── Teams & corporate ───────────────────── */}
       <FadeIn>
-      <section style={{ borderTop: '1px solid #212429', padding: '66px 48px' }}>
+      <section className="r-px" style={{ borderTop: '1px solid #212429', padding: '66px 48px' }}>
         <div
           style={{
             display: 'flex',
@@ -494,6 +437,7 @@ export default function AboutPage() {
           </span>
         </div>
         <div
+          className="r3"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',

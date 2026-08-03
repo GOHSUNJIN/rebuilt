@@ -1,8 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ── Reset ──────────────────────────────────────── */
 
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap');
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
 
 html {
   scroll-behavior: smooth;
@@ -20,6 +27,8 @@ body {
   background: #101113;
   font-family: 'Archivo', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -41,112 +50,67 @@ a:hover {
 /* ── Keyframes ─────────────────────────────────── */
 
 @keyframes pgIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.995);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(10px) scale(0.995); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes mdIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px) scale(0.997);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(8px) scale(0.997); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes ovIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes revIn {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes heroIn {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slowZoom {
-  from {
-    transform: scale(1.08);
-  }
-  to {
-    transform: scale(1);
-  }
+  from { transform: scale(1.08); }
+  to   { transform: scale(1); }
 }
 
 @keyframes floatY {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes shimmer {
-  from {
-    background-position: -200% center;
-  }
-  to {
-    background-position: 200% center;
-  }
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
 }
 
 @keyframes pulseDot {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.45;
-    transform: scale(0.82);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  0%   { opacity: 1; transform: scale(1); }
+  50%  { opacity: 0.45; transform: scale(0.82); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 /* ── Animation utilities ────────────────────────── */
 
-.animate-pgIn {
-  animation: pgIn 0.3s ease both;
-}
-
-.animate-heroIn {
-  animation: heroIn 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
-}
+.animate-pgIn    { animation: pgIn 0.3s ease both; }
+.animate-heroIn  { animation: heroIn 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+.animate-fadeUp  { animation: fadeUp 0.5s ease both; }
 
 /* ── Hover utilities ────────────────────────────── */
 
@@ -171,6 +135,10 @@ a:hover {
 .hover-card:hover {
   transform: translateY(-4px);
   background: #1a1d22;
+}
+
+.hover-border {
+  transition: border-color 0.2s ease;
 }
 
 .hover-border:hover {
@@ -300,13 +268,61 @@ select:focus {
 /* ── Mobile responsive ──────────────────────────── */
 
 @media (max-width: 768px) {
-  .desktop-nav {
-    display: none !important;
-  }
-  .mobile-menu-btn {
-    display: block !important;
-  }
-  nav {
-    padding: 18px 24px !important;
-  }
+  .desktop-nav      { display: none !important; }
+  .mobile-menu-btn  { display: block !important; }
+  nav               { padding: 18px 24px !important; }
+}
+
+/* ── Responsive layout utilities ────────────────── */
+
+@media (max-width: 768px) {
+  .r2       { grid-template-columns: 1fr !important; }
+  .r3       { grid-template-columns: 1fr !important; }
+  .r4       { grid-template-columns: 1fr 1fr !important; }
+  .r5       { grid-template-columns: 1fr 1fr !important; }
+  .r-reviews  { grid-template-columns: 1fr !important; }
+  .r-stats    { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+
+  .book-sidebar { order: -1 !important; position: static !important; top: auto !important; }
+  .r-mx         { margin-left: 20px !important; margin-right: 20px !important; }
+
+  .r-hero         { height: auto !important; min-height: 420px !important; }
+  .r-hero-content { padding: 0 20px 52px !important; }
+
+  .r-px     { padding-left: 20px !important; padding-right: 20px !important; }
+  .r-px-top { padding: 60px 20px 0 !important; }
+
+  .r-h1    { font-size: 44px !important; line-height: 0.96 !important; }
+  .r-h1-lg { font-size: 52px !important; line-height: 0.96 !important; }
+  .r-h2    { font-size: 30px !important; }
+
+  .r-col  { flex-direction: column !important; }
+  .r-hide { display: none !important; }
+  .r-w100 { width: 100% !important; max-width: 100% !important; }
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 28px rgba(217,158,92,.5);
+  opacity: 1;
+}
+
+/* ── Image zoom ─────────────────────────────── */
+
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.07);
+}
+
+@media (max-width: 480px) {
+  .r-h1    { font-size: 36px !important; }
+  .r-h1-lg { font-size: 42px !important; }
+  .r-px    { padding-left: 16px !important; padding-right: 16px !important; }
 }

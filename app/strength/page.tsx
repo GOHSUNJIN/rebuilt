@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import FadeIn from '@/components/ui/FadeIn'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 
-export const metadata: Metadata = { title: 'Personal Training' }
+export const metadata: Metadata = {
+  title: 'Personal Training',
+  description: '1-to-1 personal training in Singapore. Structured programmes, honest coaching and measurable progress for any starting point.',
+}
 
 export default function StrengthPage() {
   return (
@@ -24,6 +28,7 @@ export default function StrengthPage() {
 
       {/* ── Hero ────────────────────────────────── */}
       <section
+        className="r-hero"
         style={{
           height: 460,
           position: 'relative',
@@ -41,11 +46,10 @@ export default function StrengthPage() {
             animation: 'slowZoom 14s ease both',
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
             alt="Personal training"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            fill priority style={{ objectFit: 'cover' }} sizes="100vw"
           />
         </div>
 
@@ -72,6 +76,7 @@ export default function StrengthPage() {
             SERVICE 02
           </p>
           <h1
+            className="r-h1"
             style={{
               fontSize: 60,
               fontWeight: 800,
@@ -97,13 +102,22 @@ export default function StrengthPage() {
             One to one coaching for people who want a plan, honest feedback and progress
             they can point at, whatever shape they start in.
           </p>
+          <div style={{ marginTop: 36, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <Link href="/book?service=strength" className="btn-gold" style={{ padding: '16px 30px' }}>
+              Book a session
+            </Link>
+            <Link href="/about#contact" className="btn-outline" style={{ padding: '16px 30px' }}>
+              Ask a question
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* ── Pricing grid ────────────────────────── */}
       <FadeIn>
-      <section style={{ padding: '76px 48px' }}>
+      <section className="r-px" style={{ padding: '76px 48px' }}>
         <div
+          className="r3"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -149,7 +163,7 @@ export default function StrengthPage() {
                 </div>
               ))}
             </div>
-            <Link href="/book" className="btn-outline" style={{ padding: '14px 24px', marginTop: 28, display: 'inline-flex' }}>
+            <Link href="/book?service=strength" className="btn-outline" style={{ padding: '14px 24px', marginTop: 28, display: 'inline-flex' }}>
               Book
             </Link>
           </div>
@@ -206,7 +220,7 @@ export default function StrengthPage() {
                 </div>
               ))}
             </div>
-            <Link href="/book" className="btn-gold" style={{ padding: '14px 24px', marginTop: 28, display: 'inline-flex' }}>
+            <Link href="/book?service=pairs" className="btn-gold" style={{ padding: '14px 24px', marginTop: 28, display: 'inline-flex' }}>
               Book
             </Link>
           </div>
@@ -249,7 +263,7 @@ export default function StrengthPage() {
                 </div>
               ))}
             </div>
-            <Link href="/book" className="btn-outline" style={{ padding: '14px 24px', marginTop: 28, display: 'inline-flex' }}>
+            <Link href="/book?service=strength" className="btn-outline" style={{ padding: '14px 24px', marginTop: 28, display: 'inline-flex' }}>
               Book
             </Link>
           </div>
@@ -260,6 +274,7 @@ export default function StrengthPage() {
       {/* ── What a block looks like ──────────────── */}
       <FadeIn>
       <section
+        className="r2 r-px"
         style={{
           padding: '0 48px 76px',
           display: 'grid',
@@ -331,13 +346,8 @@ export default function StrengthPage() {
         </div>
 
         {/* Right – barbell image */}
-        <div style={{ height: 400, overflow: 'hidden' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"
-            alt="Barbell training"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
+        <div style={{ height: 400, overflow: 'hidden', position: 'relative' }}>
+          <Image src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Barbell training" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
         </div>
       </section>
       </FadeIn>
@@ -345,6 +355,7 @@ export default function StrengthPage() {
       {/* ── CTA split ───────────────────────────── */}
       <FadeIn>
       <section
+        className="r2"
         style={{
           borderTop: '1px solid #212429',
           display: 'grid',
@@ -352,13 +363,8 @@ export default function StrengthPage() {
         }}
       >
         {/* Left – image */}
-        <div style={{ minHeight: 340, overflow: 'hidden' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1581009137042-c552e485697a?auto=format&fit=crop&w=900&q=80"
-            alt="Training coaching"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
+        <div style={{ minHeight: 340, overflow: 'hidden', position: 'relative' }}>
+          <Image src="https://images.unsplash.com/photo-1581009137042-c552e485697a?auto=format&fit=crop&w=900&q=80" alt="Training coaching" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
         </div>
 
         {/* Right */}
@@ -400,7 +406,7 @@ export default function StrengthPage() {
           </p>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <Link
-              href="/book"
+              href="/book?service=strength"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -417,7 +423,7 @@ export default function StrengthPage() {
               Book a session
             </Link>
             <Link
-              href="/about"
+              href="/about#contact"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -440,7 +446,7 @@ export default function StrengthPage() {
 
       {/* ── FAQ ─────────────────────────────────── */}
       <FadeIn>
-      <section style={{ padding: '66px 48px', borderTop: '1px solid #212429' }}>
+      <section className="r-px" style={{ padding: '66px 48px', borderTop: '1px solid #212429' }}>
         <div
           style={{
             display: 'flex',

@@ -1,10 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
+import WaitlistTags from '@/components/ui/WaitlistTags'
 
-export const metadata: Metadata = { title: 'Physiotherapy – Coming Soon' }
+export const metadata: Metadata = {
+  title: 'Physiotherapy – Coming Soon',
+  description: 'Physiotherapy is coming to Rebuilt Singapore. Join the waitlist — assessment, treatment and strength work in one place.',
+}
 
 export default function PhysioPage() {
   return (
@@ -23,6 +27,7 @@ export default function PhysioPage() {
 
       {/* ── Hero ────────────────────────────────── */}
       <section
+        className="r-px"
         style={{
           padding: '76px 48px 72px',
           textAlign: 'center',
@@ -63,6 +68,7 @@ export default function PhysioPage() {
         </div>
 
         <h1
+          className="r-h1"
           style={{
             fontSize: 88,
             fontWeight: 800,
@@ -104,6 +110,7 @@ export default function PhysioPage() {
             JOIN THE WAITLIST
           </p>
           <div
+            className="r2"
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
@@ -146,29 +153,7 @@ export default function PhysioPage() {
           >
             WHAT DO YOU NEED?
           </p>
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}>
-            {['Injury', 'Post-surgery', 'Pain', 'Return to sport', 'Not sure'].map(
-              (tag) => (
-                <button
-                  key={tag}
-                  style={{
-                    padding: '8px 14px',
-                    border: '1px solid #2a2e34',
-                    background: 'transparent',
-                    color: '#a3aab4',
-                    fontSize: 12,
-                    fontWeight: 500,
-                    letterSpacing: '.08em',
-                    cursor: 'pointer',
-                    fontFamily: 'inherit',
-                    transition: 'all .15s',
-                  }}
-                >
-                  {tag}
-                </button>
-              )
-            )}
-          </div>
+          <WaitlistTags />
           <button
             style={{
               width: '100%',
@@ -202,7 +187,7 @@ export default function PhysioPage() {
       </section>
 
       {/* ── What it will cover ──────────────────── */}
-      <section style={{ padding: '76px 48px 60px' }}>
+      <section className="r-px" style={{ padding: '76px 48px 60px' }}>
         <div
           style={{
             display: 'flex',
@@ -235,6 +220,7 @@ export default function PhysioPage() {
           </span>
         </div>
         <div
+          className="r3"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -295,8 +281,9 @@ export default function PhysioPage() {
       </section>
 
       {/* ── Bridge section ──────────────────────── */}
-      <section style={{ padding: '0 48px 60px' }}>
+      <section className="r-px" style={{ padding: '0 48px 60px' }}>
         <div
+          className="r2"
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
@@ -336,7 +323,9 @@ export default function PhysioPage() {
           </div>
 
           {/* Right */}
-          <ImagePlaceholder placeholder="IMG-18 physio teaser photo" height="100%" style={{ minHeight: 340 }} />
+          <div style={{ minHeight: 340, overflow: 'hidden', position: 'relative' }}>
+            <Image src="https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=800&q=80" alt="Physiotherapy" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
+          </div>
         </div>
       </section>
 

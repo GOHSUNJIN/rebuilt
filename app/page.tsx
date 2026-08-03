@@ -32,6 +32,7 @@ export default function HomePage() {
           display: 'grid',
           alignItems: 'end',
           background: '#111316',
+          overflow: 'hidden',
         }}
       >
         {/* Hero image */}
@@ -381,7 +382,7 @@ export default function HomePage() {
             }}
           >
             Physiotherapy
-            <br />/ at Rebuilt
+            <br />at Rebuilt
           </h2>
           <p
             style={{

@@ -30,6 +30,7 @@ export default function StrengthPage() {
           display: 'grid',
           alignItems: 'end',
           background: '#111316',
+          overflow: 'hidden',
         }}
       >
         <div

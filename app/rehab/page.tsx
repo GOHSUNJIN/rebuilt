@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
+import FadeIn from '@/components/ui/FadeIn'
+import FAQAccordion from '@/components/ui/FAQAccordion'
 
 export const metadata: Metadata = { title: 'Rehab' }
 
@@ -90,14 +91,18 @@ export default function RehabPage() {
         </div>
 
         {/* Right */}
-        <ImagePlaceholder
-          placeholder="IMG-12 rehab session photo"
-          style={{ minHeight: 400 }}
-          height="100%"
-        />
+        <div style={{ minHeight: 400, overflow: 'hidden' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=80"
+            alt="Rehab session"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        </div>
       </section>
 
       {/* ── Who it's for ────────────────────────── */}
+      <FadeIn>
       <section style={{ padding: '76px 48px 56px' }}>
         <div
           style={{
@@ -179,8 +184,10 @@ export default function RehabPage() {
           ))}
         </div>
       </section>
+      </FadeIn>
 
       {/* ── How it runs ─────────────────────────── */}
+      <FadeIn>
       <section style={{ padding: '0 48px 56px' }}>
         <div
           style={{
@@ -276,8 +283,10 @@ export default function RehabPage() {
           ))}
         </div>
       </section>
+      </FadeIn>
 
       {/* ── Sessions & pricing ──────────────────── */}
+      <FadeIn>
       <section style={{ padding: '0 48px 56px' }}>
         <p
           style={{
@@ -346,8 +355,10 @@ export default function RehabPage() {
           ))}
         </div>
       </section>
+      </FadeIn>
 
       {/* ── Common questions ────────────────────── */}
+      <FadeIn>
       <section
         style={{
           borderTop: '1px solid #212429',
@@ -385,69 +396,35 @@ export default function RehabPage() {
             CAN&apos;T SEE YOURS? ASK US
           </span>
         </div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: 12,
-          }}
-        >
-          {[
-            { num: '01', q: 'Do I need a referral or a scan first?' },
-            { num: '02', q: 'Can you work with my physio or surgeon?' },
-            { num: '03', q: 'How soon after surgery can I start?' },
-            { num: '04', q: 'What should I bring to a session?' },
-          ].map(({ num, q }) => (
-            <div
-              key={num}
-              className="hover-faq"
-              style={{
-                border: '1px solid #1e2126',
-                background: '#14161a',
-                padding: '26px 20px',
-                cursor: 'pointer',
-              }}
-            >
-              <p
-                style={{
-                  font: '10px/1 ui-monospace,Menlo,monospace',
-                  color: '#d99e5c',
-                  letterSpacing: '.2em',
-                  marginTop: 0,
-                  marginBottom: 14,
-                }}
-              >
-                {num}
-              </p>
-              <p
-                style={{
-                  fontSize: 17,
-                  fontWeight: 500,
-                  color: '#f2f4f7',
-                  marginTop: 0,
-                  marginBottom: 20,
-                  lineHeight: 1.4,
-                }}
-              >
-                {q}
-              </p>
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 600,
-                  letterSpacing: '.16em',
-                  textTransform: 'uppercase',
-                  color: '#d99e5c',
-                }}
-              >
-                Read answer
-              </span>
-            </div>
-          ))}
-        </div>
+        <FAQAccordion
+          items={[
+            {
+              num: '01',
+              q: 'Do I need a referral or a scan first?',
+              a: 'No referral or scan is needed to start. We can work from your surgical notes or clinic letters if you have them, but most clients come in directly and we carry out our own assessment first.',
+            },
+            {
+              num: '02',
+              q: 'Can you work with my physio or surgeon?',
+              a: 'Yes, and we actively encourage it. We can liaise directly with your clinician, share session notes, and adjust your programme based on their input at any point during your rehab.',
+            },
+            {
+              num: '03',
+              q: 'How soon after surgery can I start?',
+              a: 'This depends on the procedure, but for most surgeries we can start non-affected work within days of your operation. We have worked with clients from week one post-ACL, shoulder repair and hip replacement.',
+            },
+            {
+              num: '04',
+              q: 'What should I bring to a session?',
+              a: 'Comfortable training clothes and trainers. If you have any clinic letters, discharge notes or scan results, bring those too — they help us understand where you are and calibrate the programme accordingly.',
+            },
+          ]}
+        />
       </section>
+      </FadeIn>
 
       {/* ── Case study ──────────────────────────── */}
+      <FadeIn>
       <section
         style={{
           borderTop: '1px solid #212429',
@@ -461,11 +438,14 @@ export default function RehabPage() {
         }}
       >
         {/* Left */}
-        <ImagePlaceholder
-          placeholder="IMG-13 case study photo"
-          height={380}
-          style={{ background: '#dfe3e9', border: '1px solid #ccd1d8' }}
-        />
+        <div style={{ height: 380, overflow: 'hidden' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80"
+            alt="Training session"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        </div>
 
         {/* Right */}
         <div>
@@ -544,6 +524,7 @@ export default function RehabPage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       <Footer />
     </div>

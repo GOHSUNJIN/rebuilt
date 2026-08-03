@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
+import FadeIn from '@/components/ui/FadeIn'
+import FAQAccordion from '@/components/ui/FAQAccordion'
 
 export const metadata: Metadata = { title: 'Performance' }
 
@@ -30,11 +31,14 @@ export default function PerformancePage() {
         }}
       >
         {/* Left – image */}
-        <ImagePlaceholder
-          placeholder="IMG-17 sprint / field photo"
-          style={{ minHeight: 420 }}
-          height="100%"
-        />
+        <div style={{ minHeight: 420, overflow: 'hidden' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1519766304817-4f37bda74a26?auto=format&fit=crop&w=900&q=80"
+            alt="Sports performance"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        </div>
 
         {/* Right */}
         <div style={{ padding: '66px 48px' }}>
@@ -82,6 +86,7 @@ export default function PerformancePage() {
       </section>
 
       {/* ── Programmes ──────────────────────────── */}
+      <FadeIn>
       <section style={{ padding: '76px 48px 0' }}>
         <div
           style={{
@@ -206,8 +211,10 @@ export default function PerformancePage() {
           ))}
         </div>
       </section>
+      </FadeIn>
 
       {/* ── Test / Train / Retest ───────────────── */}
+      <FadeIn>
       <section style={{ padding: '76px 48px 56px' }}>
         <div
           style={{
@@ -259,8 +266,10 @@ export default function PerformancePage() {
           ))}
         </div>
       </section>
+      </FadeIn>
 
       {/* ── Quote ───────────────────────────────── */}
+      <FadeIn>
       <section
         style={{
           borderTop: '1px solid #212429',
@@ -291,11 +300,16 @@ export default function PerformancePage() {
               width: 56,
               height: 56,
               borderRadius: '50%',
-              overflow: 'hidden',
+              background: '#1e2126',
+              display: 'grid',
+              placeItems: 'center',
               flexShrink: 0,
+              fontSize: 20,
+              fontWeight: 700,
+              color: '#d99e5c',
             }}
           >
-            <ImagePlaceholder placeholder="" height={56} />
+            R
           </div>
           <div>
             <p style={{ fontSize: 15, fontWeight: 600, margin: '0 0 5px', color: '#f2f4f7' }}>
@@ -314,8 +328,10 @@ export default function PerformancePage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── FAQ ─────────────────────────────────── */}
+      <FadeIn>
       <section style={{ padding: '66px 48px', borderTop: '1px solid #212429' }}>
         <div
           style={{
@@ -348,67 +364,32 @@ export default function PerformancePage() {
             CAN&apos;T SEE YOURS? ASK US
           </span>
         </div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: 12,
-          }}
-        >
-          {[
-            { num: '01', q: 'How is this different from personal training?' },
-            { num: '02', q: 'What do you actually test?' },
-            { num: '03', q: 'Can you work with my club coach?' },
-            { num: '04', q: 'Do I need to be at a certain level?' },
-          ].map(({ num, q }) => (
-            <div
-              key={num}
-              className="hover-faq"
-              style={{
-                border: '1px solid #1e2126',
-                background: '#14161a',
-                padding: '26px 20px',
-                cursor: 'pointer',
-              }}
-            >
-              <p
-                style={{
-                  font: '10px/1 ui-monospace,Menlo,monospace',
-                  color: '#d99e5c',
-                  letterSpacing: '.2em',
-                  marginTop: 0,
-                  marginBottom: 14,
-                }}
-              >
-                {num}
-              </p>
-              <p
-                style={{
-                  fontSize: 17,
-                  fontWeight: 500,
-                  color: '#f2f4f7',
-                  marginTop: 0,
-                  marginBottom: 20,
-                  lineHeight: 1.4,
-                }}
-              >
-                {q}
-              </p>
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 600,
-                  letterSpacing: '.16em',
-                  textTransform: 'uppercase',
-                  color: '#d99e5c',
-                }}
-              >
-                Read answer
-              </span>
-            </div>
-          ))}
-        </div>
+        <FAQAccordion
+          items={[
+            {
+              num: '01',
+              q: 'How is this different from personal training?',
+              a: 'Performance work is structured around testing at both ends of the block so improvement is measurable. The focus is on specific athletic qualities — speed, power, conditioning — rather than general fitness or body composition.',
+            },
+            {
+              num: '02',
+              q: 'What do you actually test?',
+              a: 'Depending on your sport and goals we test sprint speed over 10 and 30 metres, vertical and horizontal power, single-leg strength and sport-specific conditioning. Everything is retested at the end of the block.',
+            },
+            {
+              num: '03',
+              q: 'Can you work with my club coach?',
+              a: 'Yes. We can share session data, loading parameters and recovery status with your club coach, and time the programme to complement what you are doing in team training.',
+            },
+            {
+              num: '04',
+              q: 'Do I need to be at a certain level?',
+              a: 'No minimum level is required. We have worked with recreational athletes chasing fitness goals and national-level competitors. The programme is calibrated to where you start, not where we think you should be.',
+            },
+          ]}
+        />
       </section>
+      </FadeIn>
 
       <Footer />
     </div>

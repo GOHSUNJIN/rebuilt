@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
+import FadeIn from '@/components/ui/FadeIn'
 
 export const metadata: Metadata = { title: 'About' }
 
@@ -113,17 +113,24 @@ export default function AboutPage() {
           borderBottom: '1px solid #212429',
         }}
       >
-        {[20, 21, 22].map((n) => (
-          <ImagePlaceholder
-            key={n}
-            placeholder={`IMG-${n} facility photo`}
-            height={340}
-            style={{ minHeight: 340 }}
-          />
+        {[
+          'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1571019613576-2b22c76fd955?auto=format&fit=crop&w=800&q=80',
+        ].map((src, i) => (
+          <div key={i} style={{ height: 340, overflow: 'hidden' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={src}
+              alt="Rebuilt studio"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+          </div>
         ))}
       </section>
 
       {/* ── The team ────────────────────────────── */}
+      <FadeIn>
       <section style={{ padding: '76px 48px' }}>
         <div
           style={{
@@ -173,7 +180,14 @@ export default function AboutPage() {
               transition: 'border-color .2s ease',
             }}
           >
-            <ImagePlaceholder placeholder="IMG-23 coach 1 photo" height={340} />
+            <div style={{ height: 340, overflow: 'hidden' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80"
+                alt="James Lim"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
             <div style={{ padding: '24px 22px 26px' }}>
               <p
                 style={{
@@ -204,7 +218,14 @@ export default function AboutPage() {
               transition: 'border-color .2s ease',
             }}
           >
-            <ImagePlaceholder placeholder="IMG-24 coach 2 photo" height={340} />
+            <div style={{ height: 340, overflow: 'hidden' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80"
+                alt="Marcus Tan"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
             <div style={{ padding: '24px 22px 26px' }}>
               <p
                 style={{
@@ -275,8 +296,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── Contact form ────────────────────────── */}
+      <FadeIn>
       <section
         style={{
           borderTop: '1px solid #212429',
@@ -366,11 +389,26 @@ export default function AboutPage() {
 
         {/* Right */}
         <div>
-          <ImagePlaceholder
-            placeholder="IMG-25 map placeholder"
-            height={320}
-            style={{ borderBottom: '1px solid #212429' }}
-          />
+          {/* Map placeholder */}
+          <div
+            style={{
+              height: 320,
+              background: '#111316',
+              borderBottom: '1px solid #212429',
+              display: 'grid',
+              placeItems: 'center',
+            }}
+          >
+            <div style={{ textAlign: 'center' }}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d99e5c" strokeWidth="1.5" style={{ display: 'block', margin: '0 auto 12px' }}>
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#4a5060', letterSpacing: '.2em', margin: 0 }}>
+                12 TANJONG PAGAR ROAD
+              </p>
+            </div>
+          </div>
           <div
             style={{
               padding: 48,
@@ -419,8 +457,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── Teams & corporate ───────────────────── */}
+      <FadeIn>
       <section style={{ borderTop: '1px solid #212429', padding: '66px 48px' }}>
         <div
           style={{
@@ -490,6 +530,7 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+      </FadeIn>
 
       <Footer />
     </div>

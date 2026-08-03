@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 const SERVICES = [
   { label: 'Assessment', sub: '45 min · from SGD 120' },
@@ -73,30 +72,17 @@ export default function BookPage() {
           borderBottom: '1px solid #212429',
         }}
       >
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <span
-            style={{
-              width: 34,
-              height: 34,
-              borderRadius: '50%',
-              overflow: 'hidden',
-              display: 'block',
-              flexShrink: 0,
-              background: '#0b0c0e',
-              position: 'relative',
-            }}
-          >
-            <Image
-              src="/logo.jpeg"
-              alt="Rebuilt"
-              width={84}
-              height={84}
-              style={{ position: 'absolute', width: '250%', height: 'auto', top: '-41%', left: '-75%' }}
-            />
-          </span>
-          <span style={{ fontSize: 15, fontWeight: 700, letterSpacing: '.34em', color: '#f2f4f7' }}>
-            REBUILT
-          </span>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/rebuilt-mark.svg" alt="Rebuilt" width={30} height={30} style={{ display: 'block' }} />
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.34em', color: '#f2f4f7', lineHeight: 1 }}>
+              REBUILT
+            </div>
+            <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: '#d99e5c' }}>
+              SINGAPORE
+            </div>
+          </div>
         </Link>
         <Link
           href="/"
@@ -597,7 +583,7 @@ export default function BookPage() {
                 style={{
                   border: '1px solid #2a2e34',
                   background: '#0e1013',
-                  padding: '20px',
+                  padding: '24px',
                   maxWidth: 420,
                 }}
               >
@@ -607,14 +593,26 @@ export default function BookPage() {
                     color: '#6f7783',
                     letterSpacing: '.16em',
                     marginTop: 0,
-                    marginBottom: 10,
+                    marginBottom: 20,
                   }}
                 >
-                  PAYMENT
+                  PAY VIA PAYNOW
                 </p>
-                <p style={{ fontSize: 14, color: '#a3aab4', margin: 0 }}>
-                  [ Payment integration placeholder — Stripe or similar ]
-                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                  {[
+                    { label: 'UEN / Phone', value: '+65 8123 4567' },
+                    { label: 'Amount', value: 'SGD 50' },
+                    { label: 'Reference', value: 'Your name + service' },
+                  ].map(({ label, value }) => (
+                    <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #1a1d22', paddingBottom: 14 }}>
+                      <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.14em' }}>{label.toUpperCase()}</span>
+                      <span style={{ fontSize: 14, color: '#c2c7ce', fontWeight: 500 }}>{value}</span>
+                    </div>
+                  ))}
+                  <p style={{ fontSize: 12, lineHeight: 1.6, color: '#5f6670', margin: 0 }}>
+                    Send us a screenshot of the transfer and we will confirm your booking within 2 hours.
+                  </p>
+                </div>
               </div>
             </div>
           )}
@@ -780,7 +778,7 @@ export default function BookPage() {
                   DEPOSIT
                 </span>
                 <span style={{ fontSize: 18, fontWeight: 700, color: '#f2f4f7' }}>
-                  [ V-72 ]
+                  SGD 50
                 </span>
               </div>
             </div>

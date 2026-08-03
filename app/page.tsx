@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
+import FadeIn from '@/components/ui/FadeIn'
 
 export const metadata: Metadata = {
   title: 'Rebuilt',
@@ -43,7 +43,12 @@ export default function HomePage() {
             animation: 'slowZoom 14s ease both',
           }}
         >
-          <ImagePlaceholder placeholder="IMG-01 hero photo" height="100%" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1778828494354-9b717d36dc99?auto=format&fit=crop&w=1400&q=85"
+            alt=""
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
         </div>
 
         {/* Gradient overlay */}
@@ -112,6 +117,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 2. Pillars ──────────────────────────── */}
+      <FadeIn>
       <section style={{ padding: '92px 48px', borderTop: '1px solid #212429' }}>
         {/* Header row */}
         <div
@@ -159,13 +165,18 @@ export default function HomePage() {
           {/* Card 01 – Rehab */}
           <div
             className="hover-card"
-            style={{ background: '#14161a', padding: '32px 24px 36px' }}
+            style={{ background: '#14161a', padding: '0 0 36px' }}
           >
+            <div style={{ height: 200, overflow: 'hidden' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?auto=format&fit=crop&w=800&q=80" alt="Rehab" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ padding: '28px 24px 0' }}>
             <p
               style={{
                 font: '11px/1 ui-monospace,Menlo,monospace',
                 color: '#d99e5c',
-                marginBottom: 52,
+                marginBottom: 18,
                 marginTop: 0,
               }}
             >
@@ -201,6 +212,7 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+            </div>
           </div>
 
           {/* Card 02 – Personal Training */}
@@ -208,15 +220,20 @@ export default function HomePage() {
             className="hover-card"
             style={{
               background: '#14161a',
-              padding: '32px 24px 36px',
+              padding: '0 0 36px',
               animation: 'revIn .6s ease 0.09s both',
             }}
           >
+            <div style={{ height: 200, overflow: 'hidden' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Personal Training" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ padding: '28px 24px 0' }}>
             <p
               style={{
                 font: '11px/1 ui-monospace,Menlo,monospace',
                 color: '#d99e5c',
-                marginBottom: 52,
+                marginBottom: 18,
                 marginTop: 0,
               }}
             >
@@ -252,6 +269,7 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+            </div>
           </div>
 
           {/* Card 03 – Sports Performance */}
@@ -259,15 +277,20 @@ export default function HomePage() {
             className="hover-card"
             style={{
               background: '#14161a',
-              padding: '32px 24px 36px',
+              padding: '0 0 36px',
               animation: 'revIn .6s ease 0.18s both',
             }}
           >
+            <div style={{ height: 200, overflow: 'hidden' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80" alt="Sports Performance" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ padding: '28px 24px 0' }}>
             <p
               style={{
                 font: '11px/1 ui-monospace,Menlo,monospace',
                 color: '#d99e5c',
-                marginBottom: 52,
+                marginBottom: 18,
                 marginTop: 0,
               }}
             >
@@ -303,11 +326,14 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+            </div>
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── 3. Physio coming soon ───────────────── */}
+      <FadeIn>
       <section
         style={{
           margin: '0 48px',
@@ -397,14 +423,15 @@ export default function HomePage() {
         </div>
 
         {/* Right */}
-        <ImagePlaceholder
-          placeholder="IMG-02 physio room photo"
-          height="100%"
-          style={{ minHeight: 330 }}
-        />
+        <div style={{ minHeight: 330, overflow: 'hidden' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=800&q=80" alt="Physiotherapy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        </div>
       </section>
+      </FadeIn>
 
       {/* ── 4. Approach ─────────────────────────── */}
+      <FadeIn>
       <section
         style={{
           padding: '92px 48px',
@@ -415,11 +442,10 @@ export default function HomePage() {
         }}
       >
         {/* Left – image */}
-        <ImagePlaceholder
-          placeholder="IMG-03 approach photo"
-          height={390}
-          style={{ minHeight: 390 }}
-        />
+        <div style={{ height: 390, overflow: 'hidden' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.unsplash.com/photo-1761971975769-97e598bf526b?auto=format&fit=crop&w=900&q=80" alt="Our studio" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        </div>
 
         {/* Right – steps */}
         <div>
@@ -485,8 +511,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── 5. Referrals & insurers ─────────────── */}
+      <FadeIn>
       <section style={{ padding: '0 48px 54px' }}>
         <div
           style={{
@@ -526,18 +554,28 @@ export default function HomePage() {
             gap: 12,
           }}
         >
-          {[1, 2, 3, 4, 5].map((n) => (
-            <ImagePlaceholder
-              key={n}
-              placeholder={`INSURER / PARTNER ${n}`}
-              height={84}
-              style={{ border: '1px solid #1e2126' }}
-            />
+          {['NTUC Income', 'AIA', 'Prudential', 'Great Eastern', 'AXA'].map((name) => (
+            <div
+              key={name}
+              style={{
+                border: '1px solid #1e2126',
+                height: 84,
+                display: 'grid',
+                placeItems: 'center',
+                background: '#14161a',
+              }}
+            >
+              <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em', color: '#4a5060' }}>
+                {name.toUpperCase()}
+              </span>
+            </div>
           ))}
         </div>
       </section>
+      </FadeIn>
 
       {/* ── 6. Reviews ──────────────────────────── */}
+      <FadeIn>
       <section
         style={{
           background: '#0e1013',
@@ -700,8 +738,8 @@ export default function HomePage() {
                   alignItems: 'center',
                 }}
               >
-                <div style={{ width: 40, height: 40, borderRadius: '50%', overflow: 'hidden', flexShrink: 0 }}>
-                  <ImagePlaceholder placeholder="" height={40} />
+                <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#1e2126', display: 'grid', placeItems: 'center', flexShrink: 0, fontSize: 14, fontWeight: 700, color: '#d99e5c' }}>
+                  {name[0]}
                 </div>
                 <div>
                   <p style={{ fontSize: 13, fontWeight: 600, margin: '0 0 3px', color: '#f2f4f7' }}>
@@ -716,8 +754,10 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+      </FadeIn>
 
       {/* ── 7. Outcomes strip ───────────────────── */}
+      <FadeIn>
       <section
         style={{
           display: 'grid',
@@ -792,8 +832,10 @@ export default function HomePage() {
           </div>
         ))}
       </section>
+      </FadeIn>
 
       {/* ── 8. CTA section ──────────────────────── */}
+      <FadeIn>
       <section
         style={{
           background: '#0e1013',
@@ -923,6 +965,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       <Footer />
     </div>

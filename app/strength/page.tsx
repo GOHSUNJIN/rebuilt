@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
+import FadeIn from '@/components/ui/FadeIn'
+import FAQAccordion from '@/components/ui/FAQAccordion'
 
 export const metadata: Metadata = { title: 'Personal Training' }
 
@@ -31,7 +32,6 @@ export default function StrengthPage() {
           background: '#111316',
         }}
       >
-        {/* Hero image */}
         <div
           style={{
             position: 'absolute',
@@ -40,10 +40,14 @@ export default function StrengthPage() {
             animation: 'slowZoom 14s ease both',
           }}
         >
-          <ImagePlaceholder placeholder="IMG-14 strength session photo" height="100%" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+            alt="Personal training"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
         </div>
 
-        {/* Gradient overlay */}
         <div
           style={{
             position: 'absolute',
@@ -53,7 +57,6 @@ export default function StrengthPage() {
           }}
         />
 
-        {/* Content */}
         <div style={{ position: 'relative', padding: '0 48px 64px', maxWidth: 780 }}>
           <p
             style={{
@@ -97,6 +100,7 @@ export default function StrengthPage() {
       </section>
 
       {/* ── Pricing grid ────────────────────────── */}
+      <FadeIn>
       <section style={{ padding: '76px 48px' }}>
         <div
           style={{
@@ -250,11 +254,13 @@ export default function StrengthPage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── What a block looks like ──────────────── */}
+      <FadeIn>
       <section
         style={{
-          padding: '76px 48px',
+          padding: '0 48px 76px',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gap: 64,
@@ -323,11 +329,20 @@ export default function StrengthPage() {
           </div>
         </div>
 
-        {/* Right */}
-        <ImagePlaceholder placeholder="IMG-15 barbell photo" height={400} />
+        {/* Right – barbell image */}
+        <div style={{ height: 400, overflow: 'hidden' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"
+            alt="Barbell training"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        </div>
       </section>
+      </FadeIn>
 
       {/* ── CTA split ───────────────────────────── */}
+      <FadeIn>
       <section
         style={{
           borderTop: '1px solid #212429',
@@ -336,7 +351,14 @@ export default function StrengthPage() {
         }}
       >
         {/* Left – image */}
-        <ImagePlaceholder placeholder="IMG-16 training photo" style={{ minHeight: 340 }} height="100%" />
+        <div style={{ minHeight: 340, overflow: 'hidden' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1581009137042-c552e485697a?auto=format&fit=crop&w=900&q=80"
+            alt="Training coaching"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        </div>
 
         {/* Right */}
         <div
@@ -413,8 +435,10 @@ export default function StrengthPage() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── FAQ ─────────────────────────────────── */}
+      <FadeIn>
       <section style={{ padding: '66px 48px', borderTop: '1px solid #212429' }}>
         <div
           style={{
@@ -447,67 +471,32 @@ export default function StrengthPage() {
             CAN&apos;T SEE YOURS? ASK US
           </span>
         </div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: 12,
-          }}
-        >
-          {[
-            { num: '01', q: 'How often should I train each week?' },
-            { num: '02', q: 'Do I need gym experience to start?' },
-            { num: '03', q: 'Can we train around an old injury?' },
-            { num: '04', q: 'What happens if I miss a session?' },
-          ].map(({ num, q }) => (
-            <div
-              key={num}
-              className="hover-faq"
-              style={{
-                border: '1px solid #1e2126',
-                background: '#14161a',
-                padding: '26px 20px',
-                cursor: 'pointer',
-              }}
-            >
-              <p
-                style={{
-                  font: '10px/1 ui-monospace,Menlo,monospace',
-                  color: '#d99e5c',
-                  letterSpacing: '.2em',
-                  marginTop: 0,
-                  marginBottom: 14,
-                }}
-              >
-                {num}
-              </p>
-              <p
-                style={{
-                  fontSize: 17,
-                  fontWeight: 500,
-                  color: '#f2f4f7',
-                  marginTop: 0,
-                  marginBottom: 20,
-                  lineHeight: 1.4,
-                }}
-              >
-                {q}
-              </p>
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 600,
-                  letterSpacing: '.16em',
-                  textTransform: 'uppercase',
-                  color: '#d99e5c',
-                }}
-              >
-                Read answer
-              </span>
-            </div>
-          ))}
-        </div>
+        <FAQAccordion
+          items={[
+            {
+              num: '01',
+              q: 'How often should I train each week?',
+              a: 'For most people, two to three sessions per week is the right balance. We factor in your recovery, your schedule and what you are doing outside of these sessions when we write your programme.',
+            },
+            {
+              num: '02',
+              q: 'Do I need gym experience to start?',
+              a: 'No. We have coached complete beginners through to competitive athletes. If you are new to training, the first few sessions are about learning the basics so that everything that comes after is built on solid ground.',
+            },
+            {
+              num: '03',
+              q: 'Can we train around an old injury?',
+              a: 'Almost always yes. Old injuries are something we factor into the programme from the start, not something we work around by avoiding. Often they are a reason to train, not a reason not to.',
+            },
+            {
+              num: '04',
+              q: 'What happens if I miss a session?',
+              a: 'We adjust the programme and carry on. Missing a session does not derail the block — we just pick up where we left off and keep the overall plan intact.',
+            },
+          ]}
+        />
       </section>
+      </FadeIn>
 
       <Footer />
     </div>

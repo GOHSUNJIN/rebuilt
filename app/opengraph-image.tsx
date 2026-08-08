@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Rebuilt Singapore — Rehab, Training & Performance'
+export const alt = 'Rebuilt Singapore: Rehab, Training & Performance'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -55,7 +55,7 @@ export default function Image() {
           paddingTop: 24,
         }}
       >
-        {['Rehab', 'Personal Training', 'Performance', 'Physiotherapy'].map((s) => (
+        {['Rehab', 'Training', 'Performance', 'Physiotherapy'].map((s) => (
           <div key={s} style={{ fontSize: 11, letterSpacing: '0.2em', color: '#5f6670' }}>
             {s.toUpperCase()}
           </div>

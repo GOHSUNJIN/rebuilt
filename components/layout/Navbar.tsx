@@ -6,10 +6,12 @@ import { useState, useEffect, useRef } from 'react'
 type NavbarProps = { activePage?: string }
 
 const NAV_LINKS = [
-  { href: '/rehab', label: 'Rehab', page: 'rehab' },
-  { href: '/strength', label: 'Personal Training', page: 'strength' },
+  { href: '/rehab',       label: 'Rehab',       page: 'rehab' },
+  { href: '/strength',    label: 'Training',    page: 'strength' },
   { href: '/performance', label: 'Performance', page: 'performance' },
-  { href: '/about', label: 'About', page: 'about' },
+  { href: '/physio',      label: 'Physiotherapy', page: 'physio' },
+  { href: '/about',       label: 'About',       page: 'about' },
+  { href: '/faq',         label: 'FAQ',         page: 'faq' },
 ]
 
 export default function Navbar({ activePage = '' }: NavbarProps) {
@@ -20,11 +22,11 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY
+      setMenuOpen(false)
       if (y < 80) {
         setHidden(false)
       } else if (y > lastY.current + 4) {
         setHidden(true)
-        setMenuOpen(false)
       } else if (y < lastY.current - 4) {
         setHidden(false)
       }
@@ -82,46 +84,28 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
                   fontWeight: 600,
                   letterSpacing: '.2em',
                   textTransform: 'uppercase',
-                  color: active ? '#d99e5c' : '#8d95a0',
-                  transition: 'color .15s',
+                  color: active ? '#d99e5c' : '#a3aab4',
                 }}
-                className={active ? '' : 'hover-nav'}
+                className="hover-nav"
               >
                 {label}
               </Link>
             )
           })}
 
-          <Link
-            href="/physio"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 7,
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: '.2em',
-              textTransform: 'uppercase',
-              color: activePage === 'physio' ? '#d99e5c' : '#525960',
-              transition: 'color .15s',
-            }}
-          >
-            Physiotherapy
-            <span style={{ fontSize: 8, letterSpacing: '.14em', color: '#d99e5c', border: '1px solid rgba(217,158,92,.3)', padding: '2px 5px' }}>
-              SOON
-            </span>
-          </Link>
         </div>
 
         {/* ── Book CTA ─────────────────────────────── */}
-        <Link href="/book" className="btn-gold" style={{ padding: '11px 22px', fontSize: 11, letterSpacing: '.2em' }}>
-          Book a session
+        <Link href="/book" className="btn-gold r-hide" style={{ padding: '11px 22px', fontSize: 11, letterSpacing: '.2em' }}>
+          Book a consult
         </Link>
 
         {/* ── Mobile hamburger ─────────────────────── */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-haspopup="menu"
           style={{
             display: 'none',
             background: 'none',
@@ -146,8 +130,8 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
 
         {/* ── Mobile dropdown ──────────────────────── */}
         {menuOpen && (
-          <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#0b0c0e', borderBottom: '1px solid #1e2126', zIndex: 100 }}>
-            {[...NAV_LINKS, { href: '/physio', label: 'Physiotherapy', page: 'physio' }].map(({ href, label, page }) => (
+          <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#0b0c0e', borderBottom: '1px solid #1e2126', zIndex: 100, animation: 'mdIn 0.18s ease both' }}>
+            {NAV_LINKS.map(({ href, label, page }) => (
               <Link
                 key={page}
                 href={href}
@@ -171,7 +155,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
               onClick={() => setMenuOpen(false)}
               style={{ display: 'block', padding: '14px 24px', fontSize: 11, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', color: '#d99e5c' }}
             >
-              Book a session
+              Book a consult
             </Link>
           </div>
         )}

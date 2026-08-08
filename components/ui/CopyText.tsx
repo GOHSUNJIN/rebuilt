@@ -35,7 +35,7 @@ export default function CopyText({ value, children, style, className }: CopyText
           cursor: 'pointer',
           font: '9px/1 ui-monospace,Menlo,monospace',
           letterSpacing: '.12em',
-          color: copied ? '#7ee8a2' : '#3a3f47',
+          color: copied ? '#7ee8a2' : '#5f6670',
           transition: 'color .2s ease',
           flexShrink: 0,
         }}

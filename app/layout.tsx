@@ -1,9 +1,12 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Archivo } from 'next/font/google'
 import './globals.css'
 import { SITE } from '@/lib/site'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
 import ScrollProgress from '@/components/ui/ScrollProgress'
+import CursorGlow from '@/components/ui/CursorGlow'
+import LandscapeBlock from '@/components/ui/LandscapeBlock'
+import MobileBookingBar from '@/components/ui/MobileBookingBar'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -12,14 +15,21 @@ const archivo = Archivo({
   weight: ['400', '500', '600', '700', '800'],
 })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+}
+
 export const metadata: Metadata = {
   title: { default: 'Rebuilt', template: '%s | Rebuilt' },
   description:
-    'Rebuilt: coached rehabilitation, 1-to-1 personal training and sports performance in Singapore.',
+    'Rebuilt: coached rehabilitation, training and sports performance in Singapore.',
   metadataBase: new URL(SITE.url),
   openGraph: {
     title: 'Rebuilt',
-    description: 'Coached rehabilitation, personal training and sports performance in Singapore.',
+    description: 'Coached rehabilitation, training and sports performance in Singapore.',
     url: SITE.url,
     siteName: 'Rebuilt',
     locale: 'en_SG',
@@ -28,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Rebuilt',
-    description: 'Coached rehabilitation, personal training and sports performance in Singapore.',
+    description: 'Coached rehabilitation, training and sports performance in Singapore.',
   },
   icons: {
     icon: '/rebuilt-mark.svg',
@@ -46,15 +56,15 @@ const jsonLd = {
   email: SITE.contact.email,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '12 Tanjong Pagar Road, #02-01',
+    streetAddress: '120 Robinson Rd, #10-01',
     addressLocality: 'Singapore',
-    postalCode: '088443',
+    postalCode: '068913',
     addressCountry: 'SG',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 1.2775,
-    longitude: 103.8445,
+    latitude: 1.2789,
+    longitude: 103.8467,
   },
   openingHoursSpecification: [
     {
@@ -70,10 +80,10 @@ const jsonLd = {
       closes: '14:00',
     },
   ],
-  priceRange: 'SGD 70–150',
+  priceRange: 'SGD 90-150',
   currenciesAccepted: 'SGD',
   paymentAccepted: 'PayNow',
-  hasMap: SITE.address.mapsUrl,
+  hasMap: SITE.locations[0].mapsUrl,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -87,8 +97,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <LandscapeBlock />
+        <CursorGlow />
         <ScrollProgress />
         {children}
+        <MobileBookingBar />
         <WhatsAppButton />
         <Analytics />
         <SpeedInsights />

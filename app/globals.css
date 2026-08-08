@@ -15,6 +15,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow-x: hidden;
 }
 
 html::-webkit-scrollbar {
@@ -24,7 +25,7 @@ html::-webkit-scrollbar {
 body {
   margin: 0;
   padding: 0;
-  background: #101113;
+  background: #0a0c12;
   font-family: 'Archivo', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -96,6 +97,16 @@ a:hover {
   100% { opacity: 1; transform: scale(1); }
 }
 
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes goldShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -127,19 +138,14 @@ a:hover {
   color: #d99e5c;
 }
 
-.hover-btn:hover {
-  transform: translateY(-2px);
-  background: #e8b072;
-  box-shadow: 0 12px 26px rgba(217, 158, 92, 0.24);
-}
-
 .hover-card {
-  transition: transform 0.25s ease, background 0.25s ease;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hover-card:hover {
-  transform: translateY(-4px);
-  background: #1a1d22;
+  transform: translateY(-6px);
+  background: #191c21 !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(217,158,92,.1);
 }
 
 .hover-border {
@@ -150,21 +156,16 @@ a:hover {
   border-color: #d99e5c;
 }
 
-.hover-bright {
-  transition: filter 0.35s ease;
-}
-
-.hover-bright:hover {
-  filter: brightness(1.09);
-}
-
 .hover-nav {
-  transition: color 0.15s ease, box-shadow 0.15s ease;
+  transition: color 0.2s ease, background 0.2s ease;
+  padding: 5px 10px;
+  margin: 0 -10px;
+  border-radius: 3px;
 }
 
 .hover-nav:hover {
   color: #d99e5c;
-  box-shadow: inset 0 -1px 0 #d99e5c;
+  background: rgba(217, 158, 92, 0.08);
 }
 
 .hover-social {
@@ -187,11 +188,12 @@ a:hover {
 }
 
 .hover-approach {
-  transition: background 0.2s ease;
+  transition: background .15s, box-shadow .15s;
 }
 
 .hover-approach:hover {
-  background: #12151a;
+  background: #111418;
+  box-shadow: inset 3px 0 0 #d99e5c;
 }
 
 .hover-outline:hover {
@@ -285,8 +287,10 @@ select:focus {
   .r3       { grid-template-columns: 1fr !important; }
   .r4       { grid-template-columns: 1fr 1fr !important; }
   .r5       { grid-template-columns: 1fr 1fr !important; }
+  .r6       { grid-template-columns: repeat(3, 1fr) !important; }
   .r-reviews  { grid-template-columns: 1fr !important; }
   .r-stats    { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+  .r-editorial { grid-template-columns: 1fr !important; row-gap: 10px !important; }
 
   .book-sidebar { order: -1 !important; position: static !important; top: auto !important; }
   .r-mx         { margin-left: 20px !important; margin-right: 20px !important; }
@@ -306,11 +310,149 @@ select:focus {
   .r-w100 { width: 100% !important; max-width: 100% !important; }
 }
 
+/* ── Landscape lock (phones only) ──────────────── */
+
+.landscape-block {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #0c0e14;
+  z-index: 9999;
+  place-items: center;
+}
+
+@media screen and (orientation: landscape) and (hover: none) and (max-width: 900px) {
+  .landscape-block {
+    display: grid;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .whatsapp-btn:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 8px 28px rgba(217,158,92,.5);
   opacity: 1;
 }
+
+/* ── Mobile book btn hover ──────────────────── */
+
+.mobile-book-btn:hover { opacity: 0.8; }
+
+/* ── Mobile booking bar ─────────────────────── */
+
+.mobile-book-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  padding: 12px 20px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  background: rgba(11, 12, 14, 0.97);
+  border-top: 1px solid #1e2126;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .mobile-book-bar {
+    display: flex;
+  }
+
+  .whatsapp-btn {
+    display: none !important;
+  }
+
+  body {
+    padding-bottom: 86px;
+  }
+
+  body:has(.book-page-root) {
+    padding-bottom: 0 !important;
+  }
+
+  .book-content {
+    padding-top: 28px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .book-nav {
+    flex-direction: column-reverse !important;
+  }
+
+  .book-nav button,
+  .book-nav a {
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  .r-tall-pad {
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+  }
+
+  .book-step-label {
+    display: none !important;
+  }
+
+  .r-btn-full {
+    width: 100% !important;
+    align-self: stretch !important;
+    justify-content: center;
+  }
+
+  .r-desc-right {
+    text-align: left !important;
+    max-width: none !important;
+  }
+}
+
+/* ── Gradient text ──────────────────────────── */
+
+.gradient-gold {
+  background: linear-gradient(120deg, #c8894a 0%, #f0c07a 45%, #d99e5c 55%, #c8894a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 4s linear infinite;
+}
+
+/* ── Card image overlay tint on hover ───────── */
+
+.img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(217, 158, 92, 0.1);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hover-card:hover .img-overlay,
+a:hover > .img-overlay {
+  opacity: 1;
+}
+
+/* ── Stagger children ───────────────────────── */
+
+.stagger > *:nth-child(1) { animation-delay: 0s !important; }
+.stagger > *:nth-child(2) { animation-delay: 0.08s !important; }
+.stagger > *:nth-child(3) { animation-delay: 0.16s !important; }
+.stagger > *:nth-child(4) { animation-delay: 0.24s !important; }
+.stagger > *:nth-child(5) { animation-delay: 0.32s !important; }
+.stagger > *:nth-child(6) { animation-delay: 0.40s !important; }
 
 /* ── Image zoom ─────────────────────────────── */
 
@@ -327,7 +469,89 @@ select:focus {
 }
 
 @media (max-width: 480px) {
-  .r-h1    { font-size: 36px !important; }
-  .r-h1-lg { font-size: 42px !important; }
+  .r-h1    { font-size: 34px !important; line-height: 0.94 !important; }
+  .r-h1-lg { font-size: 40px !important; }
+  .r-h2    { font-size: 28px !important; }
   .r-px    { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+@media (max-width: 380px) {
+  .r-h1    { font-size: 30px !important; }
+  .r-h1-lg { font-size: 36px !important; }
+}
+
+/* ── Orphan prevention ──────────────────── */
+
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+/* ── 404 ghost text ─────────────────────── */
+
+@media (max-width: 768px) {
+  .r-404 { font-size: 80px !important; }
+}
+
+/* ── FAQ sidebar responsive ─────────────── */
+
+.r-faq-btn {
+  border-left: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+}
+.r-faq-btn-active {
+  border-left-color: #d99e5c !important;
+  color: #d99e5c !important;
+  font-weight: 700 !important;
+}
+
+@media (max-width: 768px) {
+  .r-faq { flex-direction: column !important; }
+
+  .r-faq-sidebar {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid #212429 !important;
+    padding: 0 !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+  .r-faq-sidebar::-webkit-scrollbar { display: none; }
+
+  .r-faq-hide-mobile { display: none !important; }
+
+  .r-faq-btn {
+    border-left: none !important;
+    border-bottom: 2px solid transparent !important;
+    padding: 12px 16px !important;
+    white-space: nowrap !important;
+    width: auto !important;
+    flex-shrink: 0 !important;
+    text-align: center !important;
+  }
+  .r-faq-btn-active {
+    border-left: none !important;
+    border-bottom: 2px solid #d99e5c !important;
+  }
+  .r-faq-content { padding: 28px 20px 48px !important; }
+  .r-faq-mobile-cta { display: flex !important; }
+}
+
+/* ── Instagram grid responsive ──────────── */
+
+@media (max-width: 768px) {
+  .r-ig { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* ── Scroll-to-top button ───────────────── */
+
+.scroll-top-btn:hover {
+  border-color: #d99e5c;
+  background: #1a1d22;
+}
+
+@media (max-width: 768px) {
+  .scroll-top-btn {
+    bottom: 100px !important;
+    right: 16px !important;
+  }
 }

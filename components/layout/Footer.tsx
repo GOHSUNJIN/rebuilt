@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { SITE } from '@/lib/site'
 import OpenStatus from '@/components/ui/OpenStatus'
 
@@ -9,6 +10,7 @@ type SocialTarget = { label: string; href: string; note: string } | null
 
 export default function Footer() {
   const [target, setTarget] = useState<SocialTarget>(null)
+  const pathname = usePathname()
 
   const socials: { label: string; href: string; note: string; icon: React.ReactNode }[] = [
     {
@@ -25,8 +27,8 @@ export default function Footer() {
     },
     {
       label: 'Email',
-      href: `mailto:${SITE.contact.email}`,
-      note: `This will open your email client to send a message to ${SITE.contact.email}.`,
+      href: `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`,
+      note: `This will open Gmail to send a message to ${SITE.contact.email}.`,
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
           <rect x="2.5" y="5" width="19" height="14" rx="2" />
@@ -69,7 +71,7 @@ export default function Footer() {
               background: '#14161a',
               border: '1px solid #262a30',
               padding: '32px',
-              maxWidth: 380,
+              maxWidth: 340,
               width: '100%',
             }}
           >
@@ -110,11 +112,31 @@ export default function Footer() {
         </div>
       )}
 
+      {/* Nav row */}
+      <div className="r-px" style={{ borderTop: '1px solid #212429', background: '#0e0f11', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #17191d' }}>
+        {[
+          { label: 'Rehab',             href: '/rehab' },
+          { label: 'Training',          href: '/strength' },
+          { label: 'Performance',       href: '/performance' },
+          { label: 'Physiotherapy',     href: '/physio' },
+          { label: 'About',             href: '/about' },
+          { label: 'FAQ',               href: '/faq' },
+          { label: 'Book a consult',    href: '/book' },
+        ].map(({ label, href }) => {
+          const active = pathname === href || (href !== '/' && pathname.startsWith(href))
+          return (
+            <Link key={label} href={href} style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: active ? '#d99e5c' : '#8d95a0', letterSpacing: '.16em', textDecoration: 'none', transition: 'color .15s' }} className={active ? '' : 'hover-gold'}>
+              {label.toUpperCase()}
+            </Link>
+          )
+        })}
+      </div>
+
       <footer
+        className="r-px"
         style={{
-          borderTop: '1px solid #d99e5c',
           background: '#0e0f11',
-          padding: '26px 48px',
+          padding: '22px 48px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -141,6 +163,10 @@ export default function Footer() {
 
         {/* Right */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 22, flexWrap: 'wrap' }}>
+          <a href={SITE.contact.phoneTel} style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#7a828e', letterSpacing: '.1em', transition: 'color .15s' }} className="hover-gold">
+            {SITE.contact.phone}
+          </a>
+          <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             {socials.map(({ label, href, note, icon }) => (
               <button
@@ -166,10 +192,10 @@ export default function Footer() {
               </button>
             ))}
           </div>
-          <Link href="/book" className="btn-gold" style={{ padding: '13px 24px' }}>
-            Book a session
+          <Link href="/book" className="btn-gold r-hide" style={{ padding: '13px 24px' }}>
+            Book a consult
           </Link>
-          <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
+          <span className="r-hide" style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
           <Link
             href="/privacy"
             style={{ transition: 'color .2s ease', color: '#868e99', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em' }}
@@ -184,7 +210,7 @@ export default function Footer() {
           >
             TERMS
           </Link>
-          <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em', color: '#5f6670' }}>
+          <span suppressHydrationWarning style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em', color: '#5f6670' }}>
             © {new Date().getFullYear()}
           </span>
         </div>

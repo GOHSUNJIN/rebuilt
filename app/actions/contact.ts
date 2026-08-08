@@ -11,6 +11,7 @@ export async function submitContact(formData: FormData) {
   const message = formData.get('message') as string
 
   if (!name || !email) return { ok: false, error: 'Name and email are required.' }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { ok: false, error: 'Please enter a valid email address.' }
 
   if (!process.env.RESEND_API_KEY) {
     console.warn('RESEND_API_KEY not set — email not sent')
@@ -22,7 +23,7 @@ export async function submitContact(formData: FormData) {
       from: 'Rebuilt Website <noreply@rebuilt.sg>',
       to: SITE.contact.email,
       replyTo: email,
-      subject: `New enquiry from ${name}${service ? ` — ${service}` : ''}`,
+      subject: `New enquiry from ${name}${service ? `: ${service}` : ''}`,
       text: [
         `Name: ${name}`,
         `Email: ${email}`,

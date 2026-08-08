@@ -1,45 +1,38 @@
 'use client'
-import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { TEAM, type TeamMember } from '@/lib/team'
+import { useScrollLock } from '@/lib/hooks'
 
-interface TeamMember {
-  role: string
-  name: string
-  photo: string
-  short: string
-  bio: string[]
-  credentials: string[]
+function MemberPlaceholder({ initials, height }: { initials: string; height: number }) {
+  return (
+    <div style={{ height, overflow: 'hidden', position: 'relative', background: '#08090b', flexShrink: 0 }}>
+      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 130% 80% at 30% 20%, #111418 0%, #060708 100%)' }} />
+      <span style={{
+        position: 'absolute', top: '50%', left: '50%',
+        transform: 'translate(-50%, -50%)',
+        font: `${Math.round(height * 0.42)}px/1 Archivo,sans-serif`, fontWeight: 800,
+        color: 'rgba(255,255,255,.025)', letterSpacing: '-.04em',
+        userSelect: 'none', pointerEvents: 'none', whiteSpace: 'nowrap',
+      }}>
+        {initials}
+      </span>
+    </div>
+  )
 }
-
-const TEAM: TeamMember[] = [
-  {
-    role: 'HEAD OF REHAB',
-    name: 'James Lim',
-    photo: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80',
-    short: 'Registered physiotherapist with 9 years in clinical rehab, specialising in lower limb reconstruction and return-to-sport testing across football and rugby.',
-    bio: [
-      'James completed his Bachelor of Physiotherapy at NUS and spent six years in a hospital orthopaedic unit before moving into private practice. He has worked extensively with athletes recovering from ACL reconstructions, shoulder dislocations and spinal injuries across football, rugby and combat sports.',
-      'At Rebuilt, he leads all rehabilitation programming and is the first point of contact for anyone coming back from surgery or a significant injury. His approach centres on progressive loading — building tissue capacity before returning to full sport.',
-      'Outside the studio, James competes in masters athletics and holds a Level 2 athletics coach certification.',
-    ],
-    credentials: ['B.Phty (NUS)', 'CSCS', 'Level 2 Athletics Coach', '9 years clinical experience'],
-  },
-  {
-    role: 'STRENGTH COACH',
-    name: 'Marcus Tan',
-    photo: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80',
-    short: 'Strength and conditioning coach with a background in competitive powerlifting and 7 years coaching athletes from amateur club level to national representation.',
-    bio: [
-      'Marcus holds a degree in Sports Science from NTU and has worked as a strength and conditioning coach across football, basketball and swimming programmes at both club and national level. He competed in powerlifting for eight years, reaching national level in the 83kg category.',
-      'His work at Rebuilt covers one-to-one personal training, pairs sessions and structured performance blocks for athletes. He is known for technical precision in the squat, deadlift and pull patterns, and for building programmes that are genuinely sustainable long-term.',
-      'Marcus also runs the gym\'s small group training schedule and designs all in-season and off-season conditioning blocks.',
-    ],
-    credentials: ['B.Sc Sports Science (NTU)', 'NSCA-CSCS', 'National-level powerlifter', '7 years S&C coaching'],
-  },
-]
 
 export default function TeamBioModal() {
   const [selected, setSelected] = useState<TeamMember | null>(null)
+
+  useScrollLock(!!selected)
+
+  useEffect(() => {
+    if (!selected) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelected(null) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [selected])
+
+  const initials = (name: string) => name.split(' ').map(n => n[0]).join('')
 
   return (
     <>
@@ -63,15 +56,7 @@ export default function TeamBioModal() {
             }}
             onClick={() => setSelected(member)}
           >
-            <div className="img-zoom" style={{ height: 340, overflow: 'hidden', position: 'relative' }}>
-              <Image
-                src={member.photo}
-                alt={member.name}
-                fill
-                style={{ objectFit: 'cover' }}
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
+            <MemberPlaceholder initials={initials(member.name)} height={340} />
             <div style={{ padding: '24px 22px 26px' }}>
               <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em', marginTop: 0, marginBottom: 10 }}>
                 {member.role}
@@ -91,21 +76,23 @@ export default function TeamBioModal() {
 
         {/* Placeholder / hiring card */}
         <div style={{ border: '1px solid #1e2126', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ flex: 1, background: '#111316', display: 'grid', placeItems: 'center', minHeight: 340 }}>
-            <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#2a2e34', letterSpacing: '.2em' }}>
-              PHYSIOTHERAPIST
-            </span>
+          <div style={{ height: 340, background: '#08090b', display: 'flex', alignItems: 'flex-end', padding: '0 22px 22px', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 30% 30%, #111014 0%, #060708 70%)' }} />
+            <span style={{ position: 'relative', font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em' }}>PHYSIOTHERAPIST</span>
           </div>
           <div style={{ padding: '24px 22px 26px' }}>
-            <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#4a3d2b', letterSpacing: '.2em', marginTop: 0, marginBottom: 10 }}>
-              COMING SOON
+            <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', letterSpacing: '.2em', marginTop: 0, marginBottom: 10 }}>
+              IN-HOUSE · COMING SOON
             </p>
-            <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10, color: '#5f6670' }}>
+            <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10, color: '#8d95a0' }}>
               Physiotherapist
             </h3>
-            <p style={{ fontSize: 14, lineHeight: 1.65, color: '#4a4f57', margin: 0 }}>
-              Joining ahead of the physiotherapy launch.
+            <p style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 18px' }}>
+              Physiotherapy at Rebuilt is delivered in partnership with Rehab & Beyond. In-house physio is coming soon.
             </p>
+            <a href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', letterSpacing: '.16em', textDecoration: 'none' }}>
+              LEARN MORE →
+            </a>
           </div>
         </div>
       </div>
@@ -121,6 +108,7 @@ export default function TeamBioModal() {
             onClick={() => setSelected(null)}
           />
           <div
+            className="no-scrollbar"
             style={{
               position: 'fixed', top: 0, right: 0, bottom: 0, width: '100%', maxWidth: 500,
               background: '#0f1115', borderLeft: '1px solid #262a30', zIndex: 1001,
@@ -129,24 +117,20 @@ export default function TeamBioModal() {
           >
             <button
               onClick={() => setSelected(null)}
+              aria-label="Close bio"
               style={{
-                position: 'absolute', top: 20, right: 20, background: 'none',
-                border: '1px solid #2a2e34', color: '#a3aab4', width: 36, height: 36,
-                cursor: 'pointer', display: 'grid', placeItems: 'center', fontSize: 14,
-                fontFamily: 'inherit', zIndex: 1,
+                position: 'absolute', top: 20, right: 20,
+                background: 'rgba(15,17,21,.8)', border: 'none',
+                color: '#f2f4f7', width: 40, height: 40, borderRadius: '50%',
+                cursor: 'pointer', display: 'grid', placeItems: 'center', fontSize: 18,
+                fontFamily: 'inherit', zIndex: 1, backdropFilter: 'blur(8px)',
               }}
             >
               ✕
             </button>
 
-            <div style={{ height: 280, position: 'relative', overflow: 'hidden' }}>
-              <Image
-                src={selected.photo}
-                alt={selected.name}
-                fill
-                style={{ objectFit: 'cover' }}
-                sizes="500px"
-              />
+            <div style={{ position: 'relative' }}>
+              <MemberPlaceholder initials={initials(selected.name)} height={280} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f1115 0%, transparent 55%)' }} />
             </div>
 
@@ -165,7 +149,7 @@ export default function TeamBioModal() {
               ))}
 
               <div style={{ borderTop: '1px solid #1e2126', marginTop: 28, paddingTop: 28 }}>
-                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', marginTop: 0, marginBottom: 18 }}>
+                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em', marginTop: 0, marginBottom: 18 }}>
                   CREDENTIALS
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>

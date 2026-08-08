@@ -1,126 +1,103 @@
 'use client'
 import { useState } from 'react'
-
-export interface FAQItem {
-  num: string
-  q: string
-  a: string
-}
+import type { FAQItem } from '@/lib/types'
 
 export default function FAQAccordion({ items }: { items: FAQItem[] }) {
   const [open, setOpen] = useState<string | null>(null)
 
   return (
-    <>
-      <style>{`
-        @media (max-width: 768px) {
-          .faq-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-      <div
-        className="faq-grid"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 2,
-          background: '#1a1d22',
-        }}
-      >
-        {items.map(({ num, q, a }) => {
-          const isOpen = open === num
-          return (
-            <div
-              key={num}
+    <div>
+      {items.map(({ num, q, a }) => {
+        const isOpen = open === num
+        return (
+          <div key={num} style={{ borderTop: '1px solid #1e2126' }}>
+            <button
+              type="button"
+              aria-expanded={isOpen}
+              aria-controls={`faq-answer-${num}`}
+              onClick={() => setOpen(isOpen ? null : num)}
               style={{
-                background: isOpen ? '#0f1114' : '#0b0c0e',
-                transition: 'background .2s ease',
+                width: '100%',
+                padding: '22px 0',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 20,
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                textAlign: 'left',
+                fontFamily: 'inherit',
               }}
             >
-              <button
-                onClick={() => setOpen(isOpen ? null : num)}
+              <span style={{
+                font: '9px/1 ui-monospace,Menlo,monospace',
+                color: isOpen ? '#d99e5c' : '#8d95a0',
+                letterSpacing: '.18em',
+                flexShrink: 0,
+                width: 22,
+                transition: 'color .15s',
+              }}>
+                {num}
+              </span>
+              <h3
                 style={{
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: 20,
-                  padding: '26px 28px',
-                  background: 'none',
-                  border: 'none',
-                  borderBottom: isOpen ? '1px solid #1e2126' : '1px solid transparent',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                  fontFamily: 'inherit',
-                  transition: 'border-color .2s ease',
+                  fontSize: 17,
+                  fontWeight: 600,
+                  margin: 0,
+                  flex: 1,
+                  lineHeight: 1.35,
+                  letterSpacing: '-.015em',
+                  color: isOpen ? '#f2f4f7' : '#c2c7ce',
+                  transition: 'color .15s',
                 }}
               >
-                <span
-                  style={{
-                    minWidth: 28,
-                    height: 28,
-                    border: `1px solid ${isOpen ? '#d99e5c' : '#2a2e34'}`,
-                    color: isOpen ? '#d99e5c' : '#4a5060',
-                    font: '10px/1 ui-monospace,Menlo,monospace',
-                    letterSpacing: '.12em',
-                    display: 'grid',
-                    placeItems: 'center',
-                    flexShrink: 0,
-                    marginTop: 2,
-                    transition: 'border-color .2s, color .2s',
-                  }}
-                >
-                  {num}
-                </span>
-                <span
-                  style={{
-                    flex: 1,
-                    fontSize: 15,
-                    fontWeight: 500,
-                    color: isOpen ? '#f2f4f7' : '#c2c7ce',
-                    lineHeight: 1.45,
-                    transition: 'color .15s',
-                  }}
-                >
-                  {q}
-                </span>
-                <span
-                  style={{
-                    fontSize: 22,
-                    color: '#d99e5c',
-                    flexShrink: 0,
-                    lineHeight: 1,
-                    marginTop: 1,
-                    transform: isOpen ? 'rotate(45deg)' : 'rotate(0)',
-                    transition: 'transform .2s ease',
-                    opacity: isOpen ? 1 : 0.5,
-                  }}
-                >
-                  +
-                </span>
-              </button>
-
-              <div
+                {q}
+              </h3>
+              <span
                 style={{
-                  overflow: 'hidden',
-                  maxHeight: isOpen ? 300 : 0,
-                  transition: 'max-height .3s ease',
+                  width: 26,
+                  height: 26,
+                  border: `1px solid ${isOpen ? '#d99e5c' : '#2a2e34'}`,
+                  display: 'grid',
+                  placeItems: 'center',
+                  flexShrink: 0,
+                  color: isOpen ? '#d99e5c' : '#5f6670',
+                  fontSize: 16,
+                  lineHeight: 1,
+                  transition: 'transform .22s ease, border-color .15s, color .15s',
+                  transform: isOpen ? 'rotate(45deg)' : 'none',
+                  fontWeight: 300,
                 }}
               >
-                <p
-                  style={{
-                    margin: 0,
-                    padding: '20px 28px 28px 76px',
-                    fontSize: 14,
-                    lineHeight: 1.75,
-                    color: '#8d95a0',
-                  }}
-                >
-                  {a}
-                </p>
-              </div>
+                +
+              </span>
+            </button>
+            <div
+              id={`faq-answer-${num}`}
+              role="region"
+              style={{
+                overflow: 'hidden',
+                maxHeight: isOpen ? 1200 : 0,
+                transition: 'max-height 0.32s cubic-bezier(0.4,0,0.2,1)',
+              }}
+            >
+              <p
+                style={{
+                  fontSize: 14.5,
+                  lineHeight: 1.75,
+                  color: '#a3aab4',
+                  margin: '0 0 26px',
+                  paddingLeft: 42,
+                  paddingRight: 52,
+                }}
+              >
+                {a}
+              </p>
             </div>
-          )
-        })}
-      </div>
-    </>
+          </div>
+        )
+      })}
+      <div style={{ borderTop: '1px solid #1e2126' }} />
+    </div>
   )
 }

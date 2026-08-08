@@ -2,17 +2,7 @@
 import { useState } from 'react'
 import { submitContact } from '@/app/actions/contact'
 import { SITE } from '@/lib/site'
-
-const inputStyle = {
-  padding: '14px 16px',
-  background: '#14161a',
-  border: '1px solid #262a30',
-  color: '#f2f4f7',
-  fontSize: 14,
-  fontFamily: 'inherit',
-  width: '100%',
-  boxSizing: 'border-box' as const,
-}
+import { inputStyle, formLabelStyle as labelStyle } from '@/lib/styles'
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
@@ -51,32 +41,41 @@ export default function ContactForm() {
 
   return (
     <>
-      <h2 style={{ fontSize: 44, fontWeight: 800, lineHeight: 1.02, letterSpacing: '-.02em', marginTop: 0, marginBottom: 32 }}>
-        Book or ask a question
-      </h2>
       <form style={{ display: 'flex', flexDirection: 'column', gap: 12 }} onSubmit={handleSubmit}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-          <input required name="name"  type="text"  placeholder="Your name"       style={inputStyle} />
-          <input required name="email" type="email" placeholder="your@email.com"  style={inputStyle} />
+        <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <label>
+            <span style={labelStyle}>NAME *</span>
+            <input required name="name" type="text" placeholder="Your name" style={inputStyle} />
+          </label>
+          <label>
+            <span style={labelStyle}>EMAIL *</span>
+            <input required name="email" type="email" placeholder="your@email.com" style={inputStyle} />
+          </label>
         </div>
-        <select name="service" style={{ ...inputStyle, color: '#a3aab4' }}>
-          <option value="">Select a service</option>
-          <option value="Rehab">Rehab</option>
-          <option value="Personal Training">Personal Training</option>
-          <option value="Performance">Performance</option>
-          <option value="Physiotherapy (waitlist)">Physiotherapy (waitlist)</option>
-        </select>
-        <textarea name="message" placeholder="Your question or message" rows={5} style={{ ...inputStyle, resize: 'none' }} />
+        <label>
+          <span style={labelStyle}>SERVICE</span>
+          <select name="service" style={{ ...inputStyle, color: '#a3aab4' }}>
+            <option value="" disabled>Select a service</option>
+            <option value="Rehab">Rehab</option>
+            <option value="Training">Training</option>
+            <option value="Performance">Performance</option>
+            <option value="Physiotherapy">Physiotherapy</option>
+          </select>
+        </label>
+        <label>
+          <span style={labelStyle}>MESSAGE</span>
+          <textarea name="message" placeholder="Your question or message" rows={5} style={{ ...inputStyle, resize: 'none' }} />
+        </label>
         {status === 'error' && (
           <p style={{ fontSize: 13, color: '#e07070', margin: 0 }}>{errorMsg}</p>
         )}
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="btn-gold"
-          style={{ padding: '15px 28px', alignSelf: 'flex-start', opacity: status === 'sending' ? 0.6 : 1 }}
+          className="btn-gold r-btn-full"
+          style={{ padding: '15px 28px', alignSelf: 'flex-start', opacity: status === 'sending' ? 0.6 : 1, cursor: status === 'sending' ? 'not-allowed' : 'pointer' }}
         >
-          {status === 'sending' ? 'Sending…' : 'Submit'}
+          {status === 'sending' ? 'Sending…' : 'Send message'}
         </button>
       </form>
     </>

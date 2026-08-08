@@ -3,21 +3,23 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import FadeIn from '@/components/ui/FadeIn'
-import CountUp from '@/components/ui/CountUp'
+import Marquee from '@/components/ui/Marquee'
+import ReviewsSection from '@/components/ui/ReviewsSection'
 
 export const metadata: Metadata = {
-  title: 'Rebuilt',
+  title: 'Rebuilt | Rehab, Training & Performance · Singapore',
+  description: 'Rebuilt is a Singapore gym for rehabilitation, personal training, sports performance and physiotherapy. One team, one set of notes, three locations at Core Collective.',
+  openGraph: {
+    title: 'Rebuilt Singapore — Rehab, Training & Performance',
+    description: 'One place for rehabilitation, personal training, sports performance and physiotherapy. Three locations across Singapore.',
+  },
 }
-
-const dash = (
-  <span style={{ width: 5, height: 1, background: '#d99e5c', display: 'inline-block', flexShrink: 0 }} />
-)
 
 const SERVICES = [
   {
     num: '01',
     title: 'Rehab',
+    from: 'from SGD 120',
     href: '/rehab',
     img: 'https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?auto=format&fit=crop&w=800&q=80',
     desc: 'For anyone coming back from injury or surgery, working to a plan that starts from where you are right now.',
@@ -25,7 +27,8 @@ const SERVICES = [
   },
   {
     num: '02',
-    title: 'Personal training',
+    title: 'Training',
+    from: 'from SGD 90',
     href: '/strength',
     img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80',
     desc: 'One to one coaching for people who want structure, technique that holds up, and progress they can see.',
@@ -34,6 +37,7 @@ const SERVICES = [
   {
     num: '03',
     title: 'Performance',
+    from: 'from SGD 1,200',
     href: '/performance',
     img: 'https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80',
     desc: 'For athletes chasing a number: speed, power, change of direction, and the conditioning to repeat it.',
@@ -41,78 +45,16 @@ const SERVICES = [
   },
 ]
 
-const STEPS = [
-  {
-    num: '01',
-    title: 'Assess',
-    desc: 'We start with what you can do now, what hurts, and what you want to get back to. Everything gets written down.',
-  },
-  {
-    num: '02',
-    title: 'Rebuild',
-    desc: 'Sessions run to a plan with weekly targets, so progress is earned rather than guessed at.',
-  },
-  {
-    num: '03',
-    title: 'Perform',
-    desc: 'You leave with the load, the numbers, and the confidence to keep going on your own terms.',
-  },
-]
-
-const OUTCOMES = [
-  {
-    label: 'OUTCOME 01',
-    heading: 'ACL reconstruction',
-    body: 'Client returned to full competitive football having passed all return-to-sport testing criteria at 16 weeks post-surgery.',
-    result: 'Back on the pitch',
-    time: '16 weeks',
-  },
-  {
-    label: 'OUTCOME 02',
-    heading: 'Chronic back pain',
-    body: 'Three years of recurring pain resolved through targeted loading and movement retraining across 8 weeks of coaching.',
-    result: 'Pain-free training',
-    time: '8 weeks',
-  },
-  {
-    label: 'OUTCOME 03',
-    heading: 'Shoulder impingement',
-    body: 'Competitive swimmer returned to full overhead training after structured shoulder rehab and scapular strengthening.',
-    result: 'Return to competition',
-    time: '10 weeks',
-  },
-]
-
-const REVIEWS = [
-  {
-    stars: '★★★★★',
-    text: 'Came in eight weeks post-ACL surgery with no idea what was safe to do. The structured approach and weekly testing meant I could see exactly where I was improving every single session.',
-    name: 'Daniel C.',
-    role: 'REHAB CLIENT · GOOGLE',
-  },
-  {
-    stars: '★★★★★',
-    text: 'I have been training seriously for six years and never had a properly periodised programme until now. The difference in my numbers after one block was significant and actually measurable.',
-    name: 'Priya S.',
-    role: 'TRAINING CLIENT · GOOGLE',
-  },
-  {
-    stars: '★★★★★',
-    text: 'They film your lifts, track every metric and actually adjust the plan when something is not working. It is a completely different standard of coaching to anything I have had before.',
-    name: 'Wei Jian T.',
-    role: 'TRAINING CLIENT · GOOGLE',
-  },
-]
 
 export default function HomePage() {
   return (
-    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0b0c0e', color: '#f2f4f7', minHeight: '100vh' }}>
+    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0c0e14', color: '#f2f4f7', minHeight: '100vh' }}>
       <Navbar />
 
       {/* ── 1. Hero ─────────────────────────────── */}
       <section
         className="r-hero"
-        style={{ height: 620, position: 'relative', display: 'grid', alignItems: 'end', background: '#111316', overflow: 'hidden' }}
+        style={{ height: 680, position: 'relative', display: 'grid', alignItems: 'end', background: '#111316', overflow: 'hidden' }}
       >
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', animation: 'slowZoom 14s ease both' }}>
           <Image
@@ -124,229 +66,270 @@ export default function HomePage() {
             sizes="100vw"
           />
         </div>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,10,10,.35) 0%, rgba(10,10,10,.55) 45%, #0b0c0e 100%)' }} />
-        <div className="r-hero-content r-px" style={{ position: 'relative', padding: '0 48px 60px', maxWidth: 900 }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,10,10,.1) 0%, rgba(10,10,10,.3) 50%, #0b0c0e 100%)' }} />
+
+        <div className="r-hero-content r-px" style={{ position: 'relative', padding: '0 48px 72px', maxWidth: 900 }}>
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.34em', color: '#d99e5c', marginBottom: 22, marginTop: 0, animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) both' }}>
             REHAB · TRAINING · PERFORMANCE
           </p>
           <h1
             className="r-h1"
-            style={{ fontSize: 88, fontWeight: 800, lineHeight: 0.94, letterSpacing: '-.02em', margin: 0, animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) 0.14s both' }}
+            style={{ fontSize: 96, fontWeight: 800, lineHeight: 0.92, letterSpacing: '-.03em', margin: 0, color: '#ffffff', animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) 0.14s both' }}
           >
-            REBUILT
-            <br />STRONGER THAN
-            <br />BEFORE.
+            REBUILT<br />STRONGER<br />THAN BEFORE.
           </h1>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: '#b3b9c2', marginBottom: 0, marginTop: 26, maxWidth: 520 }}>
-            Rehab, personal training and sports performance under one roof, for anyone who wants to get back to doing what they did before.
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: '#a3aab4', marginBottom: 0, marginTop: 28, maxWidth: 460 }}>
+            Rehab, training and performance. One team, three locations.
           </p>
           <div style={{ marginTop: 36, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>Book an assessment</Link>
+            <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>Book a consult</Link>
             <Link href="/about#contact" className="btn-outline" style={{ padding: '16px 30px' }}>Ask a question</Link>
           </div>
         </div>
       </section>
 
-      {/* ── 2. What we do ───────────────────────── */}
-      <section className="r-px" style={{ padding: '92px 48px', borderTop: '1px solid #212429' }}>
-        <FadeIn>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 36, flexWrap: 'wrap', gap: 16 }}>
-            <h2 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>
-              What we do.
-            </h2>
-            <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: '#6a7280' }}>
-              THREE SERVICES · ONE SYSTEM
-            </span>
-          </div>
-        </FadeIn>
+      {/* ── Marquee ─────────────────────────────── */}
+      <Marquee />
 
-        <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#212429' }}>
-          {SERVICES.map(({ num, title, href, img, desc, tags }, i) => (
-            <FadeIn key={num} delay={i * 110}>
-              <div className="hover-card" style={{ background: '#0d0f12', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <div className="img-zoom" style={{ height: 300, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-                  <Image src={img} alt={title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(13,15,18,.8) 100%)' }} />
-                  <span style={{ position: 'absolute', top: 22, left: 24, font: '11px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.22em' }}>
-                    {num}
-                  </span>
-                </div>
-                <div style={{ padding: '26px 28px 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <h3 style={{ fontSize: 24, fontWeight: 700, margin: '0 0 10px' }}>{title}</h3>
-                  <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 20px', flex: 1 }}>{desc}</p>
-                  <div style={{ borderTop: '1px solid #1e2126', paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 22 }}>
-                    {tags.map(tag => (
-                      <div key={tag} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#7a828e' }}>
-                        {dash}{tag}
-                      </div>
-                    ))}
-                  </div>
-                  <Link href={href} style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em', textDecoration: 'none' }} className="hover-gold">
-                    EXPLORE →
-                  </Link>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-
-      {/* ── 3. Physio coming soon ───────────────── */}
-      <FadeIn>
-      <section
-        className="r2 r-mx"
-        style={{ margin: '0 48px', border: '1px solid #262a30', background: 'linear-gradient(180deg, #121418, #0d0e11)', display: 'grid', gridTemplateColumns: '1.15fr 1fr' }}
-      >
-        <div style={{ padding: 48 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, border: '1px solid #4a3d2b', color: '#d99e5c', fontSize: 10, fontWeight: 600, letterSpacing: '.24em', padding: '7px 12px', marginBottom: 26 }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#d99e5c', animation: 'pulseDot 1.8s ease-in-out infinite', display: 'inline-block' }} />
-            COMING SOON
-          </div>
-          <h2 style={{ fontSize: 46, fontWeight: 800, lineHeight: 1.02, letterSpacing: '-.02em', margin: '0 0 18px' }}>
-            Physiotherapy<br />at Rebuilt
-          </h2>
-          <p style={{ fontSize: 16, lineHeight: 1.65, color: '#a3aab4', maxWidth: 440, marginTop: 0, marginBottom: 32 }}>
-            Physiotherapy is coming, so assessment, treatment and the strength work that follows will sit in one place instead of being spread across three.
-          </p>
-          <Link href="/physio" className="btn-gold" style={{ padding: '15px 28px' }}>
-            Join the waitlist →
-          </Link>
-        </div>
-        <div className="img-zoom" style={{ minHeight: 330, overflow: 'hidden', position: 'relative' }}>
-          <Image src="https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=800&q=80" alt="Physiotherapy" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
-        </div>
-      </section>
-      </FadeIn>
-
-      {/* ── 4. How it works ─────────────────────── */}
-      <FadeIn>
-      <section className="r-px" style={{ padding: '92px 48px', borderTop: '1px solid #212429' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 52, flexWrap: 'wrap', gap: 24 }}>
-          <h2 className="r-h2" style={{ fontSize: 60, fontWeight: 800, letterSpacing: '-.03em', lineHeight: 0.95, margin: 0 }}>
-            How it<br />works.
-          </h2>
-          <p style={{ fontSize: 16, lineHeight: 1.65, color: '#a3aab4', maxWidth: 360, margin: 0 }}>
-            Every client starts in the same place — an honest look at where they are right now.
-          </p>
-        </div>
-        <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#212429' }}>
-          {STEPS.map(({ num, title, desc }) => (
-            <div key={num} className="hover-approach" style={{ background: '#0d0f12', padding: '44px 36px', position: 'relative', overflow: 'hidden' }}>
-              <span style={{ position: 'absolute', top: 12, right: 20, fontSize: 88, fontWeight: 800, lineHeight: 1, color: '#141618', letterSpacing: '-.04em', userSelect: 'none', fontFamily: 'Archivo,sans-serif' }}>
-                {num}
-              </span>
-              <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.22em', marginTop: 0, marginBottom: 32 }}>
-                STEP {num}
-              </p>
-              <h3 style={{ fontSize: 28, fontWeight: 700, margin: '0 0 14px' }}>{title}</h3>
-              <p style={{ fontSize: 14.5, lineHeight: 1.72, color: '#a3aab4', margin: 0 }}>{desc}</p>
+      {/* ── 2. Stats strip ──────────────────────── */}
+      <section style={{ borderBottom: '1px solid #212429' }}>
+        <div className="r3 r-px" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#212429' }}>
+          {[
+            { num: '300+', label: 'Clients coached' },
+            { num: '4.9', label: 'Google rating' },
+            { num: '2021', label: 'Est. Singapore' },
+          ].map(({ num, label }) => (
+            <div key={label} style={{ background: '#0e1220', padding: '52px 48px' }}>
+              <p className="gradient-gold" style={{ fontSize: 68, fontWeight: 800, lineHeight: 1, letterSpacing: '-.04em', margin: '0 0 10px', fontFamily: 'Archivo,sans-serif' }}>{num}</p>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', letterSpacing: '.2em', margin: 0 }}>{label.toUpperCase()}</p>
             </div>
           ))}
         </div>
       </section>
-      </FadeIn>
+
+      {/* ── 3. What we do ───────────────────────── */}
+      <section className="r-px" style={{ padding: '92px 48px', borderBottom: '1px solid #212429' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 36, flexWrap: 'wrap', gap: 16 }}>
+          <h2 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>
+            What we do.
+          </h2>
+        </div>
+        <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#212429' }}>
+          {SERVICES.map(({ num, title, from, href, img, desc, tags }) => (
+            <div key={num} className="hover-card" style={{ background: '#141922', display: 'flex', flexDirection: 'column' }}>
+              <div className="img-zoom" style={{ height: 340, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+                <Image src={img} alt={title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(13,15,18,.85) 100%)' }} />
+                <div className="img-overlay" />
+              </div>
+              <div style={{ padding: '28px 28px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 10 }}>
+                  <h3 style={{ fontSize: 26, fontWeight: 800, margin: 0, letterSpacing: '-.015em' }}>{title}</h3>
+                  <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.12em', whiteSpace: 'nowrap', flexShrink: 0 }}>{from}</span>
+                </div>
+                <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 20px', flex: 1 }}>{desc}</p>
+                <div style={{ borderTop: '1px solid #1e2126', paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 28 }}>
+                  {tags.map(tag => (
+                    <div key={tag} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#a3aab4' }}>
+                      <span style={{ width: 4, height: 4, background: '#d99e5c', borderRadius: '50%', flexShrink: 0 }} />{tag}
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href={href}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    font: '11px/1 ui-monospace,Menlo,monospace',
+                    color: '#d99e5c',
+                    letterSpacing: '.2em',
+                    textDecoration: 'none',
+                    paddingTop: 20,
+                    borderTop: '1px solid #1e2126',
+                  }}
+                  className="hover-gold"
+                >
+                  LEARN MORE →
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 4. Physio ───────────────────────────── */}
+      <section className="r-px" style={{ padding: '0 48px', borderBottom: '1px solid #212429' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, background: '#212429' }} className="r2">
+
+          {/* Available now */}
+          <div style={{ background: '#0c0e14', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+              <Image
+                src="https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?auto=format&fit=crop&w=800&q=80"
+                alt="Physiotherapy session at Rebuilt with Rehab & Beyond" fill
+                style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+                sizes="50vw"
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, #0c0e14 100%)' }} />
+              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(9,9,13,.85)', border: '1px solid rgba(74,222,128,.35)', backdropFilter: 'blur(4px)' }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
+                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#4ade80', letterSpacing: '.2em' }}>AVAILABLE NOW</span>
+              </div>
+            </div>
+            <div style={{ padding: '28px 32px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 10px', lineHeight: 1 }}>Physiotherapy with Rehab &amp; Beyond</h3>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: '#6f7783', margin: '0 0 28px', flex: 1 }}>Physiotherapy, rehab and training coordinated from the start. One point of contact, two teams sharing the same notes.</p>
+              <Link href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
+                BOOK A CONSULT →
+              </Link>
+            </div>
+          </div>
+
+          {/* Coming soon */}
+          <div style={{ background: '#09090d', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+              <Image
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
+                alt="Rebuilt training facility" fill
+                style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.35 }}
+                sizes="50vw"
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, #09090d 100%)' }} />
+              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(217,158,92,.25)', background: 'rgba(9,9,13,.8)' }}>
+                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#d99e5c', display: 'block', flexShrink: 0 }} />
+                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em' }}>COMING SOON</span>
+              </div>
+            </div>
+            <div style={{ padding: '28px 32px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 10px', lineHeight: 1, color: '#c2c7ce' }}>In-house Physiotherapy</h3>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: '#6f7783', margin: '0 0 28px', flex: 1 }}>One team across physiotherapy and training. No referrals, no handover gaps. Treatment and coaching in the same building.</p>
+              <Link href="/physio#waitlist" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
+                JOIN WAITLIST →
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       {/* ── 5. Reviews ──────────────────────────── */}
-      <FadeIn>
-      <section className="r-px" style={{ background: '#0e1013', borderTop: '1px solid #212429', borderBottom: '1px solid #212429', padding: '76px 48px' }}>
-        <div className="r-reviews" style={{ display: 'grid', gridTemplateColumns: '.8fr 1fr 1fr 1fr', gap: 2, background: '#212429' }}>
-          <div style={{ background: '#0b0c0e', padding: '32px 24px 28px', display: 'flex', flexDirection: 'column' }}>
-            <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em', marginTop: 0, marginBottom: 26 }}>
-              GOOGLE REVIEWS
-            </p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 18 }}>
-              <CountUp
-                to={4.9}
-                decimals={1}
-                style={{ fontSize: 76, fontWeight: 800, lineHeight: 0.82, letterSpacing: '-.04em', color: '#d99e5c' }}
-              />
-              <span style={{ fontSize: 20, fontWeight: 600, color: '#5f6670' }}>/5</span>
+      <ReviewsSection />
+
+      {/* ── 6. Instagram ────────────────────────── */}
+      <section style={{ borderTop: '1px solid #212429', borderBottom: '1px solid #212429', background: '#09090d' }}>
+        {/* Header strip */}
+        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '28px 48px', borderBottom: '1px solid #212429', flexWrap: 'wrap', gap: 20 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            <div style={{ padding: 2, background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', borderRadius: '50%', flexShrink: 0 }}>
+              <div style={{ background: '#09090d', borderRadius: '50%', padding: 2 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/instagram-pfp.jpg" alt="@rebuiltbysk" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'cover', borderRadius: '50%', display: 'block' }} />
+              </div>
             </div>
-            <span style={{ display: 'inline-block', border: '1px dashed #4a3d2b', font: '9px/1 ui-monospace,Menlo,monospace', letterSpacing: '.12em', color: '#79818c', padding: '5px 8px', marginBottom: 20, alignSelf: 'flex-start' }}>
-              SCORE PULLS FROM GOOGLE
-            </span>
-            <p style={{ fontSize: 14.5, lineHeight: 1.6, color: '#98a0aa', marginTop: 0, flex: 1 }}>
-              What people say after training here, pulled straight from our Google reviews and left exactly as written.
+            <div>
+              <p style={{ fontSize: 15, fontWeight: 800, margin: 0, color: '#f2f4f7', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
+              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: '4px 0 0' }}>INSTAGRAM</p>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap' }}>
+            <p style={{ fontSize: 14, color: '#a3aab4', margin: 0, lineHeight: 1.5, maxWidth: 340 }}>
+              Training footage, client results and what actually happens in sessions.
             </p>
-            <a href="https://www.google.com/search?q=Rebuilt+Singapore+gym+reviews" target="_blank" rel="noopener noreferrer" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', color: '#d99e5c', marginTop: 20 }} className="hover-gold">
-              Read them on Google →
+            <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
+              className="btn-outline" style={{ padding: '12px 22px', fontSize: 11, letterSpacing: '.2em', flexShrink: 0, textDecoration: 'none' }}>
+              Follow →
             </a>
           </div>
-
-          {REVIEWS.map(({ stars, text, name, role }) => (
-            <div key={name} className="hover-review" style={{ background: '#14161a', padding: '32px 24px 28px', display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.16em' }}>{stars}</span>
-              <p style={{ fontSize: 17, lineHeight: 1.5, fontWeight: 500, color: '#e9ecf0', margin: 0, flex: 1 }}>{text}</p>
-              <div style={{ display: 'flex', gap: 16, paddingTop: 20, borderTop: '1px solid #262a30', alignItems: 'center' }}>
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#1e2126', display: 'grid', placeItems: 'center', flexShrink: 0, fontSize: 14, fontWeight: 700, color: '#d99e5c' }}>
-                  {name[0]}
-                </div>
-                <div>
-                  <p style={{ fontSize: 13, fontWeight: 600, margin: '0 0 3px', color: '#f2f4f7' }}>{name}</p>
-                  <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#79818c', margin: 0, letterSpacing: '.1em' }}>{role}</p>
-                </div>
-              </div>
-            </div>
+        </div>
+        {/* Photo grid */}
+        <div className="r-ig" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 2, background: '#212429' }}>
+          {[
+            'photo-1571019613454-1cb2f99b2d8b',
+            'photo-1534438327276-14e5300c3a48',
+            'photo-1517466787929-bc90951d0974',
+            'photo-1576678927484-cc907957088c',
+            'photo-1549060279-7e168fcee0c2',
+            'photo-1526506118085-60ce8714f8c5',
+          ].map((id, i) => (
+            <a key={i} href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer" style={{ aspectRatio: '1', position: 'relative', overflow: 'hidden', background: '#0c0e14', display: 'block', textDecoration: 'none', cursor: 'pointer' }}>
+              <Image src={`https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=80`} alt="@rebuiltbysk" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 50vw, 16vw" />
+              <div className="img-overlay" />
+            </a>
           ))}
         </div>
       </section>
-      </FadeIn>
-
-      {/* ── 6. Outcomes ─────────────────────────── */}
-      <FadeIn>
-      <section className="r-px" style={{ borderTop: '1px solid #212429', padding: '80px 48px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 36, flexWrap: 'wrap', gap: 12 }}>
-          <span style={{ font: '15px/1 Archivo,sans-serif', fontWeight: 600, letterSpacing: '.3em', textTransform: 'uppercase', color: '#98a0aa' }}>
-            Client outcomes
-          </span>
-          <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: '#6a7280' }}>
-            REAL RESULTS · REAL TIMELINES
-          </span>
-        </div>
-        <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#212429' }}>
-          {OUTCOMES.map(({ label, heading, body, result, time }) => (
-            <div key={label} className="hover-approach" style={{ background: '#0b0c0e', padding: '36px 32px' }}>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em', marginTop: 0, marginBottom: 22 }}>
-                {label}
-              </p>
-              <h3 style={{ fontSize: 24, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 14px' }}>{heading}</h3>
-              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#6f7783', margin: '0 0 28px' }}>{body}</p>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, border: '1px solid #2a2e34', padding: '9px 14px' }}>
-                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#d99e5c', flexShrink: 0 }} />
-                <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#c2c7ce', letterSpacing: '.14em' }}>
-                  {result} · {time}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      </FadeIn>
 
       {/* ── 7. CTA ──────────────────────────────── */}
-      <FadeIn>
-      <section
-        className="r-px"
-        style={{ background: '#080a0c', borderTop: '1px solid #1e2126', padding: '110px 48px', textAlign: 'center' }}
-      >
-        <div style={{ maxWidth: 680, margin: '0 auto' }}>
-          <div style={{ width: 40, height: 2, background: '#d99e5c', margin: '0 auto 36px' }} />
-          <h2
-            className="r-h1"
-            style={{ fontSize: 72, fontWeight: 800, lineHeight: 0.94, letterSpacing: '-.03em', margin: '0 0 26px' }}
-          >
-            Start where<br />you are.
-          </h2>
-          <p style={{ fontSize: 17, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 44px' }}>
-            Whether you are two weeks post-op or chasing a personal best, the first step is an honest look at where you are today.
-          </p>
-          <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/book" className="btn-gold" style={{ padding: '17px 36px' }}>Book an assessment</Link>
-            <Link href="/about#contact" className="btn-outline" style={{ padding: '17px 36px' }}>Ask a question</Link>
+      <section style={{ borderTop: '1px solid #212429', background: '#0c0e14' }}>
+        <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 680 }}>
+
+          {/* Left: content */}
+          <div className="r-px r-tall-pad" style={{ padding: '80px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRight: '1px solid #1e2126' }}>
+            <div>
+              <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.24em', marginTop: 0, marginBottom: 28 }}>
+                START WHERE YOU ARE
+              </p>
+              <h2
+                className="r-h1"
+                style={{ fontSize: 68, fontWeight: 800, lineHeight: 0.93, letterSpacing: '-.03em', margin: '0 0 24px' }}
+              >
+                Whatever<br />the starting point.
+              </h2>
+              <p style={{ fontSize: 15.5, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 44px', maxWidth: 400 }}>
+                Two weeks post-op or chasing a personal best. The first step is the same: an honest look at where you are today.
+              </p>
+
+              {/* Decision rows */}
+              <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 44 }}>
+                {[
+                  { situation: 'Coming back from injury or surgery',    service: 'Rehab',             href: '/rehab' },
+                  { situation: 'Want to get stronger or fitter',        service: 'Training',          href: '/strength' },
+                  { situation: 'Training seriously for a sport',        service: 'Performance',       href: '/performance' },
+                  { situation: 'Have pain or need a physiotherapy assessment', service: 'Physiotherapy', href: '/physio' },
+                ].map(({ situation, service, href }, i, arr) => (
+                  <Link
+                    key={service}
+                    href={href}
+                    style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                      padding: '18px 0 18px 10px',
+                      borderBottom: i < arr.length - 1 ? '1px solid #181b20' : 'none',
+                      textDecoration: 'none', gap: 24,
+                    }}
+                    className="hover-approach"
+                  >
+                    <span style={{ fontSize: 14.5, color: '#8d95a0', lineHeight: 1.4 }}>{situation}</span>
+                    <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.18em', flexShrink: 0 }}>
+                      {service.toUpperCase()} →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              <Link href="/book" className="btn-gold" style={{ padding: '15px 28px' }}>Book a consult</Link>
+              <Link href="/about#contact" className="btn-outline" style={{ padding: '15px 28px' }}>Ask a question</Link>
+            </div>
           </div>
+
+          {/* Right: image */}
+          <div className="r-hide" style={{ position: 'relative', overflow: 'hidden', minHeight: 500 }}>
+            <Image
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+              alt=""
+              fill
+              style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+              sizes="50vw"
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0c0e14 0%, transparent 25%)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(12,14,20,.4) 0%, transparent 40%)' }} />
+          </div>
+
         </div>
       </section>
-      </FadeIn>
 
       <Footer />
     </div>

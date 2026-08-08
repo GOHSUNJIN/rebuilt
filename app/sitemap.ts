@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     u('/strength', 0.9),
     u('/performance', 0.9),
     u('/physio', 0.7),
+    u('/faq', 0.7),
     u('/about', 0.8),
     u('/book', 0.8, 'weekly'),
     u('/privacy', 0.3, 'yearly'),

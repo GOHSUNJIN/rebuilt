@@ -65,7 +65,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
             <div style={{ fontSize: 15, fontWeight: 800, letterSpacing: '.36em', color: '#f2f4f7', lineHeight: 1 }}>
               REBUILT
             </div>
-            <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.22em', color: '#d99e5c' }}>
+            <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.22em', color: 'var(--accent)' }}>
               SINGAPORE
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
                   fontWeight: 600,
                   letterSpacing: '.2em',
                   textTransform: 'uppercase',
-                  color: active ? '#d99e5c' : '#a3aab4',
+                  color: active ? 'var(--accent)' : '#a3aab4',
                 }}
                 className="hover-nav"
               >
@@ -112,7 +112,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
             border: '1px solid #2a2e34',
             color: '#c2c7ce',
             cursor: 'pointer',
-            padding: '7px 9px',
+            padding: '14px',
             lineHeight: 0,
           }}
           className="mobile-menu-btn"
@@ -138,13 +138,13 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
                 onClick={() => setMenuOpen(false)}
                 style={{
                   display: 'block',
-                  padding: '14px 24px',
+                  padding: '16px 24px',
                   borderBottom: '1px solid #1a1d22',
                   fontSize: 11,
                   fontWeight: 600,
                   letterSpacing: '.2em',
                   textTransform: 'uppercase',
-                  color: activePage === page ? '#d99e5c' : '#b0b7c0',
+                  color: activePage === page ? 'var(--accent)' : '#b0b7c0',
                 }}
               >
                 {label}
@@ -153,7 +153,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
             <Link
               href="/book"
               onClick={() => setMenuOpen(false)}
-              style={{ display: 'block', padding: '14px 24px', fontSize: 11, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', color: '#d99e5c' }}
+              style={{ display: 'block', padding: '16px 24px', fontSize: 11, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', color: 'var(--accent)' }}
             >
               Book a consult
             </Link>

@@ -1,221 +1,253 @@
 # Rebuilt Singapore
 
-This is the website for **Rebuilt Singapore**, a gym and rehabilitation studio based in Tanjong Pagar, Singapore. The studio offers three services: coached rehabilitation (for people recovering from injuries or surgery), personal training, and sports performance coaching.
+Website for **Rebuilt**, a gym and rehab studio operating across three Core Collective locations in Singapore. The studio offers coached rehabilitation, personal training, sports performance, and physiotherapy in partnership with Rehab & Beyond.
 
-The site is a marketing and booking website. It explains what the studio does, introduces the team, and lets visitors send a booking request.
+Built with Next.js 15 App Router.
 
 ---
 
 ## What the site does
 
-- Describes each service (Rehab, Personal Training, Performance) with pricing
-- Lets visitors submit a booking request through a step-by-step form, which sends a pre-filled message to the studio via WhatsApp or email
-- Shows the team with bios that open in a slide-out panel
-- Has a contact form that delivers enquiries directly to the studio's email inbox
-- Has a waitlist page for an upcoming physiotherapy service
-- Handles SEO automatically so the studio appears in Google searches
+- Four service pages (Rehab, Training, Performance, Physiotherapy) with feature grids, pricing, testimonials, and FAQ links
+- Physiotherapy delivered in partnership with Rehab & Beyond, with a waitlist for upcoming in-house physiotherapy
+- Five-step booking wizard that pre-fills a WhatsApp or email message for the studio to confirm
+- Team bios on the About page with slide-out detail panels
+- Contact form that delivers enquiries to the studio inbox via Resend
+- Three location cards with slide-in detail panels and embedded Google Maps
+- FAQ page with category tabs and full-text search
+- SEO: metadata, Open Graph image, JSON-LD structured data, sitemap, robots.txt
 
 ---
 
-## Technology used (plain language)
+## Tech stack
 
 | What | Why |
 |---|---|
-| **Next.js 15** | The framework that builds and runs the website. Handles routing, performance and server logic. |
-| **TypeScript** | A version of JavaScript with stricter rules: helps catch mistakes before they reach the live site. |
-| **Vercel** | Where the website is hosted. Automatically redeploys every time the code is updated. |
-| **Resend** | A third-party email service used to deliver contact form submissions to the studio's inbox. Requires an API key (see setup below). |
-| **Vercel Analytics** | Tracks visitor numbers and page views with no extra setup needed. |
+| **Next.js 15** | App Router, server actions, static page generation |
+| **TypeScript** | Type safety across data, props and form handling |
+| **Vercel** | Hosting and automatic redeploys on push |
+| **Resend** | Email delivery for the contact form |
+| **Vercel Analytics + Speed Insights** | Traffic and performance monitoring |
 
 ---
 
-## Setting up locally
+## Local setup
 
-These steps are for developers who want to run the site on their own computer.
-
-**Requirements:** Node.js 18 or later installed.
+**Requires Node.js 18+**
 
 ```bash
-# 1. Install dependencies
 npm install
-
-# 2. Create a local environment file
-#    (copy the example, then fill in your Resend API key)
-cp .env.example .env.local
-
-# 3. Start the development server
-npm run dev
-# Site will be available at http://localhost:3000
+cp .env.example .env.local   # fill in RESEND_API_KEY
+npm run dev                  # http://localhost:3000
 ```
 
-Other useful commands:
-
 ```bash
-npm run build     # Build the site for production
-npx tsc --noEmit  # Check for TypeScript errors without building
-npm run lint      # Check for code style issues
+npm run build    # production build
+npx tsc --noEmit # type-check without building
+npm run lint     # ESLint
 ```
 
 ---
 
 ## Environment variables
 
-The site needs one secret to function fully in production:
-
-| Variable | What it does | Where to get it |
+| Variable | Purpose | Where to get it |
 |---|---|---|
-| `RESEND_API_KEY` | Allows the contact form to send emails | Create a free account at resend.com |
+| `RESEND_API_KEY` | Sends contact form emails | resend.com |
 
-**Without this key**, the contact form will appear to work but will not actually send any emails. Set this in Vercel under Project Settings > Environment Variables before going live.
+Without this key the contact form silently no-ops — no error shown to the user, no email sent. Set it in Vercel → Project Settings → Environment Variables before going live.
 
 ---
 
-## File structure explained
+## File structure
 
 ```
-app/                        All pages live here
-  layout.tsx                The wrapper around every page (font, analytics, SEO metadata)
-  page.tsx                  Home page
-  not-found.tsx             Custom page shown when someone visits a URL that does not exist
-  opengraph-image.tsx       The image shown when a link is shared on WhatsApp or social media
-  robots.ts                 Tells Google which pages to index
-  sitemap.ts                A map of all pages, submitted to Google automatically
-  globals.css               Global styles, animations, and mobile layout rules
-  about/page.tsx            About page (team, studio photos, contact form, map)
-  book/page.tsx             Booking page (4-step flow, sends via WhatsApp or email)
-  faq/page.tsx              FAQ page (category sidebar + full-text search)
-  performance/page.tsx      Sports performance service page
-  physio/page.tsx           Physiotherapy page with partner section and waitlist form
-  privacy/page.tsx          Privacy policy
-  rehab/page.tsx            Rehabilitation service page
-  strength/page.tsx         Personal training service page
-  terms/page.tsx            Terms and conditions
+app/
+  layout.tsx              Root layout — font, analytics, JSON-LD, skip link, global overlays
+  page.tsx                Home page — hero, stats, services, reviews, CTA
+  globals.css             All global styles, animations and responsive CSS classes
+  error.tsx               Branded runtime error boundary page
+  not-found.tsx           404 page
+  opengraph-image.tsx     Social share image (auto-generated, 1200×630)
+  robots.ts               SEO robots.txt
+  sitemap.ts              SEO sitemap
+
+  about/page.tsx          About page — team bios, location gallery, contact form
+  book/page.tsx           Booking orchestrator — state, URL params, WhatsApp/Gmail URL
+                          building, step navigation. Steps live in components/booking/
+  faq/page.tsx            FAQ page
+  performance/page.tsx    Sports performance service page
+  physio/page.tsx         Physiotherapy — Rehab & Beyond partnership + in-house waitlist
+  rehab/page.tsx          Rehabilitation service page
+  strength/page.tsx       Personal training service page
+  privacy/page.tsx        Privacy policy (PDPA)
+  terms/page.tsx          Terms and conditions
+
   actions/
-    contact.ts              Server-side logic that sends contact form emails via Resend
+    contact.ts            Server action — rate-limited, sanitised, sends via Resend
 
 components/
   layout/
-    Navbar.tsx              Navigation bar (hides on scroll down, shows on scroll up)
-    Footer.tsx              Footer with social links, open/closed status, and legal links
-  ui/
-    ServiceHero.tsx         The large image + heading block at the top of each service page
-    SectionHeader.tsx       Shared mono label + h2 + optional description (used on all service pages)
-    FeatureGrid.tsx         3-column icon/title/desc grid (used on all service pages)
-    FAQBar.tsx              "Have questions?" strip linking to the relevant FAQ tab
-    PricingCards.tsx        Pricing grid (1–3 columns, highlights featured tier)
-    ServiceCrosslinks.tsx   "Also at Rebuilt" link strip at the bottom of service pages
-    FAQContent.tsx          Full FAQ page UI (tabbed sidebar + real-time search)
-    FAQAccordion.tsx        Expandable FAQ accordion used inside FAQContent
-    FAQSection.tsx          Compact FAQ accordion for inline use on other pages
-    ServiceTestimonial.tsx  Full-width client quote with photo background
-    CTASection.tsx          Full-width CTA with background image
-    ContactForm.tsx         The enquiry form on the About page
-    PhysioForm.tsx          Waitlist/booking form for physio pages
-    ReviewsSection.tsx      Star reviews strip
-    TeamBioModal.tsx        The team grid with slide-out bio panels (data lives in lib/team.ts)
-    Marquee.tsx             The scrolling text strip between sections
-    LocationMap.tsx         Embedded Google Maps iframe
-    LocationDrawer.tsx      Mobile slide-in location detail
-    CountUp.tsx             Animated number (used for stats like "300+ clients")
-    CopyText.tsx            Click-to-copy (used on phone number and email address)
-    OpenStatus.tsx          Shows "Open now" or "Closed" based on Singapore time
-    WhatsAppButton.tsx      Floating WhatsApp button in the bottom right corner
-    MobileBookingBar.tsx    Fixed bottom booking bar (mobile only)
-    CursorGlow.tsx          Subtle glow that follows the mouse cursor
-    ScrollProgress.tsx      Thin gold bar at the top of the screen showing scroll progress
-    ScrollToTop.tsx         Scroll-to-top button
+    Navbar.tsx            Fixed nav — auto-hides on scroll down, returns on scroll up
+    Footer.tsx            Footer — separate desktop and mobile layouts
+
+  ui/                     Small, reusable pieces used across multiple pages
+    CTASection.tsx          Two-column call-to-action with background image
+    CopyText.tsx            Click-to-copy wrapper (email, phone)
+    CountUp.tsx             Animated number counter
+    FAQAccordion.tsx        Expandable accordion items
+    FAQBar.tsx              One-line FAQ teaser strip
+    FeatureGrid.tsx         3-col icon/title/desc grid
+    LocationMap.tsx         Embedded Google Maps iframe (About page static map)
+    OpenStatus.tsx          Live open/closed indicator (Singapore time)
+    PricingCards.tsx        Pricing grid with featured-tier highlight
+    SectionHeader.tsx       Label + h2 + optional description
+    ServiceCrosslinks.tsx   Related services link strip
+    ServiceTestimonial.tsx  Full-width client quote with photo
+
+  sections/               Large, page-level section components
+    FAQContent.tsx          Full FAQ UI — category tabs, accordion, live search
+    LocationDrawer.tsx      Location cards with slide-in detail panel and map
+    Marquee.tsx             Scrolling text ticker (home page stats strip)
+    PhysioForm.tsx          Physio waitlist / booking form (WhatsApp + email)
+    ReviewsSection.tsx      Star rating strip with shuffled client reviews
+    ServiceHero.tsx         Full-bleed hero for service pages
+    TeamBioModal.tsx        Team grid with slide-out bio drawer
+
+  forms/
+    ContactForm.tsx         About page enquiry form (server action, rate-limited)
+
+  effects/                Fixed overlays, animations, dev tools
+    CursorGlow.tsx          Mouse-follow glow effect (desktop only)
+    MobileBookingBar.tsx    Fixed bottom booking bar (mobile only, hidden on /book)
+    ScrollProgress.tsx      Scroll-depth progress bar at page top
+    ScrollToTop.tsx         Back-to-top button
+    ThemePlayground.tsx     Accent colour picker — dev mode only
+    WhatsAppButton.tsx      Floating WhatsApp CTA
+
+  booking/                Booking wizard steps (imported by app/book/page.tsx)
+    types.ts                Shared TypeScript interfaces for all step props
+    Step1.tsx               Service selection — category tabs, PT format, service picker
+    Step2.tsx               Coach preference
+    Step3.tsx               Time slots — day + time grid, location preference, SGT noted
+    Step4.tsx               Contact details — name, email, phone, notes (char counter)
+    Step5.tsx               Review and send — summary table, WhatsApp / Gmail buttons
+    Done.tsx                Confirmation screen
 
 lib/
-  site.ts                   All contact details, addresses, opening hours and social links in one place
-  types.ts                  Shared TypeScript interfaces: PricingItem, CrosslinkItem, FeatureItem, FAQItem
-  faqData.ts                All FAQ content (FAQ_TABS, ALL_FAQS) — imported by FAQContent
-  bookData.ts               All booking form data: service lists, coach options, time slots, step labels
-  team.ts                   Team member data (name, role, bio, photo) — imported by TeamBioModal
-  styles.ts                 Shared inline style objects for form inputs and labels
-  hooks.ts                  Shared React hooks (useScrollLock — prevents page scroll when a panel is open)
+  site.ts       Contact details, locations, hours, social links
+  team.ts       Team member data — name, role, bio paragraphs, credentials
+  types.ts      Shared TypeScript interfaces (PricingItem, FeatureItem, CrosslinkItem)
+  faqData.ts    All FAQ content — tab list and questions by category
+  bookData.ts   Booking form data — services, coaches, time slots, step config, isValidEmail
+  styles.ts     Shared inline style objects for form inputs and labels
+  hooks.ts      useScrollLock — prevents body scroll when a drawer is open
 
 public/
-  rebuilt-mark.svg          The logo mark used in the navigation bar and footer
+  rebuilt-mark.svg     Logo mark (nav, footer, hero overlays)
+  instagram-pfp.jpg    Instagram profile photo
 ```
 
 ---
 
-## How to update common things
+## How to update content
 
-All contact details, the phone number, email address, Instagram link and studio address are stored in one file: **`lib/site.ts`**. Change them there and they update automatically across the entire site.
+**Contact details, phone, email, addresses, hours, social links** → `lib/site.ts`. Change once, updates everywhere.
 
-**Update opening hours**: edit the `hours` array in **`lib/site.ts`**. This updates the footer, about page, and anywhere else hours are shown.
+**Team bios** → `lib/team.ts`. Each member has `role`, `name`, `short` (card preview text), `bio` (array of paragraphs) and `credentials`. To add real photos, update `TeamBioModal.tsx` to use `next/image` instead of the initials placeholder.
 
-**Update team bios**: edit the `TEAM` array in **`lib/team.ts`**. Replace the placeholder photo URLs with real photos once available.
+**Pricing** → `PRICING` array at the top of each service page (`app/rehab/page.tsx`, `app/strength/page.tsx`, `app/performance/page.tsx`, `app/physio/page.tsx`).
 
-**Update pricing**: edit the `PRICING` array at the top of each service page (`app/rehab/page.tsx`, `app/strength/page.tsx`, `app/performance/page.tsx`, `app/physio/page.tsx`). The `PricingItem` type is defined in `lib/types.ts`.
+**FAQ content** → `lib/faqData.ts`. Organised by the same category tabs shown on the FAQ page.
 
-**Update FAQ content**: edit `lib/faqData.ts`. All categories and questions live there and are shared between the FAQ page and search.
+**Booking options** (services, coaches, time slots) → `lib/bookData.ts`.
 
-**Update booking options**: edit `lib/bookData.ts`. This file controls the service list, coach roster, available time slots, and step labels shown in the booking form.
-
-**Update the Google reviews link**: search for `google.com/search?q=Rebuilt+Singapore` in `app/page.tsx` and replace with the direct link to the studio's Google Business Profile.
-
-**Replace studio photos**: swap the Unsplash image URLs in `app/about/page.tsx` (facility grid) and the service pages with real photos. Upload real photos to the `public/` folder and reference them as `/filename.jpg`.
+**Studio photos** → replace Unsplash URLs in each service page and `app/about/page.tsx` with real photos. Upload to `public/` and reference as `/filename.jpg`.
 
 ---
 
-## Mobile layout
+## Responsive CSS classes
 
-The site is fully responsive. Layout classes in `globals.css` handle the breakpoints:
+All breakpoints are in `globals.css`. Add these `className` values in JSX — the CSS handles the rest at `≤768px` (and `≤480px` for small phones).
 
-| Class | Desktop | Mobile (under 768px) |
+### Layout
+
+| Class | Desktop | Mobile (≤768px) |
 |---|---|---|
-| `.r2` | 2-column grid | 1 column (stacked) |
-| `.r3` | 3-column grid | 1 column (stacked) |
+| `.r2` | 2-column grid | 1 column |
+| `.r3` | 3-column grid | 1 column |
 | `.r4` | 4-column grid | 2 columns |
 | `.r6` | 6-column grid | 3 columns |
-| `.r-hide` | Visible | Hidden |
-| `.r-px` | 48px side padding | 20px side padding |
-| `.r-h1` | Large heading (84–108px) | 44px |
-| `.r-h2` | Medium heading | 30px |
-| `.book-content` | Normal padding | Compact top/bottom padding for booking page |
-| `.book-nav` | Row layout | Stacked column layout, full-width buttons |
+| `.r-px` | 48px side padding | 20px (16px at ≤480px) |
+| `.r-hide` | visible | hidden |
+
+### Typography
+
+| Class | Desktop | Mobile (≤768px) | ≤480px |
+|---|---|---|---|
+| `.r-h1` | 84–108px | 40px | 32px |
+| `.r-h2` | ~64px | 26px | 22px |
+| `.r-section-h2` | 44–48px | 34px | 28px |
+
+### Spacing
+
+| Class | Purpose |
+|---|---|
+| `.r-section-pad` | Reduces 64–92px vertical padding → 44px |
+| `.r-tall-pad` | Reduces 52–88px vertical padding → 44px |
+| `.r-feature-cell` | Reduces 32px cell padding → 20px |
+| `.r-pricing-card` | Reduces pricing card inner padding |
+
+### Component-specific
+
+| Class | Mobile behaviour |
+|---|---|
+| `.r-hero` | Auto height, min 500px |
+| `.r-hero-badge` | Hidden |
+| `.r-team-img` | Height capped at 220px |
+| `.r-location-card` | Height capped at 280px |
+| `.r-cta-img` | Min-height 200px |
+| `.r-about-img` | Min-height 220px |
+| `.r-partner-img` | Min-height 240px |
+| `.r-inhouse-grid` | Gap reduced when stacked |
+| `.r-reviews-scroll` | Horizontal swipe carousel |
+| `.r-physio-btns` | Stacks buttons vertically |
+| `.r-btn-full` | Full-width button |
+
+### Booking page
+
+| Class | Mobile behaviour |
+|---|---|
+| `.book-content` | Compact vertical padding |
+| `.book-nav` | Stacked, full-width buttons |
+| `.book-step-label` | Hidden (step numbers only) |
+| `.book-page-nav` | Reduced padding |
 
 ---
 
 ## Deployment
 
-The site is deployed on Vercel and connected to a Git repository. Every push to the main branch automatically redeploys.
+Hosted on Vercel. Pushes to `main` redeploy automatically.
 
 ```bash
-vercel        # Deploy a preview (does not affect the live site)
-vercel --prod # Deploy to production (live site)
+vercel        # Preview deploy — isolated URL, does not affect production
+vercel --prod # Production deploy
 ```
 
-Make sure `RESEND_API_KEY` is added in Vercel environment variables before going to production.
+Ensure `RESEND_API_KEY` is set in Vercel environment variables before going to production.
 
 ---
 
-## Potential future improvements
+## What's not built yet
 
-These are features that could be added as the business grows:
+**Real booking calendar** — the current flow sends a pre-filled WhatsApp or email message. A live calendar integration (Calendly, Acuity, or custom-built) would let clients book and get instant confirmation without manual follow-up from the studio.
 
-**Booking system**
-The current booking flow sends a WhatsApp or email message: there is no real-time calendar. Integrating a booking platform (such as Calendly, Acuity or a custom-built calendar) would let clients book and pay instantly without the studio needing to reply manually.
+**Online payments** — no payment collected at booking. Stripe or PayNow integration would reduce no-shows and simplify admin.
 
-**Online payments**
-Add Stripe or PayNow integration so clients can pay a deposit or full session fee at the time of booking, reducing no-shows.
+**Client portal** — session history, programme notes, upcoming bookings. Requires a database (Supabase or similar) and authentication.
 
-**Client portal**
-A login area where clients can view their session history, upcoming bookings and their programme notes. Would require a database (such as Supabase or PlanetScale) and authentication.
+**Blog or resources section** — articles on rehab and training would improve SEO and demonstrate expertise to potential clients.
 
-**Physiotherapy launch**
-The `/physio` page is currently a coming-soon waitlist. When physiotherapy launches, it will need its own full service page with pricing, team profiles and a booking flow matching the other service pages.
+**Live Instagram feed** — the home page grid uses placeholder photos. The Instagram Graph API could pull in real posts automatically.
 
-**Blog or resources section**
-Articles on rehab, training and performance would help the studio rank in Google searches and demonstrate expertise to potential clients.
-
-**Real Instagram feed**
-The Instagram grid on the home page currently uses placeholder photos. It could be connected to the real Instagram account via the Instagram Graph API to show live posts automatically.
-
-**WhatsApp Business integration**
-Replace the current basic WhatsApp link with WhatsApp Business API for automated replies, booking confirmations and follow-ups.
-
-**Multilingual support**
-Singapore has a large Mandarin-speaking population. Adding a Chinese language version of the site (using Next.js internationalisation) could expand the client base.
+**WhatsApp Business API** — replace the current basic link with automated replies, booking confirmations and follow-ups.

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ServiceHero from '@/components/ui/ServiceHero'
+import ServiceHero from '@/components/sections/ServiceHero'
 import ServiceTestimonial from '@/components/ui/ServiceTestimonial'
 import PricingCards from '@/components/ui/PricingCards'
 import CTASection from '@/components/ui/CTASection'
@@ -56,7 +56,7 @@ export default function RehabPage() {
         bookLabel="Book a consult"
       />
 
-      <section className="r-px" style={{ padding: '64px 48px', borderBottom: '1px solid #212429', background: '#09090d' }}>
+      <section className="r-px r-section-pad" style={{ padding: '64px 48px', borderBottom: '1px solid #212429', background: '#09090d' }}>
         <SectionHeader
           label="WHAT'S INCLUDED"
           heading={<>Built around what<br />you can handle today.</>}

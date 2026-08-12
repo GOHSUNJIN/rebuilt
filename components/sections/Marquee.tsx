@@ -44,7 +44,7 @@ export default function Marquee({
             >
               {item}
             </span>
-            <span style={{ fontSize: 6, color: '#d99e5c', flexShrink: 0, opacity: 0.7 }}>◆</span>
+            <span style={{ fontSize: 6, color: 'var(--accent)', flexShrink: 0, opacity: 0.7 }}>◆</span>
           </div>
         ))}
       </div>

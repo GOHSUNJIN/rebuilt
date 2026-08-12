@@ -2,7 +2,7 @@
 import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import FAQAccordion from './FAQAccordion'
+import FAQAccordion from '@/components/ui/FAQAccordion'
 import { FAQ_TABS, ALL_FAQS } from '@/lib/faqData'
 
 function FAQInner() {
@@ -34,9 +34,9 @@ function FAQInner() {
   return (
     <>
       {/* Hero */}
-      <section className="r-px" style={{ padding: '64px 48px 52px', borderBottom: '1px solid #212429', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20 }}>
+      <section className="r-px r-section-pad" style={{ padding: '64px 48px 52px', borderBottom: '1px solid #212429', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20 }}>
         <div>
-          <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.24em', marginTop: 0, marginBottom: 18 }}>FAQ</p>
+          <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 18 }}>FAQ</p>
           <h1 className="r-h1" style={{ fontSize: 64, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.92 }}>Questions answered.</h1>
         </div>
         <p style={{ fontSize: 14, lineHeight: 1.65, color: '#5f6670', margin: 0, maxWidth: 300 }}>
@@ -87,7 +87,7 @@ function FAQInner() {
             </p>
             <button
               onClick={() => setSearch('')}
-              style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.16em', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', padding: 0 }}
+              style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', padding: 0 }}
             >
               ← BROWSE CATEGORIES
             </button>
@@ -99,7 +99,7 @@ function FAQInner() {
           ) : (
             searchGroups.map(g => (
               <div key={g.cat} style={{ marginBottom: 40 }}>
-                <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em', margin: '0 0 4px' }}>
+                <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 4px' }}>
                   {g.label.toUpperCase()}
                 </p>
                 <FAQAccordion items={g.items} />
@@ -130,7 +130,7 @@ function FAQInner() {
                     padding: '13px 40px',
                     background: 'none',
                     border: 'none',
-                    color: active ? '#d99e5c' : '#8d95a0',
+                    color: active ? 'var(--accent)' : '#8d95a0',
                     fontSize: 13,
                     fontWeight: active ? 700 : 500,
                     letterSpacing: '-.01em',
@@ -139,7 +139,7 @@ function FAQInner() {
                     textAlign: 'left',
                   }}
                 >
-                  <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: active ? '#d99e5c' : '#8d95a0', letterSpacing: '.1em', minWidth: 16 }}>
+                  <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: active ? 'var(--accent)' : '#8d95a0', letterSpacing: '.1em', minWidth: 16 }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   {label}

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 
 const LOCATIONS = [
@@ -37,13 +37,13 @@ export default function LocationMap() {
             onClick={() => setActive(i)}
             style={{
               flex: 1, padding: '12px 8px 10px', background: 'none', border: 'none',
-              borderBottom: `2px solid ${active === i ? '#d99e5c' : 'transparent'}`,
+              borderBottom: `2px solid ${active === i ? 'var(--accent)' : 'transparent'}`,
               marginBottom: -1,
               cursor: 'pointer', textAlign: 'center', fontFamily: 'inherit',
               transition: 'all .15s',
             }}
           >
-            <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: active === i ? '#d99e5c' : '#8d95a0', letterSpacing: '.2em', margin: '0 0 3px', fontWeight: 700 }}>
+            <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: active === i ? 'var(--accent)' : '#8d95a0', letterSpacing: '.2em', margin: '0 0 3px', fontWeight: 700 }}>
               {label.toUpperCase()}
             </p>
             <p style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: active === i ? '#6f7783' : '#5f6670', letterSpacing: '.1em', margin: 0 }}>
@@ -71,7 +71,7 @@ export default function LocationMap() {
           rel="noopener noreferrer"
           style={{
             position: 'absolute', bottom: 12, right: 12,
-            font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c',
+            font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)',
             letterSpacing: '.16em', background: 'rgba(11,12,14,.92)',
             border: '1px solid #262a30', padding: '8px 12px',
             textDecoration: 'none', zIndex: 1, backdropFilter: 'blur(4px)',

@@ -16,6 +16,9 @@ node_modules/
 # Archive (original DC prototype files)
 _archive/
 
+# Claude Code
+.claude/
+
 # Misc
 .DS_Store
 *.pem

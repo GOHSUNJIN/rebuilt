@@ -81,7 +81,7 @@ export default function LocationDrawer() {
           <button
             key={loc.label}
             onClick={() => setSelected(loc)}
-            className="hover-border"
+            className="hover-border r-location-card"
             style={{
               height: 460, overflow: 'hidden', position: 'relative',
               border: 'none', cursor: 'pointer', padding: 0, background: 'transparent',
@@ -101,10 +101,10 @@ export default function LocationDrawer() {
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(6,7,10,.92) 0%, transparent 55%)' }} />
             <div className="img-overlay" />
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '24px 22px' }}>
-              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.24em', margin: '0 0 6px' }}>CORE COLLECTIVE</p>
+              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0 0 6px' }}>CORE COLLECTIVE</p>
               <p style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 4px', color: '#f2f4f7' }}>{loc.label}</p>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', letterSpacing: '.14em', margin: '0 0 12px' }}>{loc.address}</p>
-              <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.16em' }}>VIEW DETAILS →</span>
+              <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em' }}>VIEW DETAILS →</span>
             </div>
           </button>
         ))}
@@ -153,8 +153,8 @@ export default function LocationDrawer() {
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f1115 0%, transparent 55%)' }} />
             </div>
 
-            <div style={{ padding: '4px 36px 52px' }}>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.24em', marginTop: 0, marginBottom: 12 }}>
+            <div className="r-drawer-content" style={{ padding: '4px 36px 52px' }}>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 12 }}>
                 CORE COLLECTIVE · {selected.tag.toUpperCase()}
               </p>
               <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 6 }}>
@@ -183,6 +183,7 @@ export default function LocationDrawer() {
                   style={{ border: 0, display: 'block' }}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  sandbox="allow-scripts allow-same-origin allow-popups"
                 />
               </div>
 

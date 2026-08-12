@@ -41,27 +41,27 @@ export default function ReviewsSection() {
 
   return (
     <section className="r-px r-tall-pad" style={{ background: '#0e1220', borderTop: '1px solid #212429', borderBottom: '1px solid #212429', padding: '80px 48px' }}>
-      <div className="r-reviews" style={{ display: 'grid', gridTemplateColumns: '.7fr 1fr 1fr 1fr', gap: 2, background: '#212429' }}>
+      <div className="r-reviews r-reviews-scroll" style={{ display: 'grid', gridTemplateColumns: '.7fr 1fr 1fr 1fr', gap: 2, background: '#212429' }}>
         <div style={{ background: '#141922', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
-            <span style={{ fontSize: 14, color: '#d99e5c', letterSpacing: '.08em', display: 'block', marginBottom: 18 }}>★★★★★</span>
+            <span style={{ fontSize: 14, color: 'var(--accent)', letterSpacing: '.08em', display: 'block', marginBottom: 18 }}>★★★★★</span>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
               <CountUp
                 to={4.9}
                 decimals={1}
-                style={{ fontSize: 80, fontWeight: 800, lineHeight: 0.9, letterSpacing: '-.04em', color: '#d99e5c' }}
+                style={{ fontSize: 80, fontWeight: 800, lineHeight: 0.9, letterSpacing: '-.04em', color: 'var(--accent)' }}
               />
               <span style={{ fontSize: 18, fontWeight: 600, color: '#5f6670' }}>/5</span>
             </div>
           </div>
-          <a href="https://www.google.com/search?q=Rebuilt+Singapore+gym+reviews" target="_blank" rel="noopener noreferrer" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.18em', textDecoration: 'none', marginTop: 28 }} className="hover-gold">
+          <a href="https://www.google.com/search?q=Rebuilt+Singapore+gym+reviews" target="_blank" rel="noopener noreferrer" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none', marginTop: 28 }} className="hover-gold">
             Read on Google →
           </a>
         </div>
 
         {reviews.map(({ stars, text, name, role }, i) => (
           <div key={`${name}-${i}`} className="hover-review" style={{ background: '#1c2130', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <span style={{ fontSize: 13, color: '#d99e5c', letterSpacing: '.06em' }}>{stars}</span>
+            <span style={{ fontSize: 13, color: 'var(--accent)', letterSpacing: '.06em' }}>{stars}</span>
             <p style={{ fontSize: 15.5, lineHeight: 1.6, fontWeight: 500, color: '#e9ecf0', margin: 0, flex: 1 }}>{text}</p>
             <div style={{ display: 'flex', gap: 12, paddingTop: 18, borderTop: '1px solid #262a30', alignItems: 'center' }}>
               <div style={{

@@ -49,6 +49,34 @@ export default function Footer() {
     },
   ]
 
+  const SocialButtons = ({ size = 36 }: { size?: number }) => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      {socials.map(({ label, href, note, icon }) => (
+        <button
+          key={label}
+          onClick={() => setTarget({ label, href, note })}
+          title={label}
+          aria-label={label}
+          className="hover-social"
+          style={{
+            display: 'grid',
+            placeItems: 'center',
+            width: size,
+            height: size,
+            border: '1px solid #262a30',
+            background: 'transparent',
+            cursor: 'pointer',
+            color: '#a3aab4',
+            transition: 'border-color .2s ease,color .2s ease,background .2s ease',
+            padding: 0,
+          }}
+        >
+          {icon}
+        </button>
+      ))}
+    </div>
+  )
+
   return (
     <>
       {/* Popup overlay */}
@@ -75,15 +103,7 @@ export default function Footer() {
               width: '100%',
             }}
           >
-            <p
-              style={{
-                font: '10px/1 ui-monospace,Menlo,monospace',
-                color: '#d99e5c',
-                letterSpacing: '.2em',
-                marginTop: 0,
-                marginBottom: 14,
-              }}
-            >
+            <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', marginTop: 0, marginBottom: 14 }}>
               {target.label.toUpperCase()}
             </p>
             <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#a3aab4', marginTop: 0, marginBottom: 28 }}>
@@ -112,28 +132,29 @@ export default function Footer() {
         </div>
       )}
 
-      {/* Nav row */}
-      <div className="r-px" style={{ borderTop: '1px solid #212429', background: '#0e0f11', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #17191d' }}>
+      {/* ── Desktop nav row (hidden on mobile) ─────── */}
+      <div className="r-px r-footer-nav" style={{ borderTop: '1px solid #212429', background: '#0e0f11', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #17191d' }}>
         {[
-          { label: 'Rehab',             href: '/rehab' },
-          { label: 'Training',          href: '/strength' },
-          { label: 'Performance',       href: '/performance' },
-          { label: 'Physiotherapy',     href: '/physio' },
-          { label: 'About',             href: '/about' },
-          { label: 'FAQ',               href: '/faq' },
-          { label: 'Book a consult',    href: '/book' },
+          { label: 'Rehab',          href: '/rehab' },
+          { label: 'Training',       href: '/strength' },
+          { label: 'Performance',    href: '/performance' },
+          { label: 'Physiotherapy',  href: '/physio' },
+          { label: 'About',          href: '/about' },
+          { label: 'FAQ',            href: '/faq' },
+          { label: 'Book a consult', href: '/book' },
         ].map(({ label, href }) => {
           const active = pathname === href || (href !== '/' && pathname.startsWith(href))
           return (
-            <Link key={label} href={href} style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: active ? '#d99e5c' : '#8d95a0', letterSpacing: '.16em', textDecoration: 'none', transition: 'color .15s' }} className={active ? '' : 'hover-gold'}>
+            <Link key={label} href={href} style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: active ? 'var(--accent)' : '#8d95a0', letterSpacing: '.16em', textDecoration: 'none', transition: 'color .15s' }} className={active ? '' : 'hover-gold'}>
               {label.toUpperCase()}
             </Link>
           )
         })}
       </div>
 
+      {/* ── Desktop footer (hidden on mobile) ──────── */}
       <footer
-        className="r-px"
+        className="r-px r-footer-desktop"
         style={{
           background: '#0e0f11',
           padding: '22px 48px',
@@ -144,73 +165,73 @@ export default function Footer() {
           flexWrap: 'wrap',
         }}
       >
-        {/* Left */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
             <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={28} height={28} style={{ display: 'block' }} />
             <div>
-              <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.34em', color: '#f2f4f7', lineHeight: 1 }}>
-                REBUILT
-              </div>
-              <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: '#d99e5c' }}>
-                SINGAPORE
-              </div>
+              <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.34em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT</div>
+              <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
             </div>
           </Link>
           <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
           <OpenStatus />
         </div>
 
-        {/* Right */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 22, flexWrap: 'wrap' }}>
           <a href={SITE.contact.phoneTel} style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#7a828e', letterSpacing: '.1em', transition: 'color .15s' }} className="hover-gold">
             {SITE.contact.phone}
           </a>
           <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            {socials.map(({ label, href, note, icon }) => (
-              <button
-                key={label}
-                onClick={() => setTarget({ label, href, note })}
-                title={label}
-                aria-label={label}
-                className="hover-social"
-                style={{
-                  display: 'grid',
-                  placeItems: 'center',
-                  width: 36,
-                  height: 36,
-                  border: '1px solid #262a30',
-                  background: 'transparent',
-                  cursor: 'pointer',
-                  color: '#a3aab4',
-                  transition: 'border-color .2s ease,color .2s ease,background .2s ease',
-                  padding: 0,
-                }}
-              >
-                {icon}
-              </button>
-            ))}
-          </div>
-          <Link href="/book" className="btn-gold r-hide" style={{ padding: '13px 24px' }}>
+          <SocialButtons />
+          <Link href="/book" className="btn-gold" style={{ padding: '13px 24px' }}>
             Book a consult
           </Link>
-          <span className="r-hide" style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
-          <Link
-            href="/privacy"
-            style={{ transition: 'color .2s ease', color: '#868e99', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em' }}
-            className="hover-gold"
-          >
+          <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
+          <Link href="/privacy" style={{ transition: 'color .2s ease', color: '#868e99', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em' }} className="hover-gold">
             PRIVACY
           </Link>
-          <Link
-            href="/terms"
-            style={{ transition: 'color .2s ease', color: '#868e99', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em' }}
-            className="hover-gold"
-          >
+          <Link href="/terms" style={{ transition: 'color .2s ease', color: '#868e99', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em' }} className="hover-gold">
             TERMS
           </Link>
           <span suppressHydrationWarning style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em', color: '#5f6670' }}>
+            © {new Date().getFullYear()}
+          </span>
+        </div>
+      </footer>
+
+      {/* ── Mobile footer ───────────────────────────── */}
+      <footer
+        className="r-px r-footer-mobile"
+        style={{
+          display: 'none',
+          background: '#0e0f11',
+          borderTop: '1px solid #212429',
+          padding: '18px 20px 22px',
+          flexDirection: 'column',
+          gap: 0,
+        }}
+      >
+        {/* Row 1: logo + socials */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 16, borderBottom: '1px solid #1e2126' }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={24} height={24} style={{ display: 'block' }} />
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '.34em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT</div>
+              <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
+            </div>
+          </Link>
+          <SocialButtons size={34} />
+        </div>
+
+        {/* Row 2: legal */}
+        <div style={{ display: 'flex', alignItems: 'center', paddingTop: 14 }}>
+          <Link href="/privacy" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#868e99', letterSpacing: '.14em', textDecoration: 'none', marginRight: 20 }} className="hover-gold">
+            PRIVACY
+          </Link>
+          <Link href="/terms" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#868e99', letterSpacing: '.14em', textDecoration: 'none' }} className="hover-gold">
+            TERMS
+          </Link>
+          <span suppressHydrationWarning style={{ marginLeft: 'auto', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.12em', color: '#5f6670' }}>
             © {new Date().getFullYear()}
           </span>
         </div>

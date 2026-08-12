@@ -26,7 +26,7 @@ export default function ScrollToTop() {
         height: 40,
         background: '#141922',
         border: '1px solid #262a30',
-        color: '#d99e5c',
+        color: 'var(--accent)',
         cursor: 'pointer',
         display: 'grid',
         placeItems: 'center',

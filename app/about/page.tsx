@@ -1,13 +1,13 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { SITE } from '@/lib/site'
-import ContactForm from '@/components/ui/ContactForm'
+import ContactForm from '@/components/forms/ContactForm'
 import LocationMap from '@/components/ui/LocationMap'
-import LocationDrawer from '@/components/ui/LocationDrawer'
-import TeamBioModal from '@/components/ui/TeamBioModal'
+import LocationDrawer from '@/components/sections/LocationDrawer'
+import TeamBioModal from '@/components/sections/TeamBioModal'
 import CopyText from '@/components/ui/CopyText'
 
 export const metadata: Metadata = {
@@ -36,11 +36,11 @@ export default function AboutPage() {
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 500 }}>
           {/* Left: text */}
           <div className="r-px r-tall-pad" style={{ padding: '88px 48px 72px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#09090d' }}>
-            <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.24em', marginTop: 0, marginBottom: 26 }}>
+            <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 26 }}>
               ABOUT REBUILT
             </p>
             <h1
-              className="r-h2"
+              className="r-h1"
               style={{ fontSize: 64, fontWeight: 800, lineHeight: 0.96, letterSpacing: '-.03em', marginBottom: 28, marginTop: 0 }}
             >
               A gym built around getting people back.
@@ -50,7 +50,7 @@ export default function AboutPage() {
             </p>
           </div>
           {/* Right: photo */}
-          <div style={{ position: 'relative', minHeight: 400, overflow: 'hidden' }}>
+          <div className="r-about-img" style={{ position: 'relative', minHeight: 400, overflow: 'hidden' }}>
             <Image
               src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=85"
               alt="Rebuilt studio"
@@ -71,7 +71,7 @@ export default function AboutPage() {
             { label: 'NEXT UP', value: 'In-house physiotherapy' },
           ].map(({ label, value }) => (
             <div key={label} style={{ padding: '28px 32px', background: '#0c0e14' }}>
-              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.22em', margin: '0 0 10px' }}>{label}</p>
+              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em', margin: '0 0 10px' }}>{label}</p>
               <p style={{ fontSize: 14, color: '#f2f4f7', margin: 0, lineHeight: 1.5, fontWeight: 500 }}>{value}</p>
             </div>
           ))}
@@ -84,7 +84,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── The team ────────────────────────────── */}
-      <section className="r-px" style={{ padding: '76px 48px' }}>
+      <section className="r-px r-section-pad" style={{ padding: '76px 48px' }}>
         <div
           style={{
             display: 'flex',
@@ -106,7 +106,7 @@ export default function AboutPage() {
           >
             The team
           </span>
-          <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em', color: '#8d95a0' }}>
+          <span className="r-hide" style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em', color: '#8d95a0' }}>
             FOUNDER · CO-FOUNDER · IN-HOUSE PHYSIOTHERAPY COMING SOON
           </span>
         </div>
@@ -152,7 +152,7 @@ export default function AboutPage() {
                     style={{ display: 'flex', alignItems: 'baseline', gap: 12, textDecoration: 'none' }}
                     className="hover-gold"
                   >
-                    <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.16em', flexShrink: 0, minWidth: 62 }}>
+                    <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em', flexShrink: 0, minWidth: 62 }}>
                       {l.name.toUpperCase()}
                     </span>
                     <span style={{ fontSize: 13, color: '#a3aab4', lineHeight: 1.4 }}>{l.street}</span>

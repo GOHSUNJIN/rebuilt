@@ -24,8 +24,8 @@ export default function ContactForm() {
     return (
       <div style={{ paddingTop: 40, paddingBottom: 40 }}>
         <div style={{
-          width: 48, height: 48, border: '1px solid #d99e5c', borderRadius: '50%',
-          display: 'grid', placeItems: 'center', color: '#d99e5c', fontSize: 20, marginBottom: 24,
+          width: 48, height: 48, border: '1px solid var(--accent)', borderRadius: '50%',
+          display: 'grid', placeItems: 'center', color: 'var(--accent)', fontSize: 20, marginBottom: 24,
         }}>
           ✓
         </div>
@@ -64,7 +64,7 @@ export default function ContactForm() {
         </label>
         <label>
           <span style={labelStyle}>MESSAGE</span>
-          <textarea name="message" placeholder="Your question or message" rows={5} style={{ ...inputStyle, resize: 'none' }} />
+          <textarea name="message" placeholder="Your question or message" rows={5} maxLength={2000} style={{ ...inputStyle, resize: 'none' }} />
         </label>
         {status === 'error' && (
           <p style={{ fontSize: 13, color: '#e07070', margin: 0 }}>{errorMsg}</p>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ServiceHero from '@/components/ui/ServiceHero'
+import ServiceHero from '@/components/sections/ServiceHero'
 import ServiceTestimonial from '@/components/ui/ServiceTestimonial'
 import PricingCards from '@/components/ui/PricingCards'
 import CTASection from '@/components/ui/CTASection'
@@ -57,7 +57,6 @@ export default function PerformancePage() {
         imagePosition="center 30%"
         headingSize={108}
         contentMaxWidth={900}
-        inline
       />
 
       {/* Who it's for */}
@@ -74,7 +73,7 @@ export default function PerformancePage() {
         </div>
       </section>
 
-      <section className="r-px" style={{ padding: '72px 48px', borderBottom: '1px solid #212429' }}>
+      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #212429' }}>
         <SectionHeader
           label="WHAT'S INCLUDED"
           heading={<>Built to compete.</>}

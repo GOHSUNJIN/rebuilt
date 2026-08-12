@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { SITE } from '@/lib/site'
 import { inputStyle } from '@/lib/styles'
+import { isValidEmail } from '@/lib/bookData'
 
 const TAGS = ['Injury', 'Post-surgery', 'Pain', 'Return to sport', 'Not sure']
 
@@ -16,7 +17,7 @@ export default function PhysioForm({ compact = false }: { compact?: boolean }) {
       prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
     )
 
-  const canSubmit = name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  const canSubmit = name.trim() && isValidEmail(email)
 
   const message = compact
     ? [
@@ -40,8 +41,8 @@ export default function PhysioForm({ compact = false }: { compact?: boolean }) {
   if (submitted) {
     return (
       <div style={{ width: '100%', maxWidth: 560, textAlign: 'center', padding: '32px 0' }}>
-        <div style={{ width: 32, height: 1, background: '#d99e5c', margin: '0 auto 24px' }} />
-        <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em', marginBottom: 16, marginTop: 0 }}>
+        <div style={{ width: 32, height: 1, background: 'var(--accent)', margin: '0 auto 24px' }} />
+        <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', marginBottom: 16, marginTop: 0 }}>
           {compact ? 'ON THE LIST' : 'REQUEST SENT'}
         </p>
         <p style={{ fontSize: 16, color: '#a3aab4', lineHeight: 1.65, margin: 0 }}>
@@ -96,9 +97,9 @@ export default function PhysioForm({ compact = false }: { compact?: boolean }) {
                   onClick={() => toggleTag(tag)}
                   style={{
                     padding: '8px 14px',
-                    border: `1px solid ${active ? '#d99e5c' : '#2a2e34'}`,
+                    border: `1px solid ${active ? 'var(--accent)' : '#2a2e34'}`,
                     background: active ? 'rgba(217,158,92,.1)' : 'transparent',
-                    color: active ? '#d99e5c' : '#a3aab4',
+                    color: active ? 'var(--accent)' : '#a3aab4',
                     fontSize: 12,
                     fontWeight: 500,
                     letterSpacing: '.08em',
@@ -115,7 +116,7 @@ export default function PhysioForm({ compact = false }: { compact?: boolean }) {
         </>
       )}
       {canSubmit ? (
-        <div style={{ display: 'flex', gap: 10, marginTop: compact ? 10 : 0 }}>
+        <div className="r-physio-btns" style={{ display: 'flex', gap: 10, marginTop: compact ? 10 : 0 }}>
           <a
             href={waUrl}
             target="_blank"

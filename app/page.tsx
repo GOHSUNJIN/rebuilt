@@ -1,10 +1,10 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import Marquee from '@/components/ui/Marquee'
-import ReviewsSection from '@/components/ui/ReviewsSection'
+import Marquee from '@/components/sections/Marquee'
+import ReviewsSection from '@/components/sections/ReviewsSection'
 
 export const metadata: Metadata = {
   title: 'Rebuilt | Rehab, Training & Performance · Singapore',
@@ -69,7 +69,7 @@ export default function HomePage() {
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,10,10,.1) 0%, rgba(10,10,10,.3) 50%, #0b0c0e 100%)' }} />
 
         <div className="r-hero-content r-px" style={{ position: 'relative', padding: '0 48px 72px', maxWidth: 900 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.34em', color: '#d99e5c', marginBottom: 22, marginTop: 0, animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) both' }}>
+          <p className="r-hero-label" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.34em', color: 'var(--accent)', marginBottom: 22, marginTop: 0, animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) both' }}>
             REHAB · TRAINING · PERFORMANCE
           </p>
           <h1
@@ -81,9 +81,11 @@ export default function HomePage() {
           <p style={{ fontSize: 17, lineHeight: 1.6, color: '#a3aab4', marginBottom: 0, marginTop: 28, maxWidth: 460 }}>
             Rehab, training and performance. One team, three locations.
           </p>
-          <div style={{ marginTop: 36, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+          <div style={{ marginTop: 36, display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
             <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>Book a consult</Link>
-            <Link href="/about#contact" className="btn-outline" style={{ padding: '16px 30px' }}>Ask a question</Link>
+            <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+              ASK A QUESTION →
+            </Link>
           </div>
         </div>
       </section>
@@ -99,8 +101,8 @@ export default function HomePage() {
             { num: '4.9', label: 'Google rating' },
             { num: '2021', label: 'Est. Singapore' },
           ].map(({ num, label }) => (
-            <div key={label} style={{ background: '#0e1220', padding: '52px 48px' }}>
-              <p className="gradient-gold" style={{ fontSize: 68, fontWeight: 800, lineHeight: 1, letterSpacing: '-.04em', margin: '0 0 10px', fontFamily: 'Archivo,sans-serif' }}>{num}</p>
+            <div key={label} className="r-stat-cell" style={{ background: '#0e1220', padding: '52px 48px' }}>
+              <p className="gradient-gold r-stat-num" style={{ fontSize: 68, fontWeight: 800, lineHeight: 1, letterSpacing: '-.04em', margin: '0 0 10px', fontFamily: 'Archivo,sans-serif' }}>{num}</p>
               <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', letterSpacing: '.2em', margin: 0 }}>{label.toUpperCase()}</p>
             </div>
           ))}
@@ -108,30 +110,30 @@ export default function HomePage() {
       </section>
 
       {/* ── 3. What we do ───────────────────────── */}
-      <section className="r-px" style={{ padding: '92px 48px', borderBottom: '1px solid #212429' }}>
+      <section className="r-px r-section-pad" style={{ padding: '92px 48px', borderBottom: '1px solid #212429' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 36, flexWrap: 'wrap', gap: 16 }}>
-          <h2 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>
+          <h2 className="r-section-h2" style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>
             What we do.
           </h2>
         </div>
         <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#212429' }}>
           {SERVICES.map(({ num, title, from, href, img, desc, tags }) => (
-            <div key={num} className="hover-card" style={{ background: '#141922', display: 'flex', flexDirection: 'column' }}>
-              <div className="img-zoom" style={{ height: 340, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+            <div key={num} className="hover-card r-service-card" style={{ background: '#141922', display: 'flex', flexDirection: 'column' }}>
+              <div className="img-zoom r-card-img" style={{ height: 340, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
                 <Image src={img} alt={title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(13,15,18,.85) 100%)' }} />
                 <div className="img-overlay" />
               </div>
-              <div style={{ padding: '28px 28px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <div className="r-service-content" style={{ padding: '28px 28px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 10 }}>
                   <h3 style={{ fontSize: 26, fontWeight: 800, margin: 0, letterSpacing: '-.015em' }}>{title}</h3>
-                  <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.12em', whiteSpace: 'nowrap', flexShrink: 0 }}>{from}</span>
+                  <span className="r-service-price" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.12em', whiteSpace: 'nowrap', flexShrink: 0 }}>{from}</span>
                 </div>
                 <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 20px', flex: 1 }}>{desc}</p>
-                <div style={{ borderTop: '1px solid #1e2126', paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 28 }}>
+                <div className="r-service-tags" style={{ borderTop: '1px solid #1e2126', paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 28 }}>
                   {tags.map(tag => (
                     <div key={tag} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#a3aab4' }}>
-                      <span style={{ width: 4, height: 4, background: '#d99e5c', borderRadius: '50%', flexShrink: 0 }} />{tag}
+                      <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />{tag}
                     </div>
                   ))}
                 </div>
@@ -142,13 +144,13 @@ export default function HomePage() {
                     alignItems: 'center',
                     gap: 10,
                     font: '11px/1 ui-monospace,Menlo,monospace',
-                    color: '#d99e5c',
+                    color: 'var(--accent)',
                     letterSpacing: '.2em',
                     textDecoration: 'none',
                     paddingTop: 20,
                     borderTop: '1px solid #1e2126',
                   }}
-                  className="hover-gold"
+                  className="hover-gold r-service-link"
                 >
                   LEARN MORE →
                 </Link>
@@ -180,7 +182,7 @@ export default function HomePage() {
             <div style={{ padding: '28px 32px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
               <h3 style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 10px', lineHeight: 1 }}>Physiotherapy with Rehab &amp; Beyond</h3>
               <p style={{ fontSize: 13, lineHeight: 1.6, color: '#6f7783', margin: '0 0 28px', flex: 1 }}>Physiotherapy, rehab and training coordinated from the start. One point of contact, two teams sharing the same notes.</p>
-              <Link href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
+              <Link href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
                 BOOK A CONSULT →
               </Link>
             </div>
@@ -197,8 +199,8 @@ export default function HomePage() {
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, #09090d 100%)' }} />
               <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(217,158,92,.25)', background: 'rgba(9,9,13,.8)' }}>
-                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#d99e5c', display: 'block', flexShrink: 0 }} />
-                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em' }}>COMING SOON</span>
+                <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0 }} />
+                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em' }}>COMING SOON</span>
               </div>
             </div>
             <div style={{ padding: '28px 32px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -233,7 +235,7 @@ export default function HomePage() {
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap' }}>
-            <p style={{ fontSize: 14, color: '#a3aab4', margin: 0, lineHeight: 1.5, maxWidth: 340 }}>
+            <p className="r-hide" style={{ fontSize: 14, color: '#a3aab4', margin: 0, lineHeight: 1.5, maxWidth: 340 }}>
               Training footage, client results and what actually happens in sessions.
             </p>
             <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
@@ -267,7 +269,7 @@ export default function HomePage() {
           {/* Left: content */}
           <div className="r-px r-tall-pad" style={{ padding: '80px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRight: '1px solid #1e2126' }}>
             <div>
-              <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.24em', marginTop: 0, marginBottom: 28 }}>
+              <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 28 }}>
                 START WHERE YOU ARE
               </p>
               <h2
@@ -300,7 +302,7 @@ export default function HomePage() {
                     className="hover-approach"
                   >
                     <span style={{ fontSize: 14.5, color: '#8d95a0', lineHeight: 1.4 }}>{situation}</span>
-                    <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.18em', flexShrink: 0 }}>
+                    <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', flexShrink: 0 }}>
                       {service.toUpperCase()} →
                     </span>
                   </Link>
@@ -309,9 +311,11 @@ export default function HomePage() {
             </div>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <Link href="/book" className="btn-gold" style={{ padding: '15px 28px' }}>Book a consult</Link>
-              <Link href="/about#contact" className="btn-outline" style={{ padding: '15px 28px' }}>Ask a question</Link>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
+              <Link href="/book" className="btn-gold" style={{ padding: '14px 28px' }}>Book a consult</Link>
+              <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+                ASK A QUESTION →
+              </Link>
             </div>
           </div>
 

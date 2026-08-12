@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -7,6 +7,10 @@ import { SITE } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'How Rebuilt Singapore collects, uses and protects your personal data, in accordance with the PDPA.',
+  openGraph: {
+    title: 'Privacy Policy | Rebuilt Singapore',
+    description: 'How Rebuilt Singapore collects, uses and protects your personal data, in accordance with the PDPA.',
+  },
 }
 
 const TOC = [
@@ -23,7 +27,7 @@ const TOC = [
 function Num({ n }: { n: string }) {
   return (
     <span style={{
-      font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c',
+      font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)',
       letterSpacing: '.22em', border: '1px solid rgba(217,158,92,.25)',
       padding: '5px 10px', flexShrink: 0,
     }}>
@@ -51,7 +55,7 @@ const bodyText = { fontSize: 15, lineHeight: 1.8, color: '#a3aab4', marginTop: 0
 function Bullet({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', marginBottom: 10 }}>
-      <span style={{ width: 3, height: 3, background: '#d99e5c', borderRadius: '50%', flexShrink: 0, marginTop: 10 }} />
+      <span style={{ width: 3, height: 3, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0, marginTop: 10 }} />
       <p style={{ ...bodyText, marginBottom: 0 }}>{children}</p>
     </div>
   )
@@ -81,7 +85,7 @@ export default function PrivacyPage() {
           <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#2a2e34' }}>/</span>
           <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47', letterSpacing: '.2em' }}>LEGAL</span>
           <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#2a2e34' }}>/</span>
-          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em' }}>PRIVACY POLICY</span>
+          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em' }}>PRIVACY POLICY</span>
         </div>
 
         {/* Title area */}
@@ -144,7 +148,7 @@ export default function PrivacyPage() {
 
           <div style={{ marginTop: 36, paddingTop: 24, borderTop: '1px solid #1a1d22' }}>
             <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', marginTop: 0, marginBottom: 10 }}>QUESTIONS?</p>
-            <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, color: '#d99e5c', textDecoration: 'none', lineHeight: 1.5 }}>
+            <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, color: 'var(--accent)', textDecoration: 'none', lineHeight: 1.5 }}>
               {SITE.contact.email}
             </a>
           </div>
@@ -217,7 +221,7 @@ export default function PrivacyPage() {
                 { right: 'Data portability', desc: 'Request your data in a structured, machine-readable format where applicable.' },
               ].map(({ right, desc }) => (
                 <div key={right} style={{ background: '#0f1115', border: '1px solid #1e2126', padding: '16px 20px' }}>
-                  <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.18em', margin: '0 0 7px' }}>
+                  <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', margin: '0 0 7px' }}>
                     {right.toUpperCase()}
                   </p>
                   <p style={{ fontSize: 14, color: '#a3aab4', margin: 0, lineHeight: 1.6 }}>{desc}</p>
@@ -225,7 +229,7 @@ export default function PrivacyPage() {
               ))}
             </div>
             <p style={bodyText}>To exercise any of these rights, contact us at{' '}
-              <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: '#d99e5c', textDecoration: 'none' }}>{SITE.contact.email}</a>.
+              <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>{SITE.contact.email}</a>.
               {' '}We will respond within 30 days.
             </p>
           </Section>
@@ -242,17 +246,17 @@ export default function PrivacyPage() {
 
           <Section id="contact" num="08" title="Contact">
             <p style={bodyText}>For questions about this privacy policy or how we handle your personal data:</p>
-            <div style={{ background: '#0f1115', border: '1px solid #1e2126', borderLeft: '2px solid #d99e5c', padding: '24px 28px', marginBottom: 20 }}>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em', margin: '0 0 12px' }}>REBUILT SINGAPORE</p>
+            <div style={{ background: '#0f1115', border: '1px solid #1e2126', borderLeft: '2px solid var(--accent)', padding: '24px 28px', marginBottom: 20 }}>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 12px' }}>REBUILT SINGAPORE</p>
               <p style={{ fontSize: 14, color: '#6f7783', margin: '0 0 10px', lineHeight: 1.6 }}>
                 Core Collective · Robinson, Dempsey &amp; Katong
               </p>
-              <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: '#d99e5c', textDecoration: 'none', fontWeight: 500 }}>
+              <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }}>
                 {SITE.contact.email}
               </a>
             </div>
             <p style={bodyText}>If you are not satisfied with our response, you may contact the Personal Data Protection Commission (PDPC) at{' '}
-              <a href="https://www.pdpc.gov.sg" target="_blank" rel="noopener noreferrer" style={{ color: '#d99e5c', textDecoration: 'none' }}>pdpc.gov.sg</a>.
+              <a href="https://www.pdpc.gov.sg" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>pdpc.gov.sg</a>.
             </p>
           </Section>
 

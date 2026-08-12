@@ -45,7 +45,7 @@ export default function WhatsAppButton() {
         width: 52,
         height: 52,
         borderRadius: '50%',
-        background: '#d99e5c',
+        background: 'var(--accent)',
         display: 'grid',
         placeItems: 'center',
         boxShadow: '0 4px 20px rgba(217,158,92,.35)',

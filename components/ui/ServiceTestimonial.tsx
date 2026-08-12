@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 
 interface Props {
   imageSrc: string
@@ -21,18 +21,18 @@ export default function ServiceTestimonial({ imageSrc, imageAlt, quote, initial,
           />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom right, transparent 30%, #141922 100%)' }} />
         </div>
-        <div className="r-px" style={{ padding: '52px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <p style={{ fontSize: 14, color: '#d99e5c', letterSpacing: '.06em', margin: '0 0 20px' }}>★★★★★</p>
+        <div className="r-px r-tall-pad" style={{ padding: '52px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <p style={{ fontSize: 14, color: 'var(--accent)', letterSpacing: '.06em', margin: '0 0 20px' }}>★★★★★</p>
           <blockquote style={{ fontSize: 22, lineHeight: 1.55, fontWeight: 500, letterSpacing: '-.01em', color: '#e8eaed', margin: '0 0 28px', fontStyle: 'normal' }}>
             &ldquo;{quote}&rdquo;
           </blockquote>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ width: 34, height: 34, borderRadius: '50%', background: '#1a2535', display: 'grid', placeItems: 'center', fontSize: 12, fontWeight: 700, color: '#d99e5c', flexShrink: 0 }}>
+            <span style={{ width: 34, height: 34, borderRadius: '50%', background: '#1a2535', display: 'grid', placeItems: 'center', fontSize: 12, fontWeight: 700, color: 'var(--accent)', flexShrink: 0 }}>
               {initial}
             </span>
             <div>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#c2c7ce', margin: '0 0 6px', letterSpacing: '.1em' }}>{name}</p>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', margin: 0, letterSpacing: '.18em' }}>{role}</p>
+              <p className="r-testimonial-role" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', margin: 0, letterSpacing: '.18em' }}>{role}</p>
             </div>
           </div>
         </div>

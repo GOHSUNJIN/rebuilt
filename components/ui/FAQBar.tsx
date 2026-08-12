@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 
 export default function FAQBar({ label, href }: { label: string; href: string }) {
   return (
@@ -6,7 +6,7 @@ export default function FAQBar({ label, href }: { label: string; href: string })
       <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.2em', margin: 0 }}>
         {label}
       </p>
-      <Link href={href} style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.18em', textDecoration: 'none' }}>
+      <Link href={href} style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none' }}>
         View FAQ →
       </Link>
     </section>

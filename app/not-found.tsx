@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
@@ -11,7 +11,7 @@ export default function NotFound() {
           <span className="r-404" style={{ fontSize: 160, fontWeight: 800, lineHeight: 1, color: 'rgba(255,255,255,.03)', display: 'block', letterSpacing: '-.04em', fontFamily: 'Archivo,sans-serif', marginBottom: -16, userSelect: 'none' }}>
             404
           </span>
-          <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.28em', marginBottom: 22, marginTop: 0 }}>
+          <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.28em', marginBottom: 22, marginTop: 0 }}>
             PAGE NOT FOUND
           </p>
           <h1 style={{ fontSize: 52, fontWeight: 800, lineHeight: 0.95, letterSpacing: '-.025em', margin: '0 0 20px' }}>

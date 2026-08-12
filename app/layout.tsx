@@ -2,11 +2,11 @@ import type { Metadata, Viewport } from 'next'
 import { Archivo } from 'next/font/google'
 import './globals.css'
 import { SITE } from '@/lib/site'
-import WhatsAppButton from '@/components/ui/WhatsAppButton'
-import ScrollProgress from '@/components/ui/ScrollProgress'
-import CursorGlow from '@/components/ui/CursorGlow'
-import LandscapeBlock from '@/components/ui/LandscapeBlock'
-import MobileBookingBar from '@/components/ui/MobileBookingBar'
+import WhatsAppButton from '@/components/effects/WhatsAppButton'
+import ScrollProgress from '@/components/effects/ScrollProgress'
+import CursorGlow from '@/components/effects/CursorGlow'
+import MobileBookingBar from '@/components/effects/MobileBookingBar'
+import ThemePlayground from '@/components/effects/ThemePlayground'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   description:
     'Rebuilt: coached rehabilitation, training and sports performance in Singapore.',
   metadataBase: new URL(SITE.url),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Rebuilt',
     description: 'Coached rehabilitation, training and sports performance in Singapore.',
@@ -34,11 +37,13 @@ export const metadata: Metadata = {
     siteName: 'Rebuilt',
     locale: 'en_SG',
     type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Rebuilt Singapore' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Rebuilt',
     description: 'Coached rehabilitation, training and sports performance in Singapore.',
+    images: ['/opengraph-image'],
   },
   icons: {
     icon: '/rebuilt-mark.svg',
@@ -97,12 +102,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <LandscapeBlock />
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <CursorGlow />
         <ScrollProgress />
-        {children}
+        <div id="main-content">{children}</div>
         <MobileBookingBar />
         <WhatsAppButton />
+        {process.env.NODE_ENV === 'development' && <ThemePlayground />}
         <Analytics />
         <SpeedInsights />
       </body>

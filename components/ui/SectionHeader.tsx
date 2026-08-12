@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+﻿import type { ReactNode } from 'react'
 
 export default function SectionHeader({
   label,
@@ -16,10 +16,10 @@ export default function SectionHeader({
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 40, flexWrap: 'wrap', gap: 16 }}>
       <div>
-        <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.24em', marginTop: 0, marginBottom: 16 }}>
+        <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 16 }}>
           {label}
         </p>
-        <h2 style={{ fontSize: headingSize, fontWeight: 800, letterSpacing, margin: 0, lineHeight }}>
+        <h2 className="r-section-h2" style={{ fontSize: headingSize, fontWeight: 800, letterSpacing, margin: 0, lineHeight }}>
           {heading}
         </h2>
       </div>

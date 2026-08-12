@@ -41,11 +41,11 @@ export default function ServiceHero({
 
       {label && (
         <div className="r-px" style={{ position: 'absolute', top: 0, left: 0, right: 0, borderBottom: '1px solid rgba(255,255,255,.07)', padding: '20px 48px' }}>
-          <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.28em', margin: 0 }}>{label}</p>
+          <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.28em', margin: 0 }}>{label}</p>
         </div>
       )}
-      <div style={{ position: 'absolute', bottom: 28, right: 28, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 14px', background: 'rgba(9,9,13,.75)', border: '1px solid rgba(255,255,255,.1)', backdropFilter: 'blur(6px)' }}>
-        <span style={{ width: 4, height: 4, background: '#d99e5c', borderRadius: '50%', flexShrink: 0 }} />
+      <div className="r-hero-badge" style={{ position: 'absolute', bottom: 28, right: 28, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 14px', background: 'rgba(9,9,13,.75)', border: '1px solid rgba(255,255,255,.1)', backdropFilter: 'blur(6px)' }}>
+        <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
         <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#c2c7ce', letterSpacing: '.2em' }}>CORE COLLECTIVE · SINGAPORE</span>
       </div>
 
@@ -65,19 +65,23 @@ export default function ServiceHero({
         </h1>
 
         {inline ? (
-          <div style={{ display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 40, flexWrap: 'wrap' }}>
             <p style={{ fontSize: 17, lineHeight: 1.65, color: '#b3b9c2', maxWidth: 480, margin: 0 }}>{subheading}</p>
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', flexShrink: 0 }}>
-              <Link href={bookHref} className="btn-gold" style={{ padding: '16px 30px' }}>{bookLabel}</Link>
-              <Link href="/about#contact" className="btn-outline" style={{ padding: '16px 30px' }}>Ask a question</Link>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 28, flexShrink: 0 }}>
+              <Link href={bookHref} className="btn-gold" style={{ padding: '14px 28px' }}>{bookLabel}</Link>
+              <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+                ASK A QUESTION →
+              </Link>
             </div>
           </div>
         ) : (
           <>
-            <p style={{ fontSize: 17, lineHeight: 1.65, color: '#b3b9c2', maxWidth: 520, margin: '0 0 36px' }}>{subheading}</p>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-              <Link href={bookHref} className="btn-gold" style={{ padding: '16px 30px' }}>{bookLabel}</Link>
-              <Link href="/about#contact" className="btn-outline" style={{ padding: '16px 30px' }}>Ask a question</Link>
+            <p style={{ fontSize: 17, lineHeight: 1.65, color: '#b3b9c2', maxWidth: 520, margin: '0 0 32px' }}>{subheading}</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
+              <Link href={bookHref} className="btn-gold" style={{ padding: '14px 28px' }}>{bookLabel}</Link>
+              <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+                ASK A QUESTION →
+              </Link>
             </div>
           </>
         )}

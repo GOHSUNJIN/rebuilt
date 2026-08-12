@@ -31,7 +31,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
             >
               <span style={{
                 font: '9px/1 ui-monospace,Menlo,monospace',
-                color: isOpen ? '#d99e5c' : '#8d95a0',
+                color: isOpen ? 'var(--accent)' : '#8d95a0',
                 letterSpacing: '.18em',
                 flexShrink: 0,
                 width: 22,
@@ -57,11 +57,11 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
                 style={{
                   width: 26,
                   height: 26,
-                  border: `1px solid ${isOpen ? '#d99e5c' : '#2a2e34'}`,
+                  border: `1px solid ${isOpen ? 'var(--accent)' : '#2a2e34'}`,
                   display: 'grid',
                   placeItems: 'center',
                   flexShrink: 0,
-                  color: isOpen ? '#d99e5c' : '#5f6670',
+                  color: isOpen ? 'var(--accent)' : '#5f6670',
                   fontSize: 16,
                   lineHeight: 1,
                   transition: 'transform .22s ease, border-color .15s, color .15s',
@@ -82,6 +82,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
               }}
             >
               <p
+                className="r-faq-answer"
                 style={{
                   fontSize: 14.5,
                   lineHeight: 1.75,

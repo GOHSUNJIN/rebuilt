@@ -1,11 +1,11 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { TEAM, type TeamMember } from '@/lib/team'
 import { useScrollLock } from '@/lib/hooks'
 
-function MemberPlaceholder({ initials, height }: { initials: string; height: number }) {
+function MemberPlaceholder({ initials, height, className = '' }: { initials: string; height: number; className?: string }) {
   return (
-    <div style={{ height, overflow: 'hidden', position: 'relative', background: '#08090b', flexShrink: 0 }}>
+    <div className={className} style={{ height, overflow: 'hidden', position: 'relative', background: '#08090b', flexShrink: 0 }}>
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 130% 80% at 30% 20%, #111418 0%, #060708 100%)' }} />
       <span style={{
         position: 'absolute', top: '50%', left: '50%',
@@ -22,11 +22,13 @@ function MemberPlaceholder({ initials, height }: { initials: string; height: num
 
 export default function TeamBioModal() {
   const [selected, setSelected] = useState<TeamMember | null>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
 
   useScrollLock(!!selected)
 
   useEffect(() => {
     if (!selected) return
+    closeButtonRef.current?.focus()
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelected(null) }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -56,9 +58,9 @@ export default function TeamBioModal() {
             }}
             onClick={() => setSelected(member)}
           >
-            <MemberPlaceholder initials={initials(member.name)} height={340} />
+            <MemberPlaceholder initials={initials(member.name)} height={340} className="r-team-img" />
             <div style={{ padding: '24px 22px 26px' }}>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.2em', marginTop: 0, marginBottom: 10 }}>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', marginTop: 0, marginBottom: 10 }}>
                 {member.role}
               </p>
               <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10 }}>
@@ -67,7 +69,7 @@ export default function TeamBioModal() {
               <p style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 18px' }}>
                 {member.short}
               </p>
-              <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.16em' }}>
+              <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em' }}>
                 READ FULL BIO →
               </span>
             </div>
@@ -76,7 +78,7 @@ export default function TeamBioModal() {
 
         {/* Placeholder / hiring card */}
         <div style={{ border: '1px solid #1e2126', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ height: 340, background: '#08090b', display: 'flex', alignItems: 'flex-end', padding: '0 22px 22px', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
+          <div className="r-team-img" style={{ height: 340, background: '#08090b', display: 'flex', alignItems: 'flex-end', padding: '0 22px 22px', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 30% 30%, #111014 0%, #060708 70%)' }} />
             <span style={{ position: 'relative', font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em' }}>PHYSIOTHERAPIST</span>
           </div>
@@ -116,6 +118,7 @@ export default function TeamBioModal() {
             }}
           >
             <button
+              ref={closeButtonRef}
               onClick={() => setSelected(null)}
               aria-label="Close bio"
               style={{
@@ -134,8 +137,8 @@ export default function TeamBioModal() {
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f1115 0%, transparent 55%)' }} />
             </div>
 
-            <div style={{ padding: '4px 36px 52px' }}>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#d99e5c', letterSpacing: '.24em', marginTop: 0, marginBottom: 12 }}>
+            <div className="r-drawer-content" style={{ padding: '4px 36px 52px' }}>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 12 }}>
                 {selected.role}
               </p>
               <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 28 }}>
@@ -155,7 +158,7 @@ export default function TeamBioModal() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {selected.credentials.map((c) => (
                     <div key={c} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                      <span style={{ width: 4, height: 4, background: '#d99e5c', borderRadius: '50%', flexShrink: 0 }} />
+                      <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
                       <span style={{ fontSize: 13.5, color: '#c2c7ce' }}>{c}</span>
                     </div>
                   ))}

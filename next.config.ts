@@ -2,12 +2,12 @@ import type { NextConfig } from 'next'
 
 const cspHeader = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://vercel.live",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https://images.unsplash.com https://gobeyondrehab.sg",
   "font-src 'self'",
   "connect-src 'self' https://vitals.vercel-insights.com",
-  "frame-src https://maps.google.com",
+  "frame-src https://maps.google.com https://www.google.com",
   "frame-ancestors 'none'",
   "form-action 'self'",
   "base-uri 'self'",

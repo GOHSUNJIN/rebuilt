@@ -7,6 +7,7 @@ const cspHeader = [
   "img-src 'self' data: https://images.unsplash.com https://gobeyondrehab.sg",
   "font-src 'self'",
   "connect-src 'self' https://vitals.vercel-insights.com",
+  "frame-src https://maps.google.com",
   "frame-ancestors 'none'",
   "form-action 'self'",
   "base-uri 'self'",

@@ -75,11 +75,11 @@ export default function PhysioPage() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
+                    src="https://gobeyondrehab.sg/favicon.ico"
                     alt="Rehab & Beyond"
                     width={40}
                     height={40}
-                    style={{ width: 40, height: 40, borderRadius: '50%', background: '#fff', display: 'block', objectFit: 'contain', padding: 4 }}
+                    style={{ width: 40, height: 40, borderRadius: '50%', background: '#fff', display: 'block', objectFit: 'cover' }}
                   />
                   <div>
                     <p style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 4px', color: '#f2f4f7', lineHeight: 1 }}>Rehab &amp; Beyond</p>
@@ -121,7 +121,7 @@ export default function PhysioPage() {
       </section>
 
       <PricingCards items={PRICING} />
-      <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingBottom: 40, borderBottom: '1px solid #212429' }}>
+      <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #212429' }}>
         Prices are indicative and set by Rehab &amp; Beyond.{' '}
         <Link href="/book?service=physio" style={{ color: 'var(--accent)', textDecoration: 'none' }}>Get in touch</Link> to confirm current rates before booking.
       </p>

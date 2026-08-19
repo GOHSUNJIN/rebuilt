@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { SITE } from '@/lib/site'
+import { SITE, NAV_LINKS } from '@/lib/site'
 import OpenStatus from '@/components/ui/OpenStatus'
 
 type SocialTarget = { label: string; href: string; note: string } | null
@@ -134,15 +134,7 @@ export default function Footer() {
 
       {/* ── Desktop nav row (hidden on mobile) ─────── */}
       <div className="r-px r-footer-nav" style={{ borderTop: '1px solid #212429', background: '#0e0f11', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #17191d' }}>
-        {[
-          { label: 'Rehab',          href: '/rehab' },
-          { label: 'Training',       href: '/strength' },
-          { label: 'Performance',    href: '/performance' },
-          { label: 'Physiotherapy',  href: '/physio' },
-          { label: 'About',          href: '/about' },
-          { label: 'FAQ',            href: '/faq' },
-          { label: 'Book a consult', href: '/book' },
-        ].map(({ label, href }) => {
+        {[...NAV_LINKS, { label: 'Book a consult', href: '/book', page: 'book' }].map(({ label, href }) => {
           const active = pathname === href || (href !== '/' && pathname.startsWith(href))
           return (
             <Link key={label} href={href} style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: active ? 'var(--accent)' : '#8d95a0', letterSpacing: '.16em', textDecoration: 'none', transition: 'color .15s' }} className={active ? '' : 'hover-gold'}>

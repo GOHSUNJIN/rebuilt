@@ -1,5 +1,11 @@
 import type { ReactNode } from 'react'
 
+export interface NavLink {
+  href: string
+  label: string
+  page: string
+}
+
 export interface PricingItem {
   type: string
   price: string

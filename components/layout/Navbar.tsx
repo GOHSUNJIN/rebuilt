@@ -2,17 +2,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
+import { NAV_LINKS } from '@/lib/site'
 
 type NavbarProps = { activePage?: string }
-
-const NAV_LINKS = [
-  { href: '/rehab',       label: 'Rehab',       page: 'rehab' },
-  { href: '/strength',    label: 'Training',    page: 'strength' },
-  { href: '/performance', label: 'Performance', page: 'performance' },
-  { href: '/physio',      label: 'Physiotherapy', page: 'physio' },
-  { href: '/about',       label: 'About',       page: 'about' },
-  { href: '/faq',         label: 'FAQ',         page: 'faq' },
-]
 
 export default function Navbar({ activePage = '' }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false)

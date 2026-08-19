@@ -1,3 +1,25 @@
+import type { NavLink } from '@/lib/types'
+
+export const NAV_LINKS: NavLink[] = [
+  { href: '/rehab',       label: 'Rehab',           page: 'rehab' },
+  { href: '/strength',    label: 'Training',         page: 'strength' },
+  { href: '/performance', label: 'Performance',      page: 'performance' },
+  { href: '/physio',      label: 'Physiotherapy',    page: 'physio' },
+  { href: '/about',       label: 'About',            page: 'about' },
+  { href: '/faq',         label: 'FAQ',              page: 'faq' },
+]
+
+export const WHATSAPP_MESSAGES: Record<string, string> = {
+  '/rehab':       "Hi, I'm interested in the Rehab service at Rebuilt. Could you tell me more?",
+  '/strength':    "Hi, I'm interested in Training at Rebuilt. Could you tell me more?",
+  '/performance': "Hi, I'm interested in the Performance service at Rebuilt. Could you tell me more?",
+  '/physio':      "Hi, I'm interested in booking a physiotherapy session at Rebuilt. Could you help me get started?",
+  '/book':        "Hi, I'd like to book a consult at Rebuilt. Could you help me get started?",
+  '/about':       "Hi, I have a question about Rebuilt. Could you help me?",
+}
+
+export const DEFAULT_WHATSAPP_MESSAGE = "Hi, I'd like to find out more about Rebuilt."
+
 export const SITE = {
   name: 'Rebuilt',
   tagline: 'SINGAPORE',

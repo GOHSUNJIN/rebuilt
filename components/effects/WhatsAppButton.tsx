@@ -1,18 +1,7 @@
 'use client'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { SITE } from '@/lib/site'
-
-const MESSAGES: Record<string, string> = {
-  '/rehab': "Hi, I'm interested in the Rehab service at Rebuilt. Could you tell me more?",
-  '/strength': "Hi, I'm interested in Training at Rebuilt. Could you tell me more?",
-  '/performance': "Hi, I'm interested in the Performance service at Rebuilt. Could you tell me more?",
-  '/physio': "Hi, I'm interested in booking a physiotherapy session at Rebuilt. Could you help me get started?",
-  '/book': "Hi, I'd like to book a consult at Rebuilt. Could you help me get started?",
-  '/about': "Hi, I have a question about Rebuilt. Could you help me?",
-}
-
-const DEFAULT_MESSAGE = "Hi, I'd like to find out more about Rebuilt."
+import { SITE, WHATSAPP_MESSAGES, DEFAULT_WHATSAPP_MESSAGE } from '@/lib/site'
 
 export default function WhatsAppButton() {
   const pathname = usePathname()
@@ -28,7 +17,7 @@ export default function WhatsAppButton() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const message = MESSAGES[pathname] ?? DEFAULT_MESSAGE
+  const message = WHATSAPP_MESSAGES[pathname] ?? DEFAULT_WHATSAPP_MESSAGE
   const href = `${SITE.contact.whatsapp}?text=${encodeURIComponent(message)}`
 
   return (

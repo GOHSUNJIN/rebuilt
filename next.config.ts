@@ -4,7 +4,7 @@ const cspHeader = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://images.unsplash.com",
+  "img-src 'self' data: https://images.unsplash.com https://www.google.com",
   "font-src 'self'",
   "connect-src 'self' https://vitals.vercel-insights.com",
   "frame-ancestors 'none'",

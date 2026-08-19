@@ -1,9 +1,11 @@
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
+import type { ReactNode } from 'react'
+
 interface Props {
   activePage?: string
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export default function PageShell({ activePage, children }: Props) {

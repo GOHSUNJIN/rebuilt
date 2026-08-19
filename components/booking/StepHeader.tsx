@@ -1,6 +1,8 @@
+import type { ReactNode } from 'react'
+
 interface Props {
   step: number
-  heading: React.ReactNode
+  heading: ReactNode
   large?: boolean
 }
 

@@ -75,11 +75,11 @@ export default function PhysioPage() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://www.google.com/s2/favicons?domain=gobeyondrehab.sg&sz=64"
+                    src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
                     alt="Rehab & Beyond"
                     width={40}
                     height={40}
-                    style={{ width: 40, height: 40, borderRadius: '50%', background: '#1a1d22', display: 'block', objectFit: 'cover' }}
+                    style={{ width: 40, height: 40, borderRadius: '50%', background: '#fff', display: 'block', objectFit: 'contain', padding: 4 }}
                   />
                   <div>
                     <p style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 4px', color: '#f2f4f7', lineHeight: 1 }}>Rehab &amp; Beyond</p>

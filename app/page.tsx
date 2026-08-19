@@ -59,7 +59,7 @@ export default function HomePage() {
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', animation: 'slowZoom 14s ease both' }}>
           <Image
             src="https://images.unsplash.com/photo-1778828494354-9b717d36dc99?auto=format&fit=crop&w=1400&q=85"
-            alt=""
+            alt="Strength and conditioning training session at Rebuilt Singapore"
             fill
             priority
             style={{ objectFit: 'cover' }}

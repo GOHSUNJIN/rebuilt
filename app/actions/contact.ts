@@ -32,8 +32,7 @@ export async function submitContact(formData: FormData) {
   if (message.length > 2000) return { ok: false, error: 'Message must be under 2000 characters.' }
 
   if (!process.env.RESEND_API_KEY) {
-    console.warn('RESEND_API_KEY not set — email not sent')
-    return { ok: true }
+    return { ok: false, error: 'Email service is unavailable. Please contact us directly at ' + SITE.contact.email }
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY)

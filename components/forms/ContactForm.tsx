@@ -67,7 +67,7 @@ export default function ContactForm() {
           <textarea name="message" placeholder="Your question or message" rows={5} maxLength={2000} style={{ ...inputStyle, resize: 'none' }} />
         </label>
         {status === 'error' && (
-          <p style={{ fontSize: 13, color: '#e07070', margin: 0 }}>{errorMsg}</p>
+          <p role="alert" aria-live="assertive" style={{ fontSize: 13, color: '#e07070', margin: 0 }}>{errorMsg}</p>
         )}
         <button
           type="submit"

@@ -1,12 +1,12 @@
 'use client'
 import { COACHES } from '@/lib/bookData'
 import type { Step2Props } from './types'
+import StepHeader from './StepHeader'
 
 export default function Step2({ coach, setCoach }: Step2Props) {
   return (
     <>
-      <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em', marginTop: 0, marginBottom: 20 }}>STEP 02 OF 05</p>
-      <h2 className="r-h2" style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.025em', marginTop: 0, marginBottom: 8, lineHeight: 0.96 }}>Choose a coach.</h2>
+      <StepHeader step={2} heading="Choose a coach." />
       <p style={{ fontSize: 15, color: '#a3aab4', marginTop: 0, marginBottom: 28 }}>You can always switch after your first session.</p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 2, background: '#1a1d22' }}>
         {COACHES.map(({ label, sub, detail }) => {

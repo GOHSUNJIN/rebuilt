@@ -1,8 +1,7 @@
 ﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import PageShell from '@/components/layout/PageShell'
 import ServiceHero from '@/components/sections/ServiceHero'
 import ServiceTestimonial from '@/components/ui/ServiceTestimonial'
 import PricingCards from '@/components/ui/PricingCards'
@@ -45,8 +44,7 @@ const CROSSLINKS: CrosslinkItem[] = [
 
 export default function PhysioPage() {
   return (
-    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0c0e14', color: '#f2f4f7', minHeight: '100vh' }}>
-      <Navbar activePage="physio" />
+    <PageShell activePage="physio">
 
       <ServiceHero
 
@@ -198,7 +196,6 @@ export default function PhysioPage() {
 
       <ServiceCrosslinks items={CROSSLINKS} />
 
-      <Footer />
-    </div>
+    </PageShell>
   )
 }

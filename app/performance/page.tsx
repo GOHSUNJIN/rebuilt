@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import PageShell from '@/components/layout/PageShell'
 import ServiceHero from '@/components/sections/ServiceHero'
 import ServiceTestimonial from '@/components/ui/ServiceTestimonial'
 import PricingCards from '@/components/ui/PricingCards'
@@ -43,8 +42,7 @@ const CROSSLINKS: CrosslinkItem[] = [
 
 export default function PerformancePage() {
   return (
-    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0c0e14', color: '#f2f4f7', minHeight: '100vh' }}>
-      <Navbar activePage="performance" />
+    <PageShell activePage="performance">
 
       <ServiceHero
 
@@ -105,7 +103,6 @@ export default function PerformancePage() {
 
       <ServiceCrosslinks items={CROSSLINKS} />
 
-      <Footer />
-    </div>
+    </PageShell>
   )
 }

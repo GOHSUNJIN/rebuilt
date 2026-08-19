@@ -1,8 +1,7 @@
 ﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import PageShell from '@/components/layout/PageShell'
 import { SITE } from '@/lib/site'
 import ContactForm from '@/components/forms/ContactForm'
 import LocationMap from '@/components/ui/LocationMap'
@@ -21,15 +20,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div
-      style={{
-        fontFamily: 'Archivo,Helvetica,Arial,sans-serif',
-        background: '#0c0e14',
-        color: '#f2f4f7',
-        minHeight: '100vh',
-      }}
-    >
-      <Navbar activePage="about" />
+    <PageShell activePage="about">
 
       {/* ── Header ──────────────────────────────── */}
       <section style={{ borderBottom: '1px solid #212429' }}>
@@ -215,7 +206,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
-    </div>
+    </PageShell>
   )
 }

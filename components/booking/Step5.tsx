@@ -1,11 +1,11 @@
 'use client'
 import type { Step5Props } from './types'
+import StepHeader from './StepHeader'
 
 export default function Step5({ summaryRows, waUrl, gmailUrl, notSureYet }: Step5Props) {
   return (
     <>
-      <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em', marginTop: 0, marginBottom: 20 }}>STEP 05 OF 05</p>
-      <h2 className="r-h2" style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.025em', marginTop: 0, marginBottom: 8, lineHeight: 0.96 }}>Review &amp; send</h2>
+      <StepHeader step={5} heading="Review & send" />
       <p style={{ fontSize: 15, color: '#a3aab4', marginTop: 0, marginBottom: notSureYet ? 20 : 36 }}>
         Check your details, then send your request. We&apos;ll confirm your slot and arrange payment shortly.
       </p>

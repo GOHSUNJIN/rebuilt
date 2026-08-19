@@ -2,12 +2,12 @@
 import { formLabelStyle as labelStyle } from '@/lib/styles'
 import { LOCATION_OPTIONS, DAYS, ALL_TIMES, SAT_TIMES } from '@/lib/bookData'
 import type { Step3Props } from './types'
+import StepHeader from './StepHeader'
 
 export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, location, setLocation, showLocation }: Step3Props) {
   return (
     <>
-      <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em', marginTop: 0, marginBottom: 20 }}>STEP 03 OF 05</p>
-      <h2 className="r-h2" style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.025em', marginTop: 0, marginBottom: 8, lineHeight: 0.96 }}>Preferred time slots</h2>
+      <StepHeader step={3} heading="Preferred time slots" />
       <p style={{ fontSize: 15, color: '#a3aab4', marginTop: 0, marginBottom: 36 }}>Pick the days and times that work for you. We will confirm the exact slot.</p>
 
       {showLocation && (

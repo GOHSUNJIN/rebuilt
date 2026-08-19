@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import PageShell from '@/components/layout/PageShell'
 import FAQContent from '@/components/sections/FAQContent'
 
 export const metadata: Metadata = {
@@ -14,10 +13,8 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
   return (
-    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0c0e14', color: '#f2f4f7', minHeight: '100vh' }}>
-      <Navbar activePage="faq" />
+    <PageShell activePage="faq">
       <FAQContent />
-      <Footer />
-    </div>
+    </PageShell>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 import { TABS, REHAB_OPTIONS, PT_FORMATS, PT_TYPES } from '@/lib/bookData'
 import type { Step1Props } from './types'
+import StepHeader from './StepHeader'
 
 const miniLabel: React.CSSProperties = {
   font: '9px/1 ui-monospace,Menlo,monospace', color: '#8d95a0',
@@ -10,8 +11,7 @@ const miniLabel: React.CSSProperties = {
 export default function Step1({ category, ptFormat, service, selectCategory, setPtFormat, setService }: Step1Props) {
   return (
     <>
-      <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em', marginTop: 0, marginBottom: 20 }}>STEP 01 OF 05</p>
-      <h2 className="r-h1" style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-.03em', marginTop: 0, marginBottom: 24, lineHeight: 0.93 }}>What are you<br />coming in for?</h2>
+      <StepHeader step={1} heading={<>What are you<br />coming in for?</>} large />
 
       {/* Tab bar */}
       <div style={{ display: 'flex', borderBottom: '2px solid #1a1d22', marginBottom: 24, overflowX: 'auto', gap: 0, scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}>

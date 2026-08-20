@@ -43,7 +43,7 @@ export const ALL_FAQS: Record<string, FAQItem[]> = {
     { num: '02', q: 'Do I need a referral or a scan before booking?',     a: 'No referral needed. You can come in directly. If you have existing scan results, clinic letters or discharge notes, bring them and they will be used to calibrate your treatment.' },
     { num: '03', q: 'What conditions do you treat?',                      a: 'Sports injuries, post-surgical rehab, musculoskeletal pain and return-to-sport cases. This includes ACL reconstructions, shoulder instability, back pain, hip issues and general soft tissue problems.' },
     { num: '04', q: 'How much does a physiotherapy session cost?',         a: 'A 45-minute session is SGD 200 and a 60-minute session is SGD 250. Rates are set by Rehab & Beyond.' },
-    { num: '05', q: 'Can I claim insurance for my session?',               a: 'Yes, as long as you have a doctor\'s referral. Check whether your insurance policy names a specific physiotherapy clinic — some providers require you to use their preferred clinic. Confirm with your insurer before booking.' },
+    { num: '05', q: 'Can I claim insurance for my session?',               a: 'Yes, as long as you have a doctor\'s referral. Check whether your insurance policy names a specific physiotherapy clinic. Some providers require you to use their preferred clinic. Confirm with your insurer before booking.' },
     { num: '06', q: 'Can my physiotherapist and my coach work together?',  a: 'Yes, and this is exactly the point of the partnership. Session notes are shared between the physiotherapist and the Rebuilt Academy coaching team so nothing falls through the gap between clinic and gym.' },
   ],
 }

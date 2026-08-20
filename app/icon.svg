@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Rounded-square background (iOS-style app icon shape) -->
+  <rect width="100" height="100" rx="22" fill="#0b0c0e"/>
+
+  <defs>
+    <mask id="m">
+      <rect width="100" height="100" fill="white"/>
+      <path d="M35 31 L53 31 C62 31 62 45 53 45 L35 45 Z" fill="black"/>
+      <polygon points="35,52 47,52 39,64" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Circle ring with gap at lower-right -->
+  <path d="M84 79 A44 44 0 1 1 91 65"
+    fill="none" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+
+  <!-- R letterform -->
+  <g mask="url(#m)">
+    <rect x="24" y="23" width="11" height="55" fill="white"/>
+    <path d="M35 23 L56 23 C70 23 70 52 56 52 L35 52 Z" fill="white"/>
+    <polygon points="35,52 50,52 68,78 53,78" fill="white"/>
+  </g>
+</svg>

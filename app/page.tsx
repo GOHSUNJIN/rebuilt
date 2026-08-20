@@ -1,902 +1,337 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import ImagePlaceholder from '@/components/ImagePlaceholder'
+import Image from 'next/image'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import Marquee from '@/components/sections/Marquee'
+import ReviewsSection from '@/components/sections/ReviewsSection'
 
 export const metadata: Metadata = {
-  title: 'Rebuilt – Rehab, Personal Training & Performance in Singapore',
+  title: 'Rebuilt | Rehab, Training & Performance · Singapore',
+  description: 'Rebuilt is a Singapore gym for rehabilitation, personal training, sports performance and physiotherapy. One team, one set of notes, three locations at Core Collective.',
+  openGraph: {
+    title: 'Rebuilt Singapore — Rehab, Training & Performance',
+    description: 'One place for rehabilitation, personal training, sports performance and physiotherapy. Three locations across Singapore.',
+  },
 }
 
-const dash = (
-  <span style={{ width: 5, height: 1, background: '#d99e5c', display: 'inline-block', flexShrink: 0 }} />
-)
+const SERVICES = [
+  {
+    num: '01',
+    title: 'Rehab',
+    from: 'from SGD 120',
+    href: '/rehab',
+    img: 'https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?auto=format&fit=crop&w=800&q=80',
+    desc: 'For anyone coming back from injury or surgery, working to a plan that starts from where you are right now.',
+    tags: ['Post-surgery return to sport', 'Long-standing pain and niggles', 'Working alongside your clinician'],
+  },
+  {
+    num: '02',
+    title: 'Training',
+    from: 'from SGD 90',
+    href: '/strength',
+    img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80',
+    desc: 'One to one coaching for people who want structure, technique that holds up, and progress they can see.',
+    tags: ['One to one sessions', 'Pairs and small groups', 'Programmes you keep between sessions'],
+  },
+  {
+    num: '03',
+    title: 'Performance',
+    from: 'from SGD 1,200',
+    href: '/performance',
+    img: 'https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80',
+    desc: 'For athletes chasing a number: speed, power, change of direction, and the conditioning to repeat it.',
+    tags: ['Testing before and after', 'Sport-specific blocks', 'Off-season and in-season plans'],
+  },
+]
+
 
 export default function HomePage() {
   return (
-    <div
-      style={{
-        fontFamily: 'Archivo,Helvetica,Arial,sans-serif',
-        background: '#0b0c0e',
-        color: '#f2f4f7',
-        minHeight: '100vh',
-      }}
-    >
+    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0c0e14', color: '#f2f4f7', minHeight: '100vh' }}>
       <Navbar />
 
       {/* ── 1. Hero ─────────────────────────────── */}
       <section
-        style={{
-          height: 620,
-          position: 'relative',
-          display: 'grid',
-          alignItems: 'end',
-          background: '#111316',
-        }}
+        className="r-hero"
+        style={{ height: 680, position: 'relative', display: 'grid', alignItems: 'end', background: '#111316', overflow: 'hidden' }}
       >
-        {/* Hero image */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            overflow: 'hidden',
-            animation: 'slowZoom 14s ease both',
-          }}
-        >
-          <ImagePlaceholder placeholder="IMG-01 hero photo" height="100%" />
+        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', animation: 'slowZoom 14s ease both' }}>
+          <Image
+            src="https://images.unsplash.com/photo-1778828494354-9b717d36dc99?auto=format&fit=crop&w=1400&q=85"
+            alt="Strength and conditioning training session at Rebuilt Singapore"
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+            sizes="100vw"
+          />
         </div>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,10,10,.1) 0%, rgba(10,10,10,.3) 50%, #0b0c0e 100%)' }} />
 
-        {/* Gradient overlay */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'linear-gradient(180deg, rgba(10,10,10,.35) 0%, rgba(10,10,10,.55) 45%, #0b0c0e 100%)',
-          }}
-        />
-
-        {/* Content */}
-        <div style={{ position: 'relative', padding: '0 48px 60px', maxWidth: 900 }}>
-          <p
-            style={{
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: '.34em',
-              color: '#d99e5c',
-              marginBottom: 22,
-              marginTop: 0,
-              animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) both',
-            }}
-          >
+        <div className="r-hero-content r-px" style={{ position: 'relative', padding: '0 48px 72px', maxWidth: 900 }}>
+          <p className="r-hero-label" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.34em', color: 'var(--accent)', marginBottom: 22, marginTop: 0, animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) both' }}>
             REHAB · TRAINING · PERFORMANCE
           </p>
           <h1
-            style={{
-              fontSize: 88,
-              fontWeight: 800,
-              lineHeight: 0.94,
-              letterSpacing: '-.02em',
-              margin: 0,
-              animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) 0.14s both',
-            }}
+            className="r-h1"
+            style={{ fontSize: 96, fontWeight: 800, lineHeight: 0.92, letterSpacing: '-.03em', margin: 0, color: '#ffffff', animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) 0.14s both' }}
           >
-            REBUILT
-            <br />
-            STRONGER THAN
-            <br />
-            BEFORE.
+            REBUILT<br />STRONGER<br />THAN BEFORE.
           </h1>
-          <p
-            style={{
-              fontSize: 17,
-              lineHeight: 1.6,
-              color: '#b3b9c2',
-              marginBottom: 0,
-              marginTop: 26,
-              maxWidth: 520,
-            }}
-          >
-            Rehab, personal training and sports performance under one roof, for anyone who
-            wants to get back to doing what they did before.
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: '#a3aab4', marginBottom: 0, marginTop: 28, maxWidth: 460 }}>
+            Rehab, training and performance. One team, three locations.
           </p>
-          <div style={{ marginTop: 36, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>
-              Book an assessment
-            </Link>
-            <Link href="/about" className="btn-outline" style={{ padding: '16px 30px' }}>
-              Ask a question
+          <div style={{ marginTop: 36, display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
+            <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>Book a consult</Link>
+            <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+              ASK A QUESTION →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── 2. Pillars ──────────────────────────── */}
-      <section style={{ padding: '92px 48px', borderTop: '1px solid #212429' }}>
-        {/* Header row */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: 32,
-            flexWrap: 'wrap',
-            gap: 12,
-          }}
-        >
-          <span
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              letterSpacing: '.3em',
-              textTransform: 'uppercase',
-              color: '#98a0aa',
-            }}
-          >
-            What we do
-          </span>
-          <span
-            style={{
-              font: '11px/1 ui-monospace,Menlo,monospace',
-              letterSpacing: '.2em',
-              color: '#6a7280',
-            }}
-          >
-            THREE STAGES · ONE SYSTEM
-          </span>
-        </div>
+      {/* ── Marquee ─────────────────────────────── */}
+      <Marquee />
 
-        {/* Cards grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 2,
-            background: '#212429',
-            border: '1px solid #212429',
-          }}
-        >
-          {/* Card 01 – Rehab */}
-          <div
-            className="hover-card"
-            style={{ background: '#14161a', padding: '32px 24px 36px' }}
-          >
-            <p
-              style={{
-                font: '11px/1 ui-monospace,Menlo,monospace',
-                color: '#d99e5c',
-                marginBottom: 52,
-                marginTop: 0,
-              }}
-            >
-              01
-            </p>
-            <h3 style={{ fontSize: 28, fontWeight: 700, marginBottom: 14, marginTop: 0 }}>
-              Rehab
-            </h3>
-            <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', marginTop: 0 }}>
-              For anyone coming back from injury or surgery, working to a plan that starts
-              from where you are right now.
-            </p>
-            <div style={{ borderTop: '1px solid #262a30', marginTop: 4, display: 'flex', flexDirection: 'column' }}>
-              {[
-                'Post-surgery return to sport',
-                'Long-standing pain and niggles',
-                'Working alongside your clinician',
-              ].map((item) => (
-                <div
-                  key={item}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 11,
-                    padding: '11px 0',
-                    fontSize: 13.5,
-                    color: '#b3b9c2',
-                    borderBottom: '1px solid #1a1d22',
-                  }}
-                >
-                  {dash}
-                  {item}
-                </div>
-              ))}
+      {/* ── 2. Stats strip ──────────────────────── */}
+      <section style={{ borderBottom: '1px solid #212429' }}>
+        <div className="r3 r-px" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#212429' }}>
+          {[
+            { num: '300+', label: 'Clients coached' },
+            { num: '4.9', label: 'Google rating' },
+            { num: '2021', label: 'Est. Singapore' },
+          ].map(({ num, label }) => (
+            <div key={label} className="r-stat-cell" style={{ background: '#0e1220', padding: '52px 48px' }}>
+              <p className="gradient-gold r-stat-num" style={{ fontSize: 68, fontWeight: 800, lineHeight: 1, letterSpacing: '-.04em', margin: '0 0 10px', fontFamily: 'Archivo,sans-serif' }}>{num}</p>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', letterSpacing: '.2em', margin: 0 }}>{label.toUpperCase()}</p>
             </div>
-          </div>
-
-          {/* Card 02 – Personal Training */}
-          <div
-            className="hover-card"
-            style={{
-              background: '#14161a',
-              padding: '32px 24px 36px',
-              animation: 'revIn .6s ease 0.09s both',
-            }}
-          >
-            <p
-              style={{
-                font: '11px/1 ui-monospace,Menlo,monospace',
-                color: '#d99e5c',
-                marginBottom: 52,
-                marginTop: 0,
-              }}
-            >
-              02
-            </p>
-            <h3 style={{ fontSize: 28, fontWeight: 700, marginBottom: 14, marginTop: 0 }}>
-              Personal training
-            </h3>
-            <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', marginTop: 0 }}>
-              One to one coaching for people who want structure, technique that holds up
-              and progress they can actually see.
-            </p>
-            <div style={{ borderTop: '1px solid #262a30', marginTop: 4, display: 'flex', flexDirection: 'column' }}>
-              {[
-                'One to one sessions',
-                'Pairs and small groups',
-                'Programmes you keep between sessions',
-              ].map((item) => (
-                <div
-                  key={item}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 11,
-                    padding: '11px 0',
-                    fontSize: 13.5,
-                    color: '#b3b9c2',
-                    borderBottom: '1px solid #1a1d22',
-                  }}
-                >
-                  {dash}
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Card 03 – Sports Performance */}
-          <div
-            className="hover-card"
-            style={{
-              background: '#14161a',
-              padding: '32px 24px 36px',
-              animation: 'revIn .6s ease 0.18s both',
-            }}
-          >
-            <p
-              style={{
-                font: '11px/1 ui-monospace,Menlo,monospace',
-                color: '#d99e5c',
-                marginBottom: 52,
-                marginTop: 0,
-              }}
-            >
-              03
-            </p>
-            <h3 style={{ fontSize: 28, fontWeight: 700, marginBottom: 14, marginTop: 0 }}>
-              Sports performance
-            </h3>
-            <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', marginTop: 0 }}>
-              For athletes chasing a number: speed, power, change of direction, and the
-              conditioning to repeat it.
-            </p>
-            <div style={{ borderTop: '1px solid #262a30', marginTop: 4, display: 'flex', flexDirection: 'column' }}>
-              {[
-                'Testing before and after',
-                'Sport specific blocks',
-                'Off-season and in-season plans',
-              ].map((item) => (
-                <div
-                  key={item}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 11,
-                    padding: '11px 0',
-                    fontSize: 13.5,
-                    color: '#b3b9c2',
-                    borderBottom: '1px solid #1a1d22',
-                  }}
-                >
-                  {dash}
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. Physio coming soon ───────────────── */}
-      <section
-        style={{
-          margin: '0 48px',
-          border: '1px solid #262a30',
-          background: 'linear-gradient(180deg, #121418, #0d0e11)',
-          display: 'grid',
-          gridTemplateColumns: '1.15fr 1fr',
-        }}
-      >
-        {/* Left */}
-        <div style={{ padding: 48 }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 10,
-              border: '1px solid #4a3d2b',
-              color: '#d99e5c',
-              fontSize: 10,
-              fontWeight: 600,
-              letterSpacing: '.24em',
-              padding: '7px 12px',
-              marginBottom: 26,
-            }}
-          >
-            <span
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: '50%',
-                background: '#d99e5c',
-                animation: 'pulseDot 1.8s ease-in-out infinite',
-                display: 'inline-block',
-              }}
-            />
-            COMING SOON
-          </div>
-          <h2
-            style={{
-              fontSize: 46,
-              fontWeight: 800,
-              lineHeight: 1.02,
-              letterSpacing: '-.02em',
-              margin: '0 0 18px',
-            }}
-          >
-            Physiotherapy
-            <br />/ at Rebuilt
-          </h2>
-          <p
-            style={{
-              fontSize: 16,
-              lineHeight: 1.65,
-              color: '#a3aab4',
-              maxWidth: 440,
-              marginTop: 0,
-              marginBottom: 28,
-            }}
-          >
-            Physiotherapy is coming, so assessment, treatment and the strength work that
-            follows will sit in one place instead of being spread across three.
-          </p>
-          <div
-            style={{
-              maxWidth: 420,
-              border: '1px solid #2a2e34',
-              display: 'flex',
-            }}
-          >
-            <input
-              type="email"
-              placeholder="your@email.com"
-              style={{
-                flex: 1,
-                padding: '15px 16px',
-                fontSize: 14,
-                color: '#868e99',
-                background: 'transparent',
-                border: 'none',
-                fontFamily: 'inherit',
-              }}
-            />
-            <Link href="/about" className="btn-gold" style={{ padding: '16px 24px' }}>
-              See services
-            </Link>
-          </div>
-        </div>
-
-        {/* Right */}
-        <ImagePlaceholder
-          placeholder="IMG-02 physio room photo"
-          height="100%"
-          style={{ minHeight: 330 }}
-        />
-      </section>
-
-      {/* ── 4. Approach ─────────────────────────── */}
-      <section
-        style={{
-          padding: '92px 48px',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 64,
-          alignItems: 'center',
-        }}
-      >
-        {/* Left – image */}
-        <ImagePlaceholder
-          placeholder="IMG-03 approach photo"
-          height={390}
-          style={{ minHeight: 390 }}
-        />
-
-        {/* Right – steps */}
-        <div>
-          <p
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              letterSpacing: '.3em',
-              textTransform: 'uppercase',
-              color: '#98a0aa',
-              marginTop: 0,
-              marginBottom: 28,
-            }}
-          >
-            The approach
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            {[
-              {
-                step: 'STEP 01',
-                title: 'Assess',
-                desc: 'We start with what you can do now, what hurts, and what you want to get back to.',
-              },
-              {
-                step: 'STEP 02',
-                title: 'Rebuild',
-                desc: 'Sessions run to a plan with targets, so progress is earned rather than guessed at.',
-              },
-              {
-                step: 'STEP 03',
-                title: 'Perform',
-                desc: 'You leave with the load, the numbers and the confidence to keep going on your own.',
-              },
-            ].map(({ step, title, desc }) => (
-              <div
-                key={step}
-                className="hover-approach"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '56px 1fr',
-                  gap: 20,
-                  padding: '24px 0',
-                  borderTop: '1px solid #1e2126',
-                }}
-              >
-                <span
-                  style={{
-                    font: '11px/1 ui-monospace,Menlo,monospace',
-                    color: '#d99e5c',
-                    paddingTop: 4,
-                  }}
-                >
-                  {step}
-                </span>
-                <div>
-                  <p style={{ fontSize: 17, fontWeight: 600, margin: '0 0 8px' }}>{title}</p>
-                  <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#a3aab4', margin: 0 }}>
-                    {desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. Referrals & insurers ─────────────── */}
-      <section style={{ padding: '0 48px 54px' }}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: 24,
-            flexWrap: 'wrap',
-            gap: 12,
-          }}
-        >
-          <span
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              letterSpacing: '.3em',
-              textTransform: 'uppercase',
-              color: '#98a0aa',
-            }}
-          >
-            Referrals &amp; insurers
-          </span>
-          <span
-            style={{
-              font: '11px/1 ui-monospace,Menlo,monospace',
-              letterSpacing: '.2em',
-              color: '#6a7280',
-            }}
-          >
-            WE WORK ALONGSIDE YOUR CLINICIAN
-          </span>
-        </div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            gap: 12,
-          }}
-        >
-          {[1, 2, 3, 4, 5].map((n) => (
-            <ImagePlaceholder
-              key={n}
-              placeholder={`INSURER / PARTNER ${n}`}
-              height={84}
-              style={{ border: '1px solid #1e2126' }}
-            />
           ))}
         </div>
       </section>
 
-      {/* ── 6. Reviews ──────────────────────────── */}
-      <section
-        style={{
-          background: '#0e1013',
-          borderTop: '1px solid #212429',
-          borderBottom: '1px solid #212429',
-          padding: '76px 48px',
-        }}
-      >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '.8fr 1fr 1fr 1fr',
-            gap: 2,
-            background: '#212429',
-          }}
-        >
-          {/* Rating column */}
-          <div
-            style={{
-              background: '#0b0c0e',
-              padding: '32px 24px 28px',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <p
-              style={{
-                font: '10px/1 ui-monospace,Menlo,monospace',
-                color: '#d99e5c',
-                letterSpacing: '.2em',
-                marginTop: 0,
-                marginBottom: 26,
-              }}
-            >
-              GOOGLE REVIEWS
-            </p>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: 4,
-                marginBottom: 18,
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 76,
-                  fontWeight: 800,
-                  lineHeight: 0.82,
-                  letterSpacing: '-.04em',
-                  color: '#3a3f47',
-                }}
-              >
-                4.9
-              </span>
-              <span style={{ fontSize: 20, fontWeight: 600, color: '#3a3f47' }}>/5</span>
+      {/* ── 3. What we do ───────────────────────── */}
+      <section className="r-px r-section-pad" style={{ padding: '92px 48px', borderBottom: '1px solid #212429' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 36, flexWrap: 'wrap', gap: 16 }}>
+          <h2 className="r-section-h2" style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>
+            What we do.
+          </h2>
+        </div>
+        <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#212429' }}>
+          {SERVICES.map(({ num, title, from, href, img, desc, tags }) => (
+            <div key={num} className="hover-card r-service-card" style={{ background: '#141922', display: 'flex', flexDirection: 'column' }}>
+              <div className="img-zoom r-card-img" style={{ height: 340, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+                <Image src={img} alt={title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(13,15,18,.85) 100%)' }} />
+                <div className="img-overlay" />
+              </div>
+              <div className="r-service-content" style={{ padding: '28px 28px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 10 }}>
+                  <h3 style={{ fontSize: 26, fontWeight: 800, margin: 0, letterSpacing: '-.015em' }}>{title}</h3>
+                  <span className="r-service-price" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.12em', whiteSpace: 'nowrap', flexShrink: 0 }}>{from}</span>
+                </div>
+                <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 20px', flex: 1 }}>{desc}</p>
+                <div className="r-service-tags" style={{ borderTop: '1px solid #1e2126', paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 28 }}>
+                  {tags.map(tag => (
+                    <div key={tag} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#a3aab4' }}>
+                      <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />{tag}
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href={href}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    font: '11px/1 ui-monospace,Menlo,monospace',
+                    color: 'var(--accent)',
+                    letterSpacing: '.2em',
+                    textDecoration: 'none',
+                    paddingTop: 20,
+                    borderTop: '1px solid #1e2126',
+                  }}
+                  className="hover-gold r-service-link"
+                >
+                  LEARN MORE →
+                </Link>
+              </div>
             </div>
-            <span
-              style={{
-                display: 'inline-block',
-                border: '1px dashed #4a3d2b',
-                fontSize: 9,
-                font: '9px/1 ui-monospace,Menlo,monospace',
-                letterSpacing: '.12em',
-                color: '#79818c',
-                padding: '5px 8px',
-                marginBottom: 20,
-                alignSelf: 'flex-start',
-              }}
-            >
-              SCORE PULLS FROM GOOGLE
-            </span>
-            <p
-              style={{
-                fontSize: 14.5,
-                lineHeight: 1.6,
-                color: '#98a0aa',
-                marginTop: 0,
-                flex: 1,
-              }}
-            >
-              What people say after training here, pulled straight from our Google reviews
-              and left exactly as written.
+          ))}
+        </div>
+      </section>
+
+      {/* ── 4. Physio ───────────────────────────── */}
+      <section className="r-px" style={{ padding: '0 48px', borderBottom: '1px solid #212429' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, background: '#212429' }} className="r2">
+
+          {/* Available now */}
+          <div style={{ background: '#0c0e14', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+              <Image
+                src="https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?auto=format&fit=crop&w=800&q=80"
+                alt="Physiotherapy session at Rebuilt with Rehab & Beyond" fill
+                style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+                sizes="50vw"
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, #0c0e14 100%)' }} />
+              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(9,9,13,.85)', border: '1px solid rgba(74,222,128,.35)', backdropFilter: 'blur(4px)' }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
+                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#4ade80', letterSpacing: '.2em' }}>AVAILABLE NOW</span>
+              </div>
+            </div>
+            <div style={{ padding: '28px 32px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 10px', lineHeight: 1 }}>Physiotherapy with Rehab &amp; Beyond</h3>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: '#6f7783', margin: '0 0 28px', flex: 1 }}>Physiotherapy, rehab and training coordinated from the start. One point of contact, two teams sharing the same notes.</p>
+              <Link href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
+                BOOK A CONSULT →
+              </Link>
+            </div>
+          </div>
+
+          {/* Coming soon */}
+          <div style={{ background: '#09090d', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+              <Image
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
+                alt="Rebuilt training facility" fill
+                style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.35 }}
+                sizes="50vw"
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, #09090d 100%)' }} />
+              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(217,158,92,.25)', background: 'rgba(9,9,13,.8)' }}>
+                <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0 }} />
+                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em' }}>COMING SOON</span>
+              </div>
+            </div>
+            <div style={{ padding: '28px 32px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 10px', lineHeight: 1, color: '#c2c7ce' }}>In-house Physiotherapy</h3>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: '#6f7783', margin: '0 0 28px', flex: 1 }}>One team across physiotherapy and training. No referrals, no handover gaps. Treatment and coaching in the same building.</p>
+              <Link href="/physio#waitlist" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
+                JOIN WAITLIST →
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 5. Reviews ──────────────────────────── */}
+      <ReviewsSection />
+
+      {/* ── 6. Instagram ────────────────────────── */}
+      <section style={{ borderTop: '1px solid #212429', borderBottom: '1px solid #212429', background: '#09090d' }}>
+        {/* Header strip */}
+        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '28px 48px', borderBottom: '1px solid #212429', flexWrap: 'wrap', gap: 20 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            <div style={{ padding: 2, background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', borderRadius: '50%', flexShrink: 0 }}>
+              <div style={{ background: '#09090d', borderRadius: '50%', padding: 2 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/instagram-pfp.jpg" alt="@rebuiltbysk" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'cover', borderRadius: '50%', display: 'block' }} />
+              </div>
+            </div>
+            <div>
+              <p style={{ fontSize: 15, fontWeight: 800, margin: 0, color: '#f2f4f7', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
+              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: '4px 0 0' }}>INSTAGRAM</p>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap' }}>
+            <p className="r-hide" style={{ fontSize: 14, color: '#a3aab4', margin: 0, lineHeight: 1.5, maxWidth: 340 }}>
+              Training footage, client results and what actually happens in sessions.
             </p>
-            <a
-              href="#"
-              style={{
-                fontSize: 11,
-                fontWeight: 600,
-                letterSpacing: '.16em',
-                textTransform: 'uppercase',
-                color: '#d99e5c',
-                marginTop: 20,
-              }}
-              className="hover-gold"
-            >
-              Read them on Google →
+            <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
+              className="btn-outline" style={{ padding: '12px 22px', fontSize: 11, letterSpacing: '.2em', flexShrink: 0, textDecoration: 'none' }}>
+              Follow →
             </a>
           </div>
-
-          {/* Review cards */}
-          {[1, 2, 3].map((n) => (
-            <div
-              key={n}
-              className="hover-review"
-              style={{
-                background: '#14161a',
-                padding: '32px 24px 28px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 20,
-              }}
-            >
-              <span
-                style={{
-                  font: '10px/1 ui-monospace,Menlo,monospace',
-                  color: '#6f7783',
-                  letterSpacing: '.16em',
-                }}
-              >
-                [ STAR RATING PLACEHOLDER ]
-              </span>
-              <p
-                style={{
-                  fontSize: 17,
-                  lineHeight: 1.5,
-                  fontWeight: 500,
-                  color: '#e9ecf0',
-                  margin: 0,
-                  flex: 1,
-                }}
-              >
-                [ R-0{n} · review text, 20-40 words ]
-              </p>
-              <div
-                style={{
-                  display: 'flex',
-                  gap: 16,
-                  paddingTop: 20,
-                  borderTop: '1px solid #262a30',
-                  alignItems: 'center',
-                }}
-              >
-                <div style={{ width: 40, height: 40, borderRadius: '50%', overflow: 'hidden', flexShrink: 0 }}>
-                  <ImagePlaceholder placeholder="" height={40} />
-                </div>
-                <div>
-                  <p
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 600,
-                      margin: '0 0 3px',
-                      color: '#f2f4f7',
-                    }}
-                  >
-                    [ H-0{n + 10} · reviewer name ]
-                  </p>
-                  <p
-                    style={{
-                      font: '9px/1 ui-monospace,Menlo,monospace',
-                      color: '#79818c',
-                      margin: 0,
-                      letterSpacing: '.1em',
-                    }}
-                  >
-                    [ ROLE / SPORT ]
-                  </p>
-                </div>
-              </div>
-            </div>
+        </div>
+        {/* Photo grid */}
+        <div className="r-ig" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 2, background: '#212429' }}>
+          {[
+            'photo-1571019613454-1cb2f99b2d8b',
+            'photo-1534438327276-14e5300c3a48',
+            'photo-1517466787929-bc90951d0974',
+            'photo-1576678927484-cc907957088c',
+            'photo-1549060279-7e168fcee0c2',
+            'photo-1526506118085-60ce8714f8c5',
+          ].map((id, i) => (
+            <a key={i} href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer" style={{ aspectRatio: '1', position: 'relative', overflow: 'hidden', background: '#0c0e14', display: 'block', textDecoration: 'none', cursor: 'pointer' }}>
+              <Image src={`https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=80`} alt="@rebuiltbysk" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 50vw, 16vw" />
+              <div className="img-overlay" />
+            </a>
           ))}
         </div>
       </section>
 
-      {/* ── 7. Outcomes strip ───────────────────── */}
-      <section
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 1,
-          background: '#ccd1d8',
-          borderTop: '1px solid #212429',
-          borderBottom: '1px solid #212429',
-        }}
-      >
-        {[1, 2, 3].map((n) => (
-          <div
-            key={n}
-            style={{ background: '#eef1f5', color: '#111316', padding: 32 }}
-          >
-            <p
-              style={{
-                font: '10px/1 ui-monospace,Menlo,monospace',
-                color: '#b78a55',
-                letterSpacing: '.2em',
-                marginTop: 0,
-                marginBottom: 16,
-              }}
-            >
-              OUTCOME 0{n}
-            </p>
-            <h3
-              style={{
-                fontSize: 30,
-                fontWeight: 800,
-                marginBottom: 12,
-                marginTop: 0,
-                letterSpacing: '-.02em',
-              }}
-            >
-              [ H-{20 + n} · injury / condition ]
-            </h3>
-            <p style={{ fontSize: 14.5, lineHeight: 1.6, color: '#5e6570', marginTop: 0 }}>
-              [ T-{20 + n} · 15-20 word description of the outcome ]
-            </p>
-            <div
-              style={{
-                borderTop: '1px solid #d5d9e0',
-                paddingTop: 14,
-                fontSize: 12,
-                textTransform: 'uppercase',
-                letterSpacing: '.16em',
-                color: '#828a95',
-              }}
-            >
-              [ V-{30 + n} · outcome ] · [ V-{33 + n} · timeframe ]
+      {/* ── 7. CTA ──────────────────────────────── */}
+      <section style={{ borderTop: '1px solid #212429', background: '#0c0e14' }}>
+        <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 680 }}>
+
+          {/* Left: content */}
+          <div className="r-px r-tall-pad" style={{ padding: '80px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRight: '1px solid #1e2126' }}>
+            <div>
+              <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 28 }}>
+                START WHERE YOU ARE
+              </p>
+              <h2
+                className="r-h1"
+                style={{ fontSize: 68, fontWeight: 800, lineHeight: 0.93, letterSpacing: '-.03em', margin: '0 0 24px' }}
+              >
+                Whatever<br />the starting point.
+              </h2>
+              <p style={{ fontSize: 15.5, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 44px', maxWidth: 400 }}>
+                Two weeks post-op or chasing a personal best. The first step is the same: an honest look at where you are today.
+              </p>
+
+              {/* Decision rows */}
+              <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 44 }}>
+                {[
+                  { situation: 'Coming back from injury or surgery',    service: 'Rehab',             href: '/rehab' },
+                  { situation: 'Want to get stronger or fitter',        service: 'Training',          href: '/strength' },
+                  { situation: 'Training seriously for a sport',        service: 'Performance',       href: '/performance' },
+                  { situation: 'Have pain or need a physiotherapy assessment', service: 'Physiotherapy', href: '/physio' },
+                ].map(({ situation, service, href }, i, arr) => (
+                  <Link
+                    key={service}
+                    href={href}
+                    style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                      padding: '18px 0 18px 10px',
+                      borderBottom: i < arr.length - 1 ? '1px solid #181b20' : 'none',
+                      textDecoration: 'none', gap: 24,
+                    }}
+                    className="hover-approach"
+                  >
+                    <span style={{ fontSize: 14.5, color: '#8d95a0', lineHeight: 1.4 }}>{situation}</span>
+                    <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', flexShrink: 0 }}>
+                      {service.toUpperCase()} →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
+              <Link href="/book" className="btn-gold" style={{ padding: '14px 28px' }}>Book a consult</Link>
+              <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+                ASK A QUESTION →
+              </Link>
             </div>
           </div>
-        ))}
-      </section>
 
-      {/* ── 8. CTA section ──────────────────────── */}
-      <section
-        style={{
-          background: '#0e1013',
-          borderTop: '1px solid #262a30',
-          borderBottom: '1px solid #262a30',
-          display: 'grid',
-          gridTemplateColumns: '1.15fr 1fr',
-        }}
-      >
-        {/* Left */}
-        <div
-          style={{
-            padding: '80px 48px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}
-        >
-          <div
-            style={{
-              width: 44,
-              height: 3,
-              background: '#d99e5c',
-              marginBottom: 28,
-            }}
-          />
-          <h2
-            style={{
-              fontSize: 60,
-              fontWeight: 800,
-              lineHeight: 0.98,
-              letterSpacing: '-.03em',
-              marginBottom: 20,
-              marginTop: 0,
-            }}
-          >
-            Start where you are.
-          </h2>
-          <p
-            style={{
-              fontSize: 16.5,
-              lineHeight: 1.65,
-              color: '#a3aab4',
-              maxWidth: 520,
-              marginBottom: 34,
-              marginTop: 0,
-            }}
-          >
-            Whether you are two weeks post-op or chasing a personal best, the first step
-            is the same: an honest look at where you are today.
-          </p>
-          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <Link href="/book" className="btn-gold" style={{ padding: '17px 32px' }}>
-              Book an assessment
-            </Link>
-            <Link href="/about" className="btn-outline" style={{ padding: '17px 32px' }}>
-              Ask a question
-            </Link>
+          {/* Right: image */}
+          <div className="r-hide" style={{ position: 'relative', overflow: 'hidden', minHeight: 500 }}>
+            <Image
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+              alt=""
+              fill
+              style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+              sizes="50vw"
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0c0e14 0%, transparent 25%)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(12,14,20,.4) 0%, transparent 40%)' }} />
           </div>
-        </div>
 
-        {/* Right */}
-        <div
-          style={{
-            borderLeft: '1px solid #1e2126',
-            background: '#0b0c0e',
-            padding: '88px 48px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}
-        >
-          <p
-            style={{
-              font: '10px/1 ui-monospace,Menlo,monospace',
-              color: '#6f7783',
-              letterSpacing: '.2em',
-              marginTop: 0,
-              marginBottom: 26,
-            }}
-          >
-            THE FIRST SESSION
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
-            {[
-              {
-                num: '01',
-                title: 'Assessment',
-                desc: 'We look at movement, strength and history, then agree what matters most.',
-              },
-              {
-                num: '02',
-                title: 'Your numbers',
-                desc: 'Everything we test gets written down, so progress is measured rather than remembered.',
-              },
-              {
-                num: '03',
-                title: 'Your plan',
-                desc: 'A programme you can start that week.',
-              },
-            ].map(({ num, title, desc }) => (
-              <div key={num} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                <span
-                  style={{
-                    width: 26,
-                    height: 26,
-                    border: '1px solid #4a3d2b',
-                    color: '#d99e5c',
-                    font: '10px/1 ui-monospace,Menlo,monospace',
-                    display: 'grid',
-                    placeItems: 'center',
-                    flexShrink: 0,
-                  }}
-                >
-                  {num}
-                </span>
-                <div>
-                  <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 5px', color: '#f2f4f7' }}>
-                    {title}
-                  </p>
-                  <p style={{ fontSize: 13.5, lineHeight: 1.6, color: '#a3aab4', margin: 0 }}>
-                    {desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

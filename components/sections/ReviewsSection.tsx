@@ -10,7 +10,7 @@ const REVIEW_POOL = [
   { stars: '★★★★★', text: 'My sprint numbers went up 8% across a 12-week block. The testing at both ends made the whole thing feel real, not just motivational.', name: 'Jun Hao L.', role: 'PERFORMANCE CLIENT' },
   { stars: '★★★★★', text: 'Three months in and I am lifting numbers I never hit before. The programme adapts when life gets in the way. You always know exactly where you stand.', name: 'Deepa R.', role: 'TRAINING CLIENT' },
   { stars: '★★★★★', text: 'Returned from hip surgery not knowing what I could do safely. The progressive loading meant I never felt at risk, and I am back to full training now.', name: 'Hafiz A.', role: 'REHAB CLIENT' },
-  { stars: '★★★★★', text: 'Off-season block sorted out every gap the season exposed. Came back faster and more durable, and the exit test proved it with actual numbers.', name: 'Zi Xuan K.', role: 'PERFORMANCE CLIENT' },
+  { stars: '★★★★★', text: 'Post-season block sorted out every gap the season exposed. Came back faster and more durable, and the exit test proved it with actual numbers.', name: 'Zi Xuan K.', role: 'PERFORMANCE CLIENT' },
   { stars: '★★★★★', text: 'The level of detail in the programming is unlike anywhere else I have trained in Singapore. Every session has a clear purpose and you can feel it working.', name: 'Sarah N.', role: 'TRAINING CLIENT' },
 ]
 

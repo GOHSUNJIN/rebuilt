@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Terms of Service',
   description: 'Terms of service for Rebuilt Academy. Read before booking a session or using our website.',
   openGraph: {
-    title: 'Terms of Service | Rebuilt Academy',
+    title: 'Terms of Service',
     description: 'Terms of service for Rebuilt Academy. Read before booking a session or using our website.',
   },
 }

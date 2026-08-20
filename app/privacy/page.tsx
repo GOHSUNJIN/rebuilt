@@ -6,10 +6,10 @@ import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'How Rebuilt Academy Academy collects, uses and protects your personal data, in accordance with the PDPA.',
+  description: 'How Rebuilt Academy collects, uses and protects your personal data, in accordance with the PDPA.',
   openGraph: {
-    title: 'Privacy Policy | Rebuilt Academy',
-    description: 'How Rebuilt Academy Academy collects, uses and protects your personal data, in accordance with the PDPA.',
+    title: 'Privacy Policy',
+    description: 'How Rebuilt Academy collects, uses and protects your personal data, in accordance with the PDPA.',
   },
 }
 

@@ -13,10 +13,10 @@ import FeatureGrid from '@/components/ui/FeatureGrid'
 import type { PricingItem, FeatureItem, CrosslinkItem } from '@/lib/types'
 
 export const metadata: Metadata = {
-  title: 'Physiotherapy | Rebuilt Academy',
+  title: 'Physiotherapy',
   description: 'Physiotherapy at Rebuilt Academy, delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training under one roof.',
   openGraph: {
-    title: 'Physiotherapy | Rebuilt Academy',
+    title: 'Physiotherapy',
     description: 'Physiotherapy delivered in partnership with Rehab & Beyond. Treatment and training coordinated from the start.',
   },
 }

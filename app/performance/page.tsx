@@ -11,10 +11,10 @@ import FeatureGrid from '@/components/ui/FeatureGrid'
 import type { PricingItem, FeatureItem, CrosslinkItem } from '@/lib/types'
 
 export const metadata: Metadata = {
-  title: 'Sports Performance | Rebuilt Academy',
+  title: 'Performance',
   description: 'Sports performance training in Singapore. Tested, coached blocks for athletes who need speed, power and the conditioning to repeat it.',
   openGraph: {
-    title: 'Sports Performance | Rebuilt Academy',
+    title: 'Performance',
     description: 'Sport-specific blocks for athletes. Speed, power and conditioning — tested at the start and end of every programme.',
   },
 }

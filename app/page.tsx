@@ -7,10 +7,10 @@ import Marquee from '@/components/sections/Marquee'
 import ReviewsSection from '@/components/sections/ReviewsSection'
 
 export const metadata: Metadata = {
-  title: 'Rebuilt | Rehab, Training & Performance · Singapore',
-  description: 'Rebuilt is a Singapore gym for rehabilitation, personal training, sports performance and physiotherapy. One team, one set of notes, three locations at Core Collective.',
+  title: 'Rebuilt Academy | Rehab, Training & Performance · Singapore',
+  description: 'Rebuilt Academy is a Singapore gym for rehabilitation, personal training, sports performance and physiotherapy. One team, one set of notes, three locations at Core Collective.',
   openGraph: {
-    title: 'Rebuilt Singapore — Rehab, Training & Performance',
+    title: 'Rebuilt Academy — Rehab, Training & Performance',
     description: 'One place for rehabilitation, personal training, sports performance and physiotherapy. Three locations across Singapore.',
   },
 }
@@ -59,7 +59,7 @@ export default function HomePage() {
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', animation: 'slowZoom 14s ease both' }}>
           <Image
             src="https://images.unsplash.com/photo-1778828494354-9b717d36dc99?auto=format&fit=crop&w=1400&q=85"
-            alt="Strength and conditioning training session at Rebuilt Singapore"
+            alt="Strength and conditioning training session at Rebuilt Academy"
             fill
             priority
             style={{ objectFit: 'cover' }}
@@ -76,7 +76,7 @@ export default function HomePage() {
             className="r-h1"
             style={{ fontSize: 96, fontWeight: 800, lineHeight: 0.92, letterSpacing: '-.03em', margin: 0, color: '#ffffff', animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) 0.14s both' }}
           >
-            REBUILT<br />STRONGER<br />THAN BEFORE.
+            REBUILT<br />FROM SETBACK<br />TO COMEBACK.
           </h1>
           <p style={{ fontSize: 17, lineHeight: 1.6, color: '#a3aab4', marginBottom: 0, marginTop: 28, maxWidth: 460 }}>
             Rehab, training and performance. One team, three locations.

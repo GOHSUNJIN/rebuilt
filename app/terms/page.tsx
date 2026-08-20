@@ -6,10 +6,10 @@ import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Terms of service for Rebuilt Singapore. Read before booking a session or using our website.',
+  description: 'Terms of service for Rebuilt Academy. Read before booking a session or using our website.',
   openGraph: {
-    title: 'Terms of Service | Rebuilt Singapore',
-    description: 'Terms of service for Rebuilt Singapore. Read before booking a session or using our website.',
+    title: 'Terms of Service | Rebuilt Academy',
+    description: 'Terms of service for Rebuilt Academy. Read before booking a session or using our website.',
   },
 }
 
@@ -91,7 +91,7 @@ export default function TermsPage() {
                 Terms of<br />Service.
               </h1>
               <p style={{ fontSize: 16, lineHeight: 1.65, color: '#5f6670', maxWidth: 460, margin: 0 }}>
-                These terms govern your use of the Rebuilt website and the services we provide. By booking a session or using our website, you agree to these terms.
+                These terms govern your use of the Rebuilt Academy website and the services we provide. By booking a session or using our website, you agree to these terms.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, flexShrink: 0 }} className="r-hide">
@@ -149,7 +149,7 @@ export default function TermsPage() {
         <div style={{ flex: 1, minWidth: 0 }}>
 
           <Section id="about" num="01" title="About us" first>
-            <p style={bodyText}>Rebuilt operates across 3 locations in Singapore at Core Collective (Robinson, Dempsey and Katong). We provide coached rehabilitation, training and sports performance services. These terms apply to all clients and website visitors.</p>
+            <p style={bodyText}>Rebuilt Academy operates across 3 locations in Singapore at Core Collective (Robinson, Dempsey and Katong). We provide coached rehabilitation, training and sports performance services. These terms apply to all clients and website visitors.</p>
           </Section>
 
           <Section id="bookings" num="02" title="Bookings">
@@ -198,7 +198,7 @@ export default function TermsPage() {
           </Section>
 
           <Section id="ip" num="07" title="Intellectual property">
-            <p style={bodyText}>All content on this website, including text, images, programme templates and training materials, is owned by Rebuilt or used with permission. You may not reproduce or distribute it without our written consent.</p>
+            <p style={bodyText}>All content on this website, including text, images, programme templates and training materials, is owned by Rebuilt Academy or used with permission. You may not reproduce or distribute it without our written consent.</p>
           </Section>
 
           <Section id="changes" num="08" title="Changes to these terms">
@@ -212,7 +212,7 @@ export default function TermsPage() {
           <Section id="contact" num="10" title="Contact">
             <p style={bodyText}>For questions about these terms:</p>
             <div style={{ background: '#0f1115', border: '1px solid #1e2126', borderLeft: '2px solid var(--accent)', padding: '24px 28px', marginBottom: 0 }}>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 12px' }}>REBUILT SINGAPORE</p>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 12px' }}>REBUILT ACADEMY</p>
               <p style={{ fontSize: 14, color: '#6f7783', margin: '0 0 10px', lineHeight: 1.6 }}>
                 Core Collective · Robinson, Dempsey &amp; Katong
               </p>

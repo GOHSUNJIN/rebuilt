@@ -10,10 +10,10 @@ import TeamBioModal from '@/components/sections/TeamBioModal'
 import CopyText from '@/components/ui/CopyText'
 
 export const metadata: Metadata = {
-  title: 'About | Rebuilt Singapore',
-  description: 'Rebuilt is a Singapore studio for rehabilitation, training and sports performance. One place, one team, one set of notes.',
+  title: 'About | Rebuilt Academy',
+  description: 'Rebuilt Academy is a Singapore studio for rehabilitation, training and sports performance. One place, one team, one set of notes.',
   openGraph: {
-    title: 'About | Rebuilt Singapore',
+    title: 'About | Rebuilt Academy',
     description: 'One place for rehab, training and performance. Three locations across Singapore at Core Collective.',
   },
 }

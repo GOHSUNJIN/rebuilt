@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Rebuilt Singapore: Rehab, Training & Performance'
+export const alt = 'Rebuilt Academy: Rehab, Training & Performance'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -24,7 +24,7 @@ export default function Image() {
 
       {/* Logo */}
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ fontSize: 18, fontWeight: 800, letterSpacing: '0.34em', color: '#f2f4f7' }}>REBUILT</div>
+        <div style={{ fontSize: 15, fontWeight: 800, letterSpacing: '0.28em', color: '#f2f4f7' }}>REBUILT ACADEMY</div>
         <div style={{ fontSize: 10, letterSpacing: '0.22em', color: '#d99e5c', marginTop: 4 }}>SINGAPORE</div>
       </div>
 

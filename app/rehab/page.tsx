@@ -11,10 +11,10 @@ import FeatureGrid from '@/components/ui/FeatureGrid'
 import type { PricingItem, FeatureItem, CrosslinkItem } from '@/lib/types'
 
 export const metadata: Metadata = {
-  title: 'Rehabilitation | Rebuilt Singapore',
+  title: 'Rehabilitation | Rebuilt Academy',
   description: 'Coached rehabilitation in Singapore for people coming back from injury or surgery. Post-surgery, long-standing pain and return to sport.',
   openGraph: {
-    title: 'Rehabilitation | Rebuilt Singapore',
+    title: 'Rehabilitation | Rebuilt Academy',
     description: 'Coached rehab for people coming back from injury or surgery. One team from assessment to return to sport.',
   },
 }

@@ -23,25 +23,25 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: { default: 'Rebuilt', template: '%s | Rebuilt' },
+  title: { default: 'Rebuilt Academy', template: '%s | Rebuilt Academy' },
   description:
-    'Rebuilt: coached rehabilitation, training and sports performance in Singapore.',
+    'Rebuilt Academy: coached rehabilitation, training and sports performance in Singapore.',
   metadataBase: new URL(SITE.url),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Rebuilt',
+    title: 'Rebuilt Academy',
     description: 'Coached rehabilitation, training and sports performance in Singapore.',
     url: SITE.url,
-    siteName: 'Rebuilt',
+    siteName: 'Rebuilt Academy',
     locale: 'en_SG',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Rebuilt Singapore' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Rebuilt Academy' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rebuilt',
+    title: 'Rebuilt Academy',
     description: 'Coached rehabilitation, training and sports performance in Singapore.',
     images: ['/opengraph-image'],
   },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'Rebuilt Singapore',
+  name: 'Rebuilt Academy',
   description: 'Coached rehabilitation, personal training and sports performance in Singapore.',
   url: SITE.url,
   telephone: SITE.contact.phone,

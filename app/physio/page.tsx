@@ -14,10 +14,10 @@ import FeatureGrid from '@/components/ui/FeatureGrid'
 import type { PricingItem, FeatureItem, CrosslinkItem } from '@/lib/types'
 
 export const metadata: Metadata = {
-  title: 'Physiotherapy | Rebuilt Singapore',
-  description: 'Physiotherapy at Rebuilt Singapore, delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training under one roof.',
+  title: 'Physiotherapy | Rebuilt Academy',
+  description: 'Physiotherapy at Rebuilt Academy Academy, delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training under one roof.',
   openGraph: {
-    title: 'Physiotherapy | Rebuilt Singapore',
+    title: 'Physiotherapy | Rebuilt Academy',
     description: 'Physiotherapy delivered in partnership with Rehab & Beyond. Treatment and training coordinated from the start.',
   },
 }
@@ -50,7 +50,7 @@ export default function PhysioPage() {
 
         imageSrc="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1400&q=85"
         imageAlt="Physiotherapy session"
-        heading={<>Physiotherapy at Rebuilt.</>}
+        heading={<>Physiotherapy at Rebuilt Academy Academy.</>}
         subheading="Delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training, coordinated from the start."
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
@@ -66,7 +66,7 @@ export default function PhysioPage() {
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 20 }}>THE PARTNERSHIP</p>
               <h2 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 20px', lineHeight: 0.9 }}>In partnership<br />with Rehab &amp; Beyond.</h2>
               <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', margin: 0, maxWidth: 420 }}>
-                Rebuilt and Rehab &amp; Beyond run alongside each other. One point of contact, two teams sharing the same notes so your recovery and your training are never working against each other.
+                Rebuilt Academy and Rehab &amp; Beyond run alongside each other. One point of contact, two teams sharing the same notes so your recovery and your training are never working against each other.
               </p>
             </div>
             <div style={{ borderTop: '1px solid #1e2126', paddingTop: 28 }}>
@@ -114,7 +114,7 @@ export default function PhysioPage() {
         <SectionHeader
           label="WHAT'S INCLUDED"
           heading={<>Treatment that<br />talks to training.</>}
-          desc="Every physiotherapy session feeds back to your Rebuilt programme. Nothing handled in isolation."
+          desc="Every physiotherapy session feeds back to your Rebuilt Academy programme. Nothing handled in isolation."
           headingSize={44}
         />
         <FeatureGrid items={INCLUDED} />
@@ -137,7 +137,7 @@ export default function PhysioPage() {
 
       <CTASection
         heading="Start treatment this week."
-        body="One message. Rebuilt and Rehab & Beyond coordinate everything - your first appointment confirmed within the day."
+        body="One message. Rebuilt Academy and Rehab & Beyond coordinate everything - your first appointment confirmed within the day."
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
         imageSrc="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80"
@@ -157,7 +157,7 @@ export default function PhysioPage() {
           <div style={{ position: 'absolute', top: 28, left: 48, display: 'flex', alignItems: 'center', gap: 10 }} className="r-px">
             <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={28} height={28} style={{ opacity: 0.9 }} />
             <div>
-              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '.32em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT</div>
+              <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT ACADEMY</div>
               <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
             </div>
           </div>
@@ -172,9 +172,9 @@ export default function PhysioPage() {
         <div className="r-px r-tall-pad" style={{ padding: '52px 48px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }} className="r2 r-inhouse-grid">
             <div>
-              <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 16px', lineHeight: 0.92 }}>In-house physiotherapy at Rebuilt.</h2>
+              <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 16px', lineHeight: 0.92 }}>In-house physiotherapy at Rebuilt Academy Academy.</h2>
               <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 28px', maxWidth: 400 }}>
-                We are building Rebuilt&apos;s own in-house physiotherapy: one team across physiotherapy and training, no handover gaps, assessment and treatment in the same building.
+                We are building Rebuilt AcademyRebuilt&apos;sapos;s own in-house physiotherapy: one team across physiotherapy and training, no handover gaps, assessment and treatment in the same building.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {['One team across physiotherapy and training', 'No referrals, no handover gaps', 'Assessment and rehab in the same building'].map(item => (

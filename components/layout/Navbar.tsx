@@ -54,8 +54,8 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, flexShrink: 0 }}>
           <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
           <div>
-            <div style={{ fontSize: 15, fontWeight: 800, letterSpacing: '.36em', color: '#f2f4f7', lineHeight: 1 }}>
-              REBUILT
+            <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>
+              REBUILT ACADEMY
             </div>
             <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.22em', color: 'var(--accent)' }}>
               SINGAPORE

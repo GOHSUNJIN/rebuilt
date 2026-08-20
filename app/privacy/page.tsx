@@ -6,10 +6,10 @@ import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'How Rebuilt Singapore collects, uses and protects your personal data, in accordance with the PDPA.',
+  description: 'How Rebuilt Academy Academy collects, uses and protects your personal data, in accordance with the PDPA.',
   openGraph: {
-    title: 'Privacy Policy | Rebuilt Singapore',
-    description: 'How Rebuilt Singapore collects, uses and protects your personal data, in accordance with the PDPA.',
+    title: 'Privacy Policy | Rebuilt Academy',
+    description: 'How Rebuilt Academy Academy collects, uses and protects your personal data, in accordance with the PDPA.',
   },
 }
 
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
                 Privacy<br />Policy.
               </h1>
               <p style={{ fontSize: 16, lineHeight: 1.65, color: '#5f6670', maxWidth: 460, margin: 0 }}>
-                How Rebuilt collects, uses and protects personal data, in accordance with the Singapore Personal Data Protection Act 2012.
+                How Rebuilt Academy collects, uses and protects personal data, in accordance with the Singapore Personal Data Protection Act 2012.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, flexShrink: 0 }} className="r-hide">
@@ -247,7 +247,7 @@ export default function PrivacyPage() {
           <Section id="contact" num="08" title="Contact">
             <p style={bodyText}>For questions about this privacy policy or how we handle your personal data:</p>
             <div style={{ background: '#0f1115', border: '1px solid #1e2126', borderLeft: '2px solid var(--accent)', padding: '24px 28px', marginBottom: 20 }}>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 12px' }}>REBUILT SINGAPORE</p>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 12px' }}>REBUILT ACADEMY</p>
               <p style={{ fontSize: 14, color: '#6f7783', margin: '0 0 10px', lineHeight: 1.6 }}>
                 Core Collective · Robinson, Dempsey &amp; Katong
               </p>

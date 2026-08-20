@@ -11,7 +11,7 @@ export const FAQ_TABS = [
 export const ALL_FAQS: Record<string, FAQItem[]> = {
   general: [
     { num: '01', q: 'How do I book a consult?',               a: 'Use the booking form on the site. Choose your service, preferred coach and time, then submit. We confirm your slot and arrange payment within 2 hours.' },
-    { num: '02', q: 'Where are you located?',                  a: 'Rebuilt operates at three Core Collective locations in Singapore: Robinson (120 Robinson Rd), Dempsey (27A Loewen Rd) and Katong (i12 Katong, 112 East Coast Rd).' },
+    { num: '02', q: 'Where are you located?',                  a: 'Rebuilt Academy operates at three Core Collective locations in Singapore: Robinson (120 Robinson Rd), Dempsey (27A Loewen Rd) and Katong (i12 Katong, 112 East Coast Rd).' },
     { num: '03', q: 'What are your hours?',                    a: 'Monday to Friday, 7am to 9pm. Saturday, 8am to 2pm. Closed Sunday.' },
     { num: '04', q: 'What payment methods do you accept?',     a: 'PayNow and card. Payment is arranged after your booking is confirmed, not upfront on the site.' },
     { num: '05', q: 'What is the cancellation policy?',        a: 'Cancel or reschedule at least 12 hours before your timeslot and there is no charge. If you miss a session without notice, that session is forfeited. To reschedule, message us on WhatsApp or email.' },
@@ -38,10 +38,10 @@ export const ALL_FAQS: Record<string, FAQItem[]> = {
     { num: '05', q: 'Which block should I start with?',              a: 'If you have an upcoming season, start with Pre-season. If you are mid-competition, look at In-season. If you have just finished a season, Off-season is the right fit. Not sure? Book a consult and we will advise.' },
   ],
   physiotherapy: [
-    { num: '01', q: 'How does the partnership with Rehab & Beyond work?', a: 'Rebuilt works in partnership with Rehab & Beyond, a registered physiotherapy clinic. You book through us, sessions take place at Core Collective, and both teams share notes so your physiotherapy treatment and your training stay aligned.' },
+    { num: '01', q: 'How does the partnership with Rehab & Beyond work?', a: 'Rebuilt Academy works in partnership with Rehab & Beyond, a registered physiotherapy clinic. You book through us, sessions take place at Core Collective, and both teams share notes so your physiotherapy treatment and your training stay aligned.' },
     { num: '02', q: 'Do I need a referral or a scan before booking?',     a: 'No referral needed. You can come in directly. If you have existing scan results, clinic letters or discharge notes, bring them and they will be used to calibrate your treatment.' },
     { num: '03', q: 'What conditions do you treat?',                      a: 'Sports injuries, post-surgical rehab, musculoskeletal pain and return-to-sport cases. This includes ACL reconstructions, shoulder instability, back pain, hip issues and general soft tissue problems.' },
     { num: '04', q: 'How much does a physiotherapy session cost?',         a: 'Initial assessments start from SGD 120 and follow-up sessions from SGD 100. These rates are set by Rehab & Beyond and are indicative. Confirm current pricing when you book.' },
-    { num: '05', q: 'Can my physiotherapist and my coach work together?',  a: 'Yes, and this is exactly the point of the partnership. Session notes are shared between the physiotherapist and the Rebuilt coaching team so nothing falls through the gap between clinic and gym.' },
+    { num: '05', q: 'Can my physiotherapist and my coach work together?',  a: 'Yes, and this is exactly the point of the partnership. Session notes are shared between the physiotherapist and the Rebuilt Academy coaching team so nothing falls through the gap between clinic and gym.' },
   ],
 }

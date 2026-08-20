@@ -86,11 +86,11 @@ function BookContent() {
   ].filter(Boolean).join('\n')
 
   const emailBody = [
-    `REBUILT SINGAPORE`,
+    `REBUILT ACADEMY`,
     `Rehab · Training · Performance · Physiotherapy`,
     sep,
     ``,
-    `Hi Rebuilt,`,
+    `Hi Rebuilt Academy,`,
     ``,
     `I'd like to book a consultation.`,
     ``,
@@ -107,7 +107,7 @@ function BookContent() {
     `Thank you`,
   ].filter(l => l !== null).join('\n')
 
-  const waUrl = `${SITE.contact.whatsapp}?text=${encodeURIComponent(`Hi Rebuilt,\n\nI'd like to book a consultation.\n\n${sep}\n${bookingLines}\n\n${sep}\n${contactLines}`)}`
+  const waUrl = `${SITE.contact.whatsapp}?text=${encodeURIComponent(`Hi Rebuilt Academy,\n\nI'd like to book a consultation.\n\n${sep}\n${bookingLines}\n\n${sep}\n${contactLines}`)}`
 
   const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}&su=${encodeURIComponent('Consultation Booking - Rebuilt')}&body=${encodeURIComponent(emailBody)}`
 
@@ -130,7 +130,7 @@ function BookContent() {
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11, textDecoration: 'none' }}>
           <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={30} height={30} style={{ display: 'block' }} />
           <div>
-            <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.34em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT</div>
+            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT ACADEMY</div>
             <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
           </div>
         </Link>

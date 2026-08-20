@@ -11,10 +11,10 @@ import FeatureGrid from '@/components/ui/FeatureGrid'
 import type { PricingItem, FeatureItem, CrosslinkItem } from '@/lib/types'
 
 export const metadata: Metadata = {
-  title: 'Sports Performance | Rebuilt Singapore',
+  title: 'Sports Performance | Rebuilt Academy',
   description: 'Sports performance training in Singapore. Tested, coached blocks for athletes who need speed, power and the conditioning to repeat it.',
   openGraph: {
-    title: 'Sports Performance | Rebuilt Singapore',
+    title: 'Sports Performance | Rebuilt Academy',
     description: 'Sport-specific blocks for athletes. Speed, power and conditioning — tested at the start and end of every programme.',
   },
 }
@@ -37,7 +37,7 @@ const INCLUDED: FeatureItem[] = [
 const CROSSLINKS: CrosslinkItem[] = [
   { label: 'Rehab',         href: '/rehab',    desc: 'Returning from injury or surgery? The rehab programme is built around progressive loading and return-to-sport testing.' },
   { label: 'Training',      href: '/strength', desc: 'Not yet at performance level? Training builds the strength and technique foundation before sport-specific work begins.' },
-  { label: 'Physiotherapy', href: '/physio',   desc: 'Need assessment or treatment alongside your training? Physiotherapy at Rebuilt runs through our partner Rehab & Beyond.' },
+  { label: 'Physiotherapy', href: '/physio',   desc: 'Need assessment or treatment alongside your training? Physiotherapy at Rebuilt Academy runs through our partner Rehab & Beyond.' },
 ]
 
 export default function PerformancePage() {

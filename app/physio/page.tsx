@@ -144,41 +144,52 @@ export default function PhysioPage() {
       />
 
       {/* Coming soon — In-house physio */}
-      <section style={{ borderBottom: '1px solid #212429', background: '#09090d', overflow: 'hidden' }}>
-        <div style={{ position: 'relative', height: 320, borderBottom: '1px solid #1e2126' }}>
-          <Image
-            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
-            alt="Rebuilt training facility"
-            fill
-            style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.45 }}
-          />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, #09090d 100%)' }} />
-          <div style={{ position: 'absolute', top: 28, left: 48, display: 'flex', alignItems: 'center', gap: 10 }} className="r-px">
-            <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={28} height={28} style={{ opacity: 0.9 }} />
-            <div>
-              <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT ACADEMY</div>
-              <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
+      <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #212429', minHeight: 540 }}>
+        <Image
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+          alt="Rebuilt training facility"
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,1) 0%, rgba(9,9,13,0.75) 45%, rgba(9,9,13,0.35) 100%)' }} />
+
+        <div className="r-px" style={{ position: 'relative', padding: '44px 48px 64px', minHeight: 540, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          {/* Top row */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={26} height={26} style={{ opacity: 0.9 }} />
+              <div>
+                <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT ACADEMY</div>
+                <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
+              </div>
             </div>
-          </div>
-          <div style={{ position: 'absolute', bottom: 32, left: 48 }} className="r-px">
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '6px 14px', border: '1px solid rgba(217,158,92,.3)', background: 'rgba(9,9,13,.7)' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '7px 16px', border: '1px solid rgba(217,158,92,.35)', background: 'rgba(9,9,13,.65)', backdropFilter: 'blur(10px)' }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0 }} />
               <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em' }}>COMING SOON</span>
             </div>
           </div>
-        </div>
-        <div className="r-px r-tall-pad" style={{ padding: '52px 48px' }}>
-          <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 16px', lineHeight: 0.92 }}>In-house physiotherapy at Rebuilt Academy.</h2>
-          <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 28px', maxWidth: 560 }}>
-            We are building Rebuilt Academy&apos;s own in-house physiotherapy: one team across physiotherapy and training, no handover gaps, assessment and treatment in the same building.
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {['One team across physiotherapy and training', 'No referrals, no handover gaps', 'Assessment and rehab in the same building'].map(item => (
-              <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <span style={{ color: 'var(--accent)', flexShrink: 0, fontSize: 8 }}>◆</span>
-                <span style={{ fontSize: 14, color: '#a3aab4', lineHeight: 1.5 }}>{item}</span>
+
+          {/* Bottom content */}
+          <div>
+            <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0 0 20px' }}>IN-HOUSE PHYSIOTHERAPY</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'end' }} className="r2">
+              <h2 style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.96, color: '#f2f4f7' }}>
+                One team.<br />One building.<br />No handover gaps.
+              </h2>
+              <div>
+                <p style={{ fontSize: 15, lineHeight: 1.65, color: '#b0b8c4', margin: '0 0 24px' }}>
+                  We are building Rebuilt Academy&apos;s own in-house physiotherapy. Treatment and coaching under the same roof, sharing the same notes from day one.
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {['No referrals or handover gaps', 'Physio and coach share session notes', 'Assessment and rehab in the same building'].map(item => (
+                    <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0, display: 'block' }} />
+                      <span style={{ fontSize: 13.5, color: '#a3aab4' }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>

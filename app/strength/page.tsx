@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 }
 
 const PRICING: PricingItem[] = [
-  { type: 'One to one',  price: 'SGD 160', sub: 'per session · 10-session block', href: '/book?service=strength',   featured: false, features: ['Programme written for you', 'Technique coached every set', 'Block of 10: SGD 140 per session'] },
-  { type: 'Pairs',       price: 'SGD 90',  sub: 'per person · 20-session block',  href: '/book?service=pairs',      featured: true,  features: ['Two people, one coach', 'Same plan, shared sessions', 'Single session: SGD 120 per person'] },
-  { type: 'Small group', price: 'SGD 70',  sub: 'per person · 20-session block',  href: '/book?service=smallgroup', featured: false, features: ['Three to five people', 'Coached, not just supervised', 'Single session: SGD 100 per person'] },
+  { type: 'One to one',  price: 'SGD 140', sub: 'per session · 10-session block', href: '/book?service=strength',   featured: false, features: ['Programme written for you', 'Technique coached every set', 'Single session: SGD 160 per session'] },
+  { type: 'Pairs',       price: 'SGD 90',  sub: 'per person · 10-session block',  href: '/book?service=pairs',      featured: true,  features: ['Two people, one coach', 'Same plan, shared sessions', 'Single session: SGD 120 per person'] },
+  { type: 'Small group', price: 'SGD 70',  sub: 'per person · 10-session block',  href: '/book?service=smallgroup', featured: false, features: ['Three to five people', 'Coached, not just supervised', 'Single session: SGD 100 per person'] },
 ]
 
 const INCLUDED: FeatureItem[] = [

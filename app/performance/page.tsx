@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 }
 
 const PRICING: PricingItem[] = [
-  { type: 'Pre-season',  price: 'SGD 100', sub: 'per session · 3× per week · 8 weeks',  href: '/book?service=performance', featured: false, features: ['Entry and exit testing included', 'Speed, power & conditioning', '1-on-1 coached · SGD 2400 block total', 'Instalment plan: 2 × SGD 1200 / month'] },
+  { type: 'Pre-season',  price: 'SGD 100', sub: 'per session · 3× per week · 8 weeks',  href: '/book?service=performance', featured: false, features: ['Entry and exit testing included', 'Speed, power & conditioning', '1-on-1 coached', 'Instalment plan available'] },
   { type: 'In-season',   price: 'SGD 140', sub: 'per session · 2× per week · monthly',   href: '/book?service=performance', featured: true,  features: ['Maintain numbers through fixtures', '1-on-1 coached', 'Fatigue tracked across match days'] },
-  { type: 'Post-season', price: 'SGD 120', sub: 'per session · 3× per week · 12 weeks', href: '/book?service=performance', featured: false, features: ['Full rebuild block', 'Entry and exit testing included', '1-on-1 coached · SGD 4320 block total', 'Instalment plan: 2 × SGD 2160 / month'] },
+  { type: 'Post-season', price: 'SGD 120', sub: 'per session · 3× per week · 12 weeks', href: '/book?service=performance', featured: false, features: ['Full rebuild block', 'Entry and exit testing included', '1-on-1 coached', 'Instalment plan available'] },
 ]
 
 const INCLUDED: FeatureItem[] = [
@@ -82,6 +82,9 @@ export default function PerformancePage() {
       </section>
 
       <PricingCards items={PRICING} />
+      <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #212429' }}>
+        Instalment plans: Pre-season splits into 2 × SGD 1200 / month · Post-season splits into 2 × SGD 2160 / month
+      </p>
 
       <ServiceTestimonial
         imageSrc="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=800&q=80"

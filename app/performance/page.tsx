@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 }
 
 const PRICING: PricingItem[] = [
-  { type: 'Pre-season',  price: 'SGD 100', sub: 'per session · 3× per week · 8 weeks',  href: '/book?service=performance', featured: false, features: ['Entry and exit testing included', 'Speed, power & conditioning', '1-on-1 coached · SGD 2,400 block total', 'Instalment plan: 2 × SGD 1,200 / month'] },
+  { type: 'Pre-season',  price: 'SGD 100', sub: 'per session · 3× per week · 8 weeks',  href: '/book?service=performance', featured: false, features: ['Entry and exit testing included', 'Speed, power & conditioning', '1-on-1 coached · SGD 2400 block total', 'Instalment plan: 2 × SGD 1200 / month'] },
   { type: 'In-season',   price: 'SGD 140', sub: 'per session · 2× per week · monthly',   href: '/book?service=performance', featured: true,  features: ['Maintain numbers through fixtures', '1-on-1 coached', 'Fatigue tracked across match days'] },
-  { type: 'Post-season', price: 'SGD 120', sub: 'per session · 3× per week · 12 weeks', href: '/book?service=performance', featured: false, features: ['Full rebuild block', 'Entry and exit testing included', '1-on-1 coached · SGD 4,320 block total', 'Instalment plan: 2 × SGD 2,160 / month'] },
+  { type: 'Post-season', price: 'SGD 120', sub: 'per session · 3× per week · 12 weeks', href: '/book?service=performance', featured: false, features: ['Full rebuild block', 'Entry and exit testing included', '1-on-1 coached · SGD 4320 block total', 'Instalment plan: 2 × SGD 2160 / month'] },
 ]
 
 const INCLUDED: FeatureItem[] = [

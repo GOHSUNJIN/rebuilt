@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 
 const PRICING: PricingItem[] = [
   { type: 'Assessment',        price: 'SGD 100', sub: '45 min',                    href: '/book?service=rehab', featured: false, features: ['Movement and load assessment', 'Full injury history review', 'Programme written same day'] },
-  { type: 'Single session',    price: 'SGD 130', sub: '60 min',                    href: '/book?service=rehab', featured: false, features: ['Coached session, tracked weekly', 'Adjusted as you progress', 'Full session notes kept'] },
-  { type: 'Block of sessions', price: 'SGD 120', sub: 'per session · 20 sessions', href: '/book?service=rehab', featured: true,  features: ['Save vs single sessions', 'Priority booking guaranteed', 'Reviewed every 4 weeks'] },
+  { type: 'Single session', price: 'SGD 140', sub: '60 min',                    href: '/book?service=rehab', featured: false, features: ['Coached session, tracked weekly', 'Adjusted as you progress', 'Full session notes kept'] },
+  { type: 'Block of 10',    price: 'SGD 120', sub: 'per session · 10 sessions', href: '/book?service=rehab', featured: true,  features: ['Save vs single sessions', 'Priority booking guaranteed', 'Reviewed every 4 weeks'] },
 ]
 
 const INCLUDED: FeatureItem[] = [

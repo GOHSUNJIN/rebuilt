@@ -1,8 +1,8 @@
 ﻿import type { FeatureItem } from '@/lib/types'
 
-export default function FeatureGrid({ items }: { items: FeatureItem[] }) {
+export default function FeatureGrid({ items, cols = 3 }: { items: FeatureItem[], cols?: 3 | 4 }) {
   return (
-    <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#1a1d22' }}>
+    <div className={cols === 4 ? 'r4' : 'r3'} style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 2, background: '#1a1d22' }}>
       {items.map(({ num, title, desc, icon }) => (
         <div key={num} className="r-feature-cell" style={{ background: '#0c0e14', padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
           <div style={{ color: 'var(--accent)' }}>{icon}</div>

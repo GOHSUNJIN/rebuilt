@@ -27,7 +27,7 @@ const SERVICES = [
   },
   {
     num: '02',
-    title: 'Training',
+    title: 'Strength Training',
     from: 'from SGD 90',
     href: '/strength',
     img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80',
@@ -36,7 +36,7 @@ const SERVICES = [
   },
   {
     num: '03',
-    title: 'Performance',
+    title: 'Sports Performance',
     from: 'from SGD 1,200',
     href: '/performance',
     img: 'https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80',

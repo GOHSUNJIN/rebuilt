@@ -36,12 +36,12 @@ const SERVICES = [
   },
   {
     num: '03',
-    title: 'Performance',
+    title: 'Sports Performance',
     from: 'from SGD 100',
     href: '/performance',
     img: 'https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80',
     desc: 'For athletes chasing a number: speed, power, change of direction, and the conditioning to repeat it.',
-    tags: ['Testing before and after', 'Sport-specific blocks', 'Post-season and in-season plans'],
+    tags: ['Testing before and after', 'Sport-specific blocks', 'Off-season and in-season plans'],
   },
 ]
 

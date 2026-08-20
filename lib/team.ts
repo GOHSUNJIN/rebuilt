@@ -25,7 +25,7 @@ export const TEAM: TeamMember[] = [
     bio: [
       'Marcus holds a degree in Sports Science from NTU and has worked as a strength and conditioning coach across football, basketball and swimming programmes at both club and national level. He competed in powerlifting for eight years, reaching national level in the 83kg category.',
       'His work at Rebuilt Academy covers one-to-one personal training, pairs sessions and structured performance blocks for athletes. He is known for technical precision in the squat, deadlift and pull patterns, and for building programmes that are genuinely sustainable long-term.',
-      'Marcus also runs the gym\'s small group training schedule and designs all in-season and post-season conditioning blocks.',
+      'Marcus also runs the gym\'s small group training schedule and designs all in-season and off-season conditioning blocks.',
     ],
     credentials: ['B.Sc Sports Science (NTU)', 'NSCA-CSCS', 'National-level powerlifter', '7 years S&C coaching'],
   },

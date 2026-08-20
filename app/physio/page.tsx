@@ -30,19 +30,6 @@ const INCLUDED: FeatureItem[] = [
   { num: '06', title: 'Return to sport',       desc: 'Cleared when the testing says you are ready, not when the calendar does.', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> },
 ]
 
-const CONDITIONS = [
-  'ACL reconstruction',
-  'Shoulder injuries',
-  'Lower back pain',
-  'Hip impingement',
-  'Ankle sprains',
-  'Knee pain',
-  'Rotator cuff',
-  'Post-surgical rehab',
-  'Hamstring injuries',
-  'Neck and upper back',
-]
-
 const PRICING: PricingItem[] = [
   { type: '45 min', price: 'SGD 200', sub: '45 min session', href: '/book?service=physio', featured: false, features: ['Hands-on treatment', 'Exercise prescription', 'Progress reviewed every session'] },
   { type: '60 min', price: 'SGD 250', sub: '60 min session', href: '/book?service=physio', featured: true,  features: ['Full clinical assessment', 'Treatment plan written in session', 'Hands-on treatment'] },
@@ -132,27 +119,6 @@ export default function PhysioPage() {
         <FeatureGrid items={INCLUDED} />
       </section>
 
-      {/* Conditions */}
-      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #212429', background: '#09090d' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }} className="r2">
-          <div>
-            <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0 0 20px' }}>WHAT WE TREAT</p>
-            <h2 style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-.025em', margin: '0 0 20px', lineHeight: 0.96 }}>Most injuries.<br />All stages.</h2>
-            <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', margin: 0, maxWidth: 380 }}>
-              From acute injuries to chronic pain and post-surgical recovery. If you are unsure whether physiotherapy is the right starting point, book a consult and we will advise.
-            </p>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, background: '#1a1d22' }}>
-            {CONDITIONS.map(c => (
-              <div key={c} style={{ background: '#0c0e14', padding: '20px 22px', display: 'flex', alignItems: 'center', gap: 12 }}>
-                <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0, display: 'block' }} />
-                <span style={{ fontSize: 13.5, color: '#a3aab4', lineHeight: 1.4 }}>{c}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <PricingCards items={PRICING} />
       <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #212429' }}>
         Prices are indicative and set by Rehab &amp; Beyond.{' '}
@@ -176,6 +142,46 @@ export default function PhysioPage() {
         imageSrc="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80"
         imagePosition="center 30%"
       />
+
+      {/* Coming soon — In-house physio */}
+      <section style={{ borderBottom: '1px solid #212429', background: '#09090d', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', height: 320, borderBottom: '1px solid #1e2126' }}>
+          <Image
+            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+            alt="Rebuilt training facility"
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.45 }}
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 20%, #09090d 100%)' }} />
+          <div style={{ position: 'absolute', top: 28, left: 48, display: 'flex', alignItems: 'center', gap: 10 }} className="r-px">
+            <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={28} height={28} style={{ opacity: 0.9 }} />
+            <div>
+              <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT ACADEMY</div>
+              <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
+            </div>
+          </div>
+          <div style={{ position: 'absolute', bottom: 32, left: 48 }} className="r-px">
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '6px 14px', border: '1px solid rgba(217,158,92,.3)', background: 'rgba(9,9,13,.7)' }}>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0 }} />
+              <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em' }}>COMING SOON</span>
+            </div>
+          </div>
+        </div>
+        <div className="r-px r-tall-pad" style={{ padding: '52px 48px' }}>
+          <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 16px', lineHeight: 0.92 }}>In-house physiotherapy at Rebuilt Academy.</h2>
+          <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 28px', maxWidth: 560 }}>
+            We are building Rebuilt Academy&apos;s own in-house physiotherapy: one team across physiotherapy and training, no handover gaps, assessment and treatment in the same building.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {['One team across physiotherapy and training', 'No referrals, no handover gaps', 'Assessment and rehab in the same building'].map(item => (
+              <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                <span style={{ color: 'var(--accent)', flexShrink: 0, fontSize: 8 }}>◆</span>
+                <span style={{ fontSize: 14, color: '#a3aab4', lineHeight: 1.5 }}>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <ServiceCrosslinks items={CROSSLINKS} />
 

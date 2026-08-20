@@ -4,7 +4,7 @@ export default function SectionHeader({
   label,
   heading,
   desc,
-  headingSize = 36,
+  headingSize = 44,
 }: {
   label: string
   heading: ReactNode
@@ -24,7 +24,7 @@ export default function SectionHeader({
         </h2>
       </div>
       {desc && (
-        <p className="r-desc-right" style={{ fontSize: 14, lineHeight: 1.65, color: '#5f6670', margin: 0, maxWidth: 320, textAlign: 'right' }}>
+        <p className="r-desc-right" style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: 0, maxWidth: 320, textAlign: 'right' }}>
           {desc}
         </p>
       )}

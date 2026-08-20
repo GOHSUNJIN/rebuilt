@@ -54,12 +54,12 @@ export default function PhysioPage() {
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
         imagePosition="center 30%"
-        headingSize={80}
+        headingSize={84}
       />
 
       {/* Partnership */}
       <section style={{ borderBottom: '1px solid #212429', background: '#09090d' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }} className="r2">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }} className="r2">
           <div className="r-px r-tall-pad" style={{ padding: '64px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 40 }}>
             <div>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 20 }}>THE PARTNERSHIP</p>

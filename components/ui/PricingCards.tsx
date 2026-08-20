@@ -13,11 +13,11 @@ export default function PricingCards({ items }: { items: PricingItem[] }) {
           <div
             key={type}
             className="r-pricing-card"
-            style={{ background: '#141922', padding: '36px 32px 40px', display: 'flex', flexDirection: 'column', borderTop: featured ? '2px solid var(--accent)' : '2px solid transparent' }}
+            style={{ background: featured ? '#141c26' : '#141922', padding: '36px 32px 40px', display: 'flex', flexDirection: 'column', borderTop: featured ? '3px solid var(--accent)' : '3px solid transparent' }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 }}>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#98a0aa', letterSpacing: '.2em', margin: 0 }}>{type.toUpperCase()}</p>
-              {featured && <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', border: '1px solid rgba(217,158,92,.25)', padding: '4px 7px', letterSpacing: '.14em' }}>MOST POPULAR</span>}
+              {featured && <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', border: '1px solid rgba(217,158,92,.4)', background: 'rgba(217,158,92,.08)', padding: '5px 9px', letterSpacing: '.14em' }}>MOST POPULAR</span>}
             </div>
             {price.toLowerCase().startsWith('from ') && (
               <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em', display: 'block', marginBottom: 6 }}>FROM</span>
@@ -25,7 +25,7 @@ export default function PricingCards({ items }: { items: PricingItem[] }) {
             <p style={{ fontSize: 40, fontWeight: 800, color: featured ? 'var(--accent)' : '#f2f4f7', margin: '0 0 4px', letterSpacing: '-.02em', lineHeight: 1 }}>
               {price.toLowerCase().startsWith('from ') ? price.slice(5) : price}
             </p>
-            <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', margin: '0 0 28px' }}>{sub.toUpperCase()}</p>
+            <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.12em', margin: '0 0 28px' }}>{sub.toUpperCase()}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, flex: 1, marginBottom: 32 }}>
               {features.map(f => (
                 <div key={f} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>

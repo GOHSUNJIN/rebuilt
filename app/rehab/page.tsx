@@ -54,11 +54,12 @@ export default function RehabPage() {
         bookLabel="Book a consult"
       />
 
-      <section className="r-px r-section-pad" style={{ padding: '64px 48px', borderBottom: '1px solid #212429', background: '#09090d' }}>
+      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #212429', background: '#09090d' }}>
         <SectionHeader
           label="WHAT'S INCLUDED"
           heading={<>Built around what<br />you can handle today.</>}
           desc="Full range of motion, not just less pain. Every session is built around what your body can handle today."
+          headingSize={44}
         />
         <FeatureGrid items={INCLUDED} />
       </section>

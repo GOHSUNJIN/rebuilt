@@ -53,12 +53,12 @@ export default function PerformancePage() {
         bookHref="/book?service=performance"
         bookLabel="Book a consult"
         imagePosition="center 30%"
-        headingSize={108}
+        headingSize={84}
         contentMaxWidth={900}
       />
 
       {/* Who it's for */}
-      <section className="r-px" style={{ padding: '18px 48px', borderBottom: '1px solid #212429', background: '#09090d', display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
+      <section className="r-px" style={{ padding: '32px 48px', borderBottom: '1px solid #212429', background: '#09090d', display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
         <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', margin: 0, flexShrink: 0 }}>
           WHO IT&apos;S FOR
         </p>

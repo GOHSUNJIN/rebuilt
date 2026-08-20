@@ -56,11 +56,12 @@ export default function StrengthPage() {
         bookLabel="Book a consult"
       />
 
-      <section className="r-px r-section-pad" style={{ padding: '64px 48px', borderBottom: '1px solid #212429', background: '#09090d' }}>
+      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #212429', background: '#09090d' }}>
         <SectionHeader
           label="WHAT'S INCLUDED"
           heading={<>Built around your goals.</>}
           desc="Whatever you are working toward. A structured plan built around your goals, not a generic template."
+          headingSize={44}
         />
         <FeatureGrid items={INCLUDED} cols={4} />
       </section>

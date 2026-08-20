@@ -364,6 +364,15 @@ p { text-wrap: pretty; }
 .r-footer-desktop { display: flex; }
 
 /* ══════════════════════════════════════════════════
+   TABLET  (769px – 1024px)
+   ══════════════════════════════════════════════════ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .r4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .r3 { grid-template-columns: repeat(2, 1fr) !important; }
+  .r-hero { height: auto !important; min-height: 560px !important; }
+}
+
+/* ══════════════════════════════════════════════════
    MOBILE — portrait  (≤ 768px)  — full overhaul
    ══════════════════════════════════════════════════ */
 @media (max-width: 768px) {

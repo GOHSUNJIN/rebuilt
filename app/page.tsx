@@ -110,7 +110,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 3. What we do ───────────────────────── */}
-      <section className="r-px r-section-pad" style={{ padding: '92px 48px', borderBottom: '1px solid #212429' }}>
+      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #212429' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 36, flexWrap: 'wrap', gap: 16 }}>
           <h2 className="r-section-h2" style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>
             What we do.

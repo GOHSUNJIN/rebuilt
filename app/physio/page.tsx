@@ -15,7 +15,7 @@ import type { PricingItem, FeatureItem, CrosslinkItem } from '@/lib/types'
 
 export const metadata: Metadata = {
   title: 'Physiotherapy | Rebuilt Academy',
-  description: 'Physiotherapy at Rebuilt Academy Academy, delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training under one roof.',
+  description: 'Physiotherapy at Rebuilt Academy, delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training under one roof.',
   openGraph: {
     title: 'Physiotherapy | Rebuilt Academy',
     description: 'Physiotherapy delivered in partnership with Rehab & Beyond. Treatment and training coordinated from the start.',
@@ -32,8 +32,8 @@ const INCLUDED: FeatureItem[] = [
 ]
 
 const PRICING: PricingItem[] = [
-  { type: 'Initial assessment', price: 'From SGD 120', sub: '60 min · first visit', href: '/book?service=physio', featured: false, features: ['Full movement & clinical assessment', 'Injury history review', 'Treatment plan written in session'] },
-  { type: 'Follow-up session',  price: 'From SGD 100', sub: '45 min · ongoing',     href: '/book?service=physio', featured: true,  features: ['Hands-on treatment', 'Exercise prescription', 'Progress reviewed every session'] },
+  { type: '45 min', price: 'SGD 200', sub: '45 min session', href: '/book?service=physio', featured: false, features: ['Hands-on treatment', 'Exercise prescription', 'Progress reviewed every session'] },
+  { type: '60 min', price: 'SGD 250', sub: '60 min session', href: '/book?service=physio', featured: true,  features: ['Full clinical assessment', 'Treatment plan written in session', 'Hands-on treatment'] },
 ]
 
 const CROSSLINKS: CrosslinkItem[] = [
@@ -50,7 +50,7 @@ export default function PhysioPage() {
 
         imageSrc="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1400&q=85"
         imageAlt="Physiotherapy session"
-        heading={<>Physiotherapy at Rebuilt Academy Academy.</>}
+        heading={<>Physiotherapy at Rebuilt Academy.</>}
         subheading="Delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training, coordinated from the start."
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
@@ -172,9 +172,9 @@ export default function PhysioPage() {
         <div className="r-px r-tall-pad" style={{ padding: '52px 48px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }} className="r2 r-inhouse-grid">
             <div>
-              <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 16px', lineHeight: 0.92 }}>In-house physiotherapy at Rebuilt Academy Academy.</h2>
+              <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 16px', lineHeight: 0.92 }}>In-house physiotherapy at Rebuilt Academy.</h2>
               <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 28px', maxWidth: 400 }}>
-                We are building Rebuilt AcademyRebuilt&apos;sapos;s own in-house physiotherapy: one team across physiotherapy and training, no handover gaps, assessment and treatment in the same building.
+                We are building Rebuilt Academy&apos;s own in-house physiotherapy: one team across physiotherapy and training, no handover gaps, assessment and treatment in the same building.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {['One team across physiotherapy and training', 'No referrals, no handover gaps', 'Assessment and rehab in the same building'].map(item => (

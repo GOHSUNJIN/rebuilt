@@ -23,7 +23,7 @@ function MemberPlaceholder({ initials, height, className = '' }: { initials: str
 const RNB_SERVICES = [
   'Sports injuries and return to sport',
   'Post-surgery rehabilitation',
-  'Musculoskeletal conditions — back, neck, knee, shoulder',
+  'Musculoskeletal conditions: back, neck, knee, shoulder',
   'Neurological rehabilitation (stroke, Parkinson\'s)',
   'Geriatric and community rehabilitation',
   'Pulmonary and cardiac rehabilitation',
@@ -33,12 +33,14 @@ const RNB_TEAM = [
   {
     role: 'FOUNDER / LEAD PHYSIOTHERAPIST',
     name: 'Jaden',
+    image: 'https://gobeyondrehab.sg/wp-content/uploads/2019/04/RnB-Jaden.jpg',
     bio: 'Over 10 years hospital experience across public and private settings. Specialises in sports injury management, post-surgery physiotherapy and neurological rehabilitation. Three-time Service Excellence Award recipient and presenter of award-winning research at international conferences.',
     credentials: ['Master of Clinical Rehabilitation', 'AHPC Registered (Singapore MOH)', 'ACSM Certified Clinical Exercise Physiologist', 'ACS Certified Cancer Exercise Trainer'],
   },
   {
     role: 'SENIOR PHYSIOTHERAPIST',
     name: 'Debra Ow Pei Li',
+    image: 'https://gobeyondrehab.sg/wp-content/uploads/2024/01/Debra.jpg',
     bio: '7 years at Tan Tock Seng Hospital as Senior Physiotherapist. Specialist in musculoskeletal and orthopaedic rehabilitation across acute, outpatient and community settings. Community health advocate focused on frailty and healthy aging.',
     credentials: ['AHPC Clinical Supervisor', 'Clinical Educator (Singapore Institute of Technology)', 'Otago Exercise Leader', 'ACE Certified Personal Trainer'],
   },
@@ -320,24 +322,40 @@ export default function TeamBioModal() {
                   {RNB_TEAM.map((person) => (
                     <div
                       key={person.name}
-                      style={{ border: '1px solid #1e2126', padding: '18px 20px 20px', background: '#0c0e13' }}
+                      style={{ border: '1px solid #1e2126', background: '#0c0e13', overflow: 'hidden' }}
                     >
-                      <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 8px' }}>
-                        {person.role}
-                      </p>
-                      <h4 style={{ fontSize: 16, fontWeight: 700, margin: '0 0 10px', color: '#f2f4f7' }}>
-                        {person.name}
-                      </h4>
-                      <p style={{ fontSize: 13, lineHeight: 1.65, color: '#8d95a0', margin: '0 0 14px' }}>
-                        {person.bio}
-                      </p>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-                        {person.credentials.map((c) => (
-                          <div key={c} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                            <span style={{ width: 3, height: 3, background: '#5f6670', borderRadius: '50%', flexShrink: 0 }} />
-                            <span style={{ fontSize: 12, color: '#7a8290' }}>{c}</span>
-                          </div>
-                        ))}
+                      {/* Photo + name header */}
+                      <div style={{ display: 'flex', gap: 0 }}>
+                        <div style={{ width: 110, flexShrink: 0, position: 'relative', overflow: 'hidden', background: '#08090b' }}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={person.image}
+                            alt={person.name}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block', minHeight: 130 }}
+                          />
+                        </div>
+                        <div style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <p style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 8px' }}>
+                            {person.role}
+                          </p>
+                          <h4 style={{ fontSize: 16, fontWeight: 700, margin: '0 0 0', color: '#f2f4f7', lineHeight: 1.1 }}>
+                            {person.name}
+                          </h4>
+                        </div>
+                      </div>
+                      {/* Bio + credentials */}
+                      <div style={{ padding: '14px 18px 18px', borderTop: '1px solid #1a1e24' }}>
+                        <p style={{ fontSize: 13, lineHeight: 1.65, color: '#8d95a0', margin: '0 0 14px' }}>
+                          {person.bio}
+                        </p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+                          {person.credentials.map((c) => (
+                            <div key={c} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                              <span style={{ width: 3, height: 3, background: '#5f6670', borderRadius: '50%', flexShrink: 0 }} />
+                              <span style={{ fontSize: 12, color: '#7a8290' }}>{c}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   ))}

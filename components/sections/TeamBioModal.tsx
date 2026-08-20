@@ -83,11 +83,11 @@ export default function TeamBioModal() {
             <span style={{ position: 'relative', font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em' }}>PHYSIOTHERAPIST</span>
           </div>
           <div style={{ padding: '24px 22px 26px' }}>
-            <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', letterSpacing: '.2em', marginTop: 0, marginBottom: 10 }}>
-              IN-HOUSE · COMING SOON
+            <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', marginTop: 0, marginBottom: 10 }}>
+              PHYSIOTHERAPY PARTNER
             </p>
-            <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10, color: '#8d95a0' }}>
-              Physiotherapist
+            <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10, color: '#f2f4f7' }}>
+              Rehab &amp; Beyond
             </h3>
             <p style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 18px' }}>
               Physiotherapy at Rebuilt is delivered in partnership with Rehab & Beyond. In-house physio is coming soon.

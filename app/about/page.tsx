@@ -59,7 +59,7 @@ export default function AboutPage() {
             { label: 'BASED',   value: 'Singapore, 3 locations' },
             { label: 'OPENED',  value: '2021' },
             { label: 'WE DO',   value: 'Rehab, training, performance, physiotherapy' },
-            { label: 'NEXT UP', value: 'In-house physiotherapy' },
+            { label: 'NEXT UP', value: 'In-house physio coming soon' },
           ].map(({ label, value }) => (
             <div key={label} style={{ padding: '28px 32px', background: '#0c0e14' }}>
               <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em', margin: '0 0 10px' }}>{label}</p>
@@ -98,7 +98,7 @@ export default function AboutPage() {
             The team
           </span>
           <span className="r-hide" style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em', color: '#8d95a0' }}>
-            FOUNDER · CO-FOUNDER · IN-HOUSE PHYSIOTHERAPY COMING SOON
+            FOUNDER · CO-FOUNDER · PHYSIOTHERAPY PARTNER
           </span>
         </div>
         <TeamBioModal />

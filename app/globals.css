@@ -435,9 +435,6 @@ p { text-wrap: pretty; }
   /* ── Feature grid cells — tighter padding when stacked ─── */
   .r-feature-cell { padding: 20px !important; }
 
-  /* ── Physio in-house grid — reduce gap when stacked ─── */
-  .r-inhouse-grid { gap: 28px !important; }
-
   /* ── Physio partnership image — reduce height when stacked ─── */
   .r-partner-img { min-height: 240px !important; }
 

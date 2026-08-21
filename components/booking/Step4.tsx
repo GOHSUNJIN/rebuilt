@@ -12,11 +12,11 @@ export default function Step4({ name, email, phone, notes, setName, setEmail, se
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <div>
             <label htmlFor="book-name" style={labelStyle}>NAME *</label>
-            <input id="book-name" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Jane Tan" style={inputStyle} />
+            <input id="book-name" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Wei Jian Tan" style={inputStyle} />
           </div>
           <div>
             <label htmlFor="book-email" style={labelStyle}>EMAIL *</label>
-            <input id="book-email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="e.g. jane@email.com" style={inputStyle} />
+            <input id="book-email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="e.g. jane@gmail.com" style={inputStyle} />
           </div>
         </div>
         <div>

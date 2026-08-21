@@ -49,7 +49,7 @@ export default function ContactForm() {
           </label>
           <label>
             <span style={labelStyle}>EMAIL *</span>
-            <input required name="email" type="email" placeholder="your@email.com" style={inputStyle} />
+            <input required name="email" type="email" placeholder="you@gmail.com" style={inputStyle} />
           </label>
         </div>
         <label>
@@ -64,7 +64,7 @@ export default function ContactForm() {
         </label>
         <label>
           <span style={labelStyle}>MESSAGE</span>
-          <textarea name="message" placeholder="Your question or message" rows={5} maxLength={2000} style={{ ...inputStyle, resize: 'none' }} />
+          <textarea name="message" placeholder="e.g. I had a knee injury last year and want to start training again. What would my first session look like?" rows={5} maxLength={2000} style={{ ...inputStyle, resize: 'none' }} />
         </label>
         {status === 'error' && (
           <p role="alert" aria-live="assertive" style={{ fontSize: 13, color: '#e07070', margin: 0 }}>{errorMsg}</p>

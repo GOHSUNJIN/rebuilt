@@ -1,27 +1,21 @@
 import { NextResponse, type NextRequest } from 'next/server'
 
-export function middleware(request: NextRequest) {
-  const nonce = btoa(crypto.randomUUID())
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https://images.unsplash.com https://gobeyondrehab.sg",
+  "font-src 'self'",
+  "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+  "frame-src https://maps.google.com https://www.google.com",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  "base-uri 'self'",
+].join('; ')
 
-  const csp = [
-    "default-src 'self'",
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://vercel.live https://va.vercel-scripts.com`,
-    "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: https://images.unsplash.com https://gobeyondrehab.sg",
-    "font-src 'self'",
-    "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com",
-    "frame-src https://maps.google.com https://www.google.com",
-    "frame-ancestors 'none'",
-    "form-action 'self'",
-    "base-uri 'self'",
-  ].join('; ')
-
-  const requestHeaders = new Headers(request.headers)
-  requestHeaders.set('x-nonce', nonce)
-  requestHeaders.set('Content-Security-Policy', csp)
-
-  const response = NextResponse.next({ request: { headers: requestHeaders } })
-  response.headers.set('Content-Security-Policy', csp)
+export function middleware(_request: NextRequest) {
+  const response = NextResponse.next()
+  response.headers.set('Content-Security-Policy', CSP)
   return response
 }
 

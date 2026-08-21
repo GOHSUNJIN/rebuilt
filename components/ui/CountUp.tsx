@@ -33,7 +33,7 @@ export default function CountUp({ to, duration = 1600, decimals = 0, suffix = ''
           obs.unobserve(el)
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     )
     obs.observe(el)
     return () => obs.disconnect()

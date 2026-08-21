@@ -64,7 +64,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
                   color: isOpen ? 'var(--accent)' : '#5f6670',
                   fontSize: 16,
                   lineHeight: 1,
-                  transition: 'transform .22s ease, border-color .15s, color .15s',
+                  transition: 'transform .25s cubic-bezier(0.4,0,0.2,1), border-color .15s, color .15s',
                   transform: isOpen ? 'rotate(45deg)' : 'none',
                   fontWeight: 300,
                 }}

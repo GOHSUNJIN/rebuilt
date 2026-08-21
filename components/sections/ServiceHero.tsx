@@ -36,7 +36,7 @@ export default function ServiceHero({
         style={{ objectFit: 'cover', objectPosition: imagePosition }}
         sizes="100vw"
       />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(8,9,11,.95) 0%, rgba(8,9,11,.65) 55%, rgba(8,9,11,.18) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(8,9,11,.88) 0%, rgba(8,9,11,.52) 55%, rgba(8,9,11,.12) 100%)' }} />
       <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, #0c0e14 0%, transparent ${large ? 50 : 45}%)` }} />
 
       {label && (

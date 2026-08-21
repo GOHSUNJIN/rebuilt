@@ -34,7 +34,7 @@ export default function PricingCards({ items }: { items: PricingItem[] }) {
                 </div>
               ))}
             </div>
-            <Link href={href} className={`${featured ? 'btn-gold' : 'btn-outline'} r-btn-full`} style={{ padding: '14px 24px', alignSelf: 'flex-start' }}>Book</Link>
+            <Link href={href} className={`${featured ? 'btn-gold' : 'btn-outline'} r-btn-full`} style={{ padding: '14px 24px', textAlign: 'center' }}>Book</Link>
           </div>
         ))}
       </div>

@@ -38,13 +38,13 @@ export default function Marquee({
                 font: '11px/1 ui-monospace,Menlo,monospace',
                 color: '#6f7783',
                 letterSpacing: '.28em',
-                padding: '0 36px',
+                padding: '0 28px',
                 whiteSpace: 'nowrap',
               }}
             >
               {item}
             </span>
-            <span style={{ fontSize: 6, color: 'var(--accent)', flexShrink: 0, opacity: 0.7 }}>◆</span>
+            <span style={{ fontSize: 8, color: 'var(--accent)', flexShrink: 0, opacity: 0.65 }}>◆</span>
           </div>
         ))}
       </div>

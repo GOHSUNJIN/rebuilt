@@ -122,7 +122,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
 
         {/* ── Mobile dropdown ──────────────────────── */}
         {menuOpen && (
-          <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#0b0c0e', borderBottom: '1px solid #1e2126', zIndex: 100, animation: 'mdIn 0.18s ease both' }}>
+          <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#0b0c0e', borderBottom: '1px solid #1e2126', zIndex: 100, animation: 'mdIn 0.22s cubic-bezier(0.4,0,0.2,1) both' }}>
             {NAV_LINKS.map(({ href, label, page }) => (
               <Link
                 key={page}

@@ -10,7 +10,7 @@ interface CountUpProps {
   className?: string
 }
 
-export default function CountUp({ to, duration = 1600, decimals = 0, suffix = '', style, className }: CountUpProps) {
+export default function CountUp({ to, duration = 1200, decimals = 0, suffix = '', style, className }: CountUpProps) {
   const [value, setValue] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
   const started = useRef(false)

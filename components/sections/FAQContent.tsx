@@ -137,6 +137,7 @@ function FAQInner() {
                     cursor: 'pointer',
                     fontFamily: 'inherit',
                     textAlign: 'left',
+                    transition: 'color .15s',
                   }}
                 >
                   <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: active ? 'var(--accent)' : '#8d95a0', letterSpacing: '.1em', minWidth: 16 }}>

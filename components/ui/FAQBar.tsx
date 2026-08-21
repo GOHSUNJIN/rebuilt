@@ -6,7 +6,7 @@ export default function FAQBar({ label, href }: { label: string; href: string })
       <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.2em', margin: 0 }}>
         {label}
       </p>
-      <Link href={href} style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none' }}>
+      <Link href={href} style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
         View FAQ →
       </Link>
     </section>

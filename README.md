@@ -237,14 +237,46 @@ Ensure `RESEND_API_KEY` is set in Vercel environment variables before going to p
 
 ## What is not built yet
 
+### Booking and scheduling
+
 **Real booking calendar** - the current flow sends a pre-filled WhatsApp or email message. A live calendar integration (Calendly, Acuity, or custom-built) would let clients book and get instant confirmation without manual follow-up from the studio.
 
-**Online payments** - no payment collected at booking. Stripe or PayNow integration would reduce no-shows and simplify admin.
+**Online payments** - no payment collected at booking. Stripe or PayNow integration would reduce no-shows and simplify admin. Deposit collection at the point of booking is the highest-leverage change for reducing late cancellations.
 
-**Client portal** - session history, programme notes, upcoming bookings. Requires a database (Supabase or similar) and authentication.
+**Session packages and credits** - sell blocks of sessions upfront (e.g. 10-session rehab block) with a credit balance the client draws down. Requires a database and a simple client account system.
 
-**Blog or resources section** - articles on rehab and training would improve SEO and demonstrate expertise to potential clients.
+**Waitlist for cancelled slots** - when a session is cancelled, automatically notify clients on a waitlist. Keeps the calendar full without manual follow-up.
 
-**Live Instagram feed** - the home page grid uses placeholder photos. The Instagram Graph API could pull in real posts automatically.
+### Client experience
 
-**WhatsApp Business API** - replace the current basic link with automated replies, booking confirmations and follow-ups.
+**Client portal** - session history, programme notes, upcoming bookings, and progress metrics in one place. Requires a database (Supabase or similar) and authentication (Clerk or NextAuth).
+
+**Progress tracking dashboard** - visualise strength metrics, sprint times, movement scores and rehab milestones over time. Particularly relevant for performance and rehab clients who already receive exit testing.
+
+**Automated session reminders** - WhatsApp or email reminders 24 hours and 2 hours before a session. Reduces no-shows without any manual work. Can be built on top of WhatsApp Business API or a service like Twilio.
+
+**Post-session feedback form** - a short survey sent after each session (rating, how the body felt, any concerns). Gives coaches early signals before the next session and builds a paper trail.
+
+### Marketing and SEO
+
+**Blog or resources section** - articles on rehab protocols, training principles and injury prevention would improve organic search rankings and position the coaches as experts. A Next.js MDX blog with proper schema markup is straightforward to add.
+
+**Case studies page** - anonymised client journeys with before/after metrics (ACL return-to-sport timeline, strength numbers over a block). More persuasive than generic testimonials and differentiates from competitors.
+
+**Live Instagram feed** - the home page grid uses placeholder photos. The Instagram Graph API could pull in real posts automatically, keeping the site fresh without manual updates.
+
+**Google Reviews API** - pull real reviews directly from Google Places instead of using the current static pool. Rating and review count stay accurate without any manual updates.
+
+**Referral programme page** - a dedicated page explaining the referral incentive (if one exists) and tracking referral links. Most gym clients come from word of mouth; making it structured increases it.
+
+### Operations and integrations
+
+**WhatsApp Business API** - replace the current basic link with a proper API integration. Enables automated booking confirmations, session reminders, programme updates, and a structured inbox for the team rather than a personal number.
+
+**Coach availability management** - a simple internal tool (or Notion/Airtable integration) where coaches mark their availability, which feeds directly into the booking calendar. Removes the manual back-and-forth of confirming slots.
+
+**Physiotherapy referral flow** - a structured intake form for Rehab & Beyond referrals, separate from the general booking wizard. Captures injury details, GP or surgeon notes, and consent upfront so the first appointment can be clinical from the start.
+
+**Analytics dashboard** - beyond Vercel Analytics, a simple internal view of bookings by service type, conversion rate from enquiry to confirmed session, and revenue by month. Could be a protected `/admin` route reading from the bookings database.
+
+**Email marketing** - a newsletter or programme announcement list for existing clients. Integration with Resend audiences (already in use for transactional email) means no new tool is needed.

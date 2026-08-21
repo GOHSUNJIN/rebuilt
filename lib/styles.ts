@@ -1,4 +1,4 @@
-// Shared form styles — used across book/page and ContactForm
+// Shared input/form styles — used across book/page and ContactForm
 export const inputStyle: React.CSSProperties = {
   width: '100%',
   padding: '13px 14px',

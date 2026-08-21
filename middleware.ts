@@ -1,8 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import crypto from 'crypto'
 
 export function middleware(request: NextRequest) {
-  const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+  const nonce = btoa(crypto.randomUUID())
 
   const csp = [
     "default-src 'self'",
@@ -31,8 +30,8 @@ export const config = {
     {
       source: '/((?!_next/static|_next/image|favicon.ico).*)',
       missing: [
-        { type: 'header' as const, key: 'next-router-prefetch' },
-        { type: 'header' as const, key: 'purpose', value: 'prefetch' },
+        { type: 'header', key: 'next-router-prefetch' },
+        { type: 'header', key: 'purpose', value: 'prefetch' },
       ],
     },
   ],

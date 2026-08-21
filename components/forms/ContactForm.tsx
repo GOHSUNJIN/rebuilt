@@ -45,11 +45,11 @@ export default function ContactForm() {
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <label>
             <span style={labelStyle}>NAME *</span>
-            <input required name="name" type="text" placeholder="Your name" style={inputStyle} />
+            <input required name="name" type="text" placeholder="Full name" style={inputStyle} />
           </label>
           <label>
             <span style={labelStyle}>EMAIL *</span>
-            <input required name="email" type="email" placeholder="you@gmail.com" style={inputStyle} />
+            <input required name="email" type="email" placeholder="Email address" style={inputStyle} />
           </label>
         </div>
         <label>

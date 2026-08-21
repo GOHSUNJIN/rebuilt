@@ -9,6 +9,7 @@ import ReviewsSection from '@/components/sections/ReviewsSection'
 export const metadata: Metadata = {
   title: 'Rebuilt Academy | Rehab, Training & Performance · Singapore',
   description: 'Rebuilt Academy is a Singapore gym for rehabilitation, personal training, sports performance and physiotherapy. One team, one set of notes, three locations at Core Collective.',
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'Rebuilt Academy — Rehab, Training & Performance',
     description: 'One place for rehabilitation, personal training, sports performance and physiotherapy. Three locations across Singapore.',
@@ -194,19 +195,19 @@ export default function HomePage() {
               <Image
                 src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
                 alt="Rebuilt training facility" fill
-                style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.35 }}
+                style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.65 }}
                 sizes="50vw"
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, #09090d 100%)' }} />
-              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(255,255,255,.1)', background: 'rgba(9,9,13,.8)' }}>
-                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#6f7783', display: 'block', flexShrink: 0 }} />
-                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em' }}>COMING SOON</span>
+              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(255,255,255,.12)', background: 'rgba(9,9,13,.75)', backdropFilter: 'blur(4px)' }}>
+                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#8d95a0', display: 'block', flexShrink: 0 }} />
+                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em' }}>COMING SOON</span>
               </div>
             </div>
             <div style={{ padding: '28px 32px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <h3 style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 10px', lineHeight: 1, color: '#c2c7ce' }}>In-house Physiotherapy</h3>
-              <p style={{ fontSize: 13, lineHeight: 1.6, color: '#6f7783', margin: '0 0 28px', flex: 1 }}>One team across physiotherapy and training. No referrals, no handover gaps. Treatment and coaching in the same building.</p>
-              <Link href="/physio#waitlist" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
+              <h3 style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 10px', lineHeight: 1 }}>In-house Physiotherapy</h3>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: '#a3aab4', margin: '0 0 28px', flex: 1 }}>One team across physiotherapy and training. No referrals, no handover gaps. Treatment and coaching in the same building.</p>
+              <Link href="/physio#waitlist" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
                 JOIN WAITLIST →
               </Link>
             </div>
@@ -323,6 +324,7 @@ export default function HomePage() {
             <Image
               src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
               alt=""
+              aria-hidden="true"
               fill
               style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
               sizes="50vw"

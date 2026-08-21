@@ -26,7 +26,7 @@ export default function CTASection({ heading, body, bookHref, bookLabel, imageSr
           </div>
         </div>
         <div className="r-cta-img" style={{ position: 'relative', minHeight: 420, overflow: 'hidden' }}>
-          <Image src={imageSrc} alt="" fill style={{ objectFit: 'cover', objectPosition: imagePosition, opacity: 0.88 }} sizes="50vw" />
+          <Image src={imageSrc} alt="" aria-hidden="true" fill style={{ objectFit: 'cover', objectPosition: imagePosition, opacity: 0.88 }} sizes="50vw" />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0e1220 0%, rgba(14,18,32,.15) 30%, transparent 55%)' }} />
         </div>
       </div>

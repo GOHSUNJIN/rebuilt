@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
-export default function Error({ reset }: { error: Error; reset: () => void }) {
+export default function Error({ reset }: { reset: () => void }) {
   return (
     <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0b0c0e', color: '#f2f4f7', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />

@@ -59,8 +59,8 @@ export default function ReviewsSection() {
           </a>
         </div>
 
-        {reviews.map(({ stars, text, name, role }, i) => (
-          <div key={`${name}-${i}`} className="hover-review" style={{ background: '#1c2130', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+        {reviews.map(({ stars, text, name, role }) => (
+          <div key={name} className="hover-review" style={{ background: '#1c2130', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', gap: 20 }}>
             <span style={{ fontSize: 13, color: '#F4B400', letterSpacing: '.06em' }}>{stars}</span>
             <p style={{ fontSize: 15.5, lineHeight: 1.6, fontWeight: 500, color: '#e9ecf0', margin: 0, flex: 1 }}>{text}</p>
             <div style={{ display: 'flex', gap: 12, paddingTop: 18, borderTop: '1px solid #262a30', alignItems: 'center' }}>

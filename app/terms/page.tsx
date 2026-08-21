@@ -72,10 +72,10 @@ export default function TermsPage() {
       <section style={{ borderBottom: '1px solid #212429', background: '#09090d' }}>
         {/* Breadcrumb */}
         <div className="r-px" style={{ padding: '16px 48px', borderBottom: '1px solid #1a1d22', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <Link href="/" style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47', letterSpacing: '.2em', textDecoration: 'none' }}>REBUILT</Link>
-          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#2a2e34' }}>/</span>
-          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47', letterSpacing: '.2em' }}>LEGAL</span>
-          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#2a2e34' }}>/</span>
+          <Link href="/" style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.2em', textDecoration: 'none' }}>REBUILT</Link>
+          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47' }}>/</span>
+          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.2em' }}>LEGAL</span>
+          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47' }}>/</span>
           <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em' }}>TERMS OF SERVICE</span>
         </div>
 
@@ -90,7 +90,7 @@ export default function TermsPage() {
               <h1 className="r-h1" style={{ fontSize: 76, fontWeight: 800, lineHeight: 0.9, letterSpacing: '-.04em', margin: '0 0 24px', color: '#f2f4f7' }}>
                 Terms of<br />Service.
               </h1>
-              <p style={{ fontSize: 16, lineHeight: 1.65, color: '#5f6670', maxWidth: 460, margin: 0 }}>
+              <p style={{ fontSize: 16, lineHeight: 1.65, color: '#a3aab4', maxWidth: 460, margin: 0 }}>
                 These terms govern your use of the Rebuilt Academy website and the services we provide. By booking a session or using our website, you agree to these terms.
               </p>
             </div>
@@ -101,8 +101,8 @@ export default function TermsPage() {
                 { label: 'SECTIONS', value: '10' },
               ].map(({ label, value }) => (
                 <div key={label} style={{ textAlign: 'right' }}>
-                  <p style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#2a2e34', letterSpacing: '.18em', margin: '0 0 4px' }}>{label}</p>
-                  <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#4a5060', letterSpacing: '.12em', margin: 0 }}>{value}</p>
+                  <p style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: '0 0 4px' }}>{label}</p>
+                  <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.12em', margin: 0 }}>{value}</p>
                 </div>
               ))}
             </div>
@@ -129,7 +129,7 @@ export default function TermsPage() {
                   transition: 'color .15s',
                 }}
               >
-                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#4a5060', letterSpacing: '.1em', flexShrink: 0, minWidth: 16 }}>
+                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.1em', flexShrink: 0, minWidth: 16 }}>
                   {num}
                 </span>
                 {title}

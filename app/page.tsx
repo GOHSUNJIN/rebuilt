@@ -198,7 +198,7 @@ export default function HomePage() {
                 sizes="50vw"
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, #09090d 100%)' }} />
-              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(217,158,92,.25)', background: 'rgba(9,9,13,.8)' }}>
+              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(224,53,53,.25)', background: 'rgba(9,9,13,.8)' }}>
                 <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0 }} />
                 <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em' }}>COMING SOON</span>
               </div>

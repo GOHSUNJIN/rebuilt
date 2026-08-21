@@ -17,7 +17,7 @@ export default function PricingCards({ items }: { items: PricingItem[] }) {
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 }}>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#98a0aa', letterSpacing: '.2em', margin: 0 }}>{type.toUpperCase()}</p>
-              {featured && <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', border: '1px solid rgba(217,158,92,.4)', background: 'rgba(217,158,92,.08)', padding: '5px 9px', letterSpacing: '.14em' }}>MOST POPULAR</span>}
+              {featured && <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', border: '1px solid rgba(224,53,53,.4)', background: 'rgba(224,53,53,.08)', padding: '5px 9px', letterSpacing: '.14em' }}>MOST POPULAR</span>}
             </div>
             {price.toLowerCase().startsWith('from ') && (
               <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em', display: 'block', marginBottom: 6 }}>FROM</span>

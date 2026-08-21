@@ -41,7 +41,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                   <span style={{ fontSize: 14, fontWeight: 600, color: service === label ? '#f2f4f7' : '#a3aab4' }}>{label}</span>
-                  {popular && <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', border: '1px solid rgba(217,158,92,.3)', padding: '3px 6px', letterSpacing: '.12em' }}>POPULAR</span>}
+                  {popular && <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', border: '1px solid rgba(224,53,53,.3)', padding: '3px 6px', letterSpacing: '.12em' }}>POPULAR</span>}
                 </div>
                 <span style={{ fontSize: 12, color: '#5f6670' }}>{sub}</span>
               </div>
@@ -87,7 +87,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3 }}>
                       <p style={{ fontSize: 14, fontWeight: 600, margin: 0, color: service === `${ptFormat} · block` ? '#f2f4f7' : '#a3aab4' }}>Block of 20</p>
-                      <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', border: '1px solid rgba(217,158,92,.3)', padding: '3px 6px', letterSpacing: '.12em' }}>POPULAR</span>
+                      <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', border: '1px solid rgba(224,53,53,.3)', padding: '3px 6px', letterSpacing: '.12em' }}>POPULAR</span>
                     </div>
                     <p style={{ fontSize: 12, color: '#5f6670', margin: 0 }}>{PT_TYPES[ptFormat].block}</p>
                   </div>

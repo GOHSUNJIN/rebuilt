@@ -30,7 +30,7 @@ function Num({ n }: { n: string }) {
   return (
     <span style={{
       font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)',
-      letterSpacing: '.22em', border: '1px solid rgba(217,158,92,.25)',
+      letterSpacing: '.22em', border: '1px solid rgba(224,53,53,.25)',
       padding: '5px 10px', flexShrink: 0,
     }}>
       {n}
@@ -81,7 +81,7 @@ export default function TermsPage() {
 
         {/* Title area */}
         <div className="r-px" style={{ padding: '56px 48px 52px', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: -10, right: 40, font: '200px/0.82 ui-monospace,Menlo,monospace', color: 'rgba(217,158,92,.04)', fontWeight: 700, userSelect: 'none', pointerEvents: 'none', letterSpacing: '-.05em' }}>
+          <div style={{ position: 'absolute', top: -10, right: 40, font: '200px/0.82 ui-monospace,Menlo,monospace', color: 'rgba(224,53,53,.04)', fontWeight: 700, userSelect: 'none', pointerEvents: 'none', letterSpacing: '-.05em' }}>
             §
           </div>
 

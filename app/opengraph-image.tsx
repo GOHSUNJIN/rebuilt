@@ -20,12 +20,12 @@ export default function Image() {
       }}
     >
       {/* Top accent */}
-      <div style={{ width: '100%', height: 4, background: '#d99e5c', position: 'absolute', top: 0, left: 0 }} />
+      <div style={{ width: '100%', height: 4, background: '#e03535', position: 'absolute', top: 0, left: 0 }} />
 
       {/* Logo */}
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div style={{ fontSize: 15, fontWeight: 800, letterSpacing: '0.28em', color: '#f2f4f7' }}>REBUILT ACADEMY</div>
-        <div style={{ fontSize: 10, letterSpacing: '0.22em', color: '#d99e5c', marginTop: 4 }}>SINGAPORE</div>
+        <div style={{ fontSize: 10, letterSpacing: '0.22em', color: '#e03535', marginTop: 4 }}>SINGAPORE</div>
       </div>
 
       {/* Main headline */}

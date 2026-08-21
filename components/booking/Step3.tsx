@@ -72,7 +72,7 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {slots.map(s => (
               <button key={s} type="button" onClick={() => toggleSlot(s)}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 12px', background: '#111316', border: '1px solid rgba(217,158,92,.25)', color: 'var(--accent)', cursor: 'pointer', fontSize: 12, fontFamily: 'inherit', letterSpacing: '.08em' }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 12px', background: '#111316', border: '1px solid rgba(224,53,53,.25)', color: 'var(--accent)', cursor: 'pointer', fontSize: 12, fontFamily: 'inherit', letterSpacing: '.08em' }}
               >
                 {s.replace('-', ' ')} <span style={{ fontSize: 10, opacity: 0.6 }}>✕</span>
               </button>

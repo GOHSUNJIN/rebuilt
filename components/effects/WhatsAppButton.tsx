@@ -37,7 +37,7 @@ export default function WhatsAppButton() {
         background: 'var(--accent)',
         display: 'grid',
         placeItems: 'center',
-        boxShadow: '0 4px 20px rgba(217,158,92,.35)',
+        boxShadow: '0 4px 20px rgba(224,53,53,.35)',
         transition: 'transform 0.2s ease, box-shadow 0.2s ease, opacity 0.4s ease',
         opacity: nearBottom ? 0 : 1,
         pointerEvents: nearBottom ? 'none' : 'auto',

@@ -98,7 +98,7 @@ export default function PhysioForm({ compact = false }: { compact?: boolean }) {
                   style={{
                     padding: '8px 14px',
                     border: `1px solid ${active ? 'var(--accent)' : '#2a2e34'}`,
-                    background: active ? 'rgba(217,158,92,.1)' : 'transparent',
+                    background: active ? 'rgba(224,53,53,.1)' : 'transparent',
                     color: active ? 'var(--accent)' : '#a3aab4',
                     fontSize: 12,
                     fontWeight: 500,

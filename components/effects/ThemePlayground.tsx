@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 
 const PRESETS = [
-  { name: 'Gold',    accent: '#d99e5c', hover: '#e8b072' },
+  { name: 'Red',     accent: '#e03535', hover: '#f04545' },
   { name: 'Copper',  accent: '#c4714a', hover: '#d4845e' },
   { name: 'Sage',    accent: '#7aad6e', hover: '#8fc082' },
   { name: 'Steel',   accent: '#6b8fae', hover: '#7ea3c0' },
@@ -88,7 +88,7 @@ export default function ThemePlayground() {
               type="text"
               value={custom}
               onChange={e => setCustom(e.target.value)}
-              placeholder="#d99e5c"
+              placeholder="#e03535"
               maxLength={7}
               style={{
                 flex: 1, background: '#0e1015', border: '1px solid #262a30',

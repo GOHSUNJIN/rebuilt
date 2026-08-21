@@ -20,9 +20,9 @@ export interface Step3Props {
 }
 
 export interface Step4Props {
-  name: string; email: string; phone: string; notes: string
+  name: string; email: string; notes: string
   setName: (v: string) => void; setEmail: (v: string) => void
-  setPhone: (v: string) => void; setNotes: (v: string) => void
+  setNotes: (v: string) => void
 }
 
 export interface Step5Props {

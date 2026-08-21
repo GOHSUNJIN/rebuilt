@@ -3,7 +3,7 @@ import { inputStyle, formLabelStyle as labelStyle } from '@/lib/styles'
 import type { Step4Props } from './types'
 import StepHeader from './StepHeader'
 
-export default function Step4({ name, email, phone, notes, setName, setEmail, setPhone, setNotes }: Step4Props) {
+export default function Step4({ name, email, notes, setName, setEmail, setNotes }: Step4Props) {
   return (
     <>
       <StepHeader step={4} heading="Your details" />
@@ -19,10 +19,7 @@ export default function Step4({ name, email, phone, notes, setName, setEmail, se
             <input id="book-email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email address" style={inputStyle} />
           </div>
         </div>
-        <div>
-          <label htmlFor="book-phone" style={labelStyle}>PHONE</label>
-          <input id="book-phone" type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="e.g. +65 9123 4567" style={inputStyle} />
-        </div>
+
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
             <label htmlFor="book-notes" style={labelStyle}>ANYTHING WE SHOULD KNOW?</label>

@@ -41,9 +41,9 @@ const LOCATIONS: Location[] = [
 ]
 
 const LOCATION_IMAGES: Record<string, string> = {
-  Robinson: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
-  Dempsey:  'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=80',
-  Katong:   'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=800&q=80',
+  Robinson: 'https://www.corecollective.sg/hubfs/locations%20slider_rr.png',
+  Dempsey:  'https://www.corecollective.sg/hubfs/Location_Dempsey.jpg',
+  Katong:   'https://www.corecollective.sg/hubfs/Locations%20Page%20Image_Katong.png',
 }
 
 function LocationPlaceholder({ label, height }: { label: string; height: number }) {

@@ -6,6 +6,7 @@ const config: NextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'gobeyondrehab.sg' },
+      { protocol: 'https', hostname: 'www.corecollective.sg' },
     ],
   },
   async headers() {

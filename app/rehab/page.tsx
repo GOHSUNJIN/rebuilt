@@ -68,8 +68,8 @@ export default function RehabPage() {
       <PricingCards items={PRICING} />
 
       <ServiceTestimonial
-        imageSrc="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&q=80"
-        imageAlt="Rehab session"
+        imageSrc="https://gobeyondrehab.sg/wp-content/uploads/2026/01/clinic-1.png"
+        imageAlt="Rehab & Beyond clinic"
         quote="I came in eight weeks after ACL surgery with no idea what was safe. The testing at the start and end made the whole process feel measured, not guesswork."
         initial="M" name="Marcus T." role="ACL RECONSTRUCTION · RECREATIONAL FOOTBALLER"
       />

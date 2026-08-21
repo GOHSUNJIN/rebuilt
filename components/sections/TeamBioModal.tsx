@@ -123,15 +123,15 @@ export default function TeamBioModal() {
           <div className="r-team-img" style={{ height: 340, position: 'relative', overflow: 'hidden', background: '#08090b', flexShrink: 0 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=800&q=80"
-              alt="Rehab & Beyond physiotherapy"
+              src="https://gobeyondrehab.sg/wp-content/uploads/2026/01/clinic-1.png"
+              alt="Rehab & Beyond physiotherapy clinic"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 25%', display: 'block' }}
             />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,.75) 0%, rgba(9,9,13,.1) 55%)' }} />
             <div style={{ position: 'absolute', bottom: 18, left: 22, display: 'flex', alignItems: 'center', gap: 10 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://gobeyondrehab.sg/favicon.ico"
+                src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
                 alt="Rehab & Beyond"
                 width={28} height={28}
                 style={{ borderRadius: '50%', background: '#fff', objectFit: 'cover', display: 'block' }}
@@ -265,7 +265,7 @@ export default function TeamBioModal() {
             <div style={{ position: 'relative', height: 300, overflow: 'hidden', flexShrink: 0 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=900&q=85"
+                src="https://gobeyondrehab.sg/wp-content/uploads/2026/01/home-1.png"
                 alt="Rehab & Beyond physiotherapy"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%', display: 'block' }}
               />
@@ -274,7 +274,7 @@ export default function TeamBioModal() {
               <div style={{ position: 'absolute', bottom: 28, left: 36, display: 'flex', alignItems: 'center', gap: 12 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://gobeyondrehab.sg/favicon.ico"
+                  src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
                   alt="Rehab & Beyond"
                   width={36} height={36}
                   style={{ borderRadius: '50%', background: '#fff', objectFit: 'cover', display: 'block' }}
@@ -305,8 +305,8 @@ export default function TeamBioModal() {
               <div style={{ position: 'relative', height: 200, margin: '28px -36px', overflow: 'hidden' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=900&q=80"
-                  alt="Physiotherapy treatment"
+                  src="https://gobeyondrehab.sg/wp-content/uploads/2026/01/clinic-1.png"
+                  alt="Physiotherapy treatment at Rehab & Beyond"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,17,21,.6) 0%, transparent 50%)' }} />

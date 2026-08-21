@@ -192,8 +192,8 @@ export default function HomePage() {
           <div style={{ background: '#09090d', display: 'flex', flexDirection: 'column' }}>
             <div style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
               <Image
-                src="https://www.corecollective.sg/hubfs/locations%20slider_rr.png"
-                alt="Core Collective Robinson" fill
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
+                alt="Rebuilt training facility" fill
                 style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.35 }}
                 sizes="50vw"
               />
@@ -321,8 +321,8 @@ export default function HomePage() {
           {/* Right: image */}
           <div className="r-hide" style={{ position: 'relative', overflow: 'hidden', minHeight: 500 }}>
             <Image
-              src="https://www.corecollective.sg/hubfs/locations%20slider_rr.png"
-              alt="Core Collective Robinson"
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+              alt=""
               fill
               style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
               sizes="50vw"

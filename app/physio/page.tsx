@@ -48,8 +48,8 @@ export default function PhysioPage() {
 
       <ServiceHero
 
-        imageSrc="https://gobeyondrehab.sg/wp-content/uploads/2026/01/home-1.png"
-        imageAlt="Rehab & Beyond physiotherapy clinic"
+        imageSrc="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1400&q=85"
+        imageAlt="Physiotherapy session"
         heading={<>Physiotherapy at Rebuilt Academy.</>}
         subheading="Delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training, coordinated from the start."
         bookHref="/book?service=physio"
@@ -75,7 +75,7 @@ export default function PhysioPage() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
+                    src="https://gobeyondrehab.sg/favicon.ico"
                     alt="Rehab & Beyond"
                     width={40}
                     height={40}
@@ -100,8 +100,8 @@ export default function PhysioPage() {
           </div>
           <div className="r-partner-img" style={{ position: 'relative', overflow: 'hidden', minHeight: 480 }}>
             <Image
-              src="https://gobeyondrehab.sg/wp-content/uploads/2026/01/clinic-1.png"
-              alt="Rehab & Beyond clinic interior"
+              src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=900&q=85"
+              alt="Physiotherapy session at Rebuilt"
               fill
               style={{ objectFit: 'cover', objectPosition: 'center 25%' }}
             />
@@ -127,8 +127,8 @@ export default function PhysioPage() {
       </p>
 
       <ServiceTestimonial
-        imageSrc="https://gobeyondrehab.sg/wp-content/uploads/2026/01/clinic-1.png"
-        imageAlt="Rehab & Beyond treatment session"
+        imageSrc="https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?auto=format&fit=crop&w=800&q=80"
+        imageAlt="Physiotherapy treatment session"
         quote="Having the physiotherapist and coach talking to each other meant I never had to explain my injury twice. The programme adapted the moment my physiotherapist updated my notes."
         initial="J" name="Jason K." role="SHOULDER REHAB · RETURNED TO COMPETITION"
       />
@@ -140,15 +140,15 @@ export default function PhysioPage() {
         body="One message. Rebuilt Academy and Rehab & Beyond coordinate everything - your first appointment confirmed within the day."
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
-        imageSrc="https://gobeyondrehab.sg/wp-content/uploads/2026/01/home-1.png"
+        imageSrc="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80"
         imagePosition="center 30%"
       />
 
       {/* Coming soon — In-house physio */}
       <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #212429', minHeight: 540 }}>
         <Image
-          src="https://www.corecollective.sg/hubfs/locations%20slider_rr.png"
-          alt="Core Collective Robinson"
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+          alt="Rebuilt training facility"
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
         />

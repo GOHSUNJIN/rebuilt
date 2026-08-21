@@ -32,6 +32,7 @@ export const config = {
       missing: [
         { type: 'header', key: 'next-router-prefetch' },
         { type: 'header', key: 'purpose', value: 'prefetch' },
+        { type: 'header', key: 'RSC' },
       ],
     },
   ],

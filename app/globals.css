@@ -160,7 +160,7 @@ a:hover {
 .hover-card:hover {
   transform: translateY(-6px);
   background: #191c21 !important;
-  box-shadow: 0 24px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(224,53,53,.1);
+  box-shadow: 0 24px 60px rgba(0,0,0,.55);
 }
 
 .hover-border {
@@ -315,7 +315,7 @@ select:focus {
 }
 
 .gradient-gold {
-  background: linear-gradient(120deg, #b01c1c 0%, #f06060 45%, var(--accent) 55%, #b01c1c 100%);
+  background: linear-gradient(120deg, #c02222 0%, #ff5555 45%, var(--accent) 55%, #c02222 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

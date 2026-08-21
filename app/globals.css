@@ -291,7 +291,7 @@ select:focus {
 
 .whatsapp-btn:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 28px rgba(224,53,53,.5);
+  box-shadow: 0 8px 28px rgba(37,211,102,.5);
   opacity: 1;
 }
 

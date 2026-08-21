@@ -168,7 +168,7 @@ function FAQInner() {
                 {items.length} QUESTION{items.length !== 1 ? 'S' : ''}
               </span>
             </div>
-            <FAQAccordion items={items} />
+            <FAQAccordion key={activeTab} items={items} />
 
             {/* Mobile CTA */}
             <div className="r-faq-mobile-cta" style={{ marginTop: 48, paddingTop: 32, borderTop: '1px solid #1e2126', display: 'none', gap: 12 }}>

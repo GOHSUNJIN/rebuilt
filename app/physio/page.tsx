@@ -144,7 +144,7 @@ export default function PhysioPage() {
         imagePosition="center 30%"
       />
 
-      {/* Coming soon — In-house physio */}
+      {/* Coming soon: In-house physio */}
       <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #212429', minHeight: 540 }}>
         <Image
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"

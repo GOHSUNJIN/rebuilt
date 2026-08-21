@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Rebuilt Academy is a Singapore gym for rehabilitation, personal training, sports performance and physiotherapy. One team, one set of notes, three locations at Core Collective.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Rebuilt Academy — Rehab, Training & Performance',
+    title: 'Rebuilt Academy | Rehab, Training & Performance',
     description: 'One place for rehabilitation, personal training, sports performance and physiotherapy. Three locations across Singapore.',
   },
 }

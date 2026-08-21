@@ -357,10 +357,10 @@ a:hover > .img-overlay { opacity: 1; }
 h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 p { text-wrap: pretty; }
 
-/* Mobile footer — hidden by default, shown on mobile */
+/* Mobile footer - hidden by default, shown on mobile */
 .r-footer-mobile  { display: none; }
 
-/* Desktop footer — shown by default, hidden on mobile */
+/* Desktop footer - shown by default, hidden on mobile */
 .r-footer-desktop { display: flex; }
 
 /* ══════════════════════════════════════════════════
@@ -373,7 +373,7 @@ p { text-wrap: pretty; }
 }
 
 /* ══════════════════════════════════════════════════
-   MOBILE — portrait  (≤ 768px)  — full overhaul
+   MOBILE - portrait  (≤ 768px)  - full overhaul
    ══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
@@ -426,22 +426,22 @@ p { text-wrap: pretty; }
   .r-cta-img   { min-height: 200px !important; }
   .r-about-img { min-height: 220px !important; }
 
-  /* ── Team bio cards — reduce placeholder height when stacked ─── */
+  /* ── Team bio cards - reduce placeholder height when stacked ─── */
   .r-team-img  { height: 220px !important; }
 
-  /* ── Location cards — reduce 460px height when stacked ─── */
+  /* ── Location cards - reduce 460px height when stacked ─── */
   .r-location-card { height: 280px !important; }
 
-  /* ── Feature grid cells — tighter padding when stacked ─── */
+  /* ── Feature grid cells - tighter padding when stacked ─── */
   .r-feature-cell { padding: 20px !important; }
 
-  /* ── Physio partnership image — reduce height when stacked ─── */
+  /* ── Physio partnership image - reduce height when stacked ─── */
   .r-partner-img { min-height: 240px !important; }
 
-  /* ── Pricing cards — tighter padding when stacked ─── */
+  /* ── Pricing cards - tighter padding when stacked ─── */
   .r-pricing-card { padding: 24px 20px 28px !important; }
 
-  /* ── PhysioForm buttons — stack vertically ─── */
+  /* ── PhysioForm buttons - stack vertically ─── */
   .r-physio-btns { flex-direction: column !important; }
   .r-physio-btns > a { flex: unset !important; }
 
@@ -452,7 +452,7 @@ p { text-wrap: pretty; }
     line-height: 1.5 !important;
   }
 
-  /* ── Reviews — horizontal scroll on mobile ─── */
+  /* ── Reviews - horizontal scroll on mobile ─── */
   .r-reviews-scroll {
     display: flex !important;
     overflow-x: auto !important;
@@ -553,7 +553,7 @@ p { text-wrap: pretty; }
   .r-card-img { width: 80px !important; height: 140px !important; }
 }
 
-/* ── Landscape phones — functional ─────────────── */
+/* ── Landscape phones - functional ─────────────── */
 @media (orientation: landscape) and (hover: none) and (max-width: 900px) {
   .r-hero         { min-height: 300px !important; }
   .r-hero-content { padding-bottom: 24px !important; }

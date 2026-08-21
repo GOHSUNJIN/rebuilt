@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/performance' },
   openGraph: {
     title: 'Performance',
-    description: 'Sport-specific blocks for athletes. Speed, power and conditioning — tested at the start and end of every programme.',
+    description: 'Sport-specific blocks for athletes. Speed, power and conditioning, tested at the start and end of every programme.',
   },
 }
 

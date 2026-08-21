@@ -295,7 +295,7 @@ export default function TeamBioModal() {
               </h2>
 
               <p style={{ fontSize: 15, lineHeight: 1.72, color: '#a3aab4', marginTop: 0, marginBottom: 18 }}>
-                Founded in 2018, Rehab &amp; Beyond was built to bring hospital-quality physiotherapy into the community — accessible, affordable, and not locked away after discharge. Their team of AHPC-registered physiotherapists has been recognised on Channel 8, CNA938 and named Best Physiotherapy Clinic Singapore 2024 by District 65.
+                Founded in 2018, Rehab &amp; Beyond was built to bring hospital-quality physiotherapy into the community: accessible, affordable, and not locked away after discharge. Their team of AHPC-registered physiotherapists has been recognised on Channel 8, CNA938 and named Best Physiotherapy Clinic Singapore 2024 by District 65.
               </p>
               <p style={{ fontSize: 15, lineHeight: 1.72, color: '#a3aab4', marginTop: 0, marginBottom: 0 }}>
                 At Rebuilt Academy, Rehab &amp; Beyond handle all physiotherapy consultations and treatment. Session notes are shared directly with your Rebuilt coach so recovery and training are always pulling in the same direction. In-house physiotherapy is coming soon.

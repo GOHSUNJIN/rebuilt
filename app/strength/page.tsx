@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/strength' },
   openGraph: {
     title: 'Training',
-    description: 'Personal training in Singapore. A structured plan, honest feedback and measurable progress — whatever shape you start in.',
+    description: 'Personal training in Singapore. A structured plan, honest feedback and measurable progress, whatever shape you start in.',
   },
 }
 

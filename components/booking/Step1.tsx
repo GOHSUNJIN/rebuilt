@@ -51,7 +51,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
         </div>
       )}
 
-      {/* PT — two-stage */}
+      {/* PT: two-stage */}
       {category === 'Training' && (
         <>
           <p style={miniLabel}>FORMAT</p>
@@ -99,7 +99,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
         </>
       )}
 
-      {/* Physiotherapy — two options, one available, one coming soon */}
+      {/* Physiotherapy: two options, one available, one coming soon */}
       {category === 'Physiotherapy' && (
         <>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 2, background: '#1a1d22' }}>

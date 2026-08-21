@@ -12,7 +12,7 @@ export default function Step5({ summaryRows, waUrl, gmailUrl, notSureYet }: Step
       {notSureYet && (
         <div style={{ padding: '14px 18px', background: 'rgba(224,53,53,.07)', border: '1px solid rgba(224,53,53,.2)', marginBottom: 28 }}>
           <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', margin: '0 0 8px' }}>NOT SURE YET</p>
-          <p style={{ fontSize: 13, color: '#a3aab4', margin: 0, lineHeight: 1.55 }}>No problem — we&apos;ll reach out to find the right programme for you before confirming anything.</p>
+          <p style={{ fontSize: 13, color: '#a3aab4', margin: 0, lineHeight: 1.55 }}>No problem. We&apos;ll reach out to find the right programme for you before confirming anything.</p>
         </div>
       )}
       <div style={{ border: '1px solid #1e2126', background: '#111316', padding: '28px 24px', marginBottom: 24 }}>

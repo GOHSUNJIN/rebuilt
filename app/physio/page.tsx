@@ -15,6 +15,7 @@ import type { PricingItem, FeatureItem, CrosslinkItem } from '@/lib/types'
 export const metadata: Metadata = {
   title: 'Physiotherapy',
   description: 'Physiotherapy at Rebuilt Academy, delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training under one roof.',
+  alternates: { canonical: '/physio' },
   openGraph: {
     title: 'Physiotherapy',
     description: 'Physiotherapy delivered in partnership with Rehab & Beyond. Treatment and training coordinated from the start.',

@@ -15,7 +15,7 @@ function checkRate(ip: string): boolean {
 }
 
 function sanitize(v: FormDataEntryValue | null): string {
-  return String(v ?? '').trim().slice(0, 5000).replace(/[<>]/g, '')
+  return String(v ?? '').trim().slice(0, 5000).replace(/[<>"'`]/g, '')
 }
 
 export async function submitContact(formData: FormData) {
@@ -32,7 +32,7 @@ export async function submitContact(formData: FormData) {
   if (message.length > 2000) return { ok: false, error: 'Message must be under 2000 characters.' }
 
   if (!process.env.RESEND_API_KEY) {
-    return { ok: false, error: 'Email service is unavailable. Please contact us directly at ' + SITE.contact.email }
+    return { ok: false, error: 'Email service is temporarily unavailable. Please try again later.' }
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY)
@@ -53,7 +53,7 @@ export async function submitContact(formData: FormData) {
     })
     return { ok: true }
   } catch (err) {
-    console.error('Resend error:', err)
+    console.error('Resend error:', err instanceof Error ? err.message : String(err))
     return { ok: false, error: 'Failed to send. Please email us directly.' }
   }
 }

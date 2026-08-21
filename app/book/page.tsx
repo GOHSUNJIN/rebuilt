@@ -215,5 +215,9 @@ function BookContent() {
 }
 
 export default function BookPage() {
-  return <Suspense><BookContent /></Suspense>
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0b0c0e' }} />}>
+      <BookContent />
+    </Suspense>
+  )
 }

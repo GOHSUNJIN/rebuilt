@@ -84,9 +84,13 @@ export default function TeamBioModal() {
         {TEAM.map((member) => (
           <div
             key={member.name}
+            role="button"
+            tabIndex={0}
+            aria-label={`Read ${member.name}'s full bio`}
             className="hover-border"
             style={{ border: '1px solid #1e2126', cursor: 'pointer', transition: 'border-color .2s ease' }}
             onClick={() => setSelected(member)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelected(member) } }}
           >
             <MemberPlaceholder initials={initials(member.name)} height={340} className="r-team-img" />
             <div style={{ padding: '24px 22px 26px' }}>
@@ -108,9 +112,13 @@ export default function TeamBioModal() {
 
         {/* Rehab & Beyond card */}
         <div
+          role="button"
+          tabIndex={0}
+          aria-label="Read more about Rehab & Beyond"
           className="hover-border"
           style={{ border: '1px solid #1e2126', cursor: 'pointer', transition: 'border-color .2s ease', display: 'flex', flexDirection: 'column' }}
           onClick={() => setShowRnB(true)}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setShowRnB(true) } }}
         >
           <div className="r-team-img" style={{ height: 340, position: 'relative', overflow: 'hidden', background: '#08090b', flexShrink: 0 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -158,6 +166,9 @@ export default function TeamBioModal() {
             onClick={() => setSelected(null)}
           />
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="member-dialog-title"
             className="no-scrollbar"
             style={{
               position: 'fixed', top: 0, right: 0, bottom: 0, width: '100%', maxWidth: 500,
@@ -189,7 +200,7 @@ export default function TeamBioModal() {
               <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 12 }}>
                 {selected.role}
               </p>
-              <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 28 }}>
+              <h2 id="member-dialog-title" style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 28 }}>
                 {selected.name}
               </h2>
 
@@ -225,6 +236,9 @@ export default function TeamBioModal() {
             onClick={() => setShowRnB(false)}
           />
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="rnb-dialog-title"
             className="no-scrollbar"
             style={{
               position: 'fixed', top: 0, right: 0, bottom: 0, width: '100%', maxWidth: 500,
@@ -235,7 +249,7 @@ export default function TeamBioModal() {
             <button
               ref={closeRnBRef}
               onClick={() => setShowRnB(false)}
-              aria-label="Close"
+              aria-label="Close Rehab & Beyond profile"
               style={{
                 position: 'absolute', top: 20, right: 20,
                 background: 'rgba(15,17,21,.8)', border: 'none',
@@ -276,7 +290,7 @@ export default function TeamBioModal() {
               <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 12 }}>
                 PHYSIOTHERAPY PARTNER
               </p>
-              <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 28 }}>
+              <h2 id="rnb-dialog-title" style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 28 }}>
                 Rehab &amp; Beyond
               </h2>
 

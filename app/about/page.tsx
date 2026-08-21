@@ -194,8 +194,7 @@ export default function AboutPage() {
                   style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}
                   className="hover-gold">
                   <span style={{ width: 32, height: 32, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, display: 'block', background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/instagram-pfp.jpg" alt="" width={32} height={32} style={{ width: 32, height: 32, objectFit: 'cover', display: 'block' }} />
+                    <Image src="/instagram-pfp.jpg" alt="@rebuiltbysk on Instagram" width={32} height={32} style={{ width: 32, height: 32, objectFit: 'cover', display: 'block' }} />
                   </span>
                   <span style={{ fontSize: 13, color: '#a3aab4' }}>@rebuiltbysk</span>
                 </a>

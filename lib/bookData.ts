@@ -73,4 +73,4 @@ export const STEPS = [
   { num: 5, label: 'Submit' },
 ]
 
-export const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+export const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)

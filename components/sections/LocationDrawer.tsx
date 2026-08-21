@@ -117,6 +117,9 @@ export default function LocationDrawer() {
             onClick={() => setSelected(null)}
           />
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="location-dialog-title"
             className="no-scrollbar"
             style={{
               position: 'fixed', top: 0, right: 0, bottom: 0,
@@ -157,7 +160,7 @@ export default function LocationDrawer() {
               <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 12 }}>
                 CORE COLLECTIVE · {selected.tag.toUpperCase()}
               </p>
-              <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 6 }}>
+              <h2 id="location-dialog-title" style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 6 }}>
                 {selected.label}
               </h2>
               <p style={{ fontSize: 14, color: '#a3aab4', margin: '0 0 28px', lineHeight: 1.6 }}>

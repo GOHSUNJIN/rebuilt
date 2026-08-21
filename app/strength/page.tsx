@@ -13,6 +13,7 @@ import type { PricingItem, FeatureItem, CrosslinkItem } from '@/lib/types'
 export const metadata: Metadata = {
   title: 'Training',
   description: 'Personal training in Singapore. Structured programmes, honest coaching and measurable progress for any starting point.',
+  alternates: { canonical: '/strength' },
   openGraph: {
     title: 'Training',
     description: 'Personal training in Singapore. A structured plan, honest feedback and measurable progress — whatever shape you start in.',

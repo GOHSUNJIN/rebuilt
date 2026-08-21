@@ -225,8 +225,7 @@ export default function HomePage() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <div style={{ padding: 2, background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', borderRadius: '50%', flexShrink: 0 }}>
               <div style={{ background: '#09090d', borderRadius: '50%', padding: 2 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/instagram-pfp.jpg" alt="@rebuiltbysk" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'cover', borderRadius: '50%', display: 'block' }} />
+                <Image src="/instagram-pfp.jpg" alt="@rebuiltbysk Instagram profile" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'cover', borderRadius: '50%', display: 'block' }} />
               </div>
             </div>
             <div>

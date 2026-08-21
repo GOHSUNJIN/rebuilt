@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Archivo } from 'next/font/google'
+import { headers } from 'next/headers'
 import './globals.css'
 import { SITE } from '@/lib/site'
 import WhatsAppButton from '@/components/effects/WhatsAppButton'
@@ -91,7 +92,8 @@ const jsonLd = {
   hasMap: SITE.locations[0].mapsUrl,
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const nonce = (await headers()).get('x-nonce') ?? ''
   return (
     <html lang="en">
       <body
@@ -100,6 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <script
           type="application/ld+json"
+          nonce={nonce}
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <a href="#main-content" className="skip-link">Skip to main content</a>

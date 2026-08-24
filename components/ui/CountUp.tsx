@@ -40,7 +40,7 @@ export default function CountUp({ to, duration = 1200, decimals = 0, suffix = ''
   }, [to, duration, decimals])
 
   return (
-    <span ref={ref} style={style} className={className}>
+    <span ref={ref} style={style} className={className} aria-live="polite" aria-atomic="true">
       {value.toFixed(decimals)}{suffix}
     </span>
   )

@@ -30,7 +30,7 @@ export default function ServiceTestimonial({ imageSrc, imageAlt, quote, initial,
         </div>
         <div className="r-px r-tall-pad" style={{ padding: '52px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <p style={{ fontSize: 14, color: '#F4B400', letterSpacing: '.06em', margin: '0 0 20px' }}>★★★★★</p>
-          <blockquote style={{ fontSize: 22, lineHeight: 1.55, fontWeight: 500, letterSpacing: '-.01em', color: '#e8eaed', margin: '0 0 28px', fontStyle: 'normal' }}>
+          <blockquote style={{ fontSize: 22, lineHeight: 1.55, fontWeight: 500, letterSpacing: '-.01em', color: '#e8eaed', margin: '0 0 28px', fontStyle: 'normal', borderLeft: '2px solid var(--accent)', paddingLeft: 20 }}>
             &ldquo;{quote}&rdquo;
           </blockquote>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>

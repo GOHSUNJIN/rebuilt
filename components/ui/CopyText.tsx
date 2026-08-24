@@ -28,6 +28,7 @@ export default function CopyText({ value, children, style, className }: CopyText
       <button
         onClick={handleCopy}
         title="Copy to clipboard"
+        aria-label={copied ? 'Copied to clipboard' : 'Copy to clipboard'}
         style={{
           background: 'none',
           border: 'none',

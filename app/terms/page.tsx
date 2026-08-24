@@ -111,7 +111,7 @@ export default function TermsPage() {
       </section>
 
       {/* ── Body ──────────────────────────────────── */}
-      <div className="r-px" style={{ padding: '72px 48px 100px', display: 'flex', gap: 72, maxWidth: 1100, margin: '0 auto', boxSizing: 'border-box' }}>
+      <div className="r-px" style={{ padding: '72px 48px', display: 'flex', gap: 72, maxWidth: 1100, margin: '0 auto', boxSizing: 'border-box' }}>
 
         {/* TOC */}
         <div className="r-hide" style={{ width: 196, flexShrink: 0, position: 'sticky', top: 90, alignSelf: 'start' }}>

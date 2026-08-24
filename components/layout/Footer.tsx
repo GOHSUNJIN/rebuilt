@@ -133,7 +133,7 @@ export default function Footer() {
       )}
 
       {/* ── Desktop nav row (hidden on mobile) ─────── */}
-      <div className="r-px r-footer-nav" style={{ borderTop: '1px solid #212429', background: '#0e0f11', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #17191d' }}>
+      <div className="r-px r-footer-nav" style={{ borderTop: '1px solid #212429', background: '#0e0f11', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #1e2126' }}>
         {[...NAV_LINKS, { label: 'Book a consult', href: '/book', page: 'book' }].map(({ label, href }) => {
           const active = pathname === href || (href !== '/' && pathname.startsWith(href))
           return (

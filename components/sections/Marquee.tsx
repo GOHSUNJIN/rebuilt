@@ -36,7 +36,7 @@ export default function Marquee({
             <span
               style={{
                 font: '11px/1 ui-monospace,Menlo,monospace',
-                color: '#6f7783',
+                color: '#8d95a0',
                 letterSpacing: '.28em',
                 padding: '0 28px',
                 whiteSpace: 'nowrap',

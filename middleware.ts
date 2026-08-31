@@ -8,7 +8,7 @@ const CSP = [
   "img-src 'self' data: https://images.unsplash.com https://gobeyondrehab.sg",
   "font-src 'self'",
   "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com",
-  "frame-src https://maps.google.com https://www.google.com",
+  "frame-src https://maps.google.com https://www.google.com https://vercel.live",
   "frame-ancestors 'none'",
   "form-action 'self'",
   "base-uri 'self'",

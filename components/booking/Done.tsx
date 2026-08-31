@@ -1,8 +1,12 @@
 ﻿'use client'
+import { useEffect } from 'react'
 import Link from 'next/link'
+import { track } from '@vercel/analytics'
 import { SITE } from '@/lib/site'
 
 export default function Done() {
+  useEffect(() => { track('booking_complete') }, [])
+
   return (
     <div style={{ textAlign: 'center', paddingTop: 40 }}>
       <div style={{ width: 56, height: 56, border: '1px solid var(--accent)', borderRadius: '50%', display: 'grid', placeItems: 'center', margin: '0 auto 28px', color: 'var(--accent)', fontSize: 22 }}>✓</div>

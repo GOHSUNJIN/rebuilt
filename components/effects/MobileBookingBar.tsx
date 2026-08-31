@@ -1,5 +1,6 @@
 ﻿'use client'
 import Link from 'next/link'
+import { track } from '@vercel/analytics'
 import { SITE } from '@/lib/site'
 
 export default function MobileBookingBar() {
@@ -9,12 +10,14 @@ export default function MobileBookingBar() {
         href="/book"
         className="btn-gold"
         style={{ flex: 1, justifyContent: 'center', padding: '15px', fontSize: 12, letterSpacing: '.18em' }}
+        onClick={() => track('mobile_book_click')}
       >
         Book a consult
       </Link>
       <a
         href={SITE.contact.phoneTel}
         aria-label="Call us"
+        onClick={() => track('mobile_call_click')}
         className="mobile-book-btn"
         style={{
           display: 'grid',

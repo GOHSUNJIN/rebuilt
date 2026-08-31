@@ -1,5 +1,6 @@
 ﻿'use client'
 import { useState } from 'react'
+import { track } from '@vercel/analytics'
 import { submitContact } from '@/app/actions/contact'
 import { SITE } from '@/lib/site'
 import { inputStyle, formLabelStyle as labelStyle } from '@/lib/styles'
@@ -13,6 +14,7 @@ export default function ContactForm() {
     setStatus('sending')
     const result = await submitContact(new FormData(e.currentTarget))
     if (result.ok) {
+      track('contact_submit')
       setStatus('done')
     } else {
       setErrorMsg(result.error ?? 'Something went wrong.')

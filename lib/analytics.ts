@@ -51,11 +51,23 @@ export interface DailyStat {
   visitors: number
 }
 
+export interface EventStat {
+  eventName: string
+  count: number
+}
+
+export interface ReferrerStat {
+  referrerHostname: string
+  pageviews: number
+}
+
 export interface AnalyticsData {
   totals: AnalyticsTotals
   topPages: TopPage[]
   devices: DeviceStat[]
   daily: DailyStat[]
+  events: EventStat[]
+  referrers: ReferrerStat[]
 }
 
 type Row = Record<string, unknown>
@@ -63,7 +75,7 @@ type Row = Record<string, unknown>
 export async function fetchAnalytics(days = 30): Promise<AnalyticsData | null> {
   if (!process.env.VERCEL_ACCESS_TOKEN || !process.env.VERCEL_PROJECT_ID) return null
 
-  const [totalsJson, pagesJson, devicesJson, dailyJson] = await Promise.all([
+  const [totalsJson, pagesJson, devicesJson, dailyJson, eventsJson, referrersJson] = await Promise.all([
     vercelGet('/v1/query/web-analytics/visits/count', buildParams(days)),
     vercelGet(
       '/v1/query/web-analytics/visits/aggregate',
@@ -76,6 +88,14 @@ export async function fetchAnalytics(days = 30): Promise<AnalyticsData | null> {
     vercelGet(
       '/v1/query/web-analytics/visits/aggregate',
       buildParams(days, { by: JSON.stringify(['day']), limit: '31' }),
+    ),
+    vercelGet(
+      '/v1/query/web-analytics/events/aggregate',
+      buildParams(days, { by: JSON.stringify(['eventName']), limit: '10' }),
+    ),
+    vercelGet(
+      '/v1/query/web-analytics/visits/aggregate',
+      buildParams(days, { by: JSON.stringify(['referrerHostname']), limit: '8' }),
     ),
   ])
 
@@ -108,5 +128,19 @@ export async function fetchAnalytics(days = 30): Promise<AnalyticsData | null> {
         visitors: Number(r.visitors ?? 0),
       }))
       .sort((a, b) => a.timestamp.localeCompare(b.timestamp)),
+    events: ((eventsJson?.data ?? []) as Row[])
+      .map(r => ({
+        eventName: String(r.eventName ?? ''),
+        count: Number(r.count ?? r.events ?? r.pageviews ?? 0),
+      }))
+      .filter(e => e.eventName)
+      .sort((a, b) => b.count - a.count),
+    referrers: ((referrersJson?.data ?? []) as Row[])
+      .map(r => ({
+        referrerHostname: String(r.referrerHostname ?? ''),
+        pageviews: Number(r.pageviews ?? 0),
+      }))
+      .filter(r => r.referrerHostname)
+      .sort((a, b) => b.pageviews - a.pageviews),
   }
 }

@@ -248,6 +248,138 @@ function DailyChart({ daily }: { daily: AnalyticsData['daily'] }) {
   )
 }
 
+const EVENT_LABELS: Record<string, string> = {
+  whatsapp_click:    'WhatsApp clicks',
+  mobile_book_click: 'Mobile book taps',
+  mobile_call_click: 'Mobile call taps',
+  contact_submit:    'Contact submissions',
+  booking_complete:  'Bookings completed',
+}
+
+function Events({ events }: { events: AnalyticsData['events'] }) {
+  const max = Math.max(...events.map(e => e.count), 1)
+  return (
+    <div style={card({ overflow: 'hidden' })}>
+      <div style={{ padding: '16px 24px', borderBottom: '1px solid #1A1C1E' }}>
+        <p style={label()}>EVENTS</p>
+      </div>
+      {events.length === 0 ? (
+        <p style={{ padding: 24, font: '13px/1.5 inherit', color: '#505050', margin: 0 }}>
+          No events yet — they appear once users interact with the site.
+        </p>
+      ) : (
+        events.map(e => (
+          <div
+            key={e.eventName}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 14,
+              padding: '11px 24px',
+              borderBottom: '1px solid #141618',
+            }}
+          >
+            <div
+              style={{
+                flex: '0 0 180px',
+                font: '11px/1 inherit',
+                color: '#909090',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {EVENT_LABELS[e.eventName] ?? e.eventName}
+            </div>
+            <div style={{ flex: 1, height: 3, background: '#1A1C1E', borderRadius: 2, overflow: 'hidden' }}>
+              <div
+                style={{
+                  height: '100%',
+                  width: `${(e.count / max) * 100}%`,
+                  background: 'linear-gradient(90deg,#3EC87A,#5EE89A)',
+                  borderRadius: 2,
+                }}
+              />
+            </div>
+            <div
+              style={{
+                flex: '0 0 40px',
+                textAlign: 'right',
+                font: '11px/1 ui-monospace,Menlo,monospace',
+                color: '#909090',
+              }}
+            >
+              {fmt(e.count)}
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  )
+}
+
+function Referrers({ referrers }: { referrers: AnalyticsData['referrers'] }) {
+  const max = Math.max(...referrers.map(r => r.pageviews), 1)
+  return (
+    <div style={card({ overflow: 'hidden' })}>
+      <div style={{ padding: '16px 24px', borderBottom: '1px solid #1A1C1E' }}>
+        <p style={label()}>TOP REFERRERS</p>
+      </div>
+      {referrers.length === 0 ? (
+        <p style={{ padding: 24, font: '13px/1.5 inherit', color: '#505050', margin: 0 }}>
+          No referrer data yet.
+        </p>
+      ) : (
+        referrers.map(r => (
+          <div
+            key={r.referrerHostname}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 14,
+              padding: '11px 24px',
+              borderBottom: '1px solid #141618',
+            }}
+          >
+            <div
+              style={{
+                flex: '0 0 180px',
+                font: '11px/1 ui-monospace,Menlo,monospace',
+                color: '#C9A84C',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {r.referrerHostname}
+            </div>
+            <div style={{ flex: 1, height: 3, background: '#1A1C1E', borderRadius: 2, overflow: 'hidden' }}>
+              <div
+                style={{
+                  height: '100%',
+                  width: `${(r.pageviews / max) * 100}%`,
+                  background: 'linear-gradient(90deg,#C9A84C,#E5C87A)',
+                  borderRadius: 2,
+                }}
+              />
+            </div>
+            <div
+              style={{
+                flex: '0 0 40px',
+                textAlign: 'right',
+                font: '11px/1 ui-monospace,Menlo,monospace',
+                color: '#909090',
+              }}
+            >
+              {fmt(r.pageviews)}
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  )
+}
+
 function SetupGuide() {
   return (
     <div
@@ -428,6 +560,18 @@ export default async function AdminPage({
           >
             <Devices devices={data.devices} />
             <DailyChart daily={data.daily} />
+          </div>
+
+          {/* Events + referrers */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 16,
+            }}
+          >
+            <Events events={data.events} />
+            <Referrers referrers={data.referrers} />
           </div>
         </div>
       )}

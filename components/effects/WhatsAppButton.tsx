@@ -1,6 +1,7 @@
 ﻿'use client'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { track } from '@vercel/analytics'
 import { SITE, WHATSAPP_MESSAGES, DEFAULT_WHATSAPP_MESSAGE } from '@/lib/site'
 
 export default function WhatsAppButton() {
@@ -26,6 +27,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
+      onClick={() => track('whatsapp_click', { page: pathname })}
       style={{
         position: 'fixed',
         bottom: 28,

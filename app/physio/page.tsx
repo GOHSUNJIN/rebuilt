@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import PageShell from '@/components/layout/PageShell'
@@ -59,17 +59,17 @@ export default function PhysioPage() {
       />
 
       {/* Partnership */}
-      <section style={{ borderBottom: '1px solid #212429', background: '#09090d' }}>
+      <section style={{ borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }} className="r2">
           <div className="r-px r-tall-pad" style={{ padding: '64px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 40 }}>
             <div>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 20 }}>THE PARTNERSHIP</p>
               <h2 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 20px', lineHeight: 0.9 }}>In partnership<br />with Rehab &amp; Beyond.</h2>
-              <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', margin: 0, maxWidth: 420 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: 0, maxWidth: 420 }}>
                 Rebuilt Academy and Rehab &amp; Beyond run alongside each other. One point of contact, two teams sharing the same notes so your recovery and your training are never working against each other.
               </p>
             </div>
-            <div style={{ borderTop: '1px solid #1e2126', paddingTop: 28 }}>
+            <div style={{ borderTop: '1px solid #1E1E1E', paddingTop: 28 }}>
               <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', margin: '0 0 16px' }}>PARTNER CLINIC</p>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
@@ -82,7 +82,7 @@ export default function PhysioPage() {
                     style={{ width: 40, height: 40, borderRadius: '50%', background: '#fff', display: 'block', objectFit: 'cover' }}
                   />
                   <div>
-                    <p style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 4px', color: '#f2f4f7', lineHeight: 1 }}>Rehab &amp; Beyond</p>
+                    <p style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 4px', color: '#FFFFFF', lineHeight: 1 }}>Rehab &amp; Beyond</p>
                     <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.12em', margin: 0 }}>GOBEYONDREHAB.SG</p>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export default function PhysioPage() {
         </div>
       </section>
 
-      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #212429' }}>
+      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #2A2A2A' }}>
         <SectionHeader
           label="WHAT'S INCLUDED"
           heading={<>Treatment that<br />talks to training.</>}
@@ -121,7 +121,7 @@ export default function PhysioPage() {
       </section>
 
       <PricingCards items={PRICING} />
-      <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #212429' }}>
+      <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #2A2A2A' }}>
         Prices are indicative and set by Rehab &amp; Beyond.{' '}
         <Link href="/book?service=physio" style={{ color: 'var(--accent)', textDecoration: 'none' }}>Get in touch</Link> to confirm current rates before booking.
       </p>
@@ -145,7 +145,7 @@ export default function PhysioPage() {
       />
 
       {/* Coming soon: In-house physio */}
-      <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #212429', minHeight: 540 }}>
+      <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 540 }}>
         <Image
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
           alt="Rebuilt training facility"
@@ -160,13 +160,13 @@ export default function PhysioPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={26} height={26} style={{ opacity: 0.9 }} />
               <div>
-                <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT ACADEMY</div>
+                <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
                 <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
               </div>
             </div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '7px 16px', border: '1px solid rgba(255,255,255,.12)', background: 'rgba(9,9,13,.65)', backdropFilter: 'blur(10px)' }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#8d95a0', display: 'block', flexShrink: 0 }} />
-              <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.22em' }}>COMING SOON</span>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#909090', display: 'block', flexShrink: 0 }} />
+              <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.22em' }}>COMING SOON</span>
             </div>
           </div>
 
@@ -174,18 +174,18 @@ export default function PhysioPage() {
           <div>
             <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0 0 20px' }}>IN-HOUSE PHYSIOTHERAPY</p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'end' }} className="r2">
-              <h2 style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.96, color: '#f2f4f7' }}>
+              <h2 style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.96, color: '#FFFFFF' }}>
                 One team.<br />One building.<br />No handover gaps.
               </h2>
               <div>
-                <p style={{ fontSize: 15, lineHeight: 1.65, color: '#b0b8c4', margin: '0 0 24px' }}>
+                <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 24px' }}>
                   We are building Rebuilt Academy&apos;s own in-house physiotherapy. Treatment and coaching under the same roof, sharing the same notes from day one.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {['No referrals or handover gaps', 'Physio and coach share session notes', 'Assessment and rehab in the same building'].map(item => (
                     <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                       <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0, display: 'block' }} />
-                      <span style={{ fontSize: 13.5, color: '#a3aab4' }}>{item}</span>
+                      <span style={{ fontSize: 13.5, color: '#A5A5A5' }}>{item}</span>
                     </div>
                   ))}
                 </div>

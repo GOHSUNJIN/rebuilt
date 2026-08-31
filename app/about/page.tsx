@@ -24,10 +24,10 @@ export default function AboutPage() {
     <PageShell activePage="about">
 
       {/* ── Header ──────────────────────────────── */}
-      <section style={{ borderBottom: '1px solid #212429' }}>
+      <section style={{ borderBottom: '1px solid #2A2A2A' }}>
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 500 }}>
           {/* Left: text */}
-          <div className="r-px r-tall-pad" style={{ padding: '88px 48px 72px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#09090d' }}>
+          <div className="r-px r-tall-pad" style={{ padding: '88px 48px 72px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#0B0B0B' }}>
             <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 26 }}>
               ABOUT REBUILT
             </p>
@@ -37,7 +37,7 @@ export default function AboutPage() {
             >
               A gym built around getting people back.
             </h1>
-            <p style={{ fontSize: 16, lineHeight: 1.7, color: '#a3aab4', marginTop: 0, marginBottom: 0, maxWidth: 460 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.7, color: '#A5A5A5', marginTop: 0, marginBottom: 0, maxWidth: 460 }}>
               Coming back from an injury usually means being handed between a clinic and a gym that never speak to each other. Here it happens in one place.
             </p>
           </div>
@@ -51,27 +51,27 @@ export default function AboutPage() {
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #09090d 0%, transparent 25%)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0B0B0B 0%, transparent 25%)' }} />
           </div>
         </div>
         {/* Stats strip */}
-        <div className="r4 r-px" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid #212429', background: '#212429', gap: 1 }} >
+        <div className="r4 r-px" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid #2A2A2A', background: '#2A2A2A', gap: 1 }} >
           {[
             { label: 'BASED',   value: 'Singapore, 3 locations' },
             { label: 'OPENED',  value: '2021' },
             { label: 'WE DO',   value: 'Rehab, training, performance, physiotherapy' },
             { label: 'NEXT UP', value: 'In-house physio coming soon' },
           ].map(({ label, value }) => (
-            <div key={label} style={{ padding: '28px 32px', background: '#0c0e14' }}>
+            <div key={label} style={{ padding: '28px 32px', background: '#0B0B0B' }}>
               <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em', margin: '0 0 10px' }}>{label}</p>
-              <p style={{ fontSize: 14, color: '#f2f4f7', margin: 0, lineHeight: 1.5, fontWeight: 500 }}>{value}</p>
+              <p style={{ fontSize: 14, color: '#FFFFFF', margin: 0, lineHeight: 1.5, fontWeight: 500 }}>{value}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── Facility photos ──────────────────────── */}
-      <section style={{ borderBottom: '1px solid #212429' }}>
+      <section style={{ borderBottom: '1px solid #2A2A2A' }}>
         <LocationDrawer />
       </section>
 
@@ -93,12 +93,12 @@ export default function AboutPage() {
               fontWeight: 600,
               letterSpacing: '.3em',
               textTransform: 'uppercase',
-              color: '#98a0aa',
+              color: '#909090',
             }}
           >
             The team
           </span>
-          <span className="r-hide" style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em', color: '#8d95a0' }}>
+          <span className="r-hide" style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em', color: '#909090' }}>
             FOUNDER · CO-FOUNDER · PHYSIOTHERAPY PARTNER
           </span>
         </div>
@@ -110,7 +110,7 @@ export default function AboutPage() {
         id="contact"
         className="r2"
         style={{
-          borderTop: '1px solid #212429',
+          borderTop: '1px solid #2A2A2A',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           scrollMarginTop: 90,
@@ -118,7 +118,7 @@ export default function AboutPage() {
         }}
       >
         {/* Left – form */}
-        <div className="r-px r-tall-pad" style={{ padding: '66px 48px', borderRight: '1px solid #212429' }}>
+        <div className="r-px r-tall-pad" style={{ padding: '66px 48px', borderRight: '1px solid #2A2A2A' }}>
           <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: '-.025em', marginTop: 0, marginBottom: 32, lineHeight: 0.96 }}>
             Get in touch.
           </h2>
@@ -128,7 +128,7 @@ export default function AboutPage() {
         {/* Right */}
         <div style={{ minWidth: 0, overflow: 'hidden', width: '100%', display: 'flex', flexDirection: 'column' }}>
           {/* Map panel */}
-          <div style={{ height: 360, overflow: 'hidden', borderBottom: '1px solid #212429', flexShrink: 0 }}>
+          <div style={{ height: 360, overflow: 'hidden', borderBottom: '1px solid #2A2A2A', flexShrink: 0 }}>
             <LocationMap />
           </div>
 
@@ -147,13 +147,13 @@ export default function AboutPage() {
                     <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em', flexShrink: 0, minWidth: 62 }}>
                       {l.name.toUpperCase()}
                     </span>
-                    <span style={{ fontSize: 13, color: '#a3aab4', lineHeight: 1.4 }}>{l.street}</span>
+                    <span style={{ fontSize: 13, color: '#A5A5A5', lineHeight: 1.4 }}>{l.street}</span>
                   </a>
                 ))}
               </div>
             </div>
 
-            <div style={{ borderTop: '1px solid #1e2126', marginBottom: 24 }} />
+            <div style={{ borderTop: '1px solid #1E1E1E', marginBottom: 24 }} />
 
             {/* Hours + Contact + Social */}
             <div className="r3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px 24px' }}>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', margin: '0 0 12px' }}>HOURS</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
                   {SITE.hours.map(h => (
-                    <p key={h} style={{ fontSize: 13, color: '#a3aab4', margin: 0 }}>{h}</p>
+                    <p key={h} style={{ fontSize: 13, color: '#A5A5A5', margin: 0 }}>{h}</p>
                   ))}
                 </div>
               </div>
@@ -175,13 +175,13 @@ export default function AboutPage() {
                   <CopyText value={SITE.contact.email}>
                     <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`}
                       target="_blank" rel="noopener noreferrer"
-                      style={{ fontSize: 13, color: '#a3aab4', textDecoration: 'none' }} className="hover-gold">
+                      style={{ fontSize: 13, color: '#A5A5A5', textDecoration: 'none' }} className="hover-gold">
                       {SITE.contact.email}
                     </a>
                   </CopyText>
                   <CopyText value={SITE.contact.phone}>
                     <a href={SITE.contact.phoneTel}
-                      style={{ fontSize: 13, color: '#a3aab4', textDecoration: 'none' }} className="hover-gold">
+                      style={{ fontSize: 13, color: '#A5A5A5', textDecoration: 'none' }} className="hover-gold">
                       {SITE.contact.phone}
                     </a>
                   </CopyText>
@@ -197,7 +197,7 @@ export default function AboutPage() {
                   <span style={{ width: 32, height: 32, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, display: 'block', background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' }}>
                     <Image src="/instagram-pfp.jpg" alt="@rebuiltbysk on Instagram" width={32} height={32} style={{ width: 32, height: 32, objectFit: 'cover', display: 'block' }} />
                   </span>
-                  <span style={{ fontSize: 13, color: '#a3aab4' }}>@rebuiltbysk</span>
+                  <span style={{ fontSize: 13, color: '#A5A5A5' }}>@rebuiltbysk</span>
                 </a>
               </div>
 

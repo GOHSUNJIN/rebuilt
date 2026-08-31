@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { inputStyle, formLabelStyle as labelStyle } from '@/lib/styles'
 import type { Step4Props } from './types'
 import StepHeader from './StepHeader'
@@ -7,7 +7,7 @@ export default function Step4({ name, email, notes, setName, setEmail, setNotes 
   return (
     <>
       <StepHeader step={4} heading="Your details" />
-      <p style={{ fontSize: 15, color: '#a3aab4', marginTop: 0, marginBottom: 36 }}>We need a few things before we confirm.</p>
+      <p style={{ fontSize: 15, color: '#A5A5A5', marginTop: 0, marginBottom: 36 }}>We need a few things before we confirm.</p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <div>

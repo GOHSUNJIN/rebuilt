@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import PageShell from '@/components/layout/PageShell'
 import ServiceHero from '@/components/sections/ServiceHero'
 import ServiceTestimonial from '@/components/ui/ServiceTestimonial'
@@ -59,20 +59,20 @@ export default function PerformancePage() {
       />
 
       {/* Who it's for */}
-      <section className="r-px" style={{ padding: '32px 48px', borderBottom: '1px solid #212429', background: '#09090d', display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
+      <section className="r-px" style={{ padding: '32px 48px', borderBottom: '1px solid #2A2A2A', background: '#0B0B0B', display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
         <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', margin: 0, flexShrink: 0 }}>
           WHO IT&apos;S FOR
         </p>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {['Weekend warriors', 'Club athletes', 'Semi-professional', 'National competitors'].map(level => (
-            <span key={level} style={{ padding: '6px 14px', border: '1px solid #1e2126', background: '#0c0e14', color: '#a3aab4', fontSize: 12.5, fontWeight: 500, letterSpacing: '-.01em' }}>
+            <span key={level} style={{ padding: '6px 14px', border: '1px solid #1E1E1E', background: '#0B0B0B', color: '#A5A5A5', fontSize: 12.5, fontWeight: 500, letterSpacing: '-.01em' }}>
               {level}
             </span>
           ))}
         </div>
       </section>
 
-      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #212429' }}>
+      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #2A2A2A' }}>
         <SectionHeader
           label="WHAT'S INCLUDED"
           heading={<>Built to compete.</>}
@@ -83,7 +83,7 @@ export default function PerformancePage() {
       </section>
 
       <PricingCards items={PRICING} />
-      <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #212429' }}>
+      <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #2A2A2A' }}>
         Instalment plans: Pre-season splits into 2 × SGD 1200 / month · Off-season splits into 2 × SGD 2160 / month
       </p>
 

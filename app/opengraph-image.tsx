@@ -12,54 +12,97 @@ export default function Image() {
         width: '100%',
         height: '100%',
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        background: '#0b0c0e',
-        padding: '72px 80px',
+        background: '#0B0B0B',
         fontFamily: 'sans-serif',
+        overflow: 'hidden',
       }}
     >
-      {/* Top accent */}
-      <div style={{ width: '100%', height: 4, background: '#e03535', position: 'absolute', top: 0, left: 0 }} />
-
-      {/* Logo */}
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ fontSize: 15, fontWeight: 800, letterSpacing: '0.28em', color: '#f2f4f7' }}>REBUILT ACADEMY</div>
-        <div style={{ fontSize: 10, letterSpacing: '0.22em', color: '#e03535', marginTop: 4 }}>SINGAPORE</div>
-      </div>
-
-      {/* Main headline */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <div
-          style={{
-            fontSize: 72,
-            fontWeight: 800,
-            lineHeight: 0.96,
-            letterSpacing: '-0.03em',
-            color: '#f2f4f7',
-          }}
-        >
-          Rebuild stronger.
-        </div>
-        <div style={{ fontSize: 22, color: '#a3aab4', lineHeight: 1.5, maxWidth: 620 }}>
-          Coached rehabilitation, personal training and sports performance in Singapore.
-        </div>
-      </div>
-
-      {/* Bottom bar */}
+      {/* Left lime panel */}
       <div
         style={{
           display: 'flex',
-          gap: 32,
-          borderTop: '1px solid #212429',
-          paddingTop: 24,
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: 260,
+          background: '#B7F000',
+          flexShrink: 0,
         }}
       >
-        {['Rehab', 'Training', 'Performance', 'Physiotherapy'].map((s) => (
-          <div key={s} style={{ fontSize: 11, letterSpacing: '0.2em', color: '#5f6670' }}>
-            {s.toUpperCase()}
-          </div>
-        ))}
+        <div
+          style={{
+            fontSize: 96,
+            fontWeight: 900,
+            color: '#0B0B0B',
+            letterSpacing: '-0.05em',
+            lineHeight: 1,
+          }}
+        >
+          R
+        </div>
+        <div
+          style={{
+            fontSize: 9,
+            fontWeight: 800,
+            letterSpacing: '0.3em',
+            color: '#0B0B0B',
+            marginTop: 10,
+          }}
+        >
+          REBUILT
+        </div>
+      </div>
+
+      {/* Right content */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          padding: '0 72px',
+          flex: 1,
+        }}
+      >
+        {/* Brand label */}
+        <div
+          style={{
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: '0.3em',
+            color: '#B7F000',
+            marginBottom: 36,
+          }}
+        >
+          REBUILT ACADEMY · SINGAPORE
+        </div>
+
+        {/* Headline */}
+        <div
+          style={{
+            fontSize: 92,
+            fontWeight: 900,
+            lineHeight: 0.9,
+            letterSpacing: '-0.04em',
+            color: '#FFFFFF',
+            marginBottom: 32,
+          }}
+        >
+          Rebuild
+          <br />
+          stronger.
+        </div>
+
+        {/* Tagline */}
+        <div
+          style={{
+            fontSize: 19,
+            color: '#A5A5A5',
+            lineHeight: 1.55,
+            maxWidth: 500,
+          }}
+        >
+          Rehabilitation, personal training and sports performance — three locations across Singapore.
+        </div>
       </div>
     </div>,
     size,

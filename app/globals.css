@@ -1,8 +1,8 @@
 /* ── Theme variables ────────────────────────────── */
 
 :root {
-  --accent:       #e03535;
-  --accent-hover: #f04545;
+  --accent:       #B7F000;
+  --accent-hover: #C8FF00;
 }
 
 /* ── Skip link ──────────────────────────────────── */
@@ -58,7 +58,7 @@ html::-webkit-scrollbar {
 body {
   margin: 0;
   padding: 0;
-  background: #0a0c12;
+  background: #0B0B0B;
   font-family: 'Archivo', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -68,7 +68,7 @@ body {
 }
 
 a {
-  color: #e9ecf0;
+  color: #FFFFFF;
   text-decoration: none;
   transition: color 0.15s, opacity 0.15s;
 }
@@ -159,7 +159,7 @@ a:hover {
 
 .hover-card:hover {
   transform: translateY(-6px);
-  background: #191c21 !important;
+  background: #1E1E1E !important;
   box-shadow: 0 24px 60px rgba(0,0,0,.55);
 }
 
@@ -180,7 +180,7 @@ a:hover {
 
 .hover-nav:hover {
   color: var(--accent);
-  background: rgba(224, 53, 53, 0.08);
+  background: rgba(183, 240, 0, 0.08);
 }
 
 .hover-social {
@@ -190,7 +190,7 @@ a:hover {
 .hover-social:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: #15181c;
+  background: #1E1E1E;
 }
 
 .hover-faq {
@@ -199,7 +199,7 @@ a:hover {
 
 .hover-faq:hover {
   border-color: var(--accent);
-  background: #1a1d22;
+  background: #1E1E1E;
 }
 
 .hover-approach {
@@ -207,7 +207,7 @@ a:hover {
 }
 
 .hover-approach:hover {
-  background: #111418;
+  background: #141414;
   box-shadow: inset 3px 0 0 var(--accent);
 }
 
@@ -216,7 +216,7 @@ a:hover {
 }
 
 .hover-review:hover {
-  background: #191c21;
+  background: #1E1E1E;
 }
 
 /* ── Input focus ────────────────────────────────── */
@@ -225,7 +225,7 @@ input:focus,
 textarea:focus,
 select:focus {
   border-color: var(--accent);
-  background: #14161a;
+  background: #171717;
   outline: none;
 }
 
@@ -251,7 +251,7 @@ select:focus {
 .btn-gold:hover {
   transform: translateY(-2px);
   background: var(--accent-hover);
-  box-shadow: 0 12px 26px rgba(224, 53, 53, 0.24);
+  box-shadow: 0 12px 26px rgba(183, 240, 0, 0.28);
   color: #0b0c0e;
   opacity: 1;
 }
@@ -260,8 +260,8 @@ select:focus {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #3a3f47;
-  color: #f2f4f7;
+  border: 1px solid #333333;
+  color: #FFFFFF;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -275,9 +275,9 @@ select:focus {
 
 .btn-outline:hover {
   transform: translateY(-2px);
-  background: #1a1d22;
-  border-color: #5c636d;
-  color: #f2f4f7;
+  background: #1E1E1E;
+  border-color: #555555;
+  color: #FFFFFF;
   opacity: 1;
 }
 
@@ -306,8 +306,8 @@ select:focus {
   z-index: 90;
   padding: 12px 20px;
   padding-bottom: max(12px, env(safe-area-inset-bottom));
-  background: rgba(11, 12, 14, 0.97);
-  border-top: 1px solid #1e2126;
+  background: rgba(11, 11, 11, 0.97);
+  border-top: 1px solid #2A2A2A;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   align-items: center;
@@ -315,7 +315,7 @@ select:focus {
 }
 
 .gradient-gold {
-  background: linear-gradient(120deg, #c02222 0%, #ff5555 45%, var(--accent) 55%, #c02222 100%);
+  background: linear-gradient(120deg, #8ab800 0%, #d4ff00 45%, var(--accent) 55%, #8ab800 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -326,7 +326,7 @@ select:focus {
 .img-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(224, 53, 53, 0.1);
+  background: rgba(183, 240, 0, 0.08);
   opacity: 0;
   transition: opacity 0.45s ease;
   pointer-events: none;
@@ -341,7 +341,7 @@ a:hover > .img-overlay { opacity: 1; }
 
 .scroll-top-btn:hover {
   border-color: var(--accent);
-  background: #1a1d22;
+  background: #1E1E1E;
 }
 
 .r-faq-btn {

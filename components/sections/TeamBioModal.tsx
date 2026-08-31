@@ -1,12 +1,12 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useRef } from 'react'
 import { TEAM, type TeamMember } from '@/lib/team'
 import { useScrollLock } from '@/lib/hooks'
 
 function MemberPlaceholder({ initials, height, className = '' }: { initials: string; height: number; className?: string }) {
   return (
-    <div className={className} style={{ height, overflow: 'hidden', position: 'relative', background: '#08090b', flexShrink: 0 }}>
-      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 130% 80% at 30% 20%, #111418 0%, #060708 100%)' }} />
+    <div className={className} style={{ height, overflow: 'hidden', position: 'relative', background: '#0B0B0B', flexShrink: 0 }}>
+      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 130% 80% at 30% 20%, #171717 0%, #060708 100%)' }} />
       <span style={{
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -50%)',
@@ -79,7 +79,7 @@ export default function TeamBioModal() {
       {/* ── Team grid ───────────────────────────── */}
       <div
         className="r3"
-        style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#212429' }}
+        style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#2A2A2A' }}
       >
         {TEAM.map((member) => (
           <div
@@ -88,7 +88,7 @@ export default function TeamBioModal() {
             tabIndex={0}
             aria-label={`Read ${member.name}'s full bio`}
             className="hover-border"
-            style={{ border: '1px solid #1e2126', cursor: 'pointer', transition: 'border-color .2s ease' }}
+            style={{ border: '1px solid #1E1E1E', cursor: 'pointer', transition: 'border-color .2s ease' }}
             onClick={() => setSelected(member)}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelected(member) } }}
           >
@@ -100,7 +100,7 @@ export default function TeamBioModal() {
               <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10 }}>
                 {member.name}
               </h3>
-              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 18px' }}>
+              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 18px' }}>
                 {member.short}
               </p>
               <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em' }}>
@@ -116,11 +116,11 @@ export default function TeamBioModal() {
           tabIndex={0}
           aria-label="Read more about Rehab & Beyond"
           className="hover-border"
-          style={{ border: '1px solid #1e2126', cursor: 'pointer', transition: 'border-color .2s ease', display: 'flex', flexDirection: 'column' }}
+          style={{ border: '1px solid #1E1E1E', cursor: 'pointer', transition: 'border-color .2s ease', display: 'flex', flexDirection: 'column' }}
           onClick={() => setShowRnB(true)}
           onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setShowRnB(true) } }}
         >
-          <div className="r-team-img" style={{ height: 340, position: 'relative', overflow: 'hidden', background: '#08090b', flexShrink: 0 }}>
+          <div className="r-team-img" style={{ height: 340, position: 'relative', overflow: 'hidden', background: '#0B0B0B', flexShrink: 0 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=800&q=80"
@@ -145,10 +145,10 @@ export default function TeamBioModal() {
             <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', marginTop: 0, marginBottom: 10 }}>
               PHYSIOTHERAPY PARTNER
             </p>
-            <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10, color: '#f2f4f7' }}>
+            <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10, color: '#FFFFFF' }}>
               Rehab &amp; Beyond
             </h3>
-            <p style={{ fontSize: 14, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 18px' }}>
+            <p style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 18px' }}>
               AHPC-registered physiotherapists treating sports injuries, post-surgery rehab and musculoskeletal conditions. Named Best Physiotherapy Clinic Singapore 2024.
             </p>
             <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em' }}>
@@ -172,7 +172,7 @@ export default function TeamBioModal() {
             className="no-scrollbar"
             style={{
               position: 'fixed', top: 0, right: 0, bottom: 0, width: '100%', maxWidth: 500,
-              background: '#0f1115', borderLeft: '1px solid #262a30', zIndex: 1001,
+              background: '#171717', borderLeft: '1px solid #2A2A2A', zIndex: 1001,
               overflowY: 'auto', animation: 'drawerIn .28s cubic-bezier(0.2, 0.7, 0.3, 1) both',
             }}
           >
@@ -183,7 +183,7 @@ export default function TeamBioModal() {
               style={{
                 position: 'absolute', top: 20, right: 20,
                 background: 'rgba(15,17,21,.8)', border: 'none',
-                color: '#f2f4f7', width: 40, height: 40, borderRadius: '50%',
+                color: '#FFFFFF', width: 40, height: 40, borderRadius: '50%',
                 cursor: 'pointer', display: 'grid', placeItems: 'center', fontSize: 18,
                 fontFamily: 'inherit', zIndex: 1, backdropFilter: 'blur(8px)',
               }}
@@ -193,7 +193,7 @@ export default function TeamBioModal() {
 
             <div style={{ position: 'relative' }}>
               <MemberPlaceholder initials={initials(selected.name)} height={280} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f1115 0%, transparent 55%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #171717 0%, transparent 55%)' }} />
             </div>
 
             <div className="r-drawer-content" style={{ padding: '4px 36px 52px' }}>
@@ -205,20 +205,20 @@ export default function TeamBioModal() {
               </h2>
 
               {selected.bio.map((para, i) => (
-                <p key={i} style={{ fontSize: 15, lineHeight: 1.72, color: '#a3aab4', marginTop: 0, marginBottom: 18 }}>
+                <p key={i} style={{ fontSize: 15, lineHeight: 1.72, color: '#A5A5A5', marginTop: 0, marginBottom: 18 }}>
                   {para}
                 </p>
               ))}
 
-              <div style={{ borderTop: '1px solid #1e2126', marginTop: 28, paddingTop: 28 }}>
-                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em', marginTop: 0, marginBottom: 18 }}>
+              <div style={{ borderTop: '1px solid #1E1E1E', marginTop: 28, paddingTop: 28 }}>
+                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em', marginTop: 0, marginBottom: 18 }}>
                   CREDENTIALS
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {selected.credentials.map((c) => (
                     <div key={c} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                       <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
-                      <span style={{ fontSize: 13.5, color: '#c2c7ce' }}>{c}</span>
+                      <span style={{ fontSize: 13.5, color: '#A5A5A5' }}>{c}</span>
                     </div>
                   ))}
                 </div>
@@ -242,7 +242,7 @@ export default function TeamBioModal() {
             className="no-scrollbar"
             style={{
               position: 'fixed', top: 0, right: 0, bottom: 0, width: '100%', maxWidth: 500,
-              background: '#0f1115', borderLeft: '1px solid #262a30', zIndex: 1001,
+              background: '#171717', borderLeft: '1px solid #2A2A2A', zIndex: 1001,
               overflowY: 'auto', animation: 'drawerIn .28s cubic-bezier(0.2, 0.7, 0.3, 1) both',
             }}
           >
@@ -253,7 +253,7 @@ export default function TeamBioModal() {
               style={{
                 position: 'absolute', top: 20, right: 20,
                 background: 'rgba(15,17,21,.8)', border: 'none',
-                color: '#f2f4f7', width: 40, height: 40, borderRadius: '50%',
+                color: '#FFFFFF', width: 40, height: 40, borderRadius: '50%',
                 cursor: 'pointer', display: 'grid', placeItems: 'center', fontSize: 18,
                 fontFamily: 'inherit', zIndex: 2, backdropFilter: 'blur(8px)',
               }}
@@ -269,7 +269,7 @@ export default function TeamBioModal() {
                 alt="Rehab & Beyond physiotherapy"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%', display: 'block' }}
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f1115 0%, rgba(15,17,21,.35) 55%, transparent 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #171717 0%, rgba(15,17,21,.35) 55%, transparent 100%)' }} />
               {/* Wordmark overlay */}
               <div style={{ position: 'absolute', bottom: 28, left: 36, display: 'flex', alignItems: 'center', gap: 12 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -280,7 +280,7 @@ export default function TeamBioModal() {
                   style={{ borderRadius: '50%', background: '#fff', objectFit: 'cover', display: 'block' }}
                 />
                 <div>
-                  <div style={{ fontSize: 13, fontWeight: 800, color: '#f2f4f7', letterSpacing: '-.01em', lineHeight: 1 }}>Rehab &amp; Beyond</div>
+                  <div style={{ fontSize: 13, fontWeight: 800, color: '#FFFFFF', letterSpacing: '-.01em', lineHeight: 1 }}>Rehab &amp; Beyond</div>
                   <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em' }}>GOBEYONDREHAB.SG</div>
                 </div>
               </div>
@@ -294,10 +294,10 @@ export default function TeamBioModal() {
                 Rehab &amp; Beyond
               </h2>
 
-              <p style={{ fontSize: 15, lineHeight: 1.72, color: '#a3aab4', marginTop: 0, marginBottom: 18 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.72, color: '#A5A5A5', marginTop: 0, marginBottom: 18 }}>
                 Founded in 2018, Rehab &amp; Beyond was built to bring hospital-quality physiotherapy into the community: accessible, affordable, and not locked away after discharge. Their team of AHPC-registered physiotherapists has been recognised on Channel 8, CNA938 and named Best Physiotherapy Clinic Singapore 2024 by District 65.
               </p>
-              <p style={{ fontSize: 15, lineHeight: 1.72, color: '#a3aab4', marginTop: 0, marginBottom: 0 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.72, color: '#A5A5A5', marginTop: 0, marginBottom: 0 }}>
                 At Rebuilt Academy, Rehab &amp; Beyond handle all physiotherapy consultations and treatment. Session notes are shared directly with your Rebuilt coach so recovery and training are always pulling in the same direction. In-house physiotherapy is coming soon.
               </p>
 
@@ -313,34 +313,34 @@ export default function TeamBioModal() {
               </div>
 
               {/* What they treat */}
-              <div style={{ borderTop: '1px solid #1e2126', marginTop: 0, paddingTop: 28 }}>
-                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em', marginTop: 0, marginBottom: 18 }}>
+              <div style={{ borderTop: '1px solid #1E1E1E', marginTop: 0, paddingTop: 28 }}>
+                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em', marginTop: 0, marginBottom: 18 }}>
                   WHAT THEY TREAT
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {RNB_SERVICES.map((s) => (
                     <div key={s} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                       <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0, marginTop: 7 }} />
-                      <span style={{ fontSize: 13.5, color: '#c2c7ce', lineHeight: 1.5 }}>{s}</span>
+                      <span style={{ fontSize: 13.5, color: '#A5A5A5', lineHeight: 1.5 }}>{s}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Their team */}
-              <div style={{ borderTop: '1px solid #1e2126', marginTop: 28, paddingTop: 28 }}>
-                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em', marginTop: 0, marginBottom: 18 }}>
+              <div style={{ borderTop: '1px solid #1E1E1E', marginTop: 28, paddingTop: 28 }}>
+                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em', marginTop: 0, marginBottom: 18 }}>
                   THEIR TEAM
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {RNB_TEAM.map((person) => (
                     <div
                       key={person.name}
-                      style={{ border: '1px solid #1e2126', background: '#0c0e13', overflow: 'hidden' }}
+                      style={{ border: '1px solid #1E1E1E', background: '#0c0e13', overflow: 'hidden' }}
                     >
                       {/* Photo + name header */}
                       <div style={{ display: 'flex', gap: 0 }}>
-                        <div style={{ width: 110, flexShrink: 0, position: 'relative', overflow: 'hidden', background: '#08090b' }}>
+                        <div style={{ width: 110, flexShrink: 0, position: 'relative', overflow: 'hidden', background: '#0B0B0B' }}>
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={person.image}
@@ -352,14 +352,14 @@ export default function TeamBioModal() {
                           <p style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 8px' }}>
                             {person.role}
                           </p>
-                          <h4 style={{ fontSize: 16, fontWeight: 700, margin: '0 0 0', color: '#f2f4f7', lineHeight: 1.1 }}>
+                          <h4 style={{ fontSize: 16, fontWeight: 700, margin: '0 0 0', color: '#FFFFFF', lineHeight: 1.1 }}>
                             {person.name}
                           </h4>
                         </div>
                       </div>
                       {/* Bio + credentials */}
-                      <div style={{ padding: '14px 18px 18px', borderTop: '1px solid #1a1e24' }}>
-                        <p style={{ fontSize: 13, lineHeight: 1.65, color: '#8d95a0', margin: '0 0 14px' }}>
+                      <div style={{ padding: '14px 18px 18px', borderTop: '1px solid #1E1E1E' }}>
+                        <p style={{ fontSize: 13, lineHeight: 1.65, color: '#909090', margin: '0 0 14px' }}>
                           {person.bio}
                         </p>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
@@ -377,15 +377,15 @@ export default function TeamBioModal() {
               </div>
 
               {/* Recognition */}
-              <div style={{ borderTop: '1px solid #1e2126', marginTop: 28, paddingTop: 28 }}>
-                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em', marginTop: 0, marginBottom: 16 }}>
+              <div style={{ borderTop: '1px solid #1E1E1E', marginTop: 28, paddingTop: 28 }}>
+                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em', marginTop: 0, marginBottom: 16 }}>
                   FEATURED &amp; RECOGNISED
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                   {RNB_RECOGNITION.map((r) => (
                     <span
                       key={r}
-                      style={{ padding: '5px 12px', border: '1px solid #1e2126', background: '#0c0e13', fontSize: 11.5, color: '#8d95a0', letterSpacing: '.04em' }}
+                      style={{ padding: '5px 12px', border: '1px solid #1E1E1E', background: '#0c0e13', fontSize: 11.5, color: '#909090', letterSpacing: '.04em' }}
                     >
                       {r}
                     </span>

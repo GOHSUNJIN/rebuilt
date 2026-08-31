@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from 'next/link'
 import { SITE } from '@/lib/site'
 
@@ -21,10 +21,10 @@ export default function MobileBookingBar() {
           placeItems: 'center',
           width: 50,
           height: 50,
-          border: '1px solid #2a2e34',
+          border: '1px solid #2A2A2A',
           background: 'transparent',
           flexShrink: 0,
-          color: '#8d95a0',
+          color: '#909090',
           textDecoration: 'none',
         }}
       >

@@ -30,7 +30,7 @@ function Num({ n }: { n: string }) {
   return (
     <span style={{
       font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)',
-      letterSpacing: '.22em', border: '1px solid rgba(224,53,53,.25)',
+      letterSpacing: '.22em', border: '1px solid rgba(183,240,0,.25)',
       padding: '5px 10px', flexShrink: 0,
     }}>
       {n}
@@ -42,17 +42,17 @@ function Section({ id, num, title, children, first = false }: {
   id: string; num: string; title: string; children: React.ReactNode; first?: boolean
 }) {
   return (
-    <div id={id} style={{ scrollMarginTop: 90, paddingTop: first ? 0 : 56, paddingBottom: 56, borderTop: first ? 'none' : '1px solid #1a1d22' }}>
+    <div id={id} style={{ scrollMarginTop: 90, paddingTop: first ? 0 : 56, paddingBottom: 56, borderTop: first ? 'none' : '1px solid #1E1E1E' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 22 }}>
         <Num n={num} />
-        <h2 style={{ fontSize: 22, fontWeight: 800, margin: 0, letterSpacing: '-.02em', color: '#f2f4f7', lineHeight: 1.1 }}>{title}</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 800, margin: 0, letterSpacing: '-.02em', color: '#FFFFFF', lineHeight: 1.1 }}>{title}</h2>
       </div>
       {children}
     </div>
   )
 }
 
-const bodyText = { fontSize: 15, lineHeight: 1.8, color: '#a3aab4', marginTop: 0, marginBottom: 14 } as const
+const bodyText = { fontSize: 15, lineHeight: 1.8, color: '#A5A5A5', marginTop: 0, marginBottom: 14 } as const
 
 function Bullet({ children }: { children: React.ReactNode }) {
   return (
@@ -65,32 +65,32 @@ function Bullet({ children }: { children: React.ReactNode }) {
 
 export default function TermsPage() {
   return (
-    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0c0e14', color: '#f2f4f7', minHeight: '100vh' }}>
+    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0B0B0B', color: '#FFFFFF', minHeight: '100vh' }}>
       <Navbar />
 
       {/* ── Header ────────────────────────────────── */}
-      <section style={{ borderBottom: '1px solid #212429', background: '#09090d' }}>
+      <section style={{ borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
         {/* Breadcrumb */}
-        <div className="r-px" style={{ padding: '16px 48px', borderBottom: '1px solid #1a1d22', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div className="r-px" style={{ padding: '16px 48px', borderBottom: '1px solid #1E1E1E', display: 'flex', alignItems: 'center', gap: 10 }}>
           <Link href="/" style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.2em', textDecoration: 'none' }}>REBUILT</Link>
-          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47' }}>/</span>
+          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#333333' }}>/</span>
           <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.2em' }}>LEGAL</span>
-          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47' }}>/</span>
+          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#333333' }}>/</span>
           <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em' }}>TERMS OF SERVICE</span>
         </div>
 
         {/* Title area */}
         <div className="r-px" style={{ padding: '56px 48px 52px', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: -10, right: 40, font: '200px/0.82 ui-monospace,Menlo,monospace', color: 'rgba(224,53,53,.04)', fontWeight: 700, userSelect: 'none', pointerEvents: 'none', letterSpacing: '-.05em' }}>
+          <div style={{ position: 'absolute', top: -10, right: 40, font: '200px/0.82 ui-monospace,Menlo,monospace', color: 'rgba(183,240,0,.04)', fontWeight: 700, userSelect: 'none', pointerEvents: 'none', letterSpacing: '-.05em' }}>
             §
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 40, flexWrap: 'wrap' }}>
             <div>
-              <h1 className="r-h1" style={{ fontSize: 76, fontWeight: 800, lineHeight: 0.9, letterSpacing: '-.04em', margin: '0 0 24px', color: '#f2f4f7' }}>
+              <h1 className="r-h1" style={{ fontSize: 76, fontWeight: 800, lineHeight: 0.9, letterSpacing: '-.04em', margin: '0 0 24px', color: '#FFFFFF' }}>
                 Terms of<br />Service.
               </h1>
-              <p style={{ fontSize: 16, lineHeight: 1.65, color: '#a3aab4', maxWidth: 460, margin: 0 }}>
+              <p style={{ fontSize: 16, lineHeight: 1.65, color: '#A5A5A5', maxWidth: 460, margin: 0 }}>
                 These terms govern your use of the Rebuilt Academy website and the services we provide. By booking a session or using our website, you agree to these terms.
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function TermsPage() {
               ].map(({ label, value }) => (
                 <div key={label} style={{ textAlign: 'right' }}>
                   <p style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: '0 0 4px' }}>{label}</p>
-                  <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.12em', margin: 0 }}>{value}</p>
+                  <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.12em', margin: 0 }}>{value}</p>
                 </div>
               ))}
             </div>
@@ -115,7 +115,7 @@ export default function TermsPage() {
 
         {/* TOC */}
         <div className="r-hide" style={{ width: 196, flexShrink: 0, position: 'sticky', top: 90, alignSelf: 'start' }}>
-          <div style={{ borderLeft: '2px solid #1e2126', paddingLeft: 20 }}>
+          <div style={{ borderLeft: '2px solid #1E1E1E', paddingLeft: 20 }}>
             <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.22em', marginTop: 0, marginBottom: 22 }}>CONTENTS</p>
             {TOC.map(({ num, id, title }) => (
               <a
@@ -124,7 +124,7 @@ export default function TermsPage() {
                 className="hover-gold"
                 style={{
                   display: 'flex', alignItems: 'center', gap: 12,
-                  padding: '9px 0', borderBottom: '1px solid #111316',
+                  padding: '9px 0', borderBottom: '1px solid #171717',
                   color: '#6f7783', fontSize: 13, textDecoration: 'none',
                   transition: 'color .15s',
                 }}
@@ -137,7 +137,7 @@ export default function TermsPage() {
             ))}
           </div>
 
-          <div style={{ marginTop: 36, paddingTop: 24, borderTop: '1px solid #1a1d22' }}>
+          <div style={{ marginTop: 36, paddingTop: 24, borderTop: '1px solid #1E1E1E' }}>
             <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', marginTop: 0, marginBottom: 10 }}>QUESTIONS?</p>
             <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, color: 'var(--accent)', textDecoration: 'none', lineHeight: 1.5 }}>
               {SITE.contact.email}
@@ -167,13 +167,13 @@ export default function TermsPage() {
                 { tier: 'Less than 12 hours notice', policy: 'The deposit is forfeited. You may still reschedule but a new deposit is required.' },
                 { tier: 'No-show', policy: 'The full session fee is charged. We will always try to reach you first.' },
               ].map(({ tier, policy }) => (
-                <div key={tier} style={{ background: '#0f1115', border: '1px solid #1e2126', padding: '16px 20px', display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+                <div key={tier} style={{ background: '#171717', border: '1px solid #1E1E1E', padding: '16px 20px', display: 'flex', gap: 20, alignItems: 'flex-start' }}>
                   <div style={{ width: 3, background: 'var(--accent)', alignSelf: 'stretch', flexShrink: 0, borderRadius: 2 }} />
                   <div>
                     <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', margin: '0 0 7px' }}>
                       {tier.toUpperCase()}
                     </p>
-                    <p style={{ fontSize: 14, color: '#a3aab4', margin: 0, lineHeight: 1.6 }}>{policy}</p>
+                    <p style={{ fontSize: 14, color: '#A5A5A5', margin: 0, lineHeight: 1.6 }}>{policy}</p>
                   </div>
                 </div>
               ))}
@@ -211,7 +211,7 @@ export default function TermsPage() {
 
           <Section id="contact" num="10" title="Contact">
             <p style={bodyText}>For questions about these terms:</p>
-            <div style={{ background: '#0f1115', border: '1px solid #1e2126', borderLeft: '2px solid var(--accent)', padding: '24px 28px', marginBottom: 0 }}>
+            <div style={{ background: '#171717', border: '1px solid #1E1E1E', borderLeft: '2px solid var(--accent)', padding: '24px 28px', marginBottom: 0 }}>
               <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', margin: '0 0 12px' }}>REBUILT ACADEMY</p>
               <p style={{ fontSize: 14, color: '#6f7783', margin: '0 0 10px', lineHeight: 1.6 }}>
                 Core Collective · Robinson, Dempsey &amp; Katong

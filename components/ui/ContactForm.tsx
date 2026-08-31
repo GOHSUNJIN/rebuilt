@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import { submitContact } from '@/app/actions/contact'
 import { SITE } from '@/lib/site'
@@ -32,7 +32,7 @@ export default function ContactForm() {
         <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 12 }}>
           Message sent.
         </h2>
-        <p style={{ fontSize: 15, lineHeight: 1.65, color: '#a3aab4', margin: 0 }}>
+        <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: 0 }}>
           We&apos;ll get back to you at {SITE.contact.email} within one business day.
         </p>
       </div>
@@ -54,7 +54,7 @@ export default function ContactForm() {
         </div>
         <label>
           <span style={labelStyle}>SERVICE</span>
-          <select name="service" style={{ ...inputStyle, color: '#a3aab4' }}>
+          <select name="service" style={{ ...inputStyle, color: '#A5A5A5' }}>
             <option value="" disabled>Select a service</option>
             <option value="Rehab">Rehab</option>
             <option value="Training">Training</option>

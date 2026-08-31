@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import CountUp from '@/components/ui/CountUp'
 
@@ -40,9 +40,9 @@ export default function ReviewsSection() {
   }, [])
 
   return (
-    <section className="r-px r-tall-pad" style={{ background: '#0e1220', borderTop: '1px solid #212429', borderBottom: '1px solid #212429', padding: '80px 48px' }}>
-      <div className="r-reviews r-reviews-scroll" style={{ display: 'grid', gridTemplateColumns: '.7fr 1fr 1fr 1fr', gap: 2, background: '#212429' }}>
-        <div style={{ background: '#141922', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+    <section className="r-px r-tall-pad" style={{ background: '#0B0B0B', borderTop: '1px solid #2A2A2A', borderBottom: '1px solid #2A2A2A', padding: '80px 48px' }}>
+      <div className="r-reviews r-reviews-scroll" style={{ display: 'grid', gridTemplateColumns: '.7fr 1fr 1fr 1fr', gap: 2, background: '#2A2A2A' }}>
+        <div style={{ background: '#171717', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <span style={{ fontSize: 14, color: '#F4B400', letterSpacing: '.08em', display: 'block', marginBottom: 18 }}>★★★★★</span>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
@@ -60,10 +60,10 @@ export default function ReviewsSection() {
         </div>
 
         {reviews.map(({ stars, text, name, role }) => (
-          <div key={name} className="hover-review" style={{ background: '#1c2130', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <div key={name} className="hover-review" style={{ background: '#1E1E1E', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', gap: 20 }}>
             <span style={{ fontSize: 13, color: '#F4B400', letterSpacing: '.06em' }}>{stars}</span>
-            <p style={{ fontSize: 15.5, lineHeight: 1.6, fontWeight: 500, color: '#e9ecf0', margin: 0, flex: 1 }}>{text}</p>
-            <div style={{ display: 'flex', gap: 12, paddingTop: 18, borderTop: '1px solid #262a30', alignItems: 'center' }}>
+            <p style={{ fontSize: 15.5, lineHeight: 1.6, fontWeight: 500, color: '#FFFFFF', margin: 0, flex: 1 }}>{text}</p>
+            <div style={{ display: 'flex', gap: 12, paddingTop: 18, borderTop: '1px solid #2A2A2A', alignItems: 'center' }}>
               <div style={{
                 width: 32, height: 32, borderRadius: '50%',
                 background: avatarColor(name),
@@ -75,8 +75,8 @@ export default function ReviewsSection() {
                 {name[0]}
               </div>
               <div>
-                <p style={{ fontSize: 13, fontWeight: 600, margin: '0 0 3px', color: '#f2f4f7' }}>{name}</p>
-                <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', margin: 0, letterSpacing: '.1em' }}>{role}</p>
+                <p style={{ fontSize: 13, fontWeight: 600, margin: '0 0 3px', color: '#FFFFFF' }}>{name}</p>
+                <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5', margin: 0, letterSpacing: '.1em' }}>{role}</p>
               </div>
             </div>
           </div>

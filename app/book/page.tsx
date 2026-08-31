@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useRef, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
@@ -121,33 +121,33 @@ function BookContent() {
   ].filter(r => r.value)
 
   return (
-    <div className="book-page-root" style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0b0c0e', color: '#f2f4f7', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className="book-page-root" style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0B0B0B', color: '#FFFFFF', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
 
       {/* Nav */}
-      <nav className="r-px book-page-nav" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 48px', background: '#0b0c0e', borderBottom: '1px solid #212429' }}>
+      <nav className="r-px book-page-nav" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 48px', background: '#0B0B0B', borderBottom: '1px solid #2A2A2A' }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11, textDecoration: 'none' }}>
           <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={30} height={30} style={{ display: 'block' }} />
           <div>
-            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT ACADEMY</div>
+            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
             <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
           </div>
         </Link>
-        <Link href="/" style={{ fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', color: '#8d95a0', textDecoration: 'none' }}>← Close</Link>
+        <Link href="/" style={{ fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', color: '#909090', textDecoration: 'none' }}>← Close</Link>
       </nav>
 
       {/* Step indicator */}
-      <div className="r-px" style={{ display: 'flex', alignItems: 'center', padding: '0 48px', borderBottom: '1px solid #1e2126', background: '#0b0c0e', overflowX: 'auto' }}>
+      <div className="r-px" style={{ display: 'flex', alignItems: 'center', padding: '0 48px', borderBottom: '1px solid #1E1E1E', background: '#0B0B0B', overflowX: 'auto' }}>
         {STEPS.map(({ num, label }, i) => {
           const done = step > num; const current = step === num
           return (
             <div key={num} style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '18px 0', paddingRight: i < STEPS.length - 1 ? 20 : 0, opacity: done || current ? 1 : 0.3 }}>
-                <span style={{ width: 22, height: 22, border: `1px solid ${done || current ? 'var(--accent)' : '#2a2e34'}`, background: done ? 'var(--accent)' : 'transparent', color: done ? '#0b0c0e' : current ? 'var(--accent)' : '#5f6670', font: '9px/1 ui-monospace,Menlo,monospace', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+                <span style={{ width: 22, height: 22, border: `1px solid ${done || current ? 'var(--accent)' : '#2A2A2A'}`, background: done ? 'var(--accent)' : 'transparent', color: done ? '#0B0B0B' : current ? 'var(--accent)' : '#5f6670', font: '9px/1 ui-monospace,Menlo,monospace', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
                   {done ? '✓' : num}
                 </span>
-                <span className="book-step-label" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: current ? '#f2f4f7' : done ? 'var(--accent)' : '#5f6670' }}>{label}</span>
+                <span className="book-step-label" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: current ? '#FFFFFF' : done ? 'var(--accent)' : '#5f6670' }}>{label}</span>
               </div>
-              {i < STEPS.length - 1 && <span style={{ width: 16, height: 1, background: '#1e2126', display: 'block', marginRight: 20, flexShrink: 0 }} />}
+              {i < STEPS.length - 1 && <span style={{ width: 16, height: 1, background: '#1E1E1E', display: 'block', marginRight: 20, flexShrink: 0 }} />}
             </div>
           )
         })}
@@ -159,10 +159,10 @@ function BookContent() {
 
           {/* Summary bar (steps 2-5) */}
           {step >= 2 && step < 6 && (service || slots.length > 0) && (
-            <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 40, padding: '13px 18px', background: '#111316', border: '1px solid #1e2126' }}>
-              {service && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>SERVICE: <span style={{ color: '#c2c7ce' }}>{service}</span></span>}
-              {coach !== 'No preference' && step > 2 && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>COACH: <span style={{ color: '#c2c7ce' }}>{coach}</span></span>}
-              {slots.length > 0 && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>TIMES: <span style={{ color: '#c2c7ce' }}>{slots.length} selected</span></span>}
+            <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 40, padding: '13px 18px', background: '#171717', border: '1px solid #1E1E1E' }}>
+              {service && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>SERVICE: <span style={{ color: '#A5A5A5' }}>{service}</span></span>}
+              {coach !== 'No preference' && step > 2 && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>COACH: <span style={{ color: '#A5A5A5' }}>{coach}</span></span>}
+              {slots.length > 0 && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>TIMES: <span style={{ color: '#A5A5A5' }}>{slots.length} selected</span></span>}
             </div>
           )}
 
@@ -175,20 +175,20 @@ function BookContent() {
 
           {/* Navigation (steps 1–4) */}
           {step >= 1 && step <= 4 && (
-            <div style={{ marginTop: 40, paddingTop: 28, borderTop: '1px solid #1e2126' }}>
+            <div style={{ marginTop: 40, paddingTop: 28, borderTop: '1px solid #1E1E1E' }}>
               <div className="book-nav" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                 {step > 1 && (
-                  <button type="button" onClick={() => setStep(s => s - 1)} style={{ padding: '14px 24px', background: 'transparent', border: '1px solid #2a2e34', color: '#8d95a0', fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>← Back</button>
+                  <button type="button" onClick={() => setStep(s => s - 1)} style={{ padding: '14px 24px', background: 'transparent', border: '1px solid #2A2A2A', color: '#909090', fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>← Back</button>
                 )}
                 <button type="button"
                   onClick={() => { if (canContinue()) { setStep(s => s + 1); setShowError(false) } else { setShowError(true) } }}
-                  style={{ padding: '14px 36px', background: canContinue() ? 'var(--accent)' : '#1a1d22', color: canContinue() ? '#0b0c0e' : '#4a4f57', border: 'none', fontSize: 12, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', cursor: canContinue() ? 'pointer' : 'not-allowed', fontFamily: 'inherit', transition: 'background .2s, color .2s', opacity: canContinue() ? 1 : 0.65 }}
+                  style={{ padding: '14px 36px', background: canContinue() ? 'var(--accent)' : '#1E1E1E', color: canContinue() ? '#0B0B0B' : '#444444', border: 'none', fontSize: 12, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', cursor: canContinue() ? 'pointer' : 'not-allowed', fontFamily: 'inherit', transition: 'background .2s, color .2s', opacity: canContinue() ? 1 : 0.65 }}
                 >
                   Continue →
                 </button>
               </div>
               {showError && !canContinue() && (
-                <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#e05c5c', letterSpacing: '.12em', marginTop: 16, marginBottom: 0 }}>
+                <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#B7F000', letterSpacing: '.12em', marginTop: 16, marginBottom: 0 }}>
                   {step === 1 ? 'Please select a session type to continue.' : step === 3 ? 'Please select at least one preferred time slot.' : 'Please enter your name and email to continue.'}
                 </p>
               )}
@@ -197,11 +197,11 @@ function BookContent() {
 
           {/* Back + Done on review step */}
           {step === 5 && (
-            <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid #1e2126' }}>
+            <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid #1E1E1E' }}>
               <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#4a5060', letterSpacing: '.12em', margin: '0 0 16px' }}>SENT YOUR REQUEST? CLICK DONE TO FINISH.</p>
               <div className="book-nav" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                <button type="button" onClick={() => setStep(4)} style={{ padding: '12px 22px', background: 'transparent', border: '1px solid #2a2e34', color: '#8d95a0', fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>← Back</button>
-                <button type="button" onClick={() => setStep(6)} style={{ padding: '12px 28px', background: 'var(--accent)', border: 'none', color: '#0b0c0e', fontSize: 12, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>Done</button>
+                <button type="button" onClick={() => setStep(4)} style={{ padding: '12px 22px', background: 'transparent', border: '1px solid #2A2A2A', color: '#909090', fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>← Back</button>
+                <button type="button" onClick={() => setStep(6)} style={{ padding: '12px 28px', background: 'var(--accent)', border: 'none', color: '#0B0B0B', fontSize: 12, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>Done</button>
               </div>
             </div>
           )}
@@ -214,7 +214,7 @@ function BookContent() {
 
 export default function BookPage() {
   return (
-    <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0b0c0e' }} />}>
+    <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0B0B0B' }} />}>
       <BookContent />
     </Suspense>
   )

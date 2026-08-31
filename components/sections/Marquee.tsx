@@ -1,4 +1,4 @@
-const DEFAULT_ITEMS = [
+﻿const DEFAULT_ITEMS = [
   'REHAB',
   'PERSONAL TRAINING',
   'SPORTS PERFORMANCE',
@@ -21,7 +21,7 @@ export default function Marquee({
   const doubled = [...items, ...items]
 
   return (
-    <div style={{ overflow: 'hidden', background: '#050607', borderTop: '1px solid #1a1d22', borderBottom: '1px solid #1a1d22' }}>
+    <div style={{ overflow: 'hidden', background: '#0B0B0B', borderTop: '1px solid #1E1E1E', borderBottom: '1px solid #1E1E1E' }}>
       <div
         style={{
           display: 'flex',
@@ -36,7 +36,7 @@ export default function Marquee({
             <span
               style={{
                 font: '11px/1 ui-monospace,Menlo,monospace',
-                color: '#8d95a0',
+                color: '#909090',
                 letterSpacing: '.28em',
                 padding: '0 28px',
                 whiteSpace: 'nowrap',

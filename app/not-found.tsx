@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer'
 
 export default function NotFound() {
   return (
-    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0b0c0e', color: '#f2f4f7', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0B0B0B', color: '#FFFFFF', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
       <div className="r-px" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 48px', textAlign: 'center' }}>
         <div style={{ maxWidth: 520 }}>
@@ -17,7 +17,7 @@ export default function NotFound() {
           <h1 style={{ fontSize: 52, fontWeight: 800, lineHeight: 0.95, letterSpacing: '-.025em', margin: '0 0 20px' }}>
             Nothing here.
           </h1>
-          <p style={{ fontSize: 16, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 36px' }}>
+          <p style={{ fontSize: 16, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 36px' }}>
             The page you are looking for has moved or does not exist.
           </p>
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>

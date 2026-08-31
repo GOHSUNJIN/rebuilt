@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
@@ -45,7 +45,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
           background: 'rgba(11,12,14,.97)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid #1e2126',
+          borderBottom: '1px solid #1E1E1E',
           transform: hidden ? 'translateY(-100%)' : 'translateY(0)',
           transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
@@ -54,7 +54,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, flexShrink: 0 }}>
           <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
           <div>
-            <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>
+            <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>
               REBUILT ACADEMY
             </div>
             <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.22em', color: 'var(--accent)' }}>
@@ -76,7 +76,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
                   fontWeight: 600,
                   letterSpacing: '.2em',
                   textTransform: 'uppercase',
-                  color: active ? 'var(--accent)' : '#a3aab4',
+                  color: active ? 'var(--accent)' : '#A5A5A5',
                 }}
                 className="hover-nav"
               >
@@ -101,8 +101,8 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
           style={{
             display: 'none',
             background: 'none',
-            border: '1px solid #2a2e34',
-            color: '#c2c7ce',
+            border: '1px solid #2A2A2A',
+            color: '#A5A5A5',
             cursor: 'pointer',
             padding: '14px',
             lineHeight: 0,
@@ -122,7 +122,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
 
         {/* ── Mobile dropdown ──────────────────────── */}
         {menuOpen && (
-          <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#0b0c0e', borderBottom: '1px solid #1e2126', zIndex: 100, animation: 'mdIn 0.22s cubic-bezier(0.4,0,0.2,1) both' }}>
+          <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#0B0B0B', borderBottom: '1px solid #1E1E1E', zIndex: 100, animation: 'mdIn 0.22s cubic-bezier(0.4,0,0.2,1) both' }}>
             {NAV_LINKS.map(({ href, label, page }) => (
               <Link
                 key={page}
@@ -131,7 +131,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
                 style={{
                   display: 'block',
                   padding: '16px 24px',
-                  borderBottom: '1px solid #1a1d22',
+                  borderBottom: '1px solid #1E1E1E',
                   fontSize: 11,
                   fontWeight: 600,
                   letterSpacing: '.2em',

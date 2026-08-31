@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { SITE } from '@/lib/site'
@@ -48,8 +48,8 @@ const LOCATION_IMAGES: Record<string, string> = {
 
 function LocationPlaceholder({ label, height }: { label: string; height: number }) {
   return (
-    <div style={{ height, position: 'relative', overflow: 'hidden', background: '#08090b', flexShrink: 0 }}>
-      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 130% 80% at 15% 10%, #111418 0%, #060708 100%)' }} />
+    <div style={{ height, position: 'relative', overflow: 'hidden', background: '#0B0B0B', flexShrink: 0 }}>
+      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 130% 80% at 15% 10%, #171717 0%, #060708 100%)' }} />
       <span style={{
         position: 'absolute', bottom: -16, right: -8,
         font: `${height * 0.28}px/1 Archivo,sans-serif`, fontWeight: 800,
@@ -76,7 +76,7 @@ export default function LocationDrawer() {
 
   return (
     <>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#212429' }} className="r3">
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#2A2A2A' }} className="r3">
         {LOCATIONS.map((loc) => (
           <button
             key={loc.label}
@@ -102,8 +102,8 @@ export default function LocationDrawer() {
             <div className="img-overlay" />
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '24px 22px' }}>
               <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0 0 6px' }}>CORE COLLECTIVE</p>
-              <p style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 4px', color: '#f2f4f7' }}>{loc.label}</p>
-              <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', letterSpacing: '.14em', margin: '0 0 12px' }}>{loc.address}</p>
+              <p style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 4px', color: '#FFFFFF' }}>{loc.label}</p>
+              <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5', letterSpacing: '.14em', margin: '0 0 12px' }}>{loc.address}</p>
               <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em' }}>VIEW DETAILS →</span>
             </div>
           </button>
@@ -124,7 +124,7 @@ export default function LocationDrawer() {
             style={{
               position: 'fixed', top: 0, right: 0, bottom: 0,
               width: '100%', maxWidth: 500,
-              background: '#0f1115', borderLeft: '1px solid #262a30',
+              background: '#171717', borderLeft: '1px solid #2A2A2A',
               zIndex: 1001, overflowY: 'auto',
               animation: 'drawerIn .28s cubic-bezier(0.2, 0.7, 0.3, 1) both',
             }}
@@ -135,7 +135,7 @@ export default function LocationDrawer() {
               style={{
                 position: 'absolute', top: 20, right: 20,
                 background: 'rgba(15,17,21,.8)', border: 'none',
-                color: '#f2f4f7', width: 40, height: 40, borderRadius: '50%',
+                color: '#FFFFFF', width: 40, height: 40, borderRadius: '50%',
                 cursor: 'pointer', display: 'grid', placeItems: 'center',
                 fontSize: 18, fontFamily: 'inherit', zIndex: 1, backdropFilter: 'blur(8px)',
               }}
@@ -153,7 +153,7 @@ export default function LocationDrawer() {
                   sizes="500px"
                 />
               </div>
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f1115 0%, transparent 55%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #171717 0%, transparent 55%)' }} />
             </div>
 
             <div className="r-drawer-content" style={{ padding: '4px 36px 52px' }}>
@@ -163,15 +163,15 @@ export default function LocationDrawer() {
               <h2 id="location-dialog-title" style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 6 }}>
                 {selected.label}
               </h2>
-              <p style={{ fontSize: 14, color: '#a3aab4', margin: '0 0 28px', lineHeight: 1.6 }}>
+              <p style={{ fontSize: 14, color: '#A5A5A5', margin: '0 0 28px', lineHeight: 1.6 }}>
                 {selected.address}<br />{selected.postal}
               </p>
 
-              <div style={{ borderTop: '1px solid #1e2126', paddingTop: 24, marginBottom: 28 }}>
-                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em', marginTop: 0, marginBottom: 16 }}>HOURS</p>
+              <div style={{ borderTop: '1px solid #1E1E1E', paddingTop: 24, marginBottom: 28 }}>
+                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em', marginTop: 0, marginBottom: 16 }}>HOURS</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   {SITE.hours.map(h => (
-                    <p key={h} style={{ fontSize: 14, color: '#c2c7ce', margin: 0 }}>{h}</p>
+                    <p key={h} style={{ fontSize: 14, color: '#A5A5A5', margin: 0 }}>{h}</p>
                   ))}
                 </div>
               </div>

@@ -49,13 +49,13 @@ const SERVICES = [
 
 export default function HomePage() {
   return (
-    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0c0e14', color: '#f2f4f7', minHeight: '100vh' }}>
+    <div style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0B0B0B', color: '#FFFFFF', minHeight: '100vh' }}>
       <Navbar />
 
       {/* ── 1. Hero ─────────────────────────────── */}
       <section
         className="r-hero"
-        style={{ height: 680, position: 'relative', display: 'grid', alignItems: 'end', background: '#111316', overflow: 'hidden' }}
+        style={{ height: 680, position: 'relative', display: 'grid', alignItems: 'end', background: '#171717', overflow: 'hidden' }}
       >
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', animation: 'slowZoom 14s ease both' }}>
           <Image
@@ -67,7 +67,7 @@ export default function HomePage() {
             sizes="100vw"
           />
         </div>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,10,10,.1) 0%, rgba(10,10,10,.3) 50%, #0b0c0e 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,10,10,.1) 0%, rgba(10,10,10,.3) 50%, #0B0B0B 100%)' }} />
 
         <div className="r-hero-content r-px" style={{ position: 'relative', padding: '0 48px 72px', maxWidth: 900 }}>
           <p className="r-hero-label" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.34em', color: 'var(--accent)', marginBottom: 22, marginTop: 0, animation: 'heroIn .7s cubic-bezier(.2,.7,.3,1) both' }}>
@@ -79,12 +79,12 @@ export default function HomePage() {
           >
             REBUILT<br />FROM SETBACK<br />TO COMEBACK.
           </h1>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: '#a3aab4', marginBottom: 0, marginTop: 28, maxWidth: 460 }}>
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: '#A5A5A5', marginBottom: 0, marginTop: 28, maxWidth: 460 }}>
             Rehab, training and performance. One team, three locations.
           </p>
           <div style={{ marginTop: 36, display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
             <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>Book a consult</Link>
-            <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+            <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
               ASK A QUESTION →
             </Link>
           </div>
@@ -95,31 +95,31 @@ export default function HomePage() {
       <Marquee />
 
       {/* ── 2. Stats strip ──────────────────────── */}
-      <section style={{ borderBottom: '1px solid #212429' }}>
-        <div className="r3 r-px" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#212429' }}>
+      <section style={{ borderBottom: '1px solid #2A2A2A' }}>
+        <div className="r3 r-px" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#2A2A2A' }}>
           {[
             { num: '300+', label: 'Clients coached' },
             { num: '4.9', label: 'Google rating' },
             { num: '2021', label: 'Est. Singapore' },
           ].map(({ num, label }) => (
-            <div key={label} className="r-stat-cell" style={{ background: '#0e1220', padding: '52px 48px' }}>
+            <div key={label} className="r-stat-cell" style={{ background: '#0B0B0B', padding: '52px 48px' }}>
               <p className="gradient-gold r-stat-num" style={{ fontSize: 68, fontWeight: 800, lineHeight: 1, letterSpacing: '-.04em', margin: '0 0 10px', fontFamily: 'Archivo,sans-serif' }}>{num}</p>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#a3aab4', letterSpacing: '.2em', margin: 0 }}>{label.toUpperCase()}</p>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5', letterSpacing: '.2em', margin: 0 }}>{label.toUpperCase()}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── 3. What we do ───────────────────────── */}
-      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #212429' }}>
+      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #2A2A2A' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 36, flexWrap: 'wrap', gap: 16 }}>
           <h2 className="r-section-h2" style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>
             What we do.
           </h2>
         </div>
-        <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#212429' }}>
+        <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#2A2A2A' }}>
           {SERVICES.map(({ num, title, from, href, img, desc, tags }) => (
-            <div key={num} className="hover-card r-service-card" style={{ background: '#141922', display: 'flex', flexDirection: 'column' }}>
+            <div key={num} className="hover-card r-service-card" style={{ background: '#171717', display: 'flex', flexDirection: 'column' }}>
               <div className="img-zoom r-card-img" style={{ height: 340, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
                 <Image src={img} alt={title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(13,15,18,.85) 100%)' }} />
@@ -130,10 +130,10 @@ export default function HomePage() {
                   <h3 style={{ fontSize: 26, fontWeight: 800, margin: 0, letterSpacing: '-.015em' }}>{title}</h3>
                   <span className="r-service-price" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.12em', whiteSpace: 'nowrap', flexShrink: 0 }}>{from}</span>
                 </div>
-                <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 20px', flex: 1 }}>{desc}</p>
-                <div className="r-service-tags" style={{ borderTop: '1px solid #1e2126', paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 28 }}>
+                <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 20px', flex: 1 }}>{desc}</p>
+                <div className="r-service-tags" style={{ borderTop: '1px solid #1E1E1E', paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 28 }}>
                   {tags.map(tag => (
-                    <div key={tag} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#a3aab4' }}>
+                    <div key={tag} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#A5A5A5' }}>
                       <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />{tag}
                     </div>
                   ))}
@@ -149,7 +149,7 @@ export default function HomePage() {
                     letterSpacing: '.2em',
                     textDecoration: 'none',
                     paddingTop: 20,
-                    borderTop: '1px solid #1e2126',
+                    borderTop: '1px solid #1E1E1E',
                   }}
                   className="hover-gold r-service-link"
                 >
@@ -162,11 +162,11 @@ export default function HomePage() {
       </section>
 
       {/* ── 4. Physio ───────────────────────────── */}
-      <section className="r-px" style={{ padding: '0 48px', borderBottom: '1px solid #212429' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, background: '#212429' }} className="r2">
+      <section className="r-px" style={{ padding: '0 48px', borderBottom: '1px solid #2A2A2A' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, background: '#2A2A2A' }} className="r2">
 
           {/* Available now */}
-          <div style={{ background: '#0c0e14', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ background: '#0B0B0B', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
             <div style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
               <Image
                 src="https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?auto=format&fit=crop&w=800&q=80"
@@ -174,7 +174,7 @@ export default function HomePage() {
                 style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
                 sizes="50vw"
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, #0c0e14 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, #0B0B0B 100%)' }} />
               <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(9,9,13,.85)', border: '1px solid rgba(74,222,128,.35)', backdropFilter: 'blur(4px)' }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
                 <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#4ade80', letterSpacing: '.2em' }}>AVAILABLE NOW</span>
@@ -190,7 +190,7 @@ export default function HomePage() {
           </div>
 
           {/* Coming soon */}
-          <div style={{ background: '#09090d', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ background: '#0B0B0B', display: 'flex', flexDirection: 'column' }}>
             <div style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
               <Image
                 src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
@@ -198,16 +198,16 @@ export default function HomePage() {
                 style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.65 }}
                 sizes="50vw"
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, #09090d 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, #0B0B0B 100%)' }} />
               <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(255,255,255,.12)', background: 'rgba(9,9,13,.75)', backdropFilter: 'blur(4px)' }}>
-                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#8d95a0', display: 'block', flexShrink: 0 }} />
-                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.2em' }}>COMING SOON</span>
+                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#909090', display: 'block', flexShrink: 0 }} />
+                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em' }}>COMING SOON</span>
               </div>
             </div>
             <div style={{ padding: '28px 32px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
               <h3 style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 10px', lineHeight: 1 }}>In-house Physiotherapy</h3>
-              <p style={{ fontSize: 13, lineHeight: 1.6, color: '#a3aab4', margin: '0 0 28px', flex: 1 }}>One team across physiotherapy and training. No referrals, no handover gaps. Treatment and coaching in the same building.</p>
-              <Link href="/physio#waitlist" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: '#A5A5A5', margin: '0 0 28px', flex: 1 }}>One team across physiotherapy and training. No referrals, no handover gaps. Treatment and coaching in the same building.</p>
+              <Link href="/physio#waitlist" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
                 JOIN WAITLIST →
               </Link>
             </div>
@@ -220,22 +220,22 @@ export default function HomePage() {
       <ReviewsSection />
 
       {/* ── 6. Instagram ────────────────────────── */}
-      <section style={{ borderTop: '1px solid #212429', borderBottom: '1px solid #212429', background: '#09090d' }}>
+      <section style={{ borderTop: '1px solid #2A2A2A', borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
         {/* Header strip */}
-        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '28px 48px', borderBottom: '1px solid #212429', flexWrap: 'wrap', gap: 20 }}>
+        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '28px 48px', borderBottom: '1px solid #2A2A2A', flexWrap: 'wrap', gap: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <div style={{ padding: 2, background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', borderRadius: '50%', flexShrink: 0 }}>
-              <div style={{ background: '#09090d', borderRadius: '50%', padding: 2 }}>
+              <div style={{ background: '#0B0B0B', borderRadius: '50%', padding: 2 }}>
                 <Image src="/instagram-pfp.jpg" alt="@rebuiltbysk Instagram profile" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'cover', borderRadius: '50%', display: 'block' }} />
               </div>
             </div>
             <div>
-              <p style={{ fontSize: 15, fontWeight: 800, margin: 0, color: '#f2f4f7', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
+              <p style={{ fontSize: 15, fontWeight: 800, margin: 0, color: '#FFFFFF', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
               <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: '4px 0 0' }}>INSTAGRAM</p>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap' }}>
-            <p className="r-hide" style={{ fontSize: 14, color: '#a3aab4', margin: 0, lineHeight: 1.5, maxWidth: 340 }}>
+            <p className="r-hide" style={{ fontSize: 14, color: '#A5A5A5', margin: 0, lineHeight: 1.5, maxWidth: 340 }}>
               Training footage, client results and what actually happens in sessions.
             </p>
             <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
@@ -245,7 +245,7 @@ export default function HomePage() {
           </div>
         </div>
         {/* Photo grid */}
-        <div className="r-ig" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 2, background: '#212429' }}>
+        <div className="r-ig" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 2, background: '#2A2A2A' }}>
           {[
             'photo-1571019613454-1cb2f99b2d8b',
             'photo-1534438327276-14e5300c3a48',
@@ -254,7 +254,7 @@ export default function HomePage() {
             'photo-1549060279-7e168fcee0c2',
             'photo-1526506118085-60ce8714f8c5',
           ].map((id, i) => (
-            <a key={i} href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer" style={{ aspectRatio: '1', position: 'relative', overflow: 'hidden', background: '#0c0e14', display: 'block', textDecoration: 'none', cursor: 'pointer' }}>
+            <a key={i} href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer" style={{ aspectRatio: '1', position: 'relative', overflow: 'hidden', background: '#0B0B0B', display: 'block', textDecoration: 'none', cursor: 'pointer' }}>
               <Image src={`https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=80`} alt="@rebuiltbysk" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 50vw, 16vw" />
               <div className="img-overlay" />
             </a>
@@ -263,11 +263,11 @@ export default function HomePage() {
       </section>
 
       {/* ── 7. CTA ──────────────────────────────── */}
-      <section style={{ borderTop: '1px solid #212429', background: '#0c0e14' }}>
+      <section style={{ borderTop: '1px solid #2A2A2A', background: '#0B0B0B' }}>
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 680 }}>
 
           {/* Left: content */}
-          <div className="r-px r-tall-pad" style={{ padding: '80px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRight: '1px solid #1e2126' }}>
+          <div className="r-px r-tall-pad" style={{ padding: '80px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRight: '1px solid #1E1E1E' }}>
             <div>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 28 }}>
                 START WHERE YOU ARE
@@ -278,7 +278,7 @@ export default function HomePage() {
               >
                 Whatever<br />the starting point.
               </h2>
-              <p style={{ fontSize: 15.5, lineHeight: 1.65, color: '#a3aab4', margin: '0 0 44px', maxWidth: 400 }}>
+              <p style={{ fontSize: 15.5, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 44px', maxWidth: 400 }}>
                 Two weeks post-op or chasing a personal best. The first step is the same: an honest look at where you are today.
               </p>
 
@@ -296,12 +296,12 @@ export default function HomePage() {
                     style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                       padding: '18px 0 18px 10px',
-                      borderBottom: i < arr.length - 1 ? '1px solid #181b20' : 'none',
+                      borderBottom: i < arr.length - 1 ? '1px solid #2A2A2A' : 'none',
                       textDecoration: 'none', gap: 24,
                     }}
                     className="hover-approach"
                   >
-                    <span style={{ fontSize: 14.5, color: '#8d95a0', lineHeight: 1.4 }}>{situation}</span>
+                    <span style={{ fontSize: 14.5, color: '#909090', lineHeight: 1.4 }}>{situation}</span>
                     <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', flexShrink: 0 }}>
                       {service.toUpperCase()} →
                     </span>
@@ -313,7 +313,7 @@ export default function HomePage() {
             {/* CTAs */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
               <Link href="/book" className="btn-gold" style={{ padding: '14px 28px' }}>Book a consult</Link>
-              <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#8d95a0', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+              <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
                 ASK A QUESTION →
               </Link>
             </div>
@@ -329,7 +329,7 @@ export default function HomePage() {
               style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
               sizes="50vw"
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0c0e14 0%, transparent 25%)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0B0B0B 0%, transparent 25%)' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(12,14,20,.4) 0%, transparent 40%)' }} />
           </div>
 

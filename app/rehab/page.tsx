@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import PageShell from '@/components/layout/PageShell'
 import ServiceHero from '@/components/sections/ServiceHero'
 import ServiceTestimonial from '@/components/ui/ServiceTestimonial'
@@ -55,7 +55,7 @@ export default function RehabPage() {
         bookLabel="Book a consult"
       />
 
-      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #212429', background: '#09090d' }}>
+      <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
         <SectionHeader
           label="WHAT'S INCLUDED"
           heading={<>Built around what<br />you can handle today.</>}

@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next'
+﻿import type { Metadata, Viewport } from 'next'
 import { Archivo } from 'next/font/google'
 import './globals.css'
 import { SITE } from '@/lib/site'
@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body
         className={archivo.className}
-        style={{ margin: 0, background: '#101113', minHeight: '100vh' }}
+        style={{ margin: 0, background: '#0B0B0B', minHeight: '100vh' }}
       >
         <script
           type="application/ld+json"

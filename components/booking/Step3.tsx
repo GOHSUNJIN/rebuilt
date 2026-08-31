@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { formLabelStyle as labelStyle } from '@/lib/styles'
 import { LOCATION_OPTIONS, DAYS, ALL_TIMES, SAT_TIMES } from '@/lib/bookData'
 import type { Step3Props } from './types'
@@ -8,7 +8,7 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
   return (
     <>
       <StepHeader step={3} heading="Preferred time slots" />
-      <p style={{ fontSize: 15, color: '#a3aab4', marginTop: 0, marginBottom: 36 }}>Pick the days and times that work for you. We will confirm the exact slot.</p>
+      <p style={{ fontSize: 15, color: '#A5A5A5', marginTop: 0, marginBottom: 36 }}>Pick the days and times that work for you. We will confirm the exact slot.</p>
 
       {showLocation && (
         <>
@@ -18,7 +18,7 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
               const active = location === id
               return (
                 <button key={id} type="button" onClick={() => setLocation(id)}
-                  style={{ padding: '11px 18px', background: active ? 'var(--accent)' : '#111316', border: `1px solid ${active ? 'var(--accent)' : '#1e2126'}`, color: active ? '#0b0c0e' : '#a3aab4', cursor: 'pointer', fontFamily: 'inherit', transition: 'all .15s', textAlign: 'left' }}
+                  style={{ padding: '11px 18px', background: active ? 'var(--accent)' : '#171717', border: `1px solid ${active ? 'var(--accent)' : '#1E1E1E'}`, color: active ? '#0B0B0B' : '#A5A5A5', cursor: 'pointer', fontFamily: 'inherit', transition: 'all .15s', textAlign: 'left' }}
                 >
                   <p style={{ fontSize: 12, fontWeight: 700, margin: '0 0 2px', letterSpacing: '.06em', color: 'inherit' }}>{id}</p>
                   <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', margin: 0, opacity: 0.7, letterSpacing: '.1em', color: 'inherit' }}>{sub.toUpperCase()}</p>
@@ -36,7 +36,7 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
           const isActive = activeDay === d
           return (
             <button key={d} type="button" onClick={() => setActiveDay(d)}
-              style={{ padding: '12px 20px', background: isActive ? 'var(--accent)' : hasSelected ? '#1a2010' : '#111316', border: `1px solid ${isActive ? 'var(--accent)' : hasSelected ? '#4a7c30' : '#1e2126'}`, color: isActive ? '#0b0c0e' : hasSelected ? '#8dc860' : '#a3aab4', cursor: 'pointer', fontSize: 12, fontWeight: 700, letterSpacing: '.16em', fontFamily: 'inherit', transition: 'all .15s', position: 'relative' }}
+              style={{ padding: '12px 20px', background: isActive ? 'var(--accent)' : hasSelected ? '#1a2010' : '#171717', border: `1px solid ${isActive ? 'var(--accent)' : hasSelected ? '#4a7c30' : '#1E1E1E'}`, color: isActive ? '#0B0B0B' : hasSelected ? '#8dc860' : '#A5A5A5', cursor: 'pointer', fontSize: 12, fontWeight: 700, letterSpacing: '.16em', fontFamily: 'inherit', transition: 'all .15s', position: 'relative' }}
             >
               {d.toUpperCase()}
               {hasSelected && !isActive && <span style={{ position: 'absolute', top: 4, right: 4, width: 5, height: 5, borderRadius: '50%', background: '#8dc860', display: 'block' }} />}
@@ -54,7 +54,7 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
               const isSelected = slots.includes(key)
               return (
                 <button key={time} type="button" onClick={() => toggleSlot(key)}
-                  style={{ padding: '13px 22px', fontSize: 13, background: isSelected ? 'var(--accent)' : '#111316', border: `1px solid ${isSelected ? 'var(--accent)' : '#1e2126'}`, color: isSelected ? '#0b0c0e' : '#a3aab4', cursor: 'pointer', fontFamily: 'inherit', transition: 'all .15s', fontWeight: isSelected ? 700 : 400 }}
+                  style={{ padding: '13px 22px', fontSize: 13, background: isSelected ? 'var(--accent)' : '#171717', border: `1px solid ${isSelected ? 'var(--accent)' : '#1E1E1E'}`, color: isSelected ? '#0B0B0B' : '#A5A5A5', cursor: 'pointer', fontFamily: 'inherit', transition: 'all .15s', fontWeight: isSelected ? 700 : 400 }}
                 >
                   {time}
                 </button>
@@ -65,14 +65,14 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
       )}
 
       {slots.length > 0 && (
-        <div style={{ padding: '16px 18px', background: '#111316', border: '1px solid #1e2126' }}>
+        <div style={{ padding: '16px 18px', background: '#171717', border: '1px solid #1E1E1E' }}>
           <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.16em', margin: '0 0 12px' }}>
             SELECTED · {slots.length} {slots.length === 1 ? 'SLOT' : 'SLOTS'}
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {slots.map(s => (
               <button key={s} type="button" onClick={() => toggleSlot(s)}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 12px', background: '#111316', border: '1px solid rgba(224,53,53,.25)', color: 'var(--accent)', cursor: 'pointer', fontSize: 12, fontFamily: 'inherit', letterSpacing: '.08em' }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 12px', background: '#171717', border: '1px solid rgba(183,240,0,.25)', color: 'var(--accent)', cursor: 'pointer', fontSize: 12, fontFamily: 'inherit', letterSpacing: '.08em' }}
               >
                 {s.replace('-', ' ')} <span style={{ fontSize: 10, opacity: 0.6 }}>✕</span>
               </button>

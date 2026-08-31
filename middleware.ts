@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server'
+import { verifyToken, COOKIE_NAME } from '@/lib/adminAuth'
 
 const CSP = [
   "default-src 'self'",
@@ -13,7 +14,16 @@ const CSP = [
   "base-uri 'self'",
 ].join('; ')
 
-export function middleware(_request: NextRequest) {
+export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  if (pathname.startsWith('/admin') && pathname !== '/admin/login') {
+    const token = request.cookies.get(COOKIE_NAME)?.value
+    if (!token || !(await verifyToken(token))) {
+      return NextResponse.redirect(new URL('/admin/login', request.url))
+    }
+  }
+
   const response = NextResponse.next()
   response.headers.set('Content-Security-Policy', CSP)
   return response

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
@@ -34,7 +34,7 @@ function FAQInner() {
   return (
     <>
       {/* Hero */}
-      <section className="r-px r-section-pad" style={{ padding: '64px 48px 52px', borderBottom: '1px solid #212429', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20 }}>
+      <section className="r-px r-section-pad" style={{ padding: '64px 48px 52px', borderBottom: '1px solid #2A2A2A', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20 }}>
         <div>
           <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 18 }}>FAQ</p>
           <h1 className="r-h1" style={{ fontSize: 64, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.92 }}>Questions answered.</h1>
@@ -45,8 +45,8 @@ function FAQInner() {
       </section>
 
       {/* Search bar */}
-      <div className="r-px" style={{ padding: '16px 48px', borderBottom: '1px solid #212429', background: '#09090d' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#111418', border: '1px solid #262a30', padding: '0 16px', maxWidth: 560 }}>
+      <div className="r-px" style={{ padding: '16px 48px', borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#171717', border: '1px solid #2A2A2A', padding: '0 16px', maxWidth: 560 }}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="14" height="14" style={{ color: '#5f6670', flexShrink: 0 }}>
             <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
@@ -60,7 +60,7 @@ function FAQInner() {
               padding: '14px 0',
               background: 'transparent',
               border: 'none',
-              color: '#f2f4f7',
+              color: '#FFFFFF',
               fontSize: 13.5,
               fontFamily: 'inherit',
               outline: 'none',
@@ -112,7 +112,7 @@ function FAQInner() {
         <div className="r-faq" style={{ display: 'flex', minHeight: 560 }}>
 
           {/* Sidebar */}
-          <aside className="r-faq-sidebar" style={{ width: 220, flexShrink: 0, borderRight: '1px solid #212429', background: '#09090d', padding: '40px 0', display: 'flex', flexDirection: 'column' }}>
+          <aside className="r-faq-sidebar" style={{ width: 220, flexShrink: 0, borderRight: '1px solid #2A2A2A', background: '#0B0B0B', padding: '40px 0', display: 'flex', flexDirection: 'column' }}>
             <p className="r-faq-hide-mobile" style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.22em', margin: '0 0 20px', paddingLeft: 40 }}>CATEGORY</p>
             {FAQ_TABS.map(({ id, label }, i) => {
               const active = activeTab === id
@@ -130,7 +130,7 @@ function FAQInner() {
                     padding: '13px 40px',
                     background: 'none',
                     border: 'none',
-                    color: active ? 'var(--accent)' : '#8d95a0',
+                    color: active ? 'var(--accent)' : '#909090',
                     fontSize: 13,
                     fontWeight: active ? 700 : 500,
                     letterSpacing: '-.01em',
@@ -140,7 +140,7 @@ function FAQInner() {
                     transition: 'color .15s',
                   }}
                 >
-                  <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: active ? 'var(--accent)' : '#8d95a0', letterSpacing: '.1em', minWidth: 16 }}>
+                  <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: active ? 'var(--accent)' : '#909090', letterSpacing: '.1em', minWidth: 16 }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   {label}
@@ -149,7 +149,7 @@ function FAQInner() {
             })}
 
             {/* Divider + CTA */}
-            <div className="r-faq-hide-mobile" style={{ borderTop: '1px solid #1e2126', margin: '32px 40px 28px' }} />
+            <div className="r-faq-hide-mobile" style={{ borderTop: '1px solid #1E1E1E', margin: '32px 40px 28px' }} />
             <div className="r-faq-hide-mobile" style={{ padding: '0 40px', display: 'flex', flexDirection: 'column', gap: 12 }}>
               <Link href="/book" className="btn-gold" style={{ padding: '11px 16px', fontSize: 10, letterSpacing: '.18em', textAlign: 'center' }}>Book a consult</Link>
               <Link href="/about#contact" style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.16em', textDecoration: 'none', textAlign: 'center', transition: 'color .15s' }} className="hover-gold">
@@ -161,7 +161,7 @@ function FAQInner() {
           {/* Accordion content */}
           <div className="r-faq-content r-px" style={{ flex: 1, minWidth: 0, padding: '40px 56px 72px' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 32 }}>
-              <h2 style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-.02em', margin: 0, color: '#f2f4f7' }}>
+              <h2 style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-.02em', margin: 0, color: '#FFFFFF' }}>
                 {FAQ_TABS.find(t => t.id === activeTab)?.label}
               </h2>
               <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.16em' }}>
@@ -171,7 +171,7 @@ function FAQInner() {
             <FAQAccordion key={activeTab} items={items} />
 
             {/* Mobile CTA */}
-            <div className="r-faq-mobile-cta" style={{ marginTop: 48, paddingTop: 32, borderTop: '1px solid #1e2126', display: 'none', gap: 12 }}>
+            <div className="r-faq-mobile-cta" style={{ marginTop: 48, paddingTop: 32, borderTop: '1px solid #1E1E1E', display: 'none', gap: 12 }}>
               <Link href="/book" className="btn-gold" style={{ padding: '13px 26px' }}>Book a consult</Link>
               <Link href="/about#contact" className="btn-outline" style={{ padding: '13px 26px' }}>Send a message</Link>
             </div>
@@ -188,7 +188,7 @@ function FAQSkeleton() {
   )
   return (
     <div style={{ minHeight: 560 }}>
-      <div style={{ padding: '64px 48px 52px', borderBottom: '1px solid #212429', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20 }}>
+      <div style={{ padding: '64px 48px 52px', borderBottom: '1px solid #2A2A2A', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {bar('40px', 8, 0.1)}
           {bar('260px', 52, 0.08)}
@@ -196,7 +196,7 @@ function FAQSkeleton() {
         {bar('220px', 40, 0.04)}
       </div>
       <div style={{ display: 'flex', minHeight: 480 }}>
-        <div style={{ width: 220, flexShrink: 0, borderRight: '1px solid #212429', background: '#09090d', padding: '40px 0', display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <div style={{ width: 220, flexShrink: 0, borderRight: '1px solid #2A2A2A', background: '#0B0B0B', padding: '40px 0', display: 'flex', flexDirection: 'column', gap: 10 }}>
           {[80, 60, 72, 90, 100].map((w, i) => (
             <div key={i} style={{ padding: '13px 40px' }}>{bar(`${w}%`, 10, 0.06)}</div>
           ))}
@@ -204,7 +204,7 @@ function FAQSkeleton() {
         <div style={{ flex: 1, padding: '40px 56px', display: 'flex', flexDirection: 'column', gap: 16 }}>
           {bar('140px', 22, 0.08)}
           {[1,2,3,4].map(i => (
-            <div key={i} style={{ padding: '22px 0', borderBottom: '1px solid #1a1d22', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div key={i} style={{ padding: '22px 0', borderBottom: '1px solid #1E1E1E', display: 'flex', flexDirection: 'column', gap: 8 }}>
               {bar('70%', 11, 0.06)}
             </div>
           ))}

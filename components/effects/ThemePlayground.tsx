@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 
 const PRESETS = [
-  { name: 'Red',     accent: '#e03535', hover: '#f04545' },
+  { name: 'Red',     accent: '#B7F000', hover: '#C8FF00' },
   { name: 'Copper',  accent: '#c4714a', hover: '#d4845e' },
   { name: 'Sage',    accent: '#7aad6e', hover: '#8fc082' },
   { name: 'Steel',   accent: '#6b8fae', hover: '#7ea3c0' },
@@ -51,7 +51,7 @@ export default function ThemePlayground() {
       {open && (
         <div style={{
           position: 'absolute', bottom: 44, left: 0,
-          background: '#14161a', border: '1px solid #262a30',
+          background: '#171717', border: '1px solid #2A2A2A',
           padding: '16px', width: 224,
           boxShadow: '0 8px 32px rgba(0,0,0,.6)',
         }}>
@@ -88,19 +88,19 @@ export default function ThemePlayground() {
               type="text"
               value={custom}
               onChange={e => setCustom(e.target.value)}
-              placeholder="#e03535"
+              placeholder="#B7F000"
               maxLength={7}
               style={{
-                flex: 1, background: '#0e1015', border: '1px solid #262a30',
-                color: '#f2f4f7', fontSize: 11, padding: '7px 10px',
+                flex: 1, background: '#0e1015', border: '1px solid #2A2A2A',
+                color: '#FFFFFF', fontSize: 11, padding: '7px 10px',
                 fontFamily: 'inherit', outline: 'none',
               }}
             />
             <button
               onClick={() => applyCustom(custom)}
               style={{
-                background: '#1e2126', border: '1px solid #262a30',
-                color: '#a3aab4', fontSize: 10, letterSpacing: '.1em',
+                background: '#1E1E1E', border: '1px solid #2A2A2A',
+                color: '#A5A5A5', fontSize: 10, letterSpacing: '.1em',
                 padding: '0 10px', cursor: 'pointer', fontFamily: 'inherit',
               }}
             >
@@ -117,7 +117,7 @@ export default function ThemePlayground() {
             }}
             style={{
               marginTop: 10, width: '100%', background: 'none',
-              border: '1px solid #1e2126', color: '#5f6670',
+              border: '1px solid #1E1E1E', color: '#5f6670',
               fontSize: 9, letterSpacing: '.18em', padding: '7px',
               cursor: 'pointer', fontFamily: 'inherit',
             }}

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import type { FAQItem } from '@/lib/types'
 
@@ -10,7 +10,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
       {items.map(({ num, q, a }) => {
         const isOpen = open === num
         return (
-          <div key={num} style={{ borderTop: '1px solid #1e2126' }}>
+          <div key={num} style={{ borderTop: '1px solid #1E1E1E' }}>
             <button
               type="button"
               aria-expanded={isOpen}
@@ -31,7 +31,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
             >
               <span style={{
                 font: '9px/1 ui-monospace,Menlo,monospace',
-                color: isOpen ? 'var(--accent)' : '#8d95a0',
+                color: isOpen ? 'var(--accent)' : '#909090',
                 letterSpacing: '.18em',
                 flexShrink: 0,
                 width: 22,
@@ -47,7 +47,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
                   flex: 1,
                   lineHeight: 1.35,
                   letterSpacing: '-.015em',
-                  color: isOpen ? '#f2f4f7' : '#c2c7ce',
+                  color: isOpen ? '#FFFFFF' : '#A5A5A5',
                   transition: 'color .15s',
                 }}
               >
@@ -57,7 +57,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
                 style={{
                   width: 26,
                   height: 26,
-                  border: `1px solid ${isOpen ? 'var(--accent)' : '#2a2e34'}`,
+                  border: `1px solid ${isOpen ? 'var(--accent)' : '#2A2A2A'}`,
                   display: 'grid',
                   placeItems: 'center',
                   flexShrink: 0,
@@ -86,7 +86,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
                 style={{
                   fontSize: 14.5,
                   lineHeight: 1.75,
-                  color: '#a3aab4',
+                  color: '#A5A5A5',
                   margin: '0 0 26px',
                   paddingLeft: 42,
                   paddingRight: 52,
@@ -98,7 +98,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
           </div>
         )
       })}
-      <div style={{ borderTop: '1px solid #1e2126' }} />
+      <div style={{ borderTop: '1px solid #1E1E1E' }} />
     </div>
   )
 }

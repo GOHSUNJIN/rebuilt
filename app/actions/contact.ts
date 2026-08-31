@@ -8,6 +8,9 @@ import { isValidEmail } from '@/lib/bookData'
 const rateMap = new Map<string, { n: number; resetAt: number }>()
 function checkRate(ip: string): boolean {
   const now = Date.now()
+  if (rateMap.size > 10_000) {
+    for (const [k, v] of rateMap) if (now > v.resetAt) rateMap.delete(k)
+  }
   const e = rateMap.get(ip)
   if (!e || now > e.resetAt) { rateMap.set(ip, { n: 1, resetAt: now + 60_000 }); return true }
   if (e.n >= 5) return false
@@ -15,7 +18,7 @@ function checkRate(ip: string): boolean {
 }
 
 function sanitize(v: FormDataEntryValue | null): string {
-  return String(v ?? '').trim().slice(0, 5000).replace(/[<>"'`]/g, '')
+  return String(v ?? '').trim().slice(0, 5000).replace(/[<>"'`&]/g, '')
 }
 
 export async function submitContact(formData: FormData) {

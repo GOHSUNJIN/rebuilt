@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import type { Step5Props } from './types'
 import StepHeader from './StepHeader'
 
@@ -6,22 +6,22 @@ export default function Step5({ summaryRows, waUrl, gmailUrl, notSureYet }: Step
   return (
     <>
       <StepHeader step={5} heading="Review & send" />
-      <p style={{ fontSize: 15, color: '#a3aab4', marginTop: 0, marginBottom: notSureYet ? 20 : 36 }}>
+      <p style={{ fontSize: 15, color: '#A5A5A5', marginTop: 0, marginBottom: notSureYet ? 20 : 36 }}>
         Check your details, then send your request. We&apos;ll confirm your slot and arrange payment shortly.
       </p>
       {notSureYet && (
-        <div style={{ padding: '14px 18px', background: 'rgba(224,53,53,.07)', border: '1px solid rgba(224,53,53,.2)', marginBottom: 28 }}>
+        <div style={{ padding: '14px 18px', background: 'rgba(183,240,0,.07)', border: '1px solid rgba(183,240,0,.2)', marginBottom: 28 }}>
           <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', margin: '0 0 8px' }}>NOT SURE YET</p>
-          <p style={{ fontSize: 13, color: '#a3aab4', margin: 0, lineHeight: 1.55 }}>No problem. We&apos;ll reach out to find the right programme for you before confirming anything.</p>
+          <p style={{ fontSize: 13, color: '#A5A5A5', margin: 0, lineHeight: 1.55 }}>No problem. We&apos;ll reach out to find the right programme for you before confirming anything.</p>
         </div>
       )}
-      <div style={{ border: '1px solid #1e2126', background: '#111316', padding: '28px 24px', marginBottom: 24 }}>
+      <div style={{ border: '1px solid #1E1E1E', background: '#171717', padding: '28px 24px', marginBottom: 24 }}>
         <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.16em', marginTop: 0, marginBottom: 20 }}>YOUR REQUEST</p>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {summaryRows.map(({ label, value }, i) => (
-            <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 20, padding: '12px 0', borderBottom: i < summaryRows.length - 1 ? '1px solid #1a1d22' : 'none' }}>
+            <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 20, padding: '12px 0', borderBottom: i < summaryRows.length - 1 ? '1px solid #1E1E1E' : 'none' }}>
               <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.14em', flexShrink: 0, paddingTop: 2 }}>{label.toUpperCase()}</span>
-              <span style={{ fontSize: 14, color: '#c2c7ce', textAlign: 'right', lineHeight: 1.5 }}>{value}</span>
+              <span style={{ fontSize: 14, color: '#A5A5A5', textAlign: 'right', lineHeight: 1.5 }}>{value}</span>
             </div>
           ))}
         </div>

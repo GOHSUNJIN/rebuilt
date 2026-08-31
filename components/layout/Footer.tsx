@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -63,10 +63,10 @@ export default function Footer() {
             placeItems: 'center',
             width: size,
             height: size,
-            border: '1px solid #262a30',
+            border: '1px solid #2A2A2A',
             background: 'transparent',
             cursor: 'pointer',
-            color: '#a3aab4',
+            color: '#A5A5A5',
             transition: 'border-color .2s ease,color .2s ease,background .2s ease',
             padding: 0,
           }}
@@ -96,8 +96,8 @@ export default function Footer() {
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
-              background: '#14161a',
-              border: '1px solid #262a30',
+              background: '#171717',
+              border: '1px solid #2A2A2A',
               padding: '32px',
               maxWidth: 340,
               width: '100%',
@@ -106,7 +106,7 @@ export default function Footer() {
             <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', marginTop: 0, marginBottom: 14 }}>
               {target.label.toUpperCase()}
             </p>
-            <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#a3aab4', marginTop: 0, marginBottom: 28 }}>
+            <p style={{ fontSize: 14.5, lineHeight: 1.65, color: '#A5A5A5', marginTop: 0, marginBottom: 28 }}>
               {target.note}
             </p>
             <div style={{ display: 'flex', gap: 10 }}>
@@ -133,11 +133,11 @@ export default function Footer() {
       )}
 
       {/* ── Desktop nav row (hidden on mobile) ─────── */}
-      <div className="r-px r-footer-nav" style={{ borderTop: '1px solid #212429', background: '#0e0f11', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #1e2126' }}>
+      <div className="r-px r-footer-nav" style={{ borderTop: '1px solid #2A2A2A', background: '#0B0B0B', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #1E1E1E' }}>
         {[...NAV_LINKS, { label: 'Book a consult', href: '/book', page: 'book' }].map(({ label, href }) => {
           const active = pathname === href || (href !== '/' && pathname.startsWith(href))
           return (
-            <Link key={label} href={href} style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: active ? 'var(--accent)' : '#8d95a0', letterSpacing: '.16em', textDecoration: 'none', transition: 'color .15s' }} className={active ? '' : 'hover-gold'}>
+            <Link key={label} href={href} style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: active ? 'var(--accent)' : '#909090', letterSpacing: '.16em', textDecoration: 'none', transition: 'color .15s' }} className={active ? '' : 'hover-gold'}>
               {label.toUpperCase()}
             </Link>
           )
@@ -148,7 +148,7 @@ export default function Footer() {
       <footer
         className="r-px r-footer-desktop"
         style={{
-          background: '#0e0f11',
+          background: '#0B0B0B',
           padding: '22px 48px',
           display: 'flex',
           alignItems: 'center',
@@ -161,28 +161,28 @@ export default function Footer() {
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
             <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={28} height={28} style={{ display: 'block' }} />
             <div>
-              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '.28em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT ACADEMY</div>
+              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
               <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
             </div>
           </Link>
-          <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
+          <span style={{ width: 1, height: 22, background: '#2A2A2A', display: 'block' }} />
           <OpenStatus />
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 22, flexWrap: 'wrap' }}>
-          <a href={SITE.contact.phoneTel} style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#7a828e', letterSpacing: '.1em', transition: 'color .15s' }} className="hover-gold">
+          <a href={SITE.contact.phoneTel} style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.1em', transition: 'color .15s' }} className="hover-gold">
             {SITE.contact.phone}
           </a>
-          <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
+          <span style={{ width: 1, height: 22, background: '#2A2A2A', display: 'block' }} />
           <SocialButtons />
           <Link href="/book" className="btn-gold" style={{ padding: '13px 24px' }}>
             Book a consult
           </Link>
-          <span style={{ width: 1, height: 22, background: '#23262b', display: 'block' }} />
-          <Link href="/privacy" style={{ transition: 'color .2s ease', color: '#868e99', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em' }} className="hover-gold">
+          <span style={{ width: 1, height: 22, background: '#2A2A2A', display: 'block' }} />
+          <Link href="/privacy" style={{ transition: 'color .2s ease', color: '#909090', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em' }} className="hover-gold">
             PRIVACY
           </Link>
-          <Link href="/terms" style={{ transition: 'color .2s ease', color: '#868e99', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em' }} className="hover-gold">
+          <Link href="/terms" style={{ transition: 'color .2s ease', color: '#909090', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em' }} className="hover-gold">
             TERMS
           </Link>
           <span suppressHydrationWarning style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.16em', color: '#5f6670' }}>
@@ -196,19 +196,19 @@ export default function Footer() {
         className="r-px r-footer-mobile"
         style={{
           display: 'none',
-          background: '#0e0f11',
-          borderTop: '1px solid #212429',
+          background: '#0B0B0B',
+          borderTop: '1px solid #2A2A2A',
           padding: '18px 20px 22px',
           flexDirection: 'column',
           gap: 0,
         }}
       >
         {/* Row 1: logo + socials */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 16, borderBottom: '1px solid #1e2126' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 16, borderBottom: '1px solid #1E1E1E' }}>
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={24} height={24} style={{ display: 'block' }} />
             <div>
-              <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '.34em', color: '#f2f4f7', lineHeight: 1 }}>REBUILT</div>
+              <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '.34em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT</div>
               <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
             </div>
           </Link>
@@ -217,10 +217,10 @@ export default function Footer() {
 
         {/* Row 2: legal */}
         <div style={{ display: 'flex', alignItems: 'center', paddingTop: 14 }}>
-          <Link href="/privacy" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#868e99', letterSpacing: '.14em', textDecoration: 'none', marginRight: 20 }} className="hover-gold">
+          <Link href="/privacy" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.14em', textDecoration: 'none', marginRight: 20 }} className="hover-gold">
             PRIVACY
           </Link>
-          <Link href="/terms" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#868e99', letterSpacing: '.14em', textDecoration: 'none' }} className="hover-gold">
+          <Link href="/terms" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.14em', textDecoration: 'none' }} className="hover-gold">
             TERMS
           </Link>
           <span suppressHydrationWarning style={{ marginLeft: 'auto', font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.12em', color: '#5f6670' }}>

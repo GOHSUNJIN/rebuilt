@@ -29,7 +29,7 @@ export default function LocationMap() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       {/* Tab bar */}
-      <div style={{ display: 'flex', background: '#0b0c0e', borderBottom: '1px solid #1e2126', flexShrink: 0 }}>
+      <div style={{ display: 'flex', background: '#0B0B0B', borderBottom: '1px solid #1E1E1E', flexShrink: 0 }}>
         {LOCATIONS.map(({ label, address }, i) => (
           <button
             key={label}
@@ -43,7 +43,7 @@ export default function LocationMap() {
               transition: 'all .15s',
             }}
           >
-            <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: active === i ? 'var(--accent)' : '#8d95a0', letterSpacing: '.2em', margin: '0 0 3px', fontWeight: 700 }}>
+            <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: active === i ? 'var(--accent)' : '#909090', letterSpacing: '.2em', margin: '0 0 3px', fontWeight: 700 }}>
               {label.toUpperCase()}
             </p>
             <p style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: active === i ? '#6f7783' : '#5f6670', letterSpacing: '.1em', margin: 0 }}>
@@ -64,6 +64,7 @@ export default function LocationMap() {
           style={{ border: 0, display: 'block', width: '100%', height: '100%' }}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          sandbox="allow-scripts allow-same-origin allow-popups"
         />
         <a
           href={loc.directionsHref}
@@ -73,7 +74,7 @@ export default function LocationMap() {
             position: 'absolute', bottom: 12, right: 12,
             font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)',
             letterSpacing: '.16em', background: 'rgba(11,12,14,.92)',
-            border: '1px solid #262a30', padding: '8px 12px',
+            border: '1px solid #2A2A2A', padding: '8px 12px',
             textDecoration: 'none', zIndex: 1, backdropFilter: 'blur(4px)',
           }}
         >

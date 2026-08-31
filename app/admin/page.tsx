@@ -419,13 +419,13 @@ function SetupGuide() {
           <span style={{ color: '#C9A84C' }}>ADMIN_SECRET</span>=random_32char_string
         </div>
         <div style={{ marginTop: 8 }}>
-          <span style={{ color: '#C9A84C' }}>VERCEL_ACCESS_TOKEN</span>=your_token
+          <span style={{ color: '#C9A84C' }}>VA_TOKEN</span>=your_vercel_api_token
         </div>
         <div>
-          <span style={{ color: '#C9A84C' }}>VERCEL_PROJECT_ID</span>=your_project_id
+          <span style={{ color: '#C9A84C' }}>VA_PROJECT_ID</span>=prj_xxxxxxxxxxxx
         </div>
         <div>
-          <span style={{ color: '#505050' }}>VERCEL_TEAM_ID</span>=
+          <span style={{ color: '#505050' }}>VA_TEAM_ID</span>=
           <span style={{ color: '#505050' }}>optional_team_id</span>
         </div>
       </div>

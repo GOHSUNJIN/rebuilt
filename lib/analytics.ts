@@ -2,7 +2,7 @@ const BASE = 'https://api.vercel.com'
 
 function authHeaders() {
   return {
-    Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}`,
+    Authorization: `Bearer ${process.env.VA_TOKEN}`,
     'Content-Type': 'application/json',
   }
 }
@@ -11,12 +11,12 @@ function buildParams(days: number, extra: Record<string, string> = {}): URLSearc
   const since = new Date(Date.now() - days * 86_400_000).toISOString()
   const until = new Date().toISOString()
   const p = new URLSearchParams({
-    projectId: process.env.VERCEL_PROJECT_ID ?? '',
+    projectId: process.env.VA_PROJECT_ID ?? '',
     since,
     until,
     ...extra,
   })
-  if (process.env.VERCEL_TEAM_ID) p.set('teamId', process.env.VERCEL_TEAM_ID)
+  if (process.env.VA_TEAM_ID) p.set('teamId', process.env.VA_TEAM_ID)
   return p
 }
 
@@ -25,7 +25,10 @@ async function vercelGet(path: string, params: URLSearchParams) {
     headers: authHeaders(),
     next: { revalidate: 300 },
   })
-  if (!res.ok) return null
+  if (!res.ok) {
+    console.error(`Vercel Analytics API ${res.status}:`, path, await res.text().catch(() => ''))
+    return null
+  }
   return res.json() as Promise<{ data: unknown }>
 }
 
@@ -73,7 +76,7 @@ export interface AnalyticsData {
 type Row = Record<string, unknown>
 
 export async function fetchAnalytics(days = 30): Promise<AnalyticsData | null> {
-  if (!process.env.VERCEL_ACCESS_TOKEN || !process.env.VERCEL_PROJECT_ID) return null
+  if (!process.env.VA_TOKEN || !process.env.VA_PROJECT_ID) return null
 
   const [totalsJson, pagesJson, devicesJson, dailyJson, eventsJson, referrersJson] = await Promise.all([
     vercelGet('/v1/query/web-analytics/visits/count', buildParams(days)),

@@ -1,6 +1,29 @@
 'use client'
 import { useState } from 'react'
+import { useFormStatus } from 'react-dom'
 import { loginAction } from '@/app/actions/admin'
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+  return (
+    <button
+      type="submit"
+      className="btn-gold"
+      disabled={pending}
+      style={{
+        padding: '16px',
+        marginTop: 4,
+        fontSize: 12,
+        letterSpacing: '.16em',
+        opacity: pending ? 0.7 : 1,
+        transition: 'opacity .2s',
+        cursor: pending ? 'not-allowed' : 'pointer',
+      }}
+    >
+      {pending ? 'SIGNING IN...' : 'SIGN IN'}
+    </button>
+  )
+}
 
 const INPUT: React.CSSProperties = {
   width: '100%',
@@ -87,13 +110,7 @@ export default function LoginForm({ error }: { error: boolean }) {
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="btn-gold"
-        style={{ padding: '16px', marginTop: 4, fontSize: 12, letterSpacing: '.16em' }}
-      >
-        SIGN IN
-      </button>
+      <SubmitButton />
 
     </form>
   )

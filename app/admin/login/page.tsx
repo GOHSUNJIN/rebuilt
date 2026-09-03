@@ -11,164 +11,139 @@ export default async function LoginPage({
   const { error } = await searchParams
 
   return (
-    <>
-      <style>{`
-        .admin-input { transition: border-color .15s; }
-        .admin-input:focus { border-color: #C9A84C !important; outline: none; box-shadow: 0 0 0 3px rgba(201,168,76,.1); }
-        .admin-submit:hover { filter: brightness(1.1); }
-        .admin-submit:active { filter: brightness(.95); }
-      `}</style>
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        padding: '24px',
+      }}
+    >
+      <div style={{ width: '100%', maxWidth: 400 }}>
 
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '100vh',
-          padding: 24,
-          background: '#0B0C0E',
-        }}
-      >
-        <div style={{ width: '100%', maxWidth: 380 }}>
+        {/* Brand */}
+        <p
+          style={{
+            font: '10px/1 ui-monospace,Menlo,monospace',
+            letterSpacing: '.28em',
+            color: 'var(--accent)',
+            margin: '0 0 48px',
+          }}
+        >
+          REBUILT ACADEMY
+        </p>
 
-          {/* Brand mark */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 52 }}>
-            <div
+        <h1
+          style={{
+            fontSize: 40,
+            fontWeight: 800,
+            lineHeight: 0.95,
+            letterSpacing: '-.03em',
+            margin: '0 0 14px',
+            color: '#fff',
+          }}
+        >
+          Admin access.
+        </h1>
+        <p
+          style={{
+            fontSize: 15,
+            lineHeight: 1.6,
+            color: '#A5A5A5',
+            margin: '0 0 40px',
+          }}
+        >
+          Restricted area. Authorised personnel only.
+        </p>
+
+        {error && (
+          <div
+            style={{
+              background: 'rgba(220,60,60,.07)',
+              border: '1px solid rgba(220,60,60,.22)',
+              padding: '13px 18px',
+              marginBottom: 28,
+              fontSize: 13,
+              lineHeight: 1.5,
+              color: '#f87171',
+            }}
+          >
+            Invalid username or password.
+          </div>
+        )}
+
+        <form action={loginAction} style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+          <div>
+            <label
+              htmlFor="username"
               style={{
-                width: 32,
-                height: 32,
-                border: '1px solid #C9A84C',
-                borderRadius: 7,
-                display: 'grid',
-                placeItems: 'center',
+                display: 'block',
+                font: '9px/1 ui-monospace,Menlo,monospace',
+                letterSpacing: '.2em',
+                color: '#A5A5A5',
+                marginBottom: 10,
               }}
             >
-              <div style={{ width: 10, height: 10, background: '#C9A84C', borderRadius: 2 }} />
-            </div>
-            <p
+              USERNAME
+            </label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              autoComplete="username"
+              required
               style={{
-                font: '10px/1 ui-monospace,Menlo,monospace',
-                letterSpacing: '.25em',
-                color: '#C9A84C',
-                margin: 0,
+                width: '100%',
+                background: '#111',
+                border: '1px solid #2A2A2A',
+                padding: '14px 16px',
+                fontSize: 14,
+                color: '#fff',
               }}
-            >
-              REBUILT ACADEMY
-            </p>
+            />
           </div>
 
-          <h1 style={{ font: '700 28px/1.05 inherit', color: '#fff', margin: '0 0 10px' }}>
-            Admin access
-          </h1>
-          <p style={{ font: '14px/1.5 inherit', color: '#4A4A4A', margin: '0 0 36px' }}>
-            Restricted area. Authorised personnel only.
-          </p>
-
-          {error && (
-            <div
+          <div>
+            <label
+              htmlFor="password"
               style={{
-                background: 'rgba(220,60,60,.07)',
-                border: '1px solid rgba(220,60,60,.22)',
-                borderRadius: 8,
-                padding: '13px 16px',
-                marginBottom: 28,
-                font: '13px/1.4 inherit',
-                color: '#f87171',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
+                display: 'block',
+                font: '9px/1 ui-monospace,Menlo,monospace',
+                letterSpacing: '.2em',
+                color: '#A5A5A5',
+                marginBottom: 10,
               }}
             >
-              <span>Invalid username or password.</span>
-            </div>
-          )}
-
-          <form action={loginAction} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <div>
-              <label
-                htmlFor="username"
-                style={{
-                  display: 'block',
-                  font: '9px/1 ui-monospace,Menlo,monospace',
-                  letterSpacing: '.2em',
-                  color: '#505050',
-                  marginBottom: 10,
-                }}
-              >
-                USERNAME
-              </label>
-              <input
-                id="username"
-                name="username"
-                type="text"
-                autoComplete="username"
-                required
-                className="admin-input"
-                style={{
-                  width: '100%',
-                  background: '#111315',
-                  border: '1px solid #222426',
-                  borderRadius: 8,
-                  padding: '13px 15px',
-                  font: '14px/1 inherit',
-                  color: '#fff',
-                }}
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="password"
-                style={{
-                  display: 'block',
-                  font: '9px/1 ui-monospace,Menlo,monospace',
-                  letterSpacing: '.2em',
-                  color: '#505050',
-                  marginBottom: 10,
-                }}
-              >
-                PASSWORD
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                className="admin-input"
-                style={{
-                  width: '100%',
-                  background: '#111315',
-                  border: '1px solid #222426',
-                  borderRadius: 8,
-                  padding: '13px 15px',
-                  font: '14px/1 inherit',
-                  color: '#fff',
-                }}
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="admin-submit"
+              PASSWORD
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autoComplete="current-password"
+              required
               style={{
-                marginTop: 6,
-                background: '#C9A84C',
-                color: '#0B0C0E',
-                border: 'none',
-                borderRadius: 8,
-                padding: '15px',
-                font: '600 13px/1 inherit',
-                letterSpacing: '.07em',
-                cursor: 'pointer',
-                transition: 'filter .15s',
+                width: '100%',
+                background: '#111',
+                border: '1px solid #2A2A2A',
+                padding: '14px 16px',
+                fontSize: 14,
+                color: '#fff',
               }}
-            >
-              SIGN IN
-            </button>
-          </form>
-        </div>
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="btn-gold"
+            style={{ padding: '16px', marginTop: 4, fontSize: 12, letterSpacing: '.16em' }}
+          >
+            SIGN IN
+          </button>
+        </form>
+
       </div>
-    </>
+    </div>
   )
 }

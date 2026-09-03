@@ -105,7 +105,7 @@ export default function PrivacyPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, flexShrink: 0 }} className="r-hide">
               {[
-                { label: 'LAST UPDATED', value: '4 AUG 2026' },
+                { label: 'LAST UPDATED', value: '31 AUG 2026' },
                 { label: 'JURISDICTION', value: 'Singapore · PDPA' },
                 { label: 'SECTIONS', value: '8' },
               ].map(({ label, value }) => (

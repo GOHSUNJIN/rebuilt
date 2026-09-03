@@ -1,6 +1,7 @@
 'use server'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { revalidatePath } from 'next/cache'
 import { createHash, timingSafeEqual } from 'crypto'
 import { signToken, COOKIE_NAME, MAX_AGE_S } from '@/lib/adminAuth'
 
@@ -39,6 +40,11 @@ export async function loginAction(formData: FormData) {
 export async function logoutAction() {
   ;(await cookies()).delete(COOKIE_NAME)
   redirect('/admin/login')
+}
+
+export async function refreshAdminAction() {
+  revalidatePath('/admin')
+  redirect('/admin')
 }
 
 export async function setPeriodAction(formData: FormData) {

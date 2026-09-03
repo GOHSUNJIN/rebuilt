@@ -513,7 +513,72 @@ p { text-wrap: pretty; }
   .whatsapp-btn    { display: none !important; }
   body             { padding-bottom: 86px; }
   body:has(.book-page-root) { padding-bottom: 0 !important; }
+  body:has(.admin-page)     { padding-bottom: 0 !important; }
   body:has(.book-page-root) .mobile-book-bar { display: none !important; }
+
+  /* ── Admin page mobile ─── */
+  .admin-header      { padding: 0 16px !important; }
+  .admin-wordmark    { display: none !important; }
+  .admin-refresh-hide { display: none !important; }
+  .admin-period-btn  { padding: 10px 12px !important; }
+  .admin-signout-btn { padding: 10px 12px !important; font-size: 10px !important; }
+
+  /* Stat cards: horizontal snap-scroll strip */
+  .admin-stat-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    grid-template-columns: unset !important;
+  }
+  .admin-stat-scroll::-webkit-scrollbar { display: none; }
+  .admin-stat-scroll .admin-stat-card {
+    flex: 0 0 190px !important;
+    scroll-snap-align: start !important;
+    padding: 24px 20px !important;
+  }
+  .admin-stat-scroll .admin-stat-num { font-size: 38px !important; }
+
+  /* Chart: reduce height */
+  .admin-chart      { padding: 24px 20px 18px !important; }
+  .admin-chart-bars { height: 110px !important; }
+
+  /* Rows → horizontal snap-scroll cards (top pages, events, referrers) */
+  .admin-rows-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+  }
+  .admin-rows-scroll::-webkit-scrollbar { display: none; }
+  .admin-rows-scroll .admin-bar-row {
+    flex: 0 0 150px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    border-bottom: none !important;
+    border-right: 1px solid #1E1E1E !important;
+    padding: 14px 16px !important;
+    gap: 10px !important;
+    scroll-snap-align: start !important;
+    min-width: 0 !important;
+  }
+  .admin-rows-scroll .admin-bar-row:last-child { border-right: none !important; }
+  .admin-rows-scroll .admin-bar-label {
+    flex: unset !important;
+    width: 100% !important;
+    white-space: normal !important;
+    font-size: 11px !important;
+  }
+  .admin-rows-scroll .admin-bar-track {
+    flex: unset !important;
+    width: 100% !important;
+    height: 2px !important;
+  }
+  .admin-rows-scroll .admin-bar-value {
+    flex: unset !important;
+    text-align: left !important;
+  }
+  .admin-page-visitors { display: none !important; }
 
   /* ── Book page ─── */
   .book-page-nav   { padding-top: 14px !important; padding-bottom: 14px !important; }

@@ -96,7 +96,7 @@ export default function TermsPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, flexShrink: 0 }} className="r-hide">
               {[
-                { label: 'LAST UPDATED', value: '4 AUG 2026' },
+                { label: 'LAST UPDATED', value: '31 AUG 2026' },
                 { label: 'JURISDICTION', value: 'Singapore Law' },
                 { label: 'SECTIONS', value: '10' },
               ].map(({ label, value }) => (

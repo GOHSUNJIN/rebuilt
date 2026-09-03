@@ -34,10 +34,10 @@ const MONO_LABEL: React.CSSProperties = {
 
 function StatCard({ title, value, sub }: { title: string; value: string; sub?: string }) {
   return (
-    <div style={{ background: '#171717', padding: '36px 32px' }}>
+    <div className="admin-stat-card" style={{ background: '#171717', padding: '36px 32px' }}>
       <p style={MONO_LABEL}>{title}</p>
       <p
-        className="gradient-gold"
+        className="gradient-gold admin-stat-num"
         style={{
           fontSize: 52,
           fontWeight: 800,
@@ -96,7 +96,7 @@ function BarRow({
 }) {
   return (
     <div
-      className="hover-approach r-px"
+      className="hover-approach r-px admin-bar-row"
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -106,6 +106,7 @@ function BarRow({
       }}
     >
       <div
+        className="admin-bar-label"
         style={{
           flex: '0 0 160px',
           fontSize: 13,
@@ -120,6 +121,7 @@ function BarRow({
         {label}
       </div>
       <div
+        className="admin-bar-track"
         style={{
           flex: 1,
           height: 4,
@@ -136,6 +138,7 @@ function BarRow({
         />
       </div>
       <div
+        className="admin-bar-value"
         style={{
           flex: '0 0 48px',
           textAlign: 'right',
@@ -159,44 +162,47 @@ function TopPages({ pages }: { pages: AnalyticsData['topPages'] }) {
           No data yet.
         </p>
       ) : (
-        pages.map(p => (
-          <div
-            key={p.requestPath}
-            className="hover-approach r-px"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 20,
-              padding: '13px 48px',
-              borderBottom: '1px solid #1E1E1E',
-            }}
-          >
+        <div className="admin-rows-scroll">
+          {pages.map(p => (
             <div
+              key={p.requestPath}
+              className="hover-approach r-px admin-bar-row"
               style={{
-                flex: '0 0 160px',
-                font: '13px/1 ui-monospace,Menlo,monospace',
-                color: 'var(--accent)',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 20,
+                padding: '13px 48px',
+                borderBottom: '1px solid #1E1E1E',
               }}
-              title={p.requestPath}
             >
-              {PAGE_LABELS[p.requestPath] ?? p.requestPath}
+              <div
+                className="admin-bar-label"
+                style={{
+                  flex: '0 0 160px',
+                  font: '13px/1 ui-monospace,Menlo,monospace',
+                  color: 'var(--accent)',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                }}
+                title={p.requestPath}
+              >
+                {PAGE_LABELS[p.requestPath] ?? p.requestPath}
+              </div>
+              <div className="admin-bar-track" style={{ flex: 1, height: 4, background: '#1E1E1E', overflow: 'hidden' }}>
+                <div style={{ height: '100%', width: `${(p.pageviews / max) * 100}%`, background: 'var(--accent)' }} />
+              </div>
+              <div className="admin-bar-value" style={{ flex: '0 0 130px', textAlign: 'right' }}>
+                <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5' }}>
+                  {fmt(p.pageviews)} views
+                </span>
+                <span className="admin-page-visitors" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', marginLeft: 10 }}>
+                  {fmt(p.visitors)} visitors
+                </span>
+              </div>
             </div>
-            <div style={{ flex: 1, height: 4, background: '#1E1E1E', overflow: 'hidden' }}>
-              <div style={{ height: '100%', width: `${(p.pageviews / max) * 100}%`, background: 'var(--accent)' }} />
-            </div>
-            <div style={{ flex: '0 0 130px', textAlign: 'right' }}>
-              <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5' }}>
-                {fmt(p.pageviews)} views
-              </span>
-              <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', marginLeft: 10 }}>
-                {fmt(p.visitors)} visitors
-              </span>
-            </div>
-          </div>
-        ))
+          ))}
+        </div>
       )}
     </section>
   )
@@ -240,7 +246,7 @@ function DailyChart({ daily }: { daily: AnalyticsData['daily'] }) {
 
   return (
     <section
-      className="r-px"
+      className="r-px admin-chart"
       style={{ padding: '36px 48px 32px', borderBottom: '1px solid #2A2A2A' }}
     >
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 28 }}>
@@ -251,7 +257,7 @@ function DailyChart({ daily }: { daily: AnalyticsData['daily'] }) {
           </p>
         )}
       </div>
-      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 180 }}>
+      <div className="admin-chart-bars" style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 180 }}>
         {daily.length === 0 ? (
           <p style={{ fontSize: 14, color: '#5f6670', margin: 0, lineHeight: 1.6 }}>No data yet.</p>
         ) : (
@@ -307,15 +313,17 @@ function Events({ events }: { events: AnalyticsData['events'] }) {
           No events yet. Appears once users interact with the site.
         </p>
       ) : (
-        events.map(e => (
-          <BarRow
-            key={e.eventName}
-            label={EVENT_LABELS[e.eventName] ?? e.eventName}
-            value={fmt(e.count)}
-            pct={(e.count / max) * 100}
-            barColor="#4ade80"
-          />
-        ))
+        <div className="admin-rows-scroll">
+          {events.map(e => (
+            <BarRow
+              key={e.eventName}
+              label={EVENT_LABELS[e.eventName] ?? e.eventName}
+              value={fmt(e.count)}
+              pct={(e.count / max) * 100}
+              barColor="#4ade80"
+            />
+          ))}
+        </div>
       )}
     </div>
   )
@@ -336,16 +344,18 @@ function Referrers({ referrers }: { referrers: AnalyticsData['referrers'] }) {
           No referrer data yet.
         </p>
       ) : (
-        referrers.map(r => (
-          <BarRow
-            key={r.referrerHostname}
-            label={r.referrerHostname}
-            value={fmt(r.pageviews)}
-            pct={(r.pageviews / max) * 100}
-            barColor="var(--accent)"
-            labelStyle={{ font: '13px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)' }}
-          />
-        ))
+        <div className="admin-rows-scroll">
+          {referrers.map(r => (
+            <BarRow
+              key={r.referrerHostname}
+              label={r.referrerHostname}
+              value={fmt(r.pageviews)}
+              pct={(r.pageviews / max) * 100}
+              barColor="var(--accent)"
+              labelStyle={{ font: '13px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)' }}
+            />
+          ))}
+        </div>
       )}
     </div>
   )
@@ -427,6 +437,7 @@ export default async function AdminPage() {
     <>
       {/* Header — mirrors Navbar proportions */}
       <header
+        className="admin-header"
         style={{
           height: 70,
           borderBottom: '1px solid #1E1E1E',
@@ -446,7 +457,7 @@ export default async function AdminPage() {
         {/* Logo — identical treatment to Navbar */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, textDecoration: 'none', flexShrink: 0 }}>
           <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
-          <div>
+          <div className="admin-wordmark">
             <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.28em', color: '#fff', lineHeight: 1 }}>
               REBUILT ACADEMY
             </div>
@@ -464,6 +475,7 @@ export default async function AdminPage() {
                 <input type="hidden" name="period" value={p} />
                 <button
                   type="submit"
+                  className="admin-period-btn"
                   style={{
                     display: 'block',
                     padding: '10px 18px',
@@ -482,14 +494,16 @@ export default async function AdminPage() {
             ))}
           </div>
 
-          {/* Refresh */}
-          <RefreshButton />
+          {/* Refresh — hidden on mobile */}
+          <div className="admin-refresh-hide">
+            <RefreshButton />
+          </div>
 
           {/* Logout */}
           <form action={logoutAction}>
             <button
               type="submit"
-              className="btn-outline"
+              className="btn-outline admin-signout-btn"
               style={{ padding: '10px 18px', fontSize: 11, letterSpacing: '.16em' }}
             >
               SIGN OUT
@@ -505,7 +519,7 @@ export default async function AdminPage() {
           {/* Stat cards */}
           <section style={{ borderBottom: '1px solid #2A2A2A' }}>
             <div
-              className="r4"
+              className="r4 admin-stat-scroll"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, 1fr)',

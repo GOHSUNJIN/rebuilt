@@ -1,11 +1,14 @@
 ﻿'use client'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { track } from '@vercel/analytics'
 import { SITE } from '@/lib/site'
 
 export default function Done() {
-  useEffect(() => { track('booking_complete') }, [])
+  const tracked = useRef(false)
+  useEffect(() => {
+    if (!tracked.current) { tracked.current = true; track('booking_complete') }
+  }, [])
 
   return (
     <div style={{ textAlign: 'center', paddingTop: 40 }}>

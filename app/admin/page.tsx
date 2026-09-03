@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
-import { logoutAction, setPeriodAction } from '@/app/actions/admin'
+import { logoutAction } from '@/app/actions/admin'
 import { fetchAnalytics } from '@/lib/analytics'
 import type { AnalyticsData, DailyStat, DOWStat } from '@/lib/analytics'
 import RefreshButton from './_components/RefreshButton'
@@ -56,6 +56,10 @@ function fmtShort(iso: string) {
   return new Date(iso).toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' })
 }
 
+function roundToHour(ms: number): string {
+  return new Date(Math.floor(ms / 3_600_000) * 3_600_000).toISOString()
+}
+
 function StatCard({ title, value, sub }: { title: string; value: string; sub?: string }) {
   return (
     <div className="admin-stat-card" style={{ background: '#171717', padding: '36px 32px' }}>
@@ -76,14 +80,7 @@ function StatCard({ title, value, sub }: { title: string; value: string; sub?: s
         {value}
       </p>
       {sub && (
-        <p
-          style={{
-            font: '10px/1 ui-monospace,Menlo,monospace',
-            color: '#5f6670',
-            margin: '12px 0 0',
-            letterSpacing: '.14em',
-          }}
-        >
+        <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', margin: '12px 0 0', letterSpacing: '.14em' }}>
           {sub}
         </p>
       )}
@@ -100,58 +97,28 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 function BarRow({
-  label,
-  value,
-  pct,
-  barColor,
-  labelStyle,
+  label, value, pct, barColor, labelStyle,
 }: {
-  label: string
-  value: string
-  pct: number
-  barColor: string
-  labelStyle?: React.CSSProperties
+  label: string; value: string; pct: number; barColor: string; labelStyle?: React.CSSProperties
 }) {
   return (
     <div
       className="hover-approach r-px admin-bar-row"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 20,
-        padding: '13px 48px',
-        borderBottom: '1px solid #1E1E1E',
-      }}
+      style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '13px 48px', borderBottom: '1px solid #1E1E1E' }}
     >
       <div
         className="admin-bar-label"
-        style={{
-          flex: '0 0 160px',
-          fontSize: 13,
-          color: '#A5A5A5',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          ...labelStyle,
-        }}
+        style={{ flex: '0 0 160px', fontSize: 13, color: '#A5A5A5', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', ...labelStyle }}
         title={label}
       >
         {label}
       </div>
-      <div
-        className="admin-bar-track"
-        style={{ flex: 1, height: 4, background: '#1E1E1E', overflow: 'hidden' }}
-      >
+      <div className="admin-bar-track" style={{ flex: 1, height: 4, background: '#1E1E1E', overflow: 'hidden' }}>
         <div style={{ height: '100%', width: `${pct}%`, background: barColor }} />
       </div>
       <div
         className="admin-bar-value"
-        style={{
-          flex: '0 0 48px',
-          textAlign: 'right',
-          font: '11px/1 ui-monospace,Menlo,monospace',
-          color: '#5f6670',
-        }}
+        style={{ flex: '0 0 48px', textAlign: 'right', font: '11px/1 ui-monospace,Menlo,monospace', color: '#5f6670' }}
       >
         {value}
       </div>
@@ -165,33 +132,18 @@ function TopPages({ pages }: { pages: AnalyticsData['topPages'] }) {
     <section style={{ borderBottom: '1px solid #2A2A2A' }}>
       <SectionLabel>TOP PAGES</SectionLabel>
       {pages.length === 0 ? (
-        <p className="r-px" style={{ padding: '24px 48px', fontSize: 14, color: '#5f6670', margin: 0, lineHeight: 1.6 }}>
-          No data yet.
-        </p>
+        <p className="r-px" style={{ padding: '24px 48px', fontSize: 14, color: '#5f6670', margin: 0, lineHeight: 1.6 }}>No data yet.</p>
       ) : (
         <div className="admin-rows-scroll">
           {pages.map(p => (
             <div
               key={p.requestPath}
               className="hover-approach r-px admin-bar-row"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 20,
-                padding: '13px 48px',
-                borderBottom: '1px solid #1E1E1E',
-              }}
+              style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '13px 48px', borderBottom: '1px solid #1E1E1E' }}
             >
               <div
                 className="admin-bar-label"
-                style={{
-                  flex: '0 0 160px',
-                  font: '13px/1 ui-monospace,Menlo,monospace',
-                  color: 'var(--accent)',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  whiteSpace: 'nowrap',
-                }}
+                style={{ flex: '0 0 160px', font: '13px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
                 title={p.requestPath}
               >
                 {PAGE_LABELS[p.requestPath] ?? p.requestPath}
@@ -200,12 +152,8 @@ function TopPages({ pages }: { pages: AnalyticsData['topPages'] }) {
                 <div style={{ height: '100%', width: `${(p.pageviews / max) * 100}%`, background: 'var(--accent)' }} />
               </div>
               <div className="admin-bar-value" style={{ flex: '0 0 130px', textAlign: 'right' }}>
-                <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5' }}>
-                  {fmt(p.pageviews)} views
-                </span>
-                <span className="admin-page-visitors" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', marginLeft: 10 }}>
-                  {fmt(p.visitors)} visitors
-                </span>
+                <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5' }}>{fmt(p.pageviews)} views</span>
+                <span className="admin-page-visitors" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', marginLeft: 10 }}>{fmt(p.visitors)} visitors</span>
               </div>
             </div>
           ))}
@@ -221,9 +169,7 @@ function Devices({ devices }: { devices: AnalyticsData['devices'] }) {
     <section>
       <SectionLabel>DEVICES</SectionLabel>
       {devices.length === 0 ? (
-        <p className="r-px" style={{ padding: '24px 48px', fontSize: 14, color: '#5f6670', margin: 0, lineHeight: 1.6 }}>
-          No data yet.
-        </p>
+        <p className="r-px" style={{ padding: '24px 48px', fontSize: 14, color: '#5f6670', margin: 0, lineHeight: 1.6 }}>No data yet.</p>
       ) : (
         devices.map(d => {
           const pct = Math.round((d.pageviews / total) * 100)
@@ -337,31 +283,36 @@ function SetupGuide() {
   )
 }
 
-export default async function AdminPage() {
-  const cookieStore = await cookies()
+export default async function AdminPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ p?: string; since?: string; until?: string }>
+}) {
+  // Auth check (cookies still needed for session)
+  await cookies()
 
-  const period = cookieStore.get('rebuilt_period')?.value
-  const isCustom = period === 'custom'
-  const days = isCustom ? null : Math.min(Math.max(Number(period) || 30, 7), 90)
+  const { p, since: sinceParam, until: untilParam } = await searchParams
 
-  const customSince = cookieStore.get('rebuilt_since')?.value
-  const customUntil = cookieStore.get('rebuilt_until')?.value
+  const isCustom = p === 'custom'
+  const days = isCustom ? null : Math.min(Math.max(Number(p) || 30, 7), 90)
 
-  const since = isCustom && customSince
-    ? customSince
-    : new Date(Date.now() - (days ?? 30) * 86_400_000).toISOString()
-  const until = isCustom && customUntil
-    ? customUntil
-    : new Date().toISOString()
+  // Round to nearest hour so fetch URLs stay the same within a 1-hour window → cache hits
+  const since = isCustom && sinceParam
+    ? new Date(sinceParam + 'T00:00:00.000Z').toISOString()
+    : roundToHour(Date.now() - (days ?? 30) * 86_400_000)
+
+  const until = isCustom && untilParam
+    ? new Date(untilParam + 'T23:59:59.999Z').toISOString()
+    : roundToHour(Date.now())
 
   const data = await fetchAnalytics(since, until)
 
-  const rangeDays = isCustom && customSince && customUntil
-    ? Math.max(1, Math.round((new Date(customUntil).getTime() - new Date(customSince).getTime()) / 86_400_000))
+  const rangeDays = isCustom && sinceParam && untilParam
+    ? Math.max(1, Math.round((new Date(untilParam).getTime() - new Date(sinceParam).getTime()) / 86_400_000))
     : days ?? 30
 
-  const rangeLabel = isCustom && customSince && customUntil
-    ? `${fmtShort(customSince)} – ${fmtShort(customUntil)}`
+  const rangeLabel = isCustom && sinceParam && untilParam
+    ? `${fmtShort(since)} – ${fmtShort(until)}`
     : `LAST ${days} DAYS`
 
   const avgDaily = data ? Math.round(data.totals.pageviews / rangeDays) : 0
@@ -414,30 +365,30 @@ export default async function AdminPage() {
         </Link>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          {/* Period tabs */}
+          {/* Period tabs — Links, no form POST */}
           <div style={{ display: 'flex', gap: 1, background: '#2A2A2A' }}>
-            {PERIOD_TABS.map(({ value, label }) => (
-              <form key={value} action={setPeriodAction} style={{ margin: 0 }}>
-                <input type="hidden" name="period" value={value} />
-                <button
-                  type="submit"
+            {PERIOD_TABS.map(({ value, label }) => {
+              const active = activePeriod === value
+              return (
+                <Link
+                  key={value}
+                  href={`/admin?p=${value}`}
                   className="admin-period-btn"
                   style={{
                     display: 'block',
                     padding: '10px 18px',
                     font: '10px/1 ui-monospace,Menlo,monospace',
                     letterSpacing: '.14em',
-                    background: activePeriod === value ? 'var(--accent)' : '#171717',
-                    color: activePeriod === value ? '#0B0B0B' : '#909090',
-                    fontWeight: activePeriod === value ? 700 : 400,
-                    border: 'none',
-                    cursor: 'pointer',
+                    background: active ? 'var(--accent)' : '#171717',
+                    color: active ? '#0B0B0B' : '#909090',
+                    fontWeight: active ? 700 : 400,
+                    textDecoration: 'none',
                   }}
                 >
                   {label}
-                </button>
-              </form>
-            ))}
+                </Link>
+              )
+            })}
           </div>
 
           <div className="admin-refresh-hide">
@@ -473,7 +424,7 @@ export default async function AdminPage() {
           <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', flexShrink: 0 }}>
             DATE RANGE
           </span>
-          <DateRangePicker currentSince={customSince} currentUntil={customUntil} />
+          <DateRangePicker currentSince={sinceParam} currentUntil={untilParam} />
         </div>
       )}
 
@@ -485,12 +436,7 @@ export default async function AdminPage() {
           <section style={{ borderBottom: '1px solid #2A2A2A' }}>
             <div
               className="r4 admin-stat-scroll"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
-                gap: 2,
-                background: '#2A2A2A',
-              }}
+              style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, background: '#2A2A2A' }}
             >
               <StatCard title="PAGE VIEWS"      value={fmt(data.totals.pageviews)} sub={rangeLabel} />
               <StatCard title="UNIQUE VISITORS" value={fmt(data.totals.visitors)}  sub={rangeLabel} />
@@ -499,29 +445,20 @@ export default async function AdminPage() {
             </div>
           </section>
 
-          {/* Traffic chart with daily / hourly / DOW tabs */}
           <TrafficChart daily={data.daily} hourly={data.hourly} dow={dow} />
 
-          {/* Top pages */}
           <TopPages pages={data.topPages} />
 
-          {/* Events + Referrers */}
           <section style={{ borderBottom: '1px solid #2A2A2A' }}>
             <div
               className="r2"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: 2,
-                background: '#2A2A2A',
-              }}
+              style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, background: '#2A2A2A' }}
             >
               <Events events={data.events} />
               <Referrers referrers={data.referrers} />
             </div>
           </section>
 
-          {/* Devices */}
           <Devices devices={data.devices} />
         </>
       )}

@@ -13,7 +13,7 @@ export default function DateRangePicker({ currentSince, currentUntil }: Props) {
   const sinceRef = useRef<HTMLInputElement>(null)
   const untilRef = useRef<HTMLInputElement>(null)
 
-  const today = new Date().toISOString().slice(0, 10)
+  const today   = new Date().toISOString().slice(0, 10)
   const yearAgo = new Date(Date.now() - 365 * 86_400_000).toISOString().slice(0, 10)
 
   function handleSubmit(e: React.FormEvent) {
@@ -27,52 +27,58 @@ export default function DateRangePicker({ currentSince, currentUntil }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-      <input
-        ref={sinceRef}
-        type="date"
-        defaultValue={currentSince ?? yearAgo}
-        max={today}
-        required
-        style={INPUT}
-      />
-      <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#444', letterSpacing: '.1em' }}>TO</span>
-      <input
-        ref={untilRef}
-        type="date"
-        defaultValue={currentUntil ?? today}
-        max={today}
-        required
-        style={INPUT}
-      />
+    <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 0, border: '1px solid #2A2A2A' }}>
+        <input
+          ref={sinceRef}
+          type="date"
+          defaultValue={currentSince ?? yearAgo}
+          max={today}
+          required
+          style={INPUT}
+        />
+        <span style={{ padding: '0 10px', font: '11px/1 ui-monospace,Menlo,monospace', color: '#6B7280', letterSpacing: '.1em', borderLeft: '1px solid #2A2A2A', borderRight: '1px solid #2A2A2A', height: '100%', display: 'flex', alignItems: 'center' }}>
+          TO
+        </span>
+        <input
+          ref={untilRef}
+          type="date"
+          defaultValue={currentUntil ?? today}
+          max={today}
+          required
+          style={INPUT}
+        />
+      </div>
       <button
         type="submit"
         disabled={pending}
         style={{
-          padding: '8px 14px',
-          font: '10px/1 ui-monospace,Menlo,monospace',
-          letterSpacing: '.14em',
-          background: pending ? '#2A2A2A' : 'var(--accent)',
-          color: pending ? '#909090' : '#0B0B0B',
-          border: 'none',
+          padding: '13px 22px',
+          font: '12px/1 ui-monospace,Menlo,monospace',
+          letterSpacing: '.18em',
+          background: pending ? '#1A1A1A' : 'var(--accent)',
+          color: pending ? '#6B7280' : '#0B0B0B',
+          border: '1px solid transparent',
           cursor: pending ? 'not-allowed' : 'pointer',
           fontWeight: 700,
           flexShrink: 0,
+          transition: 'background .15s, color .15s',
         }}
       >
-        {pending ? '···' : 'APPLY'}
+        {pending ? 'LOADING...' : 'APPLY'}
       </button>
     </form>
   )
 }
 
 const INPUT: React.CSSProperties = {
-  padding: '8px 10px',
-  font: '10px/1 ui-monospace,Menlo,monospace',
-  letterSpacing: '.08em',
-  background: '#171717',
-  border: '1px solid #2A2A2A',
-  color: '#A5A5A5',
+  padding: '13px 14px',
+  font: '13px/1 ui-monospace,Menlo,monospace',
+  letterSpacing: '.04em',
+  background: '#111',
+  border: 'none',
+  color: '#C0C0C0',
   outline: 'none',
   colorScheme: 'dark',
+  minWidth: 140,
 }

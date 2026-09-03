@@ -1,14 +1,13 @@
 'use client'
 import { useState } from 'react'
-import type { DailyStat, HourlyStat, DOWStat } from '@/lib/analytics'
+import type { DailyStat, DOWStat } from '@/lib/analytics'
 
 interface Props {
   daily: DailyStat[]
-  hourly: HourlyStat[]
   dow: DOWStat[]
 }
 
-type Tab = 'daily' | 'hourly' | 'dow'
+type Tab = 'daily' | 'dow'
 
 function fmt(n: number) {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`
@@ -16,35 +15,30 @@ function fmt(n: number) {
   return String(n)
 }
 
-const X_LABEL: React.CSSProperties = {
-  font: '9px/1 ui-monospace,Menlo,monospace',
-  color: '#6B7280',
-}
-
-export default function TrafficChart({ daily, hourly, dow }: Props) {
+export default function TrafficChart({ daily, dow }: Props) {
   const [tab, setTab] = useState<Tab>('daily')
 
-  const peak =
-    tab === 'daily'  ? Math.max(...daily.map(d => d.pageviews), 0) :
-    tab === 'hourly' ? Math.max(...hourly.map(h => h.pageviews), 0) :
-                       Math.max(...dow.map(d => d.pageviews), 0)
+  const peak = tab === 'daily'
+    ? Math.max(...daily.map(d => d.pageviews), 0)
+    : Math.max(...dow.map(d => d.pageviews), 0)
 
   return (
     <section className="r-px admin-chart" style={{ padding: '36px 48px 32px', borderBottom: '1px solid #2A2A2A' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 28, gap: 16, flexWrap: 'wrap' }}>
-        <div style={{ display: 'flex', gap: 1, background: '#1A1A1A', border: '1px solid #2A2A2A' }}>
-          {([['daily', 'DAILY'], ['hourly', 'HOURLY'], ['dow', 'BY DAY']] as [Tab, string][]).map(([id, label]) => (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, gap: 16, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 0, border: '1px solid #2A2A2A' }}>
+          {([['daily', 'DAILY'] , ['dow', 'BY DAY OF WEEK']] as [Tab, string][]).map(([id, label]) => (
             <button
               key={id}
               type="button"
               onClick={() => setTab(id)}
               style={{
-                padding: '8px 16px',
-                font: '9px/1 ui-monospace,Menlo,monospace',
-                letterSpacing: '.14em',
-                background: tab === id ? 'var(--accent)' : 'transparent',
-                color: tab === id ? '#0B0B0B' : '#6B7280',
+                padding: '10px 20px',
+                font: '11px/1 ui-monospace,Menlo,monospace',
+                letterSpacing: '.16em',
+                background: tab === id ? 'var(--accent)' : '#111',
+                color: tab === id ? '#0B0B0B' : '#909090',
                 border: 'none',
+                borderRight: id === 'daily' ? '1px solid #2A2A2A' : 'none',
                 cursor: 'pointer',
                 fontWeight: tab === id ? 700 : 400,
                 transition: 'background .15s, color .15s',
@@ -55,28 +49,26 @@ export default function TrafficChart({ daily, hourly, dow }: Props) {
           ))}
         </div>
         {peak > 0 && (
-          <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6B7280', margin: 0 }}>
-            PEAK &nbsp;<span style={{ color: '#A5A5A5', fontWeight: 600 }}>{fmt(peak)}</span>
+          <p style={{ font: '12px/1 ui-monospace,Menlo,monospace', color: '#6B7280', margin: 0, letterSpacing: '.1em' }}>
+            PEAK &nbsp;<span style={{ color: '#C0C0C0', fontWeight: 600 }}>{fmt(peak)}</span>
           </p>
         )}
       </div>
 
       <div
         className="admin-chart-bars"
-        style={{ display: 'flex', alignItems: 'flex-end', gap: tab === 'dow' ? 6 : 3, height: 180 }}
+        style={{ display: 'flex', alignItems: 'flex-end', gap: tab === 'dow' ? 8 : 3, height: 180 }}
       >
-        {tab === 'daily'  && <DailyBars daily={daily} />}
-        {tab === 'hourly' && <HourlyBars hourly={hourly} />}
-        {tab === 'dow'    && <DOWBars dow={dow} />}
+        {tab === 'daily' ? <DailyBars daily={daily} /> : <DOWBars dow={dow} />}
       </div>
 
-      <XAxisLabels tab={tab} daily={daily} hourly={hourly} dow={dow} />
+      <XAxisLabels tab={tab} daily={daily} dow={dow} />
     </section>
   )
 }
 
 function DailyBars({ daily }: { daily: DailyStat[] }) {
-  if (daily.length === 0) return <p style={{ fontSize: 14, color: '#6B7280', margin: 0 }}>No data yet.</p>
+  if (daily.length === 0) return <p style={{ fontSize: 15, color: '#909090', margin: 0 }}>No data yet.</p>
   const max = Math.max(...daily.map(d => d.pageviews), 1)
   const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('en-SG', { day: 'numeric', month: 'short' })
   return (
@@ -84,7 +76,7 @@ function DailyBars({ daily }: { daily: DailyStat[] }) {
       {daily.map((d, i) => (
         <div
           key={i}
-          title={`${d.timestamp ? fmtDate(d.timestamp) : ''}: ${d.pageviews.toLocaleString()} views · ${d.visitors.toLocaleString()} visitors`}
+          title={`${d.timestamp ? fmtDate(d.timestamp) : ''}: ${d.pageviews.toLocaleString()} views, ${d.visitors.toLocaleString()} visitors`}
           style={{
             flex: 1,
             height: `${Math.max((d.pageviews / max) * 100, 2)}%`,
@@ -98,37 +90,9 @@ function DailyBars({ daily }: { daily: DailyStat[] }) {
   )
 }
 
-function HourlyBars({ hourly }: { hourly: HourlyStat[] }) {
-  if (hourly.length === 0) {
-    return <p style={{ fontSize: 14, color: '#6B7280', margin: 0, lineHeight: 1.6 }}>Hourly data unavailable for this period.</p>
-  }
-  const max = Math.max(...hourly.map(h => h.pageviews), 1)
-  const fmtHour = (iso: string) => {
-    const d = new Date(iso)
-    return `${d.toLocaleDateString('en-SG', { month: 'short', day: 'numeric' })} ${String(d.getUTCHours()).padStart(2, '0')}:00`
-  }
-  return (
-    <>
-      {hourly.map((h, i) => (
-        <div
-          key={i}
-          title={`${h.timestamp ? fmtHour(h.timestamp) : ''}: ${h.pageviews.toLocaleString()} views`}
-          style={{
-            flex: 1,
-            height: `${Math.max((h.pageviews / max) * 100, 2)}%`,
-            background: 'linear-gradient(180deg, #60a5fa 0%, rgba(96,165,250,0.20) 100%)',
-            borderRadius: '2px 2px 0 0',
-            minWidth: 2,
-          }}
-        />
-      ))}
-    </>
-  )
-}
-
 function DOWBars({ dow }: { dow: DOWStat[] }) {
   if (dow.every(d => d.pageviews === 0)) {
-    return <p style={{ fontSize: 14, color: '#6B7280', margin: 0 }}>No data yet.</p>
+    return <p style={{ fontSize: 15, color: '#909090', margin: 0 }}>No data yet.</p>
   }
   const max = Math.max(...dow.map(d => d.pageviews), 1)
   return (
@@ -136,14 +100,14 @@ function DOWBars({ dow }: { dow: DOWStat[] }) {
       {dow.map((d, i) => (
         <div
           key={i}
-          title={`${d.day}: avg ${d.pageviews.toLocaleString()} views/day · ${d.visitors.toLocaleString()} visitors`}
+          title={`${d.day}: avg ${d.pageviews.toLocaleString()} views/day`}
           style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}
         >
           <div
             style={{
               width: '100%',
               height: `${Math.max((d.pageviews / max) * 100, 2)}%`,
-              background: 'linear-gradient(180deg, #a78bfa 0%, rgba(167,139,250,0.20) 100%)',
+              background: 'linear-gradient(180deg, #a78bfa 0%, rgba(167,139,250,0.22) 100%)',
               borderRadius: '2px 2px 0 0',
             }}
           />
@@ -153,41 +117,28 @@ function DOWBars({ dow }: { dow: DOWStat[] }) {
   )
 }
 
-function XAxisLabels({ tab, daily, hourly, dow }: { tab: Tab; daily: DailyStat[]; hourly: HourlyStat[]; dow: DOWStat[] }) {
+const X: React.CSSProperties = { font: '11px/1 ui-monospace,Menlo,monospace', color: '#6B7280', letterSpacing: '.06em' }
+
+function XAxisLabels({ tab, daily, dow }: { tab: Tab; daily: DailyStat[]; dow: DOWStat[] }) {
   if (tab === 'daily' && daily.length > 0) {
     const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('en-SG', { day: 'numeric', month: 'short' })
     return (
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>
-        <span style={X_LABEL}>{fmtDate(daily[0].timestamp)}</span>
-        <span style={X_LABEL}>{fmtDate(daily[daily.length - 1].timestamp)}</span>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 12 }}>
+        <span style={X}>{fmtDate(daily[0].timestamp)}</span>
+        <span style={X}>{fmtDate(daily[daily.length - 1].timestamp)}</span>
       </div>
     )
   }
-
-  if (tab === 'hourly' && hourly.length > 0) {
-    const fmtHour = (iso: string) => {
-      const d = new Date(iso)
-      return `${d.toLocaleDateString('en-SG', { month: 'short', day: 'numeric' })} ${String(d.getUTCHours()).padStart(2, '0')}:00`
-    }
-    return (
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>
-        <span style={X_LABEL}>{fmtHour(hourly[0].timestamp)}</span>
-        <span style={X_LABEL}>{fmtHour(hourly[hourly.length - 1].timestamp)}</span>
-      </div>
-    )
-  }
-
   if (tab === 'dow') {
     return (
-      <div style={{ display: 'flex', gap: 6, marginTop: 10 }}>
+      <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
         {dow.map(d => (
           <div key={d.day} style={{ flex: 1, textAlign: 'center' }}>
-            <span style={X_LABEL}>{d.day.toUpperCase()}</span>
+            <span style={X}>{d.day.slice(0, 3).toUpperCase()}</span>
           </div>
         ))}
       </div>
     )
   }
-
   return null
 }

@@ -10,15 +10,15 @@ export const NAV_LINKS: NavLink[] = [
 ]
 
 export const WHATSAPP_MESSAGES: Record<string, string> = {
-  '/rehab':       "Hi, I'm interested in the Rehab service at Rebuilt Academy. Could you tell me more?",
-  '/strength':    "Hi, I'm interested in Training at Rebuilt Academy. Could you tell me more?",
-  '/performance': "Hi, I'm interested in the Performance service at Rebuilt Academy. Could you tell me more?",
-  '/physio':      "Hi, I'm interested in booking a physiotherapy session at Rebuilt Academy. Could you help me get started?",
-  '/book':        "Hi, I'd like to book a consult at Rebuilt Academy. Could you help me get started?",
-  '/about':       "Hi, I have a question about Rebuilt Academy. Could you help me?",
+  '/rehab':       "Hi! I'm interested in your rehab programme at Rebuilt Academy. Could you share more details?",
+  '/strength':    "Hi! I'm interested in personal training at Rebuilt Academy. Could you share more details?",
+  '/performance': "Hi! I'm interested in your sports performance programme. Could you share more details?",
+  '/physio':      "Hi! I'd like to book a physio session at Rebuilt Academy. How do I get started?",
+  '/book':        "Hi! I'd like to book a consult at Rebuilt Academy. Could you help?",
+  '/about':       "Hi! I have a question about Rebuilt Academy. Could you help?",
 }
 
-export const DEFAULT_WHATSAPP_MESSAGE = "Hi, I'd like to find out more about Rebuilt Academy."
+export const DEFAULT_WHATSAPP_MESSAGE = "Hi! I'd like to find out more about Rebuilt Academy."
 
 export const SITE = {
   name: 'Rebuilt Academy',

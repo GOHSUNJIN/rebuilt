@@ -70,43 +70,55 @@ function BookContent() {
 
   const showLocation = category === 'Rehabilitation' || category === 'Training' || category === 'Performance'
 
-  const sep = `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
+  const fmtSlot = (s: string) => {
+    const [day, time] = s.split('-')
+    if (!day || !time) return s
+    const h = parseInt(time, 10)
+    const m = parseInt(time.split(':')[1] ?? '0', 10)
+    const period = h >= 12 ? 'pm' : 'am'
+    const hour = h > 12 ? h - 12 : h === 0 ? 12 : h
+    return `${day} ${hour}${m > 0 ? `:${String(m).padStart(2, '0')}` : ''}${period}`
+  }
 
-  const bookingLines = [
-    `Service:          ${service ?? 'Not specified'}`,
-    showLocation ? `Location:         ${location}` : null,
-    `Coach:            ${coach}`,
-    `Preferred times:  ${slots.map(s => s.replace('-', ' ')).join(', ') || 'Not specified'}`,
-  ].filter(Boolean).join('\n')
+  const fmtSlots = slots.length > 0 ? slots.map(fmtSlot).join(', ') : 'TBC'
 
-  const contactLines = [
-    `Name:             ${name.trim()}`,
-    `Email:            ${email.trim()}`,
-  ].filter(Boolean).join('\n')
-
-  const emailBody = [
-    `REBUILT ACADEMY`,
-    `Rehab · Training · Performance · Physiotherapy`,
-    sep,
-    ``,
+  const waText = [
     `Hi Rebuilt Academy,`,
     ``,
-    `I'd like to book a consultation.`,
+    `I'd like to book a consult. Here are my details:`,
+    ``,
+    `*Booking*`,
+    `Service: ${service ?? 'TBC'}`,
+    showLocation ? `Location: ${location}` : null,
+    `Coach: ${coach}`,
+    `Times: ${fmtSlots}`,
+    ``,
+    `*Contact*`,
+    `Name: ${name.trim()}`,
+    `Email: ${email.trim()}`,
+    notes.trim() ? `\nNotes: ${notes.trim()}` : null,
+  ].filter((l): l is string => l !== null).join('\n')
+
+  const emailBody = [
+    `Hi Rebuilt Academy,`,
+    ``,
+    `I'd like to book a consultation. Here are my details:`,
     ``,
     `BOOKING`,
-    sep,
-    bookingLines,
+    `Service: ${service ?? 'TBC'}`,
+    showLocation ? `Location: ${location}` : null,
+    `Coach: ${coach}`,
+    `Times: ${fmtSlots}`,
     ``,
     `CONTACT`,
-    sep,
-    contactLines,
-    notes ? `\nNOTES\n${sep}\n${notes}` : null,
+    `Name: ${name.trim()}`,
+    `Email: ${email.trim()}`,
+    notes.trim() ? `\nNotes:\n${notes.trim()}` : null,
     ``,
-    sep,
     `Thank you`,
-  ].filter(l => l !== null).join('\n')
+  ].filter((l): l is string => l !== null).join('\n')
 
-  const waUrl = `${SITE.contact.whatsapp}?text=${encodeURIComponent(`Hi Rebuilt Academy,\n\nI'd like to book a consultation.\n\n${sep}\n${bookingLines}\n\n${sep}\n${contactLines}`)}`
+  const waUrl = `${SITE.contact.whatsapp}?text=${encodeURIComponent(waText)}`
 
   const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}&su=${encodeURIComponent('Consultation Booking - Rebuilt')}&body=${encodeURIComponent(emailBody)}`
 
@@ -114,7 +126,7 @@ function BookContent() {
     { label: 'Service',         value: service },
     { label: 'Coach',           value: coach },
     { label: 'Location',        value: showLocation ? location : null },
-    { label: 'Preferred times', value: slots.length > 0 ? slots.map(s => s.replace('-', ' ')).join(', ') : null },
+    { label: 'Preferred times', value: slots.length > 0 ? slots.map(fmtSlot).join(', ') : null },
     { label: 'Name',            value: name || null },
     { label: 'Email',           value: email || null },
     { label: 'Notes',           value: notes || null },

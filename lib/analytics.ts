@@ -7,9 +7,7 @@ function authHeaders() {
   }
 }
 
-function buildParams(days: number, extra: Record<string, string> = {}): URLSearchParams {
-  const since = new Date(Date.now() - days * 86_400_000).toISOString()
-  const until = new Date().toISOString()
+function buildParams(since: string, until: string, extra: Record<string, string> = {}): URLSearchParams {
   const p = new URLSearchParams({
     projectId: process.env.VA_PROJECT_ID ?? '',
     since,
@@ -54,6 +52,18 @@ export interface DailyStat {
   visitors: number
 }
 
+export interface HourlyStat {
+  timestamp: string
+  pageviews: number
+  visitors: number
+}
+
+export interface DOWStat {
+  day: string
+  pageviews: number
+  visitors: number
+}
+
 export interface EventStat {
   eventName: string
   count: number
@@ -69,36 +79,41 @@ export interface AnalyticsData {
   topPages: TopPage[]
   devices: DeviceStat[]
   daily: DailyStat[]
+  hourly: HourlyStat[]
   events: EventStat[]
   referrers: ReferrerStat[]
 }
 
 type Row = Record<string, unknown>
 
-export async function fetchAnalytics(days = 30): Promise<AnalyticsData | null> {
+export async function fetchAnalytics(since: string, until: string): Promise<AnalyticsData | null> {
   if (!process.env.VA_TOKEN || !process.env.VA_PROJECT_ID) return null
 
-  const [totalsJson, pagesJson, devicesJson, dailyJson, eventsJson, referrersJson] = await Promise.all([
-    vercelGet('/v1/query/web-analytics/visits/count', buildParams(days)),
+  const [totalsJson, pagesJson, devicesJson, dailyJson, hourlyJson, eventsJson, referrersJson] = await Promise.all([
+    vercelGet('/v1/query/web-analytics/visits/count', buildParams(since, until)),
     vercelGet(
       '/v1/query/web-analytics/visits/aggregate',
-      buildParams(days, { by: JSON.stringify(['requestPath']), limit: '10' }),
+      buildParams(since, until, { by: JSON.stringify(['requestPath']), limit: '10' }),
     ),
     vercelGet(
       '/v1/query/web-analytics/visits/aggregate',
-      buildParams(days, { by: JSON.stringify(['deviceType']) }),
+      buildParams(since, until, { by: JSON.stringify(['deviceType']) }),
     ),
     vercelGet(
       '/v1/query/web-analytics/visits/aggregate',
-      buildParams(days, { by: JSON.stringify(['day']), limit: '31' }),
+      buildParams(since, until, { by: JSON.stringify(['day']), limit: '366' }),
+    ),
+    vercelGet(
+      '/v1/query/web-analytics/visits/aggregate',
+      buildParams(since, until, { by: JSON.stringify(['hour']), limit: '744' }),
     ),
     vercelGet(
       '/v1/query/web-analytics/events/aggregate',
-      buildParams(days, { by: JSON.stringify(['eventName']), limit: '10' }),
+      buildParams(since, until, { by: JSON.stringify(['eventName']), limit: '10' }),
     ),
     vercelGet(
       '/v1/query/web-analytics/visits/aggregate',
-      buildParams(days, { by: JSON.stringify(['referrerHostname']), limit: '8' }),
+      buildParams(since, until, { by: JSON.stringify(['referrerHostname']), limit: '8' }),
     ),
   ])
 
@@ -125,6 +140,13 @@ export async function fetchAnalytics(days = 30): Promise<AnalyticsData | null> {
       }))
       .sort((a, b) => b.pageviews - a.pageviews),
     daily: ((dailyJson?.data ?? []) as Row[])
+      .map(r => ({
+        timestamp: String(r.timestamp ?? ''),
+        pageviews: Number(r.pageviews ?? 0),
+        visitors: Number(r.visitors ?? 0),
+      }))
+      .sort((a, b) => a.timestamp.localeCompare(b.timestamp)),
+    hourly: ((hourlyJson?.data ?? []) as Row[])
       .map(r => ({
         timestamp: String(r.timestamp ?? ''),
         pageviews: Number(r.pageviews ?? 0),

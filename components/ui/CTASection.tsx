@@ -1,4 +1,5 @@
 ﻿import Image from 'next/image'
+import Link from 'next/link'
 import TrackLink from '@/components/ui/TrackLink'
 
 interface CTASectionProps {

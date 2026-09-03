@@ -3,8 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { logoutAction, setPeriodAction } from '@/app/actions/admin'
 import { fetchAnalytics } from '@/lib/analytics'
-import type { AnalyticsData } from '@/lib/analytics'
+import type { AnalyticsData, DailyStat, DOWStat } from '@/lib/analytics'
 import RefreshButton from './_components/RefreshButton'
+import DateRangePicker from './_components/DateRangePicker'
+import TrafficChart from './_components/TrafficChart'
 
 const PAGE_LABELS: Record<string, string> = {
   '/': 'Home',
@@ -30,6 +32,28 @@ const MONO_LABEL: React.CSSProperties = {
   letterSpacing: '.2em',
   color: '#909090',
   margin: 0,
+}
+
+const DOW_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+function computeDOW(daily: DailyStat[]): DOWStat[] {
+  const buckets = DOW_LABELS.map(day => ({ day, pageviews: 0, visitors: 0, count: 0 }))
+  for (const d of daily) {
+    if (!d.timestamp) continue
+    const dow = new Date(d.timestamp).getUTCDay()
+    buckets[dow].pageviews += d.pageviews
+    buckets[dow].visitors += d.visitors
+    buckets[dow].count++
+  }
+  return buckets.map(b => ({
+    day: b.day,
+    pageviews: b.count > 0 ? Math.round(b.pageviews / b.count) : 0,
+    visitors: b.count > 0 ? Math.round(b.visitors / b.count) : 0,
+  }))
+}
+
+function fmtShort(iso: string) {
+  return new Date(iso).toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' })
 }
 
 function StatCard({ title, value, sub }: { title: string; value: string; sub?: string }) {
@@ -69,13 +93,7 @@ function StatCard({ title, value, sub }: { title: string; value: string; sub?: s
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      className="r-px"
-      style={{
-        padding: '20px 48px',
-        borderBottom: '1px solid #2A2A2A',
-      }}
-    >
+    <div className="r-px" style={{ padding: '20px 48px', borderBottom: '1px solid #2A2A2A' }}>
       <p style={{ ...MONO_LABEL, color: 'var(--accent)' }}>{children}</p>
     </div>
   )
@@ -122,20 +140,9 @@ function BarRow({
       </div>
       <div
         className="admin-bar-track"
-        style={{
-          flex: 1,
-          height: 4,
-          background: '#1E1E1E',
-          overflow: 'hidden',
-        }}
+        style={{ flex: 1, height: 4, background: '#1E1E1E', overflow: 'hidden' }}
       >
-        <div
-          style={{
-            height: '100%',
-            width: `${pct}%`,
-            background: barColor,
-          }}
-        />
+        <div style={{ height: '100%', width: `${pct}%`, background: barColor }} />
       </div>
       <div
         className="admin-bar-value"
@@ -235,77 +242,22 @@ function Devices({ devices }: { devices: AnalyticsData['devices'] }) {
   )
 }
 
-function DailyChart({ daily }: { daily: AnalyticsData['daily'] }) {
-  const max = Math.max(...daily.map(d => d.pageviews), 1)
-
-  const fmtDate = (iso: string) =>
-    new Date(iso).toLocaleDateString('en-SG', { day: 'numeric', month: 'short' })
-  const firstDate = daily[0]?.timestamp ? fmtDate(daily[0].timestamp) : ''
-  const lastDate  = daily[daily.length - 1]?.timestamp ? fmtDate(daily[daily.length - 1].timestamp) : ''
-  const peakViews = daily.length ? Math.max(...daily.map(d => d.pageviews)) : 0
-
-  return (
-    <section
-      className="r-px admin-chart"
-      style={{ padding: '36px 48px 32px', borderBottom: '1px solid #2A2A2A' }}
-    >
-      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 28 }}>
-        <p style={{ ...MONO_LABEL, color: 'var(--accent)' }}>DAILY VIEWS</p>
-        {peakViews > 0 && (
-          <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#444', margin: 0 }}>
-            PEAK &nbsp;{fmt(peakViews)}
-          </p>
-        )}
-      </div>
-      <div className="admin-chart-bars" style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 180 }}>
-        {daily.length === 0 ? (
-          <p style={{ fontSize: 14, color: '#5f6670', margin: 0, lineHeight: 1.6 }}>No data yet.</p>
-        ) : (
-          daily.map((d, i) => {
-            const h = Math.max((d.pageviews / max) * 100, 2)
-            const date = d.timestamp ? fmtDate(d.timestamp) : ''
-            return (
-              <div
-                key={i}
-                title={`${date}: ${d.pageviews.toLocaleString()} views`}
-                style={{
-                  flex: 1,
-                  height: `${h}%`,
-                  background: 'linear-gradient(180deg, #B7F000 0%, rgba(183,240,0,0.18) 100%)',
-                  borderRadius: '2px 2px 0 0',
-                  minWidth: 3,
-                }}
-              />
-            )
-          })
-        )}
-      </div>
-      {daily.length > 0 && (
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>
-          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3A3A3A' }}>{firstDate}</span>
-          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3A3A3A' }}>{lastDate}</span>
-        </div>
-      )}
-    </section>
-  )
-}
-
 const EVENT_LABELS: Record<string, string> = {
+  book_cta_click:    'Book CTA clicks',
   whatsapp_click:    'WhatsApp clicks',
   mobile_book_click: 'Mobile book taps',
   mobile_call_click: 'Mobile call taps',
   contact_submit:    'Contact submissions',
   booking_complete:  'Bookings completed',
+  faq_open:          'FAQ opens',
+  faq_tab:           'FAQ tab switches',
 }
 
 function Events({ events }: { events: AnalyticsData['events'] }) {
   const max = Math.max(...events.map(e => e.count), 1)
   return (
     <div style={{ background: '#0B0B0B' }}>
-      <div
-        className="r-px"
-        style={{ padding: '20px 48px', borderBottom: '1px solid #2A2A2A' }}
-      >
+      <div className="r-px" style={{ padding: '20px 48px', borderBottom: '1px solid #2A2A2A' }}>
         <p style={{ ...MONO_LABEL, color: 'var(--accent)' }}>EVENTS</p>
       </div>
       {events.length === 0 ? (
@@ -333,10 +285,7 @@ function Referrers({ referrers }: { referrers: AnalyticsData['referrers'] }) {
   const max = Math.max(...referrers.map(r => r.pageviews), 1)
   return (
     <div style={{ background: '#171717' }}>
-      <div
-        className="r-px"
-        style={{ padding: '20px 48px', borderBottom: '1px solid #2A2A2A' }}
-      >
+      <div className="r-px" style={{ padding: '20px 48px', borderBottom: '1px solid #2A2A2A' }}>
         <p style={{ ...MONO_LABEL, color: 'var(--accent)' }}>TOP REFERRERS</p>
       </div>
       {referrers.length === 0 ? (
@@ -364,51 +313,17 @@ function Referrers({ referrers }: { referrers: AnalyticsData['referrers'] }) {
 function SetupGuide() {
   return (
     <div style={{ borderTop: '1px solid #2A2A2A' }}>
-      <div
-        className="r-px"
-        style={{
-          padding: '80px 48px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          maxWidth: 640,
-        }}
-      >
-        <p
-          style={{
-            font: '10px/1 ui-monospace,Menlo,monospace',
-            letterSpacing: '.28em',
-            color: 'var(--accent)',
-            margin: '0 0 24px',
-          }}
-        >
+      <div className="r-px" style={{ padding: '80px 48px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: 640 }}>
+        <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', letterSpacing: '.28em', color: 'var(--accent)', margin: '0 0 24px' }}>
           ANALYTICS NOT CONFIGURED
         </p>
-        <h2
-          style={{
-            fontSize: 36,
-            fontWeight: 800,
-            lineHeight: 0.95,
-            letterSpacing: '-.03em',
-            margin: '0 0 20px',
-          }}
-        >
+        <h2 style={{ fontSize: 36, fontWeight: 800, lineHeight: 0.95, letterSpacing: '-.03em', margin: '0 0 20px' }}>
           Set up analytics.
         </h2>
         <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 40px' }}>
-          Add your Vercel credentials to see page views, visitor counts, top pages, and device
-          breakdowns.
+          Add your Vercel credentials to see page views, visitor counts, top pages, and device breakdowns.
         </p>
-        <div
-          style={{
-            background: '#111',
-            border: '1px solid #2A2A2A',
-            padding: '24px 28px',
-            font: '12px/2.2 ui-monospace,Menlo,monospace',
-            color: '#A5A5A5',
-            marginBottom: 24,
-          }}
-        >
+        <div style={{ background: '#111', border: '1px solid #2A2A2A', padding: '24px 28px', font: '12px/2.2 ui-monospace,Menlo,monospace', color: '#A5A5A5', marginBottom: 24 }}>
           <div><span style={{ color: '#444' }}># .env.local</span></div>
           <div><span style={{ color: 'var(--accent)' }}>VA_TOKEN</span>=your_vercel_api_token</div>
           <div><span style={{ color: 'var(--accent)' }}>VA_PROJECT_ID</span>=prj_xxxxxxxxxxxx</div>
@@ -424,18 +339,50 @@ function SetupGuide() {
 
 export default async function AdminPage() {
   const cookieStore = await cookies()
+
   const period = cookieStore.get('rebuilt_period')?.value
-  const days = Math.min(Math.max(Number(period) || 30, 7), 90)
-  const data = await fetchAnalytics(days)
-  const avgDaily = data ? Math.round(data.totals.pageviews / days) : 0
+  const isCustom = period === 'custom'
+  const days = isCustom ? null : Math.min(Math.max(Number(period) || 30, 7), 90)
+
+  const customSince = cookieStore.get('rebuilt_since')?.value
+  const customUntil = cookieStore.get('rebuilt_until')?.value
+
+  const since = isCustom && customSince
+    ? customSince
+    : new Date(Date.now() - (days ?? 30) * 86_400_000).toISOString()
+  const until = isCustom && customUntil
+    ? customUntil
+    : new Date().toISOString()
+
+  const data = await fetchAnalytics(since, until)
+
+  const rangeDays = isCustom && customSince && customUntil
+    ? Math.max(1, Math.round((new Date(customUntil).getTime() - new Date(customSince).getTime()) / 86_400_000))
+    : days ?? 30
+
+  const rangeLabel = isCustom && customSince && customUntil
+    ? `${fmtShort(customSince)} – ${fmtShort(customUntil)}`
+    : `LAST ${days} DAYS`
+
+  const avgDaily = data ? Math.round(data.totals.pageviews / rangeDays) : 0
   const bookings = data?.events.find(e => e.eventName === 'booking_complete')?.count ?? 0
   const convRate = data && data.totals.visitors > 0
     ? `${((bookings / data.totals.visitors) * 100).toFixed(1)}%`
     : 'N/A'
 
+  const dow = data ? computeDOW(data.daily) : []
+
+  const PERIOD_TABS = [
+    { value: '7',      label: '7D' },
+    { value: '30',     label: '30D' },
+    { value: '90',     label: '90D' },
+    { value: 'custom', label: 'CUSTOM' },
+  ]
+  const activePeriod = isCustom ? 'custom' : String(days)
+
   return (
     <>
-      {/* Header — mirrors Navbar proportions */}
+      {/* Header */}
       <header
         className="admin-header"
         style={{
@@ -454,7 +401,6 @@ export default async function AdminPage() {
           zIndex: 100,
         }}
       >
-        {/* Logo — identical treatment to Navbar */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, textDecoration: 'none', flexShrink: 0 }}>
           <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
           <div className="admin-wordmark">
@@ -470,9 +416,9 @@ export default async function AdminPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           {/* Period tabs */}
           <div style={{ display: 'flex', gap: 1, background: '#2A2A2A' }}>
-            {(['7', '30', '90'] as const).map(p => (
-              <form key={p} action={setPeriodAction} style={{ margin: 0 }}>
-                <input type="hidden" name="period" value={p} />
+            {PERIOD_TABS.map(({ value, label }) => (
+              <form key={value} action={setPeriodAction} style={{ margin: 0 }}>
+                <input type="hidden" name="period" value={value} />
                 <button
                   type="submit"
                   className="admin-period-btn"
@@ -481,25 +427,23 @@ export default async function AdminPage() {
                     padding: '10px 18px',
                     font: '10px/1 ui-monospace,Menlo,monospace',
                     letterSpacing: '.14em',
-                    background: days === Number(p) ? 'var(--accent)' : '#171717',
-                    color: days === Number(p) ? '#0B0B0B' : '#909090',
-                    fontWeight: days === Number(p) ? 700 : 400,
+                    background: activePeriod === value ? 'var(--accent)' : '#171717',
+                    color: activePeriod === value ? '#0B0B0B' : '#909090',
+                    fontWeight: activePeriod === value ? 700 : 400,
                     border: 'none',
                     cursor: 'pointer',
                   }}
                 >
-                  {p}D
+                  {label}
                 </button>
               </form>
             ))}
           </div>
 
-          {/* Refresh — hidden on mobile */}
           <div className="admin-refresh-hide">
             <RefreshButton />
           </div>
 
-          {/* Logout */}
           <form action={logoutAction}>
             <button
               type="submit"
@@ -511,6 +455,27 @@ export default async function AdminPage() {
           </form>
         </div>
       </header>
+
+      {/* Date range picker bar (custom mode only) */}
+      {isCustom && (
+        <div
+          className="r-px"
+          style={{
+            padding: '14px 48px',
+            borderBottom: '1px solid #2A2A2A',
+            background: '#0D0D0D',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 16,
+            flexWrap: 'wrap',
+          }}
+        >
+          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', flexShrink: 0 }}>
+            DATE RANGE
+          </span>
+          <DateRangePicker currentSince={customSince} currentUntil={customUntil} />
+        </div>
+      )}
 
       {!data ? (
         <SetupGuide />
@@ -527,31 +492,15 @@ export default async function AdminPage() {
                 background: '#2A2A2A',
               }}
             >
-              <StatCard
-                title="PAGE VIEWS"
-                value={fmt(data.totals.pageviews)}
-                sub={`LAST ${days} DAYS`}
-              />
-              <StatCard
-                title="UNIQUE VISITORS"
-                value={fmt(data.totals.visitors)}
-                sub={`LAST ${days} DAYS`}
-              />
-              <StatCard
-                title="AVG DAILY VIEWS"
-                value={fmt(avgDaily)}
-                sub="PER DAY"
-              />
-              <StatCard
-                title="BOOKING RATE"
-                value={convRate}
-                sub={`${bookings} BOOKINGS`}
-              />
+              <StatCard title="PAGE VIEWS"      value={fmt(data.totals.pageviews)} sub={rangeLabel} />
+              <StatCard title="UNIQUE VISITORS" value={fmt(data.totals.visitors)}  sub={rangeLabel} />
+              <StatCard title="AVG DAILY VIEWS" value={fmt(avgDaily)}              sub="PER DAY" />
+              <StatCard title="BOOKING RATE"    value={convRate}                   sub={`${bookings} BOOKINGS`} />
             </div>
           </section>
 
-          {/* Daily chart */}
-          <DailyChart daily={data.daily} />
+          {/* Traffic chart with daily / hourly / DOW tabs */}
+          <TrafficChart daily={data.daily} hourly={data.hourly} dow={dow} />
 
           {/* Top pages */}
           <TopPages pages={data.topPages} />

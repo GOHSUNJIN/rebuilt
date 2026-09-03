@@ -8,6 +8,8 @@ export default function WhatsAppButton() {
   const pathname = usePathname()
   const [nearBottom, setNearBottom] = useState(false)
 
+  if (pathname.startsWith('/admin')) return null
+
   useEffect(() => {
     const onScroll = () => {
       const scrolled = window.scrollY + window.innerHeight

@@ -1,4 +1,5 @@
-import { logoutAction } from '@/app/actions/admin'
+import { cookies } from 'next/headers'
+import { logoutAction, setPeriodAction } from '@/app/actions/admin'
 import { fetchAnalytics } from '@/lib/analytics'
 import type { AnalyticsData } from '@/lib/analytics'
 import RefreshButton from './_components/RefreshButton'
@@ -301,7 +302,7 @@ function Events({ events }: { events: AnalyticsData['events'] }) {
       </div>
       {events.length === 0 ? (
         <p className="r-px" style={{ padding: '24px 48px', fontSize: 14, color: '#5f6670', margin: 0, lineHeight: 1.6 }}>
-          No events yet — appears once users interact with the site.
+          No events yet. Appears once users interact with the site.
         </p>
       ) : (
         events.map(e => (
@@ -409,19 +410,16 @@ function SetupGuide() {
   )
 }
 
-export default async function AdminPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ period?: string }>
-}) {
-  const { period = '30' } = await searchParams
+export default async function AdminPage() {
+  const cookieStore = await cookies()
+  const period = cookieStore.get('rebuilt_period')?.value
   const days = Math.min(Math.max(Number(period) || 30, 7), 90)
   const data = await fetchAnalytics(days)
   const avgDaily = data ? Math.round(data.totals.pageviews / days) : 0
   const bookings = data?.events.find(e => e.eventName === 'booking_complete')?.count ?? 0
   const convRate = data && data.totals.visitors > 0
     ? `${((bookings / data.totals.visitors) * 100).toFixed(1)}%`
-    : '–'
+    : 'N/A'
 
   return (
     <>
@@ -465,23 +463,25 @@ export default async function AdminPage({
           {/* Period tabs */}
           <div style={{ display: 'flex', gap: 1, background: '#2A2A2A' }}>
             {(['7', '30', '90'] as const).map(p => (
-              <a
-                key={p}
-                href={`/admin?period=${p}`}
-                style={{
-                  display: 'block',
-                  padding: '10px 18px',
-                  font: '10px/1 ui-monospace,Menlo,monospace',
-                  letterSpacing: '.14em',
-                  textDecoration: 'none',
-                  background: days === Number(p) ? 'var(--accent)' : '#171717',
-                  color: days === Number(p) ? '#0B0B0B' : '#909090',
-                  fontWeight: days === Number(p) ? 700 : 400,
-                  transition: 'color .15s',
-                }}
-              >
-                {p}D
-              </a>
+              <form key={p} action={setPeriodAction} style={{ margin: 0 }}>
+                <input type="hidden" name="period" value={p} />
+                <button
+                  type="submit"
+                  style={{
+                    display: 'block',
+                    padding: '10px 18px',
+                    font: '10px/1 ui-monospace,Menlo,monospace',
+                    letterSpacing: '.14em',
+                    background: days === Number(p) ? 'var(--accent)' : '#171717',
+                    color: days === Number(p) ? '#0B0B0B' : '#909090',
+                    fontWeight: days === Number(p) ? 700 : 400,
+                    border: 'none',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {p}D
+                </button>
+              </form>
             ))}
           </div>
 

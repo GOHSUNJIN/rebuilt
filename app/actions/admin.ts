@@ -40,3 +40,16 @@ export async function logoutAction() {
   ;(await cookies()).delete(COOKIE_NAME)
   redirect('/admin/login')
 }
+
+export async function setPeriodAction(formData: FormData) {
+  const p = String(formData.get('period') ?? '30')
+  const days = Math.min(Math.max(Number(p) || 30, 7), 90)
+  ;(await cookies()).set('rebuilt_period', String(days), {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 60 * 60 * 24 * 30,
+    path: '/admin',
+  })
+  redirect('/admin')
+}

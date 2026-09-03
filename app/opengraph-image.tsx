@@ -101,7 +101,7 @@ export default function Image() {
             maxWidth: 500,
           }}
         >
-          Rehabilitation, personal training and sports performance — three locations across Singapore.
+          Rehabilitation, personal training and sports performance. Three locations across Singapore.
         </div>
       </div>
     </div>,

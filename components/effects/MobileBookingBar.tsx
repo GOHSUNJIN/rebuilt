@@ -1,9 +1,13 @@
 ﻿'use client'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { track } from '@vercel/analytics'
 import { SITE } from '@/lib/site'
 
 export default function MobileBookingBar() {
+  const pathname = usePathname()
+  if (pathname.startsWith('/admin')) return null
+
   return (
     <div className="mobile-book-bar">
       <Link

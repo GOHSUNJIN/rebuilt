@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LoginForm from '../_components/LoginForm'
 
-export const metadata: Metadata = { title: 'Sign in | Rebuilt Academy' }
+export const metadata: Metadata = { title: 'Sign in' }
 
 export default async function LoginPage({
   searchParams,

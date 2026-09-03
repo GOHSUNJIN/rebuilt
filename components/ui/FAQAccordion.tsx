@@ -1,5 +1,6 @@
 ﻿'use client'
 import { useState } from 'react'
+import { track } from '@vercel/analytics'
 import type { FAQItem } from '@/lib/types'
 
 export default function FAQAccordion({ items }: { items: FAQItem[] }) {
@@ -15,7 +16,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
               type="button"
               aria-expanded={isOpen}
               aria-controls={`faq-answer-${num}`}
-              onClick={() => setOpen(isOpen ? null : num)}
+              onClick={() => { if (!isOpen) track('faq_open', { question: q.slice(0, 60) }); setOpen(isOpen ? null : num) }}
               style={{
                 width: '100%',
                 padding: '22px 0',

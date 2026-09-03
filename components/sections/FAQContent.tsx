@@ -2,6 +2,7 @@
 import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { track } from '@vercel/analytics'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 import { FAQ_TABS, ALL_FAQS } from '@/lib/faqData'
 
@@ -54,6 +55,7 @@ function FAQInner() {
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
+            aria-label="Search all questions"
             placeholder="Search all questions…"
             style={{
               flex: 1,
@@ -120,7 +122,7 @@ function FAQInner() {
                 <button
                   key={id}
                   type="button"
-                  onClick={() => setActiveTab(id)}
+                  onClick={() => { if (id !== activeTab) track('faq_tab', { tab: id }); setActiveTab(id) }}
                   className={`r-faq-btn${active ? ' r-faq-btn-active' : ''}`}
                   style={{
                     display: 'flex',

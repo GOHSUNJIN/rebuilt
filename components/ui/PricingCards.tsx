@@ -1,5 +1,5 @@
-﻿import Link from 'next/link'
-import type { PricingItem } from '@/lib/types'
+﻿import type { PricingItem } from '@/lib/types'
+import TrackLink from '@/components/ui/TrackLink'
 
 export default function PricingCards({ items }: { items: PricingItem[] }) {
   return (
@@ -34,7 +34,7 @@ export default function PricingCards({ items }: { items: PricingItem[] }) {
                 </div>
               ))}
             </div>
-            <Link href={href} className={`${featured ? 'btn-gold' : 'btn-outline'} r-btn-full`} style={{ padding: '14px 24px', textAlign: 'center' }}>Book</Link>
+            <TrackLink href={href} className={`${featured ? 'btn-gold' : 'btn-outline'} r-btn-full`} style={{ padding: '14px 24px', textAlign: 'center' }} event="book_cta_click">Book</TrackLink>
           </div>
         ))}
       </div>

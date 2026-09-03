@@ -18,36 +18,36 @@ function fmt(n: number) {
 
 const X_LABEL: React.CSSProperties = {
   font: '9px/1 ui-monospace,Menlo,monospace',
-  color: '#3A3A3A',
+  color: '#6B7280',
 }
 
 export default function TrafficChart({ daily, hourly, dow }: Props) {
   const [tab, setTab] = useState<Tab>('daily')
 
   const peak =
-    tab === 'daily'   ? Math.max(...daily.map(d => d.pageviews), 0) :
-    tab === 'hourly'  ? Math.max(...hourly.map(h => h.pageviews), 0) :
-                        Math.max(...dow.map(d => d.pageviews), 0)
+    tab === 'daily'  ? Math.max(...daily.map(d => d.pageviews), 0) :
+    tab === 'hourly' ? Math.max(...hourly.map(h => h.pageviews), 0) :
+                       Math.max(...dow.map(d => d.pageviews), 0)
 
   return (
     <section className="r-px admin-chart" style={{ padding: '36px 48px 32px', borderBottom: '1px solid #2A2A2A' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 28, gap: 16, flexWrap: 'wrap' }}>
-        {/* Chart type tabs */}
-        <div style={{ display: 'flex', gap: 1, background: '#2A2A2A' }}>
+        <div style={{ display: 'flex', gap: 1, background: '#1A1A1A', border: '1px solid #2A2A2A' }}>
           {([['daily', 'DAILY'], ['hourly', 'HOURLY'], ['dow', 'BY DAY']] as [Tab, string][]).map(([id, label]) => (
             <button
               key={id}
               type="button"
               onClick={() => setTab(id)}
               style={{
-                padding: '7px 14px',
+                padding: '8px 16px',
                 font: '9px/1 ui-monospace,Menlo,monospace',
                 letterSpacing: '.14em',
-                background: tab === id ? 'var(--accent)' : '#171717',
-                color: tab === id ? '#0B0B0B' : '#909090',
+                background: tab === id ? 'var(--accent)' : 'transparent',
+                color: tab === id ? '#0B0B0B' : '#6B7280',
                 border: 'none',
                 cursor: 'pointer',
                 fontWeight: tab === id ? 700 : 400,
+                transition: 'background .15s, color .15s',
               }}
             >
               {label}
@@ -55,20 +55,15 @@ export default function TrafficChart({ daily, hourly, dow }: Props) {
           ))}
         </div>
         {peak > 0 && (
-          <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#444', margin: 0 }}>
-            PEAK &nbsp;{fmt(peak)}
+          <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6B7280', margin: 0 }}>
+            PEAK &nbsp;<span style={{ color: '#A5A5A5', fontWeight: 600 }}>{fmt(peak)}</span>
           </p>
         )}
       </div>
 
       <div
         className="admin-chart-bars"
-        style={{
-          display: 'flex',
-          alignItems: 'flex-end',
-          gap: tab === 'dow' ? 6 : 3,
-          height: 180,
-        }}
+        style={{ display: 'flex', alignItems: 'flex-end', gap: tab === 'dow' ? 6 : 3, height: 180 }}
       >
         {tab === 'daily'  && <DailyBars daily={daily} />}
         {tab === 'hourly' && <HourlyBars hourly={hourly} />}
@@ -81,7 +76,7 @@ export default function TrafficChart({ daily, hourly, dow }: Props) {
 }
 
 function DailyBars({ daily }: { daily: DailyStat[] }) {
-  if (daily.length === 0) return <p style={{ fontSize: 14, color: '#5f6670', margin: 0 }}>No data yet.</p>
+  if (daily.length === 0) return <p style={{ fontSize: 14, color: '#6B7280', margin: 0 }}>No data yet.</p>
   const max = Math.max(...daily.map(d => d.pageviews), 1)
   const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('en-SG', { day: 'numeric', month: 'short' })
   return (
@@ -93,7 +88,7 @@ function DailyBars({ daily }: { daily: DailyStat[] }) {
           style={{
             flex: 1,
             height: `${Math.max((d.pageviews / max) * 100, 2)}%`,
-            background: 'linear-gradient(180deg, #B7F000 0%, rgba(183,240,0,0.18) 100%)',
+            background: 'linear-gradient(180deg, #B7F000 0%, rgba(183,240,0,0.20) 100%)',
             borderRadius: '2px 2px 0 0',
             minWidth: 3,
           }}
@@ -105,11 +100,7 @@ function DailyBars({ daily }: { daily: DailyStat[] }) {
 
 function HourlyBars({ hourly }: { hourly: HourlyStat[] }) {
   if (hourly.length === 0) {
-    return (
-      <p style={{ fontSize: 14, color: '#5f6670', margin: 0, lineHeight: 1.6 }}>
-        Hourly data unavailable for this period.
-      </p>
-    )
+    return <p style={{ fontSize: 14, color: '#6B7280', margin: 0, lineHeight: 1.6 }}>Hourly data unavailable for this period.</p>
   }
   const max = Math.max(...hourly.map(h => h.pageviews), 1)
   const fmtHour = (iso: string) => {
@@ -125,7 +116,7 @@ function HourlyBars({ hourly }: { hourly: HourlyStat[] }) {
           style={{
             flex: 1,
             height: `${Math.max((h.pageviews / max) * 100, 2)}%`,
-            background: 'linear-gradient(180deg, #60a5fa 0%, rgba(96,165,250,0.18) 100%)',
+            background: 'linear-gradient(180deg, #60a5fa 0%, rgba(96,165,250,0.20) 100%)',
             borderRadius: '2px 2px 0 0',
             minWidth: 2,
           }}
@@ -137,7 +128,7 @@ function HourlyBars({ hourly }: { hourly: HourlyStat[] }) {
 
 function DOWBars({ dow }: { dow: DOWStat[] }) {
   if (dow.every(d => d.pageviews === 0)) {
-    return <p style={{ fontSize: 14, color: '#5f6670', margin: 0 }}>No data yet.</p>
+    return <p style={{ fontSize: 14, color: '#6B7280', margin: 0 }}>No data yet.</p>
   }
   const max = Math.max(...dow.map(d => d.pageviews), 1)
   return (
@@ -146,20 +137,13 @@ function DOWBars({ dow }: { dow: DOWStat[] }) {
         <div
           key={i}
           title={`${d.day}: avg ${d.pageviews.toLocaleString()} views/day · ${d.visitors.toLocaleString()} visitors`}
-          style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            height: '100%',
-          }}
+          style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}
         >
           <div
             style={{
               width: '100%',
               height: `${Math.max((d.pageviews / max) * 100, 2)}%`,
-              background: 'linear-gradient(180deg, #a78bfa 0%, rgba(167,139,250,0.18) 100%)',
+              background: 'linear-gradient(180deg, #a78bfa 0%, rgba(167,139,250,0.20) 100%)',
               borderRadius: '2px 2px 0 0',
             }}
           />

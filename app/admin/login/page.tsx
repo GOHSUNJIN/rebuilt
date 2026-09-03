@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 import LoginForm from '../_components/LoginForm'
 
 export const metadata: Metadata = { title: 'Sign in | Rebuilt Academy' }
@@ -13,21 +15,30 @@ export default async function LoginPage({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
 
-      {/* Header strip */}
+      {/* Header strip — mirrors Navbar */}
       <div
-        className="r-px"
-        style={{ padding: '24px 48px', borderBottom: '1px solid #1E1E1E' }}
+        style={{
+          height: 70,
+          borderBottom: '1px solid #1E1E1E',
+          background: 'rgba(11,12,14,.97)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          display: 'flex',
+          alignItems: 'center',
+          padding: '0 48px',
+        }}
       >
-        <p
-          style={{
-            font: '10px/1 ui-monospace,Menlo,monospace',
-            letterSpacing: '.28em',
-            color: 'var(--accent)',
-            margin: 0,
-          }}
-        >
-          REBUILT ACADEMY
-        </p>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, textDecoration: 'none' }}>
+          <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.28em', color: '#fff', lineHeight: 1 }}>
+              REBUILT ACADEMY
+            </div>
+            <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.22em', color: 'var(--accent)' }}>
+              ADMIN
+            </div>
+          </div>
+        </Link>
       </div>
 
       {/* Form zone */}

@@ -1,4 +1,6 @@
 import { cookies } from 'next/headers'
+import Image from 'next/image'
+import Link from 'next/link'
 import { logoutAction, setPeriodAction } from '@/app/actions/admin'
 import { fetchAnalytics } from '@/lib/analytics'
 import type { AnalyticsData } from '@/lib/analytics'
@@ -423,43 +425,38 @@ export default async function AdminPage() {
 
   return (
     <>
-      {/* Header */}
+      {/* Header — mirrors Navbar proportions */}
       <header
         style={{
-          borderBottom: '1px solid #2A2A2A',
+          height: 70,
+          borderBottom: '1px solid #1E1E1E',
+          background: 'rgba(11,12,14,.97)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: 16,
-          flexWrap: 'wrap',
+          padding: '0 48px',
+          position: 'sticky',
+          top: 0,
+          zIndex: 100,
         }}
       >
-        <div className="r-px" style={{ padding: '28px 48px' }}>
-          <p
-            style={{
-              font: '10px/1 ui-monospace,Menlo,monospace',
-              letterSpacing: '.28em',
-              color: 'var(--accent)',
-              margin: '0 0 10px',
-            }}
-          >
-            REBUILT ACADEMY
-          </p>
-          <h1
-            style={{
-              fontSize: 26,
-              fontWeight: 800,
-              lineHeight: 1,
-              letterSpacing: '-.03em',
-              margin: 0,
-              color: '#fff',
-            }}
-          >
-            Analytics
-          </h1>
-        </div>
+        {/* Logo — identical treatment to Navbar */}
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, textDecoration: 'none', flexShrink: 0 }}>
+          <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.28em', color: '#fff', lineHeight: 1 }}>
+              REBUILT ACADEMY
+            </div>
+            <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.22em', color: 'var(--accent)' }}>
+              ANALYTICS
+            </div>
+          </div>
+        </Link>
 
-        <div className="r-px" style={{ padding: '28px 48px', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           {/* Period tabs */}
           <div style={{ display: 'flex', gap: 1, background: '#2A2A2A' }}>
             {(['7', '30', '90'] as const).map(p => (

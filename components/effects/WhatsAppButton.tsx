@@ -8,8 +8,6 @@ export default function WhatsAppButton() {
   const pathname = usePathname()
   const [nearBottom, setNearBottom] = useState(false)
 
-  if (pathname.startsWith('/admin')) return null
-
   useEffect(() => {
     const onScroll = () => {
       const scrolled = window.scrollY + window.innerHeight
@@ -19,6 +17,8 @@ export default function WhatsAppButton() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  if (pathname.startsWith('/admin')) return null
 
   const message = WHATSAPP_MESSAGES[pathname] ?? DEFAULT_WHATSAPP_MESSAGE
   const href = `${SITE.contact.whatsapp}?text=${encodeURIComponent(message)}`

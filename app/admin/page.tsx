@@ -1,6 +1,7 @@
 import { logoutAction } from '@/app/actions/admin'
 import { fetchAnalytics } from '@/lib/analytics'
 import type { AnalyticsData } from '@/lib/analytics'
+import RefreshButton from './_components/RefreshButton'
 
 const PAGE_LABELS: Record<string, string> = {
   '/': 'Home',
@@ -156,14 +157,42 @@ function TopPages({ pages }: { pages: AnalyticsData['topPages'] }) {
         </p>
       ) : (
         pages.map(p => (
-          <BarRow
+          <div
             key={p.requestPath}
-            label={PAGE_LABELS[p.requestPath] ?? p.requestPath}
-            value={fmt(p.pageviews)}
-            pct={(p.pageviews / max) * 100}
-            barColor="var(--accent)"
-            labelStyle={{ color: 'var(--accent)', font: '13px/1 ui-monospace,Menlo,monospace' }}
-          />
+            className="hover-approach r-px"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 20,
+              padding: '13px 48px',
+              borderBottom: '1px solid #1E1E1E',
+            }}
+          >
+            <div
+              style={{
+                flex: '0 0 160px',
+                font: '13px/1 ui-monospace,Menlo,monospace',
+                color: 'var(--accent)',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+              }}
+              title={p.requestPath}
+            >
+              {PAGE_LABELS[p.requestPath] ?? p.requestPath}
+            </div>
+            <div style={{ flex: 1, height: 4, background: '#1E1E1E', overflow: 'hidden' }}>
+              <div style={{ height: '100%', width: `${(p.pageviews / max) * 100}%`, background: 'var(--accent)' }} />
+            </div>
+            <div style={{ flex: '0 0 130px', textAlign: 'right' }}>
+              <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5' }}>
+                {fmt(p.pageviews)} views
+              </span>
+              <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', marginLeft: 10 }}>
+                {fmt(p.visitors)} visitors
+              </span>
+            </div>
+          </div>
         ))
       )}
     </section>
@@ -199,28 +228,33 @@ function Devices({ devices }: { devices: AnalyticsData['devices'] }) {
 
 function DailyChart({ daily }: { daily: AnalyticsData['daily'] }) {
   const max = Math.max(...daily.map(d => d.pageviews), 1)
+
+  const fmtDate = (iso: string) =>
+    new Date(iso).toLocaleDateString('en-SG', { day: 'numeric', month: 'short' })
+  const firstDate = daily[0]?.timestamp ? fmtDate(daily[0].timestamp) : ''
+  const lastDate  = daily[daily.length - 1]?.timestamp ? fmtDate(daily[daily.length - 1].timestamp) : ''
+  const peakViews = daily.length ? Math.max(...daily.map(d => d.pageviews)) : 0
+
   return (
     <section
       className="r-px"
-      style={{ padding: '36px 48px 40px', borderBottom: '1px solid #2A2A2A' }}
+      style={{ padding: '36px 48px 32px', borderBottom: '1px solid #2A2A2A' }}
     >
-      <p style={{ ...MONO_LABEL, color: 'var(--accent)', marginBottom: 28 }}>DAILY VIEWS</p>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'flex-end',
-          gap: 3,
-          height: 180,
-        }}
-      >
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 28 }}>
+        <p style={{ ...MONO_LABEL, color: 'var(--accent)' }}>DAILY VIEWS</p>
+        {peakViews > 0 && (
+          <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#444', margin: 0 }}>
+            PEAK &nbsp;{fmt(peakViews)}
+          </p>
+        )}
+      </div>
+      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 180 }}>
         {daily.length === 0 ? (
           <p style={{ fontSize: 14, color: '#5f6670', margin: 0, lineHeight: 1.6 }}>No data yet.</p>
         ) : (
           daily.map((d, i) => {
             const h = Math.max((d.pageviews / max) * 100, 2)
-            const date = d.timestamp
-              ? new Date(d.timestamp).toLocaleDateString('en-SG', { month: 'short', day: 'numeric' })
-              : ''
+            const date = d.timestamp ? fmtDate(d.timestamp) : ''
             return (
               <div
                 key={i}
@@ -231,13 +265,18 @@ function DailyChart({ daily }: { daily: AnalyticsData['daily'] }) {
                   background: 'linear-gradient(180deg, #B7F000 0%, rgba(183,240,0,0.18) 100%)',
                   borderRadius: '2px 2px 0 0',
                   minWidth: 3,
-                  transition: 'opacity .15s',
                 }}
               />
             )
           })
         )}
       </div>
+      {daily.length > 0 && (
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>
+          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3A3A3A' }}>{firstDate}</span>
+          <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3A3A3A' }}>{lastDate}</span>
+        </div>
+      )}
     </section>
   )
 }
@@ -379,6 +418,10 @@ export default async function AdminPage({
   const days = Math.min(Math.max(Number(period) || 30, 7), 90)
   const data = await fetchAnalytics(days)
   const avgDaily = data ? Math.round(data.totals.pageviews / days) : 0
+  const bookings = data?.events.find(e => e.eventName === 'booking_complete')?.count ?? 0
+  const convRate = data && data.totals.visitors > 0
+    ? `${((bookings / data.totals.visitors) * 100).toFixed(1)}%`
+    : '–'
 
   return (
     <>
@@ -442,6 +485,9 @@ export default async function AdminPage({
             ))}
           </div>
 
+          {/* Refresh */}
+          <RefreshButton />
+
           {/* Logout */}
           <form action={logoutAction}>
             <button
@@ -485,13 +531,11 @@ export default async function AdminPage({
                 value={fmt(avgDaily)}
                 sub="PER DAY"
               />
-              {data.topPages[0] && (
-                <StatCard
-                  title="TOP PAGE"
-                  value={PAGE_LABELS[data.topPages[0].requestPath] ?? data.topPages[0].requestPath}
-                  sub={`${fmt(data.topPages[0].pageviews)} VIEWS`}
-                />
-              )}
+              <StatCard
+                title="BOOKING RATE"
+                value={convRate}
+                sub={`${bookings} BOOKINGS`}
+              />
             </div>
           </section>
 

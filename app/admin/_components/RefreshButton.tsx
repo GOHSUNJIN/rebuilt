@@ -13,7 +13,7 @@ export default function RefreshButton() {
       title="Refresh data"
       aria-label="Refresh analytics data"
       style={{
-        padding: '10px 14px',
+        padding: '10px 16px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

@@ -2,48 +2,197 @@
 
 Website for **Rebuilt Academy**, a gym and rehab studio across three Core Collective locations in Singapore. The studio offers coached rehabilitation, personal training, sports performance, and physiotherapy in partnership with Rehab & Beyond.
 
-Built with Next.js 15 App Router.
+Built with Next.js 15.
 
 ---
 
-## What the site does
+## What Rebuilt Academy does
 
-- Four service pages (Rehab, Training, Performance, Physiotherapy) with feature grids, pricing, testimonials, and FAQ links
-- Physiotherapy delivered in partnership with Rehab & Beyond, with a waitlist for upcoming in-house physiotherapy
-- Five-step booking wizard that pre-fills a WhatsApp or email message for the studio to confirm
-- Team bios on the About page with slide-out detail panels
-- Contact form that delivers enquiries to the studio inbox via Resend
-- Three location cards with slide-in detail panels and embedded Google Maps
-- FAQ page with category tabs and full-text search
-- SEO: metadata, Open Graph image, JSON-LD structured data, sitemap, robots.txt
+Rebuilt Academy is built around one idea: rehab, training, and physiotherapy should all be handled by the same team, sharing the same notes, without clients having to repeat themselves or be passed between providers who never speak to each other.
+
+The studio runs four services:
+
+- **Rehabilitation** - coached return from injury or surgery, 1-on-1, with progress tested every four weeks
+- **Strength Training** - personal training in one-to-one, pairs, or small group formats
+- **Sports Performance** - pre-season, in-season, and off-season blocks for athletes, with testing at the start and end of every programme
+- **Physiotherapy** - delivered in partnership with Rehab & Beyond, coordinated directly with the coaching team
+
+Three locations across Singapore at Core Collective: Robinson (CBD), Dempsey Hill, and Katong (East Coast).
+
+---
+
+## What the website does for the business
+
+**Converts visitors into bookings.** Every page has a direct booking path. The five-step booking wizard collects all the information the studio needs and sends it as a pre-filled WhatsApp or email message, so the team can confirm and reply quickly without chasing the client for details.
+
+**Shows pricing upfront.** All services have transparent pricing listed on their pages. No hidden costs, no "contact us for a quote." Clients can compare options and know what they are committing to before reaching out.
+
+**Handles enquiries automatically.** The contact form on the About page sends messages directly to the studio inbox (hello@rebuilt.sg) without anyone needing to check a separate tool. Replies go straight to the client's email.
+
+**Runs on mobile.** The site is fully responsive and works on any phone, tablet, or desktop. The mobile version has a fixed booking bar at the bottom of every page so the booking button is always visible, no matter how far a user has scrolled.
+
+**Tracks what matters.** Vercel Analytics records page views, unique visitors, and booking-related actions (button clicks, form submissions, WhatsApp taps). The admin dashboard at /admin shows all of this in one place, with filters for the last 7, 30, or 90 days, or any custom date range.
+
+**Supports search engines.** Every page has proper meta titles, descriptions, and structured data so Google understands what the business does and can show it in search results for relevant queries in Singapore.
+
+**Handles legal compliance.** A full privacy policy and terms of service are included, written for PDPA (Singapore's personal data protection law).
+
+---
+
+## Pages
+
+| Page | What it does |
+|---|---|
+| `/` | Home page: hero, stats (300+ clients, 4.9 rating), service overview, physio partnership cards, client reviews, Instagram grid, call to action |
+| `/rehab` | Rehabilitation service page with features, pricing, testimonial, and FAQ link |
+| `/strength` | Personal training page with format options (1-on-1, pairs, small group), pricing, and features |
+| `/performance` | Sports performance page with block types (pre-season, in-season, off-season), testing overview, and instalment plan details |
+| `/physio` | Physiotherapy page covering the Rehab & Beyond partnership, session types, pricing, and the upcoming in-house physiotherapy |
+| `/about` | Team bios (slide-out detail panels), all three location cards with maps, and the contact form |
+| `/faq` | Frequently asked questions across five categories (General, Rehab, Training, Performance, Physiotherapy) with live search |
+| `/book` | Five-step booking wizard (see below) |
+| `/privacy` | Privacy policy, PDPA-compliant |
+| `/terms` | Terms and conditions |
+| `/admin` | Analytics dashboard, protected by login |
+
+---
+
+## The booking flow
+
+The booking wizard collects everything the studio needs in five steps and then opens a pre-filled WhatsApp message or Gmail compose window with all the details already written out.
+
+**Step 1 - Service selection**
+The client picks a category (Rehab, Training, Performance, Physiotherapy, or Not sure yet). Training shows a second stage for format (one-to-one, pairs, or small group) and then session type (single or block of 10). All options show pricing.
+
+**Step 2 - Coach preference**
+The client can choose James Lim (Founder, strength and performance), Marcus Tan (Co-Founder, rehab and return to sport), or no preference.
+
+**Step 3 - Time slots and location**
+The client picks preferred days (Monday to Saturday) and time slots, and selects a preferred location from the three Core Collective sites. Multiple slots can be selected. All times are shown in Singapore time (SGT).
+
+**Step 4 - Contact details**
+Name, email, and an optional notes field for injury history, goals, or any other context the coach should know before the first session.
+
+**Step 5 - Review and send**
+The client sees a summary of all their selections. They send the request via WhatsApp or email. The studio confirms the slot and arranges payment separately.
+
+After sending, a confirmation screen shows with the studio's contact details in case there is no reply within 24 hours.
+
+---
+
+## Admin dashboard
+
+The admin dashboard is at `/admin`. It is password-protected and shows live traffic and conversion data pulled from Vercel Analytics.
+
+**What it shows:**
+
+- Page views and unique visitors for the selected period
+- Average daily views
+- Booking rate (how many visitors clicked to book vs. total visitors)
+- A traffic chart showing daily trends
+- Events log: how many times each key button was clicked (Book, WhatsApp, Contact form, etc.)
+- Top pages by traffic
+- Top referring sites
+- Device breakdown (mobile vs desktop vs tablet)
+
+**Period options:** Last 7 days, 30 days, 90 days, or a custom date range.
+
+Access is protected by a username and password. The session lasts 8 hours, then requires logging in again.
+
+---
+
+## Contact and email
+
+**Contact form** on the About page sends messages directly to hello@rebuilt.sg via Resend. The client's reply-to address is set automatically, so replying to the email in the inbox goes straight back to them. The form is rate-limited to prevent spam.
+
+**WhatsApp** is available as a floating button on every page. On the booking page, it pre-fills a full booking request with all the details the client entered in the wizard.
+
+**Click to copy** is available on the email address and phone number wherever they appear on the site.
+
+---
+
+## Pricing summary
+
+| Service | Price |
+|---|---|
+| Rehab - Assessment | SGD 100 (45 min) |
+| Rehab - Single session | SGD 140 (60 min) |
+| Rehab - Block of 10 | SGD 120 per session |
+| Training - One-to-one (single) | SGD 160 per session |
+| Training - One-to-one (block of 10) | SGD 140 per session |
+| Training - Pairs (single) | SGD 120 per person |
+| Training - Pairs (block of 10) | SGD 90 per person |
+| Training - Small group (single) | SGD 100 per person |
+| Training - Small group (block of 10) | SGD 70 per person |
+| Performance - Pre-season | SGD 100 per session (3x per week, 8 weeks) |
+| Performance - In-season | SGD 140 per session (2x per week, monthly) |
+| Performance - Off-season | SGD 120 per session (3x per week, 12 weeks) |
+| Physiotherapy - 45 min | SGD 200 |
+| Physiotherapy - 60 min | SGD 250 |
+
+Performance instalment plans: pre-season splits into 2 x SGD 1,200 per month. Off-season splits into 2 x SGD 2,160 per month.
+
+---
+
+## How to update content
+
+All business information is in one place. Most updates do not require touching any design or code.
+
+**Contact details, address, hours, social links**
+Edit `lib/site.ts`. This file is the single source of truth. Change it once and it updates everywhere on the site automatically.
+
+**Team bios**
+Edit `lib/team.ts`. Each team member has a name, role, short description (used on the card), full bio paragraphs, and credentials. To add a real photo, update `components/sections/TeamBioModal.tsx` to use an image file from the `public/` folder instead of the initials placeholder.
+
+**Pricing**
+Edit the `PRICING` array at the top of each service page:
+- Rehab: `app/rehab/page.tsx`
+- Training: `app/strength/page.tsx`
+- Performance: `app/performance/page.tsx`
+- Physiotherapy: `app/physio/page.tsx`
+
+Also update `lib/bookData.ts` to keep the booking wizard in sync with the service pages.
+
+**FAQ content**
+Edit `lib/faqData.ts`. Questions are grouped by the same category tabs shown on the FAQ page. Add or remove items from any category.
+
+**Booking options** (services listed, coaches, time slots)
+Edit `lib/bookData.ts`.
+
+**Photos**
+All current photos use placeholder images from Unsplash. To replace with real studio photos, upload the image to the `public/` folder and update the `src` value on each page. Photos appear in the hero sections, service pages, and About page.
+
+**Reviews**
+Edit `components/sections/ReviewsSection.tsx`. The review pool is a static array. Add or remove review cards from the list.
 
 ---
 
 ## Tech stack
 
-| What | Why |
+| What | Purpose |
 |---|---|
-| **Next.js 15** | App Router, server actions, static page generation |
-| **TypeScript** | Type safety across data, props and form handling |
-| **Vercel** | Hosting and automatic redeploys on push |
-| **Resend** | Email delivery for the contact form |
-| **Vercel Analytics + Speed Insights** | Traffic and performance monitoring |
+| Next.js 15 | Website framework. Handles pages, routing, server logic, and performance optimisation |
+| TypeScript | Catches errors before they reach the live site |
+| Vercel | Hosting. Deploys automatically every time code is pushed |
+| Resend | Sends contact form emails to the studio inbox |
+| Vercel Analytics | Tracks page views, visitors, and key button clicks |
+| Vercel Speed Insights | Monitors how fast the site loads for real visitors |
 
 ---
 
 ## Local setup
 
-**Requires Node.js 18+**
+Requires Node.js 18 or later.
 
 ```bash
 npm install
-cp .env.example .env.local   # fill in RESEND_API_KEY
-npm run dev                  # http://localhost:3000
+cp .env.example .env.local   # add RESEND_API_KEY and admin credentials
+npm run dev                  # opens at http://localhost:3000
 ```
 
 ```bash
 npm run build    # production build
-npx tsc --noEmit # type-check without building
+npx tsc --noEmit # type check without building
 npm run lint     # ESLint
 ```
 
@@ -51,11 +200,30 @@ npm run lint     # ESLint
 
 ## Environment variables
 
-| Variable | Purpose | Where to get it |
+| Variable | Purpose | Required |
 |---|---|---|
-| `RESEND_API_KEY` | Sends contact form emails | resend.com |
+| `RESEND_API_KEY` | Sends contact form emails | Yes (soft-fails if missing, no email sent) |
+| `ADMIN_USERNAME` | Admin dashboard login | Yes for /admin access |
+| `ADMIN_PASSWORD` | Admin dashboard login | Yes for /admin access |
+| `ADMIN_SECRET` | Signs the admin session token | Yes for /admin access |
+| `VA_TOKEN` | Vercel Analytics API token | Yes for dashboard data |
+| `VA_PROJECT_ID` | Vercel project ID | Yes for dashboard data |
+| `VA_TEAM_ID` | Vercel team ID | Only for team accounts |
 
-Without this key the contact form silently no-ops (no error shown to the user, no email sent). Set it in Vercel > Project Settings > Environment Variables before going live.
+Set all variables in Vercel under Project Settings > Environment Variables before going to production. The `.env.example` file in the repo lists all of them.
+
+If `RESEND_API_KEY` is missing, the contact form shows a success message but no email is sent. If the `VA_*` variables are missing, the admin dashboard shows a setup guide instead of data.
+
+---
+
+## Deployment
+
+Hosted on Vercel. Every push to the `main` branch redeploys the live site automatically.
+
+```bash
+vercel        # Preview deploy: generates a unique URL, does not touch production
+vercel --prod # Deploy to production
+```
 
 ---
 
@@ -63,175 +231,109 @@ Without this key the contact form silently no-ops (no error shown to the user, n
 
 ```
 app/
-  layout.tsx              Root layout: font, analytics, JSON-LD, skip link, global overlays
-  page.tsx                Home page: hero, stats, services, reviews, CTA
-  globals.css             All global styles, animations and responsive CSS classes
-  error.tsx               Branded runtime error boundary page
+  layout.tsx              Root layout: fonts, analytics, JSON-LD schema, skip link
+  page.tsx                Home page
+  globals.css             All styles, animations, and responsive CSS classes
+  error.tsx               Branded error page
   not-found.tsx           404 page
-  opengraph-image.tsx     Social share image (auto-generated, 1200x630)
-  robots.ts               SEO robots.txt
+  opengraph-image.tsx     Social share image (auto-generated, 1200 x 630 px)
+  robots.ts               SEO robots file
   sitemap.ts              SEO sitemap
 
-  about/page.tsx          About page: team bios, location gallery, contact form
-  book/page.tsx           Booking orchestrator: state, URL params, WhatsApp/Gmail URL
-                          building, step navigation. Steps live in components/booking/
-  faq/page.tsx            FAQ page
-  performance/page.tsx    Sports performance service page
-  physio/page.tsx         Physiotherapy: Rehab & Beyond partnership + in-house waitlist
   rehab/page.tsx          Rehabilitation service page
   strength/page.tsx       Personal training service page
-  privacy/page.tsx        Privacy policy (PDPA)
+  performance/page.tsx    Sports performance service page
+  physio/page.tsx         Physiotherapy service page
+  about/page.tsx          About page: team, locations, contact form
+  faq/page.tsx            FAQ page
+  book/page.tsx           Booking wizard: all state, step navigation, message building
+  privacy/page.tsx        Privacy policy
   terms/page.tsx          Terms and conditions
+
+  admin/
+    page.tsx              Analytics dashboard (protected)
+    _components/          Dashboard-only components (chart, date picker, etc.)
 
   actions/
     contact.ts            Server action: rate-limited, sanitised, sends via Resend
+    admin.ts              Server action: logout
 
 components/
   layout/
-    Navbar.tsx            Fixed nav: auto-hides on scroll down, returns on scroll up
-    Footer.tsx            Footer: separate desktop and mobile layouts
-    PageShell.tsx         Wrapper used by all service and utility pages
+    Navbar.tsx            Fixed nav, auto-hides on scroll down
+    Footer.tsx            Desktop and mobile footer layouts
+    PageShell.tsx         Shared wrapper for all service and utility pages
 
-  ui/                     Small, reusable pieces used across multiple pages
-    ContactForm.tsx         About page enquiry form (server action, rate-limited)
-    CTASection.tsx          Two-column call-to-action with background image
-    CopyText.tsx            Click-to-copy wrapper (email, phone)
-    CountUp.tsx             Animated number counter
-    FAQAccordion.tsx        Expandable accordion items
-    FAQBar.tsx              One-line FAQ teaser strip
-    FeatureGrid.tsx         3-col icon/title/desc grid
-    LocationMap.tsx         Embedded Google Maps iframe (About page static map)
-    OpenStatus.tsx          Live open/closed indicator (Singapore time)
-    PricingCards.tsx        Pricing grid with featured-tier highlight
-    SectionHeader.tsx       Label + h2 + optional description
-    ServiceCrosslinks.tsx   Related services link strip
-    ServiceTestimonial.tsx  Full-width client quote with photo
+  ui/                     Small reusable components
+    ContactForm.tsx
+    CTASection.tsx
+    CopyText.tsx
+    FAQAccordion.tsx
+    FAQBar.tsx
+    FeatureGrid.tsx
+    LocationMap.tsx
+    OpenStatus.tsx
+    PricingCards.tsx
+    SectionHeader.tsx
+    ServiceCrosslinks.tsx
+    ServiceTestimonial.tsx
 
-  sections/               Large, page-level section components
-    FAQContent.tsx          Full FAQ UI: category tabs, accordion, live search
-    LocationDrawer.tsx      Location cards with slide-in detail panel and map
-    Marquee.tsx             Scrolling text ticker (home page)
-    ReviewsSection.tsx      Star rating strip with shuffled client reviews
-    ServiceHero.tsx         Full-bleed hero for service pages
-    TeamBioModal.tsx        Team grid with slide-out bio drawer
+  sections/               Large page-level section components
+    FAQContent.tsx
+    LocationDrawer.tsx
+    Marquee.tsx
+    ReviewsSection.tsx
+    ServiceHero.tsx
+    TeamBioModal.tsx
 
-  effects/                Fixed overlays, animations, dev tools
-    CursorGlow.tsx          Mouse-follow glow effect (desktop only)
-    MobileBookingBar.tsx    Fixed bottom booking bar (mobile only, hidden on /book)
-    ScrollProgress.tsx      Scroll-depth progress bar at page top
-    ThemePlayground.tsx     Accent colour picker (dev mode only)
-    WhatsAppButton.tsx      Floating WhatsApp CTA
+  effects/                Fixed overlays and animation components
+    CursorGlow.tsx
+    MobileBookingBar.tsx
+    ScrollProgress.tsx
+    ThemePlayground.tsx   (dev mode only)
+    WhatsAppButton.tsx
 
-  booking/                Booking wizard steps (imported by app/book/page.tsx)
-    types.ts                Shared TypeScript interfaces for all step props
-    Step1.tsx               Service selection: category tabs, PT format, service picker
-    Step2.tsx               Coach preference
-    Step3.tsx               Time slots: day + time grid, location preference, SGT noted
-    Step4.tsx               Contact details: name, email, notes (char counter)
-    Step5.tsx               Review and send: summary table, WhatsApp / Gmail buttons
-    Done.tsx                Confirmation screen
-    StepHeader.tsx          Step number + heading component
+  booking/                Five-step booking wizard
+    types.ts
+    Step1.tsx through Step5.tsx
+    Done.tsx
+    StepHeader.tsx
 
 lib/
-  site.ts       Contact details, locations, hours, social links
-  team.ts       Team member data: name, role, bio paragraphs, credentials
-  types.ts      Shared TypeScript interfaces (PricingItem, FeatureItem, CrosslinkItem)
-  faqData.ts    All FAQ content: tab list and questions by category
-  bookData.ts   Booking form data: services, coaches, time slots, step config, isValidEmail
-  styles.ts     Shared inline style objects for form inputs and labels
-  hooks.ts      useScrollLock: prevents body scroll when a drawer is open
+  site.ts       Business config: contact, locations, hours, social
+  team.ts       Coach and staff data
+  faqData.ts    All FAQ content, grouped by category
+  bookData.ts   Booking wizard data: services, pricing, coaches, time slots
+  types.ts      Shared TypeScript interfaces
+  styles.ts     Shared form input styles
+  adminAuth.ts  Session token signing and verification
+  analytics.ts  Vercel Analytics API helpers
+  hooks.ts      useScrollLock
 
 public/
-  rebuilt-mark.svg     Logo mark (nav, footer, hero overlays)
+  rebuilt-mark.svg     Logo mark
   instagram-pfp.jpg    Instagram profile photo
 ```
 
 ---
 
-## How to update content
+## Responsive design
 
-**Contact details, email, addresses, hours, social links** > `lib/site.ts`. Change once, updates everywhere.
+The site works on all screen sizes. Breakpoints are at 768px (tablet/mobile) and 480px (small phones). Custom CSS classes handle layout changes:
 
-**Team bios** > `lib/team.ts`. Each member has `role`, `name`, `short` (card preview text), `bio` (array of paragraphs) and `credentials`. To add real photos, update `TeamBioModal.tsx` to use `next/image` instead of the initials placeholder.
-
-**Pricing** > `PRICING` array at the top of each service page (`app/rehab/page.tsx`, `app/strength/page.tsx`, `app/performance/page.tsx`, `app/physio/page.tsx`).
-
-**FAQ content** > `lib/faqData.ts`. Organised by the same category tabs shown on the FAQ page.
-
-**Booking options** (services, coaches, time slots) > `lib/bookData.ts`.
-
-**Studio photos** > replace Unsplash URLs in each service page and `app/about/page.tsx` with real photos. Upload to `public/` and reference as `/filename.jpg`.
-
----
-
-## Responsive CSS classes
-
-All breakpoints are in `globals.css`. Add these `className` values in JSX; the CSS handles the rest at 768px and below (and 480px for small phones).
-
-### Layout
-
-| Class | Desktop | Mobile (768px) |
+| Class | Desktop | Mobile |
 |---|---|---|
 | `.r2` | 2-column grid | 1 column |
 | `.r3` | 3-column grid | 1 column |
 | `.r4` | 4-column grid | 2 columns |
 | `.r6` | 6-column grid | 3 columns |
-| `.r-px` | 48px side padding | 20px (16px at 480px) |
+| `.r-px` | 48px side padding | 20px |
+| `.r-h1` | 84 to 108px | 40px |
+| `.r-section-h2` | 44 to 48px | 34px |
+| `.r-btn-full` | auto width | full width |
 | `.r-hide` | visible | hidden |
 
-### Typography
-
-| Class | Desktop | Mobile (768px) | 480px |
-|---|---|---|---|
-| `.r-h1` | 84-108px | 40px | 32px |
-| `.r-h2` | ~64px | 26px | 22px |
-| `.r-section-h2` | 44-48px | 34px | 28px |
-
-### Spacing
-
-| Class | Purpose |
-|---|---|
-| `.r-section-pad` | Reduces 64-92px vertical padding to 44px |
-| `.r-tall-pad` | Reduces 52-88px vertical padding to 44px |
-| `.r-feature-cell` | Reduces 32px cell padding to 20px |
-| `.r-pricing-card` | Reduces pricing card inner padding |
-
-### Component-specific
-
-| Class | Mobile behaviour |
-|---|---|
-| `.r-hero` | Auto height, min 500px |
-| `.r-hero-badge` | Hidden |
-| `.r-team-img` | Height capped at 220px |
-| `.r-location-card` | Height capped at 280px |
-| `.r-cta-img` | Min-height 200px |
-| `.r-about-img` | Min-height 220px |
-| `.r-partner-img` | Min-height 240px |
-| `.r-reviews-scroll` | Horizontal swipe carousel |
-| `.r-physio-btns` | Stacks buttons vertically |
-| `.r-btn-full` | Full-width button |
-
-### Booking page
-
-| Class | Mobile behaviour |
-|---|---|
-| `.book-content` | Compact vertical padding |
-| `.book-nav` | Stacked, full-width buttons |
-| `.book-step-label` | Hidden (step numbers only) |
-| `.book-page-nav` | Reduced padding |
-
----
-
-## Deployment
-
-Hosted on Vercel. Pushes to `main` redeploy automatically.
-
-```bash
-vercel        # Preview deploy: isolated URL, does not affect production
-vercel --prod # Production deploy
-```
-
-Ensure `RESEND_API_KEY` is set in Vercel environment variables before going to production.
+The mobile booking bar (fixed at the bottom of the screen) is shown only on mobile and hidden on the `/book` and `/admin` pages.
 
 ---
 
@@ -239,44 +341,42 @@ Ensure `RESEND_API_KEY` is set in Vercel environment variables before going to p
 
 ### Booking and scheduling
 
-**Real booking calendar** - the current flow sends a pre-filled WhatsApp or email message. A live calendar integration (Calendly, Acuity, or custom-built) would let clients book and get instant confirmation without manual follow-up from the studio.
+**Real booking calendar.** The current flow sends a pre-filled WhatsApp or email request. A live calendar integration (Calendly, Acuity, or a custom build) would let clients pick and confirm a slot instantly, without waiting for the studio to reply.
 
-**Online payments** - no payment collected at booking. Stripe or PayNow integration would reduce no-shows and simplify admin. Deposit collection at the point of booking is the highest-leverage change for reducing late cancellations.
+**Online payments.** No payment is collected at the point of booking. Stripe or PayNow integration at checkout would reduce no-shows and remove the follow-up step for the team.
 
-**Session packages and credits** - sell blocks of sessions upfront (e.g. 10-session rehab block) with a credit balance the client draws down. Requires a database and a simple client account system.
+**Session packages and credits.** Selling blocks of sessions upfront (for example, a 10-session rehab block) with a digital credit balance the client draws down. Requires a database and a basic client account system.
 
-**Waitlist for cancelled slots** - when a session is cancelled, automatically notify clients on a waitlist. Keeps the calendar full without manual follow-up.
+**Waitlist for cancelled slots.** When a session cancels, automatically notify the next client on a waitlist. Keeps the calendar full without manual effort.
 
 ### Client experience
 
-**Client portal** - session history, programme notes, upcoming bookings, and progress metrics in one place. Requires a database (Supabase or similar) and authentication (Clerk or NextAuth).
+**Client portal.** A secure login area where clients can see session history, programme notes, upcoming bookings, and progress data. Requires a database (Supabase or similar) and authentication (Clerk or NextAuth).
 
-**Progress tracking dashboard** - visualise strength metrics, sprint times, movement scores and rehab milestones over time. Particularly relevant for performance and rehab clients who already receive exit testing.
+**Progress tracking dashboard.** Charts showing strength numbers, sprint times, movement scores, and rehab milestones over time. Particularly valuable for performance and rehab clients who already receive entry and exit testing.
 
-**Automated session reminders** - WhatsApp or email reminders 24 hours and 2 hours before a session. Reduces no-shows without any manual work. Can be built on top of WhatsApp Business API or a service like Twilio.
+**Automated session reminders.** WhatsApp or email reminders sent 24 hours and 2 hours before a session. Reduces no-shows without any manual work from the team. Built on WhatsApp Business API or a service like Twilio.
 
-**Post-session feedback form** - a short survey sent after each session (rating, how the body felt, any concerns). Gives coaches early signals before the next session and builds a paper trail.
+**Post-session feedback.** A short survey sent after each session covering how the body felt and any concerns. Gives coaches early signals before the next visit.
 
-### Marketing and SEO
+### Marketing
 
-**Blog or resources section** - articles on rehab protocols, training principles and injury prevention would improve organic search rankings and position the coaches as experts. A Next.js MDX blog with proper schema markup is straightforward to add.
+**Blog or resources section.** Articles on rehab protocols, training principles, and injury prevention improve organic search rankings and build the coaches' authority online. A Next.js blog with proper schema markup is straightforward to add.
 
-**Case studies page** - anonymised client journeys with before/after metrics (ACL return-to-sport timeline, strength numbers over a block). More persuasive than generic testimonials and differentiates from competitors.
+**Case studies page.** Anonymised client journeys with before and after metrics (ACL return-to-sport timeline, strength numbers across a block). More persuasive than short testimonials and harder for competitors to replicate.
 
-**Live Instagram feed** - the home page grid uses placeholder photos. The Instagram Graph API could pull in real posts automatically, keeping the site fresh without manual updates.
+**Live Instagram feed.** The home page grid currently uses placeholder photos. The Instagram Graph API can pull in real posts automatically and keep the site looking current without manual updates.
 
-**Google Reviews API** - pull real reviews directly from Google Places instead of using the current static pool. Rating and review count stay accurate without any manual updates.
+**Google Reviews.** Pull live reviews and ratings directly from Google Places so the numbers on the site always reflect the current score without manual editing.
 
-**Referral programme page** - a dedicated page explaining the referral incentive (if one exists) and tracking referral links. Most gym clients come from word of mouth; making it structured increases it.
+**Referral programme page.** A dedicated page explaining the referral incentive and tracking referral links. Most gym clients come through word of mouth; formalising it usually increases volume.
 
-### Operations and integrations
+### Operations
 
-**WhatsApp Business API** - replace the current basic link with a proper API integration. Enables automated booking confirmations, session reminders, programme updates, and a structured inbox for the team rather than a personal number.
+**WhatsApp Business API.** Replace the basic phone link with a proper API integration. Enables automated confirmations, session reminders, programme updates, and a structured inbox rather than messages landing on a personal number.
 
-**Coach availability management** - a simple internal tool (or Notion/Airtable integration) where coaches mark their availability, which feeds directly into the booking calendar. Removes the manual back-and-forth of confirming slots.
+**Coach availability management.** A simple internal tool or Notion/Airtable integration where coaches mark their availability, feeding directly into the booking calendar. Removes the manual back-and-forth of confirming slots.
 
-**Physiotherapy referral flow** - a structured intake form for Rehab & Beyond referrals, separate from the general booking wizard. Captures injury details, GP or surgeon notes, and consent upfront so the first appointment can be clinical from the start.
+**Physiotherapy intake form.** A structured form for Rehab & Beyond referrals, separate from the general booking wizard. Captures injury details, surgeon or GP notes, and consent upfront so the first appointment can be fully clinical from the start.
 
-**Analytics dashboard** - beyond Vercel Analytics, a simple internal view of bookings by service type, conversion rate from enquiry to confirmed session, and revenue by month. Could be a protected `/admin` route reading from the bookings database.
-
-**Email marketing** - a newsletter or programme announcement list for existing clients. Integration with Resend audiences (already in use for transactional email) means no new tool is needed.
+**Email marketing.** A newsletter or programme announcement list for existing clients. Resend (already in use for contact form emails) supports audience lists, so no new tool is needed.

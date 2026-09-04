@@ -32,8 +32,8 @@ export const TABS = [
 
 export const REHAB_OPTIONS = [
   { label: 'Assessment',        sub: '45 min · SGD 100' },
-  { label: 'Single session',    sub: '60 min · SGD 130' },
-  { label: 'Block of sessions', sub: 'SGD 120 / session · 20 sessions', popular: true },
+  { label: 'Single session',    sub: '60 min · SGD 140' },
+  { label: 'Block of 10',       sub: 'SGD 120 / session · 10 sessions', popular: true },
 ]
 
 export const PT_FORMATS = [
@@ -43,9 +43,9 @@ export const PT_FORMATS = [
 ]
 
 export const PT_TYPES: Record<string, { single: string; block: string }> = {
-  'One to one':  { single: 'SGD 155 / session',  block: 'SGD 140 / session · 20 sessions' },
-  'Pairs':       { single: 'SGD 120 per person',  block: 'SGD 90 per person · 20 sessions' },
-  'Small group': { single: 'SGD 100 per person',  block: 'SGD 70 per person · 20 sessions' },
+  'One to one':  { single: 'SGD 160 / session',  block: 'SGD 140 / session · 10 sessions' },
+  'Pairs':       { single: 'SGD 120 per person', block: 'SGD 90 per person · 10 sessions' },
+  'Small group': { single: 'SGD 100 per person', block: 'SGD 70 per person · 10 sessions' },
 }
 
 export const COACHES = [

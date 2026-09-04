@@ -441,6 +441,8 @@ p { text-wrap: pretty; }
 
   /* ── Physio partnership image - reduce height when stacked ─── */
   .r-partner-img { min-height: 240px !important; }
+  /* ── Home physio card images ─── */
+  .r-physio-card-img { height: 180px !important; }
 
   /* ── Pricing cards - tighter padding when stacked ─── */
   .r-pricing-card { padding: 24px 20px 28px !important; }
@@ -506,6 +508,8 @@ p { text-wrap: pretty; }
   .r-faq-mobile-cta { display: flex !important; flex-direction: column !important; }
   .r-faq-mobile-cta a { width: 100% !important; justify-content: center; text-align: center; }
   .r-drawer-content { padding-left: 24px !important; padding-right: 24px !important; }
+  .r-drawer-inline-img { margin-left: -24px !important; margin-right: -24px !important; }
+  .r-contact-left { border-right: none !important; border-bottom: 1px solid #2A2A2A !important; }
 
   /* ── Footer ─── */
   .r-footer-nav     { display: none !important; }
@@ -560,7 +564,7 @@ p { text-wrap: pretty; }
     flex-direction: column !important;
     align-items: flex-start !important;
     border-bottom: none !important;
-    border-right: 1px solid #1E1E1E !important;
+    border-right: 1px solid #2A2A2A !important;
     padding: 14px 16px !important;
     gap: 10px !important;
     scroll-snap-align: start !important;
@@ -598,6 +602,70 @@ p { text-wrap: pretty; }
   /* ── Misc ─── */
   .scroll-top-btn { bottom: 100px !important; right: 16px !important; }
   .r-404          { font-size: 80px !important; }
+}
+
+/* ── Admin interactive states ───────────────────── */
+
+/* Date range reset button */
+.admin-range-reset:hover {
+  color: #C0C0C0 !important;
+  border-color: #444 !important;
+}
+
+/* Period tab hover (inactive tabs only — active tab keeps accent bg) */
+.admin-period-btn:not([data-active]):hover {
+  background: rgba(255,255,255,.06) !important;
+  color: #E0E0E0 !important;
+}
+
+/* Bar row hover */
+.admin-bar-row:hover {
+  background: rgba(255,255,255,.025);
+}
+
+/* Remove double border on last bar row */
+.admin-bar-row:last-child {
+  border-bottom: none !important;
+}
+
+/* ── Admin tooltip ─────────────────────────────── */
+.admin-tip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+.admin-tip-icon {
+  display: block;
+  color: #666;
+  cursor: help;
+  transition: color .15s;
+  flex-shrink: 0;
+}
+.admin-tip:hover .admin-tip-icon {
+  color: var(--accent);
+}
+.admin-tip-box {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background: #191919;
+  border: 1px solid #333;
+  color: #C0C0C0;
+  font: 11px/1.65 ui-monospace,Menlo,monospace;
+  padding: 10px 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s;
+  z-index: 300;
+  white-space: normal;
+  letter-spacing: .02em;
+}
+.admin-tip:hover .admin-tip-box {
+  opacity: 1;
 }
 
 /* ── Small phones  (≤ 480px) ───────────────────── */

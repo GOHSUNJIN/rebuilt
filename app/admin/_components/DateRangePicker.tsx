@@ -1,6 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { useTransition, useRef } from 'react'
+import Link from 'next/link'
 
 interface Props {
   currentSince?: string
@@ -53,8 +54,8 @@ export default function DateRangePicker({ currentSince, currentUntil }: Props) {
         type="submit"
         disabled={pending}
         style={{
-          padding: '13px 22px',
-          font: '12px/1 ui-monospace,Menlo,monospace',
+          padding: '9px 18px',
+          font: '11px/1 ui-monospace,Menlo,monospace',
           letterSpacing: '.18em',
           background: pending ? '#1A1A1A' : 'var(--accent)',
           color: pending ? '#6B7280' : '#0B0B0B',
@@ -67,18 +68,35 @@ export default function DateRangePicker({ currentSince, currentUntil }: Props) {
       >
         {pending ? 'LOADING...' : 'APPLY'}
       </button>
+      <Link
+        href="/admin?p=30"
+        style={{
+          padding: '9px 14px',
+          font: '11px/1 ui-monospace,Menlo,monospace',
+          letterSpacing: '.14em',
+          background: 'transparent',
+          color: '#666',
+          border: '1px solid #2A2A2A',
+          textDecoration: 'none',
+          flexShrink: 0,
+          transition: 'color .15s, border-color .15s',
+        }}
+        className="admin-range-reset"
+      >
+        RESET
+      </Link>
     </form>
   )
 }
 
 const INPUT: React.CSSProperties = {
-  padding: '13px 14px',
-  font: '13px/1 ui-monospace,Menlo,monospace',
+  padding: '9px 12px',
+  font: '12px/1 ui-monospace,Menlo,monospace',
   letterSpacing: '.04em',
   background: '#111',
   border: 'none',
   color: '#C0C0C0',
   outline: 'none',
   colorScheme: 'dark',
-  minWidth: 140,
+  minWidth: 130,
 }

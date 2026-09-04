@@ -167,7 +167,7 @@ export default function HomePage() {
 
           {/* Available now */}
           <div style={{ background: '#0B0B0B', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+            <div className="r-physio-card-img" style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
               <Image
                 src="https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?auto=format&fit=crop&w=800&q=80"
                 alt="Physiotherapy session at Rebuilt with Rehab & Beyond" fill
@@ -191,7 +191,7 @@ export default function HomePage() {
 
           {/* Coming soon */}
           <div style={{ background: '#0B0B0B', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+            <div className="r-physio-card-img" style={{ height: 240, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
               <Image
                 src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
                 alt="Rebuilt training facility" fill
@@ -199,9 +199,9 @@ export default function HomePage() {
                 sizes="50vw"
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, #0B0B0B 100%)' }} />
-              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(255,255,255,.12)', background: 'rgba(9,9,13,.75)', backdropFilter: 'blur(4px)' }}>
-                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#909090', display: 'block', flexShrink: 0 }} />
-                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em' }}>COMING SOON</span>
+              <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(245,158,11,.4)', background: 'rgba(9,9,13,.75)', backdropFilter: 'blur(4px)' }}>
+                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#f59e0b', display: 'block', flexShrink: 0 }} />
+                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#f59e0b', letterSpacing: '.2em' }}>COMING SOON</span>
               </div>
             </div>
             <div style={{ padding: '28px 32px 36px', flex: 1, display: 'flex', flexDirection: 'column' }}>

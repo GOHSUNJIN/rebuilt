@@ -302,7 +302,7 @@ export default function TeamBioModal() {
               </p>
 
               {/* Inline image */}
-              <div style={{ position: 'relative', height: 200, margin: '28px -36px', overflow: 'hidden' }}>
+              <div className="r-drawer-inline-img" style={{ position: 'relative', height: 200, margin: '28px -36px', overflow: 'hidden' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=900&q=80"

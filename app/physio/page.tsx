@@ -164,9 +164,9 @@ export default function PhysioPage() {
                 <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
               </div>
             </div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '7px 16px', border: '1px solid rgba(255,255,255,.12)', background: 'rgba(9,9,13,.65)', backdropFilter: 'blur(10px)' }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#909090', display: 'block', flexShrink: 0 }} />
-              <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.22em' }}>COMING SOON</span>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '7px 16px', border: '1px solid rgba(245,158,11,.4)', background: 'rgba(9,9,13,.65)', backdropFilter: 'blur(10px)' }}>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#f59e0b', display: 'block', flexShrink: 0 }} />
+              <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#f59e0b', letterSpacing: '.22em' }}>COMING SOON</span>
             </div>
           </div>
 

@@ -12,11 +12,11 @@ export default function Step4({ name, email, notes, setName, setEmail, setNotes 
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <div>
             <label htmlFor="book-name" style={labelStyle}>NAME *</label>
-            <input id="book-name" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Full name" style={inputStyle} />
+            <input id="book-name" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="First and last name" style={inputStyle} />
           </div>
           <div>
             <label htmlFor="book-email" style={labelStyle}>EMAIL *</label>
-            <input id="book-email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email address" style={inputStyle} />
+            <input id="book-email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" style={inputStyle} />
           </div>
         </div>
 
@@ -29,7 +29,7 @@ export default function Step4({ name, email, notes, setName, setEmail, setNotes 
               </span>
             )}
           </div>
-          <textarea id="book-notes" value={notes} onChange={e => setNotes(e.target.value)} placeholder="e.g. 6 weeks post ACL surgery, cleared to load. Looking to return to football by March." rows={4} maxLength={3000} style={{ ...inputStyle, resize: 'none' }} />
+          <textarea id="book-notes" value={notes} onChange={e => setNotes(e.target.value)} placeholder="Tell us about your current condition, injury history, or any goals we should know before your first session" rows={4} maxLength={3000} style={{ ...inputStyle, resize: 'none' }} />
         </div>
       </div>
     </>

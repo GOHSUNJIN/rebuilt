@@ -47,11 +47,11 @@ export default function ContactForm() {
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <label>
             <span style={labelStyle}>NAME *</span>
-            <input required name="name" type="text" placeholder="Full name" style={inputStyle} />
+            <input required name="name" type="text" placeholder="First and last name" style={inputStyle} />
           </label>
           <label>
             <span style={labelStyle}>EMAIL *</span>
-            <input required name="email" type="email" placeholder="Email address" style={inputStyle} />
+            <input required name="email" type="email" placeholder="Your email address" style={inputStyle} />
           </label>
         </div>
         <label>
@@ -66,7 +66,7 @@ export default function ContactForm() {
         </label>
         <label>
           <span style={labelStyle}>MESSAGE</span>
-          <textarea name="message" placeholder="e.g. I had a knee injury last year and want to start training again. What would my first session look like?" rows={5} maxLength={2000} style={{ ...inputStyle, resize: 'none' }} />
+          <textarea name="message" placeholder="Tell us about your situation, what you need help with, or any questions you have" rows={5} maxLength={2000} style={{ ...inputStyle, resize: 'none' }} />
         </label>
         {status === 'error' && (
           <p role="alert" aria-live="assertive" style={{ fontSize: 13, color: '#e07070', margin: 0 }}>{errorMsg}</p>

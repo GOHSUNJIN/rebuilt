@@ -86,7 +86,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
                 >
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3 }}>
-                      <p style={{ fontSize: 14, fontWeight: 600, margin: 0, color: service === `${ptFormat} · block` ? '#FFFFFF' : '#A5A5A5' }}>Block of 20</p>
+                      <p style={{ fontSize: 14, fontWeight: 600, margin: 0, color: service === `${ptFormat} · block` ? '#FFFFFF' : '#A5A5A5' }}>Block of 10</p>
                       <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', border: '1px solid rgba(183,240,0,.3)', padding: '3px 6px', letterSpacing: '.12em' }}>POPULAR</span>
                     </div>
                     <p style={{ fontSize: 12, color: '#5f6670', margin: 0 }}>{PT_TYPES[ptFormat].block}</p>
@@ -114,7 +114,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                   <p style={{ fontSize: 14, fontWeight: 600, margin: 0, color: '#6f7783' }}>In-house Physiotherapy at Rebuilt</p>
-                  <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#6f7783', border: '1px solid rgba(111,119,131,.3)', padding: '3px 6px', letterSpacing: '.12em', flexShrink: 0 }}>COMING SOON</span>
+                  <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#f59e0b', border: '1px solid rgba(245,158,11,.35)', padding: '3px 6px', letterSpacing: '.12em', flexShrink: 0 }}>COMING SOON</span>
                 </div>
                 <p style={{ fontSize: 12, color: '#5f6670', margin: 0 }}>One team, same building · not yet available</p>
               </div>

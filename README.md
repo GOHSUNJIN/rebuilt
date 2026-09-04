@@ -6,6 +6,55 @@ Built with Next.js 15.
 
 ---
 
+## Pre-launch checklist
+
+Everything that needs to be done before the site goes live on a real domain.
+
+### 1. Content
+
+- [ ] Replace all Unsplash placeholder photos with real studio images (hero on each service page, About page header, team headshots for James and Marcus, location gallery photos, CTA section backgrounds)
+- [ ] Upload real photos to the `public/` folder and update the image URLs in each page file
+- [ ] Replace the placeholder client reviews in `components/sections/ReviewsSection.tsx` with real Google reviews
+- [ ] Replace the placeholder Instagram grid photos on the home page with real content (manual replacement or Instagram Graph API)
+- [ ] Verify all business info in `lib/site.ts`: phone number, email address, exact street addresses, and opening hours
+- [ ] Read through the team bios in `lib/team.ts` and confirm every detail is accurate
+- [ ] Read through the privacy policy and terms of service to confirm the contact details and studio name are correct
+
+### 2. Domain
+
+- [ ] Purchase a domain (recommended: `rebuiltacademy.sg` or `rebuilt.sg` via Namecheap, GoDaddy, or SGNIC)
+- [ ] In Vercel, go to Project Settings > Domains and add the domain
+- [ ] Enter the DNS records Vercel provides into your domain registrar (takes up to 48 hours to go live, usually much faster)
+- [ ] Set up email on the domain so `hello@rebuilt.sg` is a working inbox (Google Workspace or Zoho Mail, around SGD 8 to 20 per month)
+
+### 3. Environment variables
+
+Set all of these in Vercel under Project Settings > Environment Variables before going live.
+
+| Variable | What to do |
+|---|---|
+| `RESEND_API_KEY` | Sign up at resend.com, verify your domain, copy the API key. Without this the contact form silently does nothing. |
+| `ADMIN_USERNAME` | Choose a username for the /admin dashboard |
+| `ADMIN_PASSWORD` | Choose a strong password |
+| `ADMIN_SECRET` | Generate any random 32-character string (use a password generator) |
+| `VA_TOKEN` | In Vercel, go to Account Settings > Tokens and create one |
+| `VA_PROJECT_ID` | Found in Vercel under Project Settings |
+
+### 4. Pre-launch testing
+
+- [ ] Submit the contact form and confirm the email arrives in hello@rebuilt.sg
+- [ ] Go through the full booking wizard (all five steps) and confirm the WhatsApp and Gmail links open with the correct pre-filled text
+- [ ] Open the site on a real phone (iPhone and Android if possible) and check every page scrolls correctly, the mobile booking bar appears, and the hamburger menu works
+- [ ] Add the site to Google Search Console and submit the sitemap at `yourdomain.com/sitemap.xml`
+
+### 5. Go live
+
+- [ ] Deploy a final preview build and review everything on the live preview URL
+- [ ] Merge the `dev` branch into `main` in GitHub to trigger the production deployment
+- [ ] Confirm the live domain resolves and all pages load correctly
+
+---
+
 ## What Rebuilt Academy does
 
 Rebuilt Academy is built around one idea: rehab, training, and physiotherapy should all be handled by the same team, sharing the same notes, without clients having to repeat themselves or be passed between providers who never speak to each other.

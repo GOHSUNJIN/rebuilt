@@ -6,52 +6,39 @@ Built with Next.js 15.
 
 ---
 
-## Pre-launch checklist
+## Before we go live
 
-Everything that needs to be done before the site goes live on a real domain.
+A simple checklist of what needs to be sorted before the website launches publicly. Items marked **you** need input from the client. Items marked **handled** will be taken care of on the technical side.
 
-### 1. Content
+### Photos and content
 
-- [ ] Replace all Unsplash placeholder photos with real studio images (hero on each service page, About page header, team headshots for James and Marcus, location gallery photos, CTA section backgrounds)
-- [ ] Upload real photos to the `public/` folder and update the image URLs in each page file
-- [ ] Replace the placeholder client reviews in `components/sections/ReviewsSection.tsx` with real Google reviews
-- [ ] Replace the placeholder Instagram grid photos on the home page with real content (manual replacement or Instagram Graph API)
-- [ ] Verify all business info in `lib/site.ts`: phone number, email address, exact street addresses, and opening hours
-- [ ] Read through the team bios in `lib/team.ts` and confirm every detail is accurate
-- [ ] Read through the privacy policy and terms of service to confirm the contact details and studio name are correct
+- [ ] **You** - Provide real studio photos (for the hero banners on each service page, the About page, and the location gallery)
+- [ ] **You** - Provide headshots or photos of James and Marcus for their team cards
+- [ ] **You** - Confirm the phone number, email address, studio addresses, and opening hours are all correct
+- [ ] **You** - Confirm the team bios and credentials for James and Marcus read exactly as you want them
+- [ ] **You** - Share 5 to 10 real client reviews (copy from your Google listing) to replace the placeholder ones on the site
+- [ ] **You** - Provide real Instagram content for the home page grid, or let us know if you want it connected to your account automatically
+- [ ] **You** - Read through the privacy policy and terms of service and confirm the details are accurate
 
-### 2. Domain
+### Domain and email
 
-- [ ] Purchase a domain (recommended: `rebuiltacademy.sg` or `rebuilt.sg` via Namecheap, GoDaddy, or SGNIC)
-- [ ] In Vercel, go to Project Settings > Domains and add the domain
-- [ ] Enter the DNS records Vercel provides into your domain registrar (takes up to 48 hours to go live, usually much faster)
-- [ ] Set up email on the domain so `hello@rebuilt.sg` is a working inbox (Google Workspace or Zoho Mail, around SGD 8 to 20 per month)
+- [ ] **You** - Purchase a website domain, for example `rebuiltacademy.sg` or `rebuilt.sg`. This costs around SGD 30 to 50 per year. You can buy one from any domain registrar (GoDaddy, Namecheap, or SGNIC for a .sg address).
+- [ ] **You** - Set up a business email inbox so that `hello@rebuilt.sg` is a real, working address. Google Workspace or Zoho Mail both work and cost around SGD 8 to 20 per month. Without this, contact form messages have nowhere to land.
+- [ ] **Handled** - Connect the domain to the website once purchased.
 
-### 3. Environment variables
+### Analytics and admin dashboard
 
-Set all of these in Vercel under Project Settings > Environment Variables before going live.
+- [ ] **You** - Decide on a username and password for the private analytics dashboard at `/admin`. This is where you will see visitor numbers, booking clicks, and traffic sources.
+- [ ] **Handled** - Set up the analytics connection and admin login using the credentials you provide.
 
-| Variable | What to do |
-|---|---|
-| `RESEND_API_KEY` | Sign up at resend.com, verify your domain, copy the API key. Without this the contact form silently does nothing. |
-| `ADMIN_USERNAME` | Choose a username for the /admin dashboard |
-| `ADMIN_PASSWORD` | Choose a strong password |
-| `ADMIN_SECRET` | Generate any random 32-character string (use a password generator) |
-| `VA_TOKEN` | In Vercel, go to Account Settings > Tokens and create one |
-| `VA_PROJECT_ID` | Found in Vercel under Project Settings |
+### Final checks before launch
 
-### 4. Pre-launch testing
-
-- [ ] Submit the contact form and confirm the email arrives in hello@rebuilt.sg
-- [ ] Go through the full booking wizard (all five steps) and confirm the WhatsApp and Gmail links open with the correct pre-filled text
-- [ ] Open the site on a real phone (iPhone and Android if possible) and check every page scrolls correctly, the mobile booking bar appears, and the hamburger menu works
-- [ ] Add the site to Google Search Console and submit the sitemap at `yourdomain.com/sitemap.xml`
-
-### 5. Go live
-
-- [ ] Deploy a final preview build and review everything on the live preview URL
-- [ ] Merge the `dev` branch into `main` in GitHub to trigger the production deployment
-- [ ] Confirm the live domain resolves and all pages load correctly
+- [ ] **Handled** - Test the contact form end to end to confirm enquiries reach the inbox.
+- [ ] **Handled** - Test the full booking flow to confirm WhatsApp and email links work correctly.
+- [ ] **Handled** - Check the site on iPhone and Android to confirm everything looks right on mobile.
+- [ ] **Handled** - Submit the site to Google so it starts appearing in search results.
+- [ ] **You** - Review the site on the staging link one final time and give the go-ahead to launch.
+- [ ] **Handled** - Flip the site live on your domain.
 
 ---
 

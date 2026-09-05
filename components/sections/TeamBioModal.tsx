@@ -34,13 +34,15 @@ const RNB_TEAM = [
     role: 'FOUNDER / LEAD PHYSIOTHERAPIST',
     name: 'Jaden',
     image: 'https://gobeyondrehab.sg/wp-content/uploads/2019/04/RnB-Jaden.jpg',
+    imagePosition: 'center top',
     bio: 'Over 10 years hospital experience across public and private settings. Specialises in sports injury management, post-surgery physiotherapy and neurological rehabilitation. Three-time Service Excellence Award recipient and presenter of award-winning research at international conferences.',
     credentials: ['Master of Clinical Rehabilitation', 'AHPC Registered (Singapore MOH)', 'ACSM Certified Clinical Exercise Physiologist', 'ACS Certified Cancer Exercise Trainer'],
   },
   {
     role: 'SENIOR PHYSIOTHERAPIST',
     name: 'Debra Ow Pei Li',
-    image: 'https://gobeyondrehab.sg/wp-content/uploads/2024/01/Debra.jpg',
+    image: '/rnb-debra.jpg',
+    imagePosition: 'center 18%',
     bio: '7 years at Tan Tock Seng Hospital as Senior Physiotherapist. Specialist in musculoskeletal and orthopaedic rehabilitation across acute, outpatient and community settings. Community health advocate focused on frailty and healthy aging.',
     credentials: ['AHPC Clinical Supervisor', 'Clinical Educator (Singapore Institute of Technology)', 'Otago Exercise Leader', 'ACE Certified Personal Trainer'],
   },
@@ -289,13 +291,13 @@ export default function TeamBioModal() {
             }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
+                src="/rnb-logo.png"
                 alt="Rehab & Beyond"
                 style={{ width: '75%', maxWidth: 320, objectFit: 'contain', display: 'block', filter: 'brightness(0) invert(1)' }}
               />
             </div>
 
-            <div className="r-drawer-content" style={{ padding: '4px 36px 52px' }}>
+            <div className="r-drawer-content" style={{ padding: '32px 36px 52px' }}>
               <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 12 }}>
                 PHYSIOTHERAPY PARTNER
               </p>
@@ -343,7 +345,7 @@ export default function TeamBioModal() {
                           <img
                             src={person.image}
                             alt={person.name}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block', minHeight: 130 }}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: person.imagePosition ?? 'center top', display: 'block', minHeight: 130 }}
                           />
                         </div>
                         <div style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>

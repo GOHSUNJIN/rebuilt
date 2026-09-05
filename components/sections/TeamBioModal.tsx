@@ -102,8 +102,8 @@ export default function TeamBioModal() {
                   flexShrink: 0,
                   backgroundColor: '#0B0B0B',
                   backgroundImage: `url(${member.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center top',
+                  backgroundSize: member.imageSize ?? 'cover',
+                  backgroundPosition: member.imagePosition ?? 'center top',
                 }}
               />
             ) : (
@@ -214,8 +214,8 @@ export default function TeamBioModal() {
                   flexShrink: 0,
                   backgroundColor: '#0B0B0B',
                   backgroundImage: `url(${selected.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center top',
+                  backgroundSize: selected.imageSize ?? 'cover',
+                  backgroundPosition: selected.imagePosition ?? 'center top',
                 }} />
               ) : (
                 <MemberPlaceholder initials={initials(selected.name)} height={280} />

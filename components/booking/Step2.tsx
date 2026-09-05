@@ -36,6 +36,18 @@ export default function Step2({ coach, setCoach }: Step2Props) {
             >
               {/* Avatar */}
               {member ? (
+                member.image ? (
+                  <div style={{
+                    width: 48,
+                    height: 48,
+                    flexShrink: 0,
+                    border: `1px solid ${selected ? 'var(--accent)' : '#2A2A2A'}`,
+                    backgroundImage: `url(${member.image})`,
+                    backgroundSize: member.imageSize ?? 'cover',
+                    backgroundPosition: member.imagePosition ?? 'center top',
+                    transition: 'border-color .15s',
+                  }} />
+                ) : (
                 <div style={{
                   width: 48,
                   height: 48,
@@ -53,6 +65,7 @@ export default function Step2({ coach, setCoach }: Step2Props) {
                 }}>
                   {initials}
                 </div>
+                )
               ) : (
                 <div style={{
                   width: 48,

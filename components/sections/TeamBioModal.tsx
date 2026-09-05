@@ -93,14 +93,19 @@ export default function TeamBioModal() {
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelected(member) } }}
           >
             {member.image ? (
-              <div className="r-team-img" style={{ height: 340, overflow: 'hidden', position: 'relative', background: '#0B0B0B', flexShrink: 0 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
-                />
-              </div>
+              <div
+                className="r-team-img"
+                role="img"
+                aria-label={member.name}
+                style={{
+                  height: 340,
+                  flexShrink: 0,
+                  backgroundColor: '#0B0B0B',
+                  backgroundImage: `url(${member.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center 20px',
+                }}
+              />
             ) : (
               <MemberPlaceholder initials={initials(member.name)} height={340} className="r-team-img" />
             )}
@@ -204,14 +209,14 @@ export default function TeamBioModal() {
 
             <div style={{ position: 'relative' }}>
               {selected.image ? (
-                <div style={{ height: 280, overflow: 'hidden', position: 'relative', background: '#0B0B0B', flexShrink: 0 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={selected.image}
-                    alt={selected.name}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
-                  />
-                </div>
+                <div style={{
+                  height: 280,
+                  flexShrink: 0,
+                  backgroundColor: '#0B0B0B',
+                  backgroundImage: `url(${selected.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center 20px',
+                }} />
               ) : (
                 <MemberPlaceholder initials={initials(selected.name)} height={280} />
               )}

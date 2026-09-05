@@ -34,7 +34,7 @@ export const TEAM: TeamMember[] = [
     name: 'Joshua Seow',
     image: '/joshua.jpg',
     imagePosition: 'center top',
-    imageSize: '160%',
+    imageSize: '118%',
     avatarImagePosition: 'center top',
     avatarImageSize: '160%',
     short: 'National floorball representative and co-founder of Rebuilt Academy. Specialises in sports performance, strength training, and rehabilitation with over a decade in the sports industry.',

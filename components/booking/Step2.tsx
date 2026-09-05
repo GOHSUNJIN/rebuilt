@@ -43,8 +43,8 @@ export default function Step2({ coach, setCoach }: Step2Props) {
                     flexShrink: 0,
                     border: `1px solid ${selected ? 'var(--accent)' : '#2A2A2A'}`,
                     backgroundImage: `url(${member.image})`,
-                    backgroundSize: member.imageSize ?? 'cover',
-                    backgroundPosition: member.imagePosition ?? 'center top',
+                    backgroundSize: member.avatarImageSize ?? member.imageSize ?? 'cover',
+                    backgroundPosition: member.avatarImagePosition ?? member.imagePosition ?? 'center top',
                     transition: 'border-color .15s',
                   }} />
                 ) : (

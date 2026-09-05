@@ -7,6 +7,8 @@ export interface TeamMember {
   image?: string
   imagePosition?: string
   imageSize?: string
+  avatarImagePosition?: string
+  avatarImageSize?: string
 }
 
 export const TEAM: TeamMember[] = [
@@ -32,7 +34,9 @@ export const TEAM: TeamMember[] = [
     name: 'Joshua Seow',
     image: '/joshua.jpg',
     imagePosition: 'center top',
-    imageSize: '118%',
+    imageSize: '160%',
+    avatarImagePosition: 'center top',
+    avatarImageSize: '160%',
     short: 'National floorball representative and co-founder of Rebuilt Academy. Specialises in sports performance, strength training, and rehabilitation with over a decade in the sports industry.',
     bio: [
       'Joshua represented Singapore\'s national floorball team at the 2019 SEA Games, winning a silver medal, and competed at the World Floorball Championships. He took home MVP at the 2018 World Floorball Championship Qualifiers in Jeju, Korea. That track record at elite level informs everything he programmes for performance clients today.',

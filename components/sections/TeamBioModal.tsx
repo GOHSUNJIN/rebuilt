@@ -280,28 +280,27 @@ export default function TeamBioModal() {
               ✕
             </button>
 
-            {/* Header image */}
-            <div style={{ position: 'relative', height: 300, overflow: 'hidden', flexShrink: 0 }}>
+            {/* Header — logo block, no photo */}
+            <div style={{
+              position: 'relative', flexShrink: 0,
+              background: '#FFFFFF',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+              padding: '48px 36px 36px', gap: 24,
+            }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://gobeyondrehab.sg/wp-content/uploads/2019/04/RnB-Jaden.jpg"
-                alt="Jaden, Lead Physiotherapist at Rehab & Beyond"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
+                src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
+                alt="Rehab & Beyond"
+                style={{ width: 260, maxWidth: '80%', objectFit: 'contain', display: 'block' }}
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #171717 0%, rgba(15,17,21,.35) 55%, transparent 100%)' }} />
-              {/* Wordmark overlay */}
-              <div style={{ position: 'absolute', bottom: 28, left: 36, display: 'flex', alignItems: 'center', gap: 12 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://gobeyondrehab.sg/favicon.ico"
-                  alt="Rehab & Beyond"
-                  width={36} height={36}
-                  style={{ borderRadius: '50%', background: '#fff', objectFit: 'cover', display: 'block' }}
-                />
-                <div>
-                  <div style={{ fontSize: 13, fontWeight: 800, color: '#FFFFFF', letterSpacing: '-.01em', lineHeight: 1 }}>Rehab &amp; Beyond</div>
-                  <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em' }}>GOBEYONDREHAB.SG</div>
-                </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 6 }}>
+                {['Best Physio 2024', 'Channel 8', 'CNA938', 'AHPC Registered'].map(badge => (
+                  <span key={badge} style={{
+                    font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em',
+                    color: '#555', border: '1px solid #ddd',
+                    padding: '5px 10px',
+                  }}>{badge}</span>
+                ))}
               </div>
             </div>
 
@@ -320,19 +319,8 @@ export default function TeamBioModal() {
                 At Rebuilt Academy, Rehab &amp; Beyond handle all physiotherapy consultations and treatment. Session notes are shared directly with your Rebuilt coach so recovery and training are always pulling in the same direction. In-house physiotherapy is coming soon.
               </p>
 
-              {/* Inline image */}
-              <div className="r-drawer-inline-img" style={{ position: 'relative', height: 200, margin: '28px -36px', overflow: 'hidden' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://gobeyondrehab.sg/wp-content/uploads/2024/01/Debra.jpg"
-                  alt="Debra, Senior Physiotherapist at Rehab & Beyond"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,17,21,.6) 0%, transparent 50%)' }} />
-              </div>
-
               {/* What they treat */}
-              <div style={{ borderTop: '1px solid #1E1E1E', marginTop: 0, paddingTop: 28 }}>
+              <div style={{ borderTop: '1px solid #1E1E1E', marginTop: 28, paddingTop: 28 }}>
                 <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em', marginTop: 0, marginBottom: 18 }}>
                   WHAT THEY TREAT
                 </p>

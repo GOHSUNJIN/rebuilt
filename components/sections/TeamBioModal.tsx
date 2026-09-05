@@ -103,7 +103,7 @@ export default function TeamBioModal() {
                   backgroundColor: '#0B0B0B',
                   backgroundImage: `url(${member.image})`,
                   backgroundSize: 'cover',
-                  backgroundPosition: 'center 20px',
+                  backgroundPosition: 'center top',
                 }}
               />
             ) : (
@@ -215,7 +215,7 @@ export default function TeamBioModal() {
                   backgroundColor: '#0B0B0B',
                   backgroundImage: `url(${selected.image})`,
                   backgroundSize: 'cover',
-                  backgroundPosition: 'center 20px',
+                  backgroundPosition: 'center top',
                 }} />
               ) : (
                 <MemberPlaceholder initials={initials(selected.name)} height={280} />

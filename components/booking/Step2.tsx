@@ -38,8 +38,8 @@ export default function Step2({ coach, setCoach }: Step2Props) {
               {member ? (
                 member.image ? (
                   <div style={{
-                    width: 48,
-                    height: 48,
+                    width: 72,
+                    height: 72,
                     flexShrink: 0,
                     border: `1px solid ${selected ? 'var(--accent)' : '#2A2A2A'}`,
                     backgroundImage: `url(${member.image})`,
@@ -49,8 +49,8 @@ export default function Step2({ coach, setCoach }: Step2Props) {
                   }} />
                 ) : (
                 <div style={{
-                  width: 48,
-                  height: 48,
+                  width: 72,
+                  height: 72,
                   background: '#0e1015',
                   border: `1px solid ${selected ? 'var(--accent)' : '#2A2A2A'}`,
                   display: 'flex',
@@ -68,8 +68,8 @@ export default function Step2({ coach, setCoach }: Step2Props) {
                 )
               ) : (
                 <div style={{
-                  width: 48,
-                  height: 48,
+                  width: 72,
+                  height: 72,
                   background: '#0e1015',
                   border: `1px solid ${selected ? 'var(--accent)' : '#1E1E1E'}`,
                   display: 'flex',

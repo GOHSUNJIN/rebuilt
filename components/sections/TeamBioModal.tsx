@@ -136,23 +136,16 @@ export default function TeamBioModal() {
           onClick={() => setShowRnB(true)}
           onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setShowRnB(true) } }}
         >
-          <div className="r-team-img" style={{ height: 340, position: 'relative', overflow: 'hidden', background: '#0B0B0B', flexShrink: 0 }}>
+          <div className="r-team-img" style={{ height: 340, position: 'relative', overflow: 'hidden', background: '#0B0B0B', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 120% 80% at 50% 40%, #111418 0%, #060708 100%)' }} />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=800&q=80"
-              alt="Rehab & Beyond physiotherapy"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 25%', display: 'block' }}
+              src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
+              alt="Rehab & Beyond"
+              style={{ position: 'relative', width: 220, maxWidth: '75%', objectFit: 'contain', display: 'block' }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,.75) 0%, rgba(9,9,13,.1) 55%)' }} />
-            <div style={{ position: 'absolute', bottom: 18, left: 22, display: 'flex', alignItems: 'center', gap: 10 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://gobeyondrehab.sg/favicon.ico"
-                alt="Rehab & Beyond"
-                width={28} height={28}
-                style={{ borderRadius: '50%', background: '#fff', objectFit: 'cover', display: 'block' }}
-              />
-              <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'rgba(242,244,247,.6)', letterSpacing: '.18em' }}>
+            <div style={{ position: 'absolute', bottom: 18, left: 22 }}>
+              <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'rgba(242,244,247,.4)', letterSpacing: '.18em' }}>
                 GOBEYONDREHAB.SG
               </span>
             </div>

@@ -49,8 +49,8 @@ export const PT_TYPES: Record<string, { single: string; block: string }> = {
 }
 
 export const COACHES = [
-  { label: 'James Lim',     sub: 'Founder',        detail: 'Strength & performance' },
-  { label: 'Marcus Tan',    sub: 'Co-Founder',      detail: 'Rehab & return to sport' },
+  { label: 'Shafiq Khalit', sub: 'Founder',        detail: 'Strength & rehabilitation' },
+  { label: 'Joshua Seow',   sub: 'Co-Founder',      detail: 'Sports performance & rehab' },
   { label: 'No preference', sub: 'First available', detail: 'We\'ll match you' },
 ]
 

@@ -92,7 +92,18 @@ export default function TeamBioModal() {
             onClick={() => setSelected(member)}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelected(member) } }}
           >
-            <MemberPlaceholder initials={initials(member.name)} height={340} className="r-team-img" />
+            {member.image ? (
+              <div className="r-team-img" style={{ height: 340, overflow: 'hidden', position: 'relative', background: '#0B0B0B', flexShrink: 0 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                />
+              </div>
+            ) : (
+              <MemberPlaceholder initials={initials(member.name)} height={340} className="r-team-img" />
+            )}
             <div style={{ padding: '24px 22px 26px' }}>
               <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em', marginTop: 0, marginBottom: 10 }}>
                 {member.role}
@@ -192,7 +203,18 @@ export default function TeamBioModal() {
             </button>
 
             <div style={{ position: 'relative' }}>
-              <MemberPlaceholder initials={initials(selected.name)} height={280} />
+              {selected.image ? (
+                <div style={{ height: 280, overflow: 'hidden', position: 'relative', background: '#0B0B0B', flexShrink: 0 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={selected.image}
+                    alt={selected.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                  />
+                </div>
+              ) : (
+                <MemberPlaceholder initials={initials(selected.name)} height={280} />
+              )}
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #171717 0%, transparent 55%)' }} />
             </div>
 

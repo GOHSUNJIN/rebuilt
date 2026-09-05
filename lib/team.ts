@@ -4,29 +4,44 @@ export interface TeamMember {
   short: string
   bio: string[]
   credentials: string[]
+  image?: string
 }
 
 export const TEAM: TeamMember[] = [
   {
     role: 'FOUNDER',
-    name: 'James Lim',
-    short: 'Registered physiotherapist with 9 years in clinical rehab, specialising in lower limb reconstruction and return-to-sport testing across football and rugby.',
+    name: 'Shafiq Khalit',
+    image: '/shafiq.jpg',
+    short: 'Strength coach, rehabilitation specialist, and entrepreneur. Coaches clients through post-operative recovery, strength training, and sport-specific performance — often the same person moving through all three.',
     bio: [
-      'James completed his Bachelor of Physiotherapy at NUS and spent six years in a hospital orthopaedic unit before moving into private practice. He has worked extensively with athletes recovering from ACL reconstructions, shoulder dislocations and spinal injuries across football, rugby and combat sports.',
-      'At Rebuilt, he leads all rehabilitation programming and is the first point of contact for anyone coming back from surgery or a significant injury. His approach centres on progressive loading, building tissue capacity before returning to full sport.',
-      'Outside the studio, James competes in masters athletics and holds a Level 2 athletics coach certification.',
+      'Before founding Rebuilt, Shafiq spent years in personal training and rehab coaching, working with post-surgical clients rebuilding strength and mobility from the ground up. He then moved into business leadership as a director and shareholder in the fitness industry — that combination of hands-on coaching and running the business side shapes how Rebuilt operates today.',
+      'His approach is built on a simple premise: People Before Programmes™. No client is a template. Coaching starts with the person in front of him — their history, their goals, their constraints — and the plan gets built around that, not the other way around.',
+      'Outside client work, Shafiq teaches on coaching new trainers and strength physiology, with a particular focus on perimenopause and male body composition — areas he believes get too little rigour in mainstream fitness content.',
     ],
-    credentials: ['B.Phty (NUS)', 'CSCS', 'Level 2 Athletics Coach', '9 years clinical experience'],
+    credentials: [
+      'Strength Coach & Rehabilitation Specialist',
+      'Entrepreneur & Fitness Industry Director',
+      'Educator: Strength Physiology & New Trainer Development',
+      'Specialisation: Perimenopause & Male Body Composition',
+    ],
   },
   {
     role: 'CO-FOUNDER',
-    name: 'Marcus Tan',
-    short: 'Strength and conditioning coach with a background in competitive powerlifting and 7 years coaching athletes from amateur club level to national representation.',
+    name: 'Joshua Seow',
+    image: '/joshua.jpg',
+    short: 'National floorball representative (2019 SEA Games) and sports performance coach with over a decade in the industry. Specialises in sports performance, strength training, and rehabilitation.',
     bio: [
-      'Marcus holds a degree in Sports Science from NTU and has worked as a strength and conditioning coach across football, basketball and swimming programmes at both club and national level. He competed in powerlifting for eight years, reaching national level in the 83kg category.',
-      'His work at Rebuilt Academy covers one-to-one personal training, pairs sessions and structured performance blocks for athletes. He is known for technical precision in the squat, deadlift and pull patterns, and for building programmes that are genuinely sustainable long-term.',
-      'Marcus also runs the gym\'s small group training schedule and designs all in-season and off-season conditioning blocks.',
+      'Joshua represented Singapore\'s national floorball team at the 2019 SEA Games, winning a silver medal, and at the World Floorball Championships. He took home MVP at the 2018 World Floorball Championship Qualifiers in Jeju, Korea — a career built on elite-level sport that directly informs how he coaches performance clients today.',
+      'He now channels that background into coaching, leading the Wonderstick youth floorball team and expanding into pickleball, where he competes socially and plans to coach next. The athlete\'s perspective stays central to everything he programmes.',
+      'With more than a decade in the sports industry, Joshua specialises in sports performance, strength training, and rehab. He combines a broad certification base — stretch, personal training, massage — to help clients build strength, recover well, and move better.',
     ],
-    credentials: ['B.Sc Sports Science (NTU)', 'NSCA-CSCS', 'National-level powerlifter', '7 years S&C coaching'],
+    credentials: [
+      'NCSF Personal Training Certification',
+      'Level 2 Certified Stretch Specialist',
+      'Level 2 Core Balance Stretching Certification',
+      'Swedish Massage Certification',
+      'Singapore National Floorball Team (2019 SEA Games)',
+      '10+ years in the sports industry',
+    ],
   },
 ]

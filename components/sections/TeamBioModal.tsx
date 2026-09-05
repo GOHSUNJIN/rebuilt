@@ -284,9 +284,9 @@ export default function TeamBioModal() {
             <div style={{ position: 'relative', height: 300, overflow: 'hidden', flexShrink: 0 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=900&q=85"
-                alt="Rehab & Beyond physiotherapy"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%', display: 'block' }}
+                src="https://gobeyondrehab.sg/wp-content/uploads/2019/04/RnB-Jaden.jpg"
+                alt="Jaden, Lead Physiotherapist at Rehab & Beyond"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #171717 0%, rgba(15,17,21,.35) 55%, transparent 100%)' }} />
               {/* Wordmark overlay */}
@@ -324,9 +324,9 @@ export default function TeamBioModal() {
               <div className="r-drawer-inline-img" style={{ position: 'relative', height: 200, margin: '28px -36px', overflow: 'hidden' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=900&q=80"
-                  alt="Physiotherapy treatment"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
+                  src="https://gobeyondrehab.sg/wp-content/uploads/2024/01/Debra.jpg"
+                  alt="Debra, Senior Physiotherapist at Rehab & Beyond"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,17,21,.6) 0%, transparent 50%)' }} />
               </div>

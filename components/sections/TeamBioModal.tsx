@@ -136,16 +136,15 @@ export default function TeamBioModal() {
           onClick={() => setShowRnB(true)}
           onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setShowRnB(true) } }}
         >
-          <div className="r-team-img" style={{ height: 340, position: 'relative', overflow: 'hidden', background: '#0B0B0B', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 120% 80% at 50% 40%, #111418 0%, #060708 100%)' }} />
+          <div className="r-team-img" style={{ height: 340, position: 'relative', overflow: 'hidden', background: '#FFFFFF', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
               alt="Rehab & Beyond"
-              style={{ position: 'relative', width: 220, maxWidth: '75%', objectFit: 'contain', display: 'block' }}
+              style={{ width: 240, maxWidth: '80%', objectFit: 'contain', display: 'block' }}
             />
             <div style={{ position: 'absolute', bottom: 18, left: 22 }}>
-              <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'rgba(242,244,247,.4)', letterSpacing: '.18em' }}>
+              <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'rgba(0,0,0,.35)', letterSpacing: '.18em' }}>
                 GOBEYONDREHAB.SG
               </span>
             </div>

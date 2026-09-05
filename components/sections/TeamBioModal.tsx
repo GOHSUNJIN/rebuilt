@@ -282,26 +282,17 @@ export default function TeamBioModal() {
 
             {/* Header — dark branded block */}
             <div style={{
-              position: 'relative', flexShrink: 0,
+              flexShrink: 0,
               background: 'linear-gradient(160deg, #0a1f35 0%, #0d2840 60%, #071829 100%)',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-              padding: '52px 36px 40px', gap: 28,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              padding: '64px 36px',
             }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
                 alt="Rehab & Beyond"
-                style={{ width: 240, maxWidth: '80%', objectFit: 'contain', display: 'block', filter: 'brightness(0) invert(1)' }}
+                style={{ width: '75%', maxWidth: 320, objectFit: 'contain', display: 'block', filter: 'brightness(0) invert(1)' }}
               />
-              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 6 }}>
-                {['Best Physio 2024', 'Channel 8', 'CNA938', 'AHPC Registered'].map(badge => (
-                  <span key={badge} style={{
-                    font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em',
-                    color: 'rgba(255,255,255,.45)', border: '1px solid rgba(255,255,255,.12)',
-                    padding: '5px 10px',
-                  }}>{badge}</span>
-                ))}
-              </div>
             </div>
 
             <div className="r-drawer-content" style={{ padding: '4px 36px 52px' }}>
@@ -379,23 +370,6 @@ export default function TeamBioModal() {
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Recognition */}
-              <div style={{ borderTop: '1px solid #1E1E1E', marginTop: 28, paddingTop: 28 }}>
-                <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em', marginTop: 0, marginBottom: 16 }}>
-                  FEATURED &amp; RECOGNISED
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                  {RNB_RECOGNITION.map((r) => (
-                    <span
-                      key={r}
-                      style={{ padding: '5px 12px', border: '1px solid #1E1E1E', background: '#0c0e13', fontSize: 11.5, color: '#909090', letterSpacing: '.04em' }}
-                    >
-                      {r}
-                    </span>
                   ))}
                 </div>
               </div>

@@ -280,24 +280,24 @@ export default function TeamBioModal() {
               ✕
             </button>
 
-            {/* Header — logo block, no photo */}
+            {/* Header — dark branded block */}
             <div style={{
               position: 'relative', flexShrink: 0,
-              background: '#FFFFFF',
+              background: 'linear-gradient(160deg, #0a1f35 0%, #0d2840 60%, #071829 100%)',
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-              padding: '48px 36px 36px', gap: 24,
+              padding: '52px 36px 40px', gap: 28,
             }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
                 alt="Rehab & Beyond"
-                style={{ width: 260, maxWidth: '80%', objectFit: 'contain', display: 'block' }}
+                style={{ width: 240, maxWidth: '80%', objectFit: 'contain', display: 'block', filter: 'brightness(0) invert(1)' }}
               />
               <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 6 }}>
                 {['Best Physio 2024', 'Channel 8', 'CNA938', 'AHPC Registered'].map(badge => (
                   <span key={badge} style={{
                     font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.14em',
-                    color: '#555', border: '1px solid #ddd',
+                    color: 'rgba(255,255,255,.45)', border: '1px solid rgba(255,255,255,.12)',
                     padding: '5px 10px',
                   }}>{badge}</span>
                 ))}

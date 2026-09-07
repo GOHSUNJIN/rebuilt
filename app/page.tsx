@@ -166,31 +166,26 @@ export default function HomePage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }} className="r2">
 
           {/* Left: content */}
-          <div className="r-px" style={{ padding: '64px 48px', display: 'flex', flexDirection: 'column', gap: 0, borderRight: '1px solid #2A2A2A' }}>
-            <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0 0 16px' }}>PHYSIOTHERAPY</p>
-            <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 46px)', fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 40px', lineHeight: 0.95 }}>Treatment and training<br />under one roof.</h2>
-            <div style={{ borderTop: '1px solid #1E1E1E', paddingTop: 32, display: 'flex', flexDirection: 'column', gap: 18 }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(9,9,13,.85)', border: '1px solid rgba(74,222,128,.35)', alignSelf: 'flex-start' }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
-                <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#4ade80', letterSpacing: '.2em' }}>AVAILABLE NOW</span>
-              </div>
-              <h3 style={{ fontSize: 28, fontWeight: 800, letterSpacing: '-.02em', margin: 0, lineHeight: 1 }}>Physiotherapy with<br />Rehab &amp; Beyond.</h3>
-              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: 0, maxWidth: 380 }}>Physiotherapy, rehab and training coordinated from the start. One point of contact, two teams sharing the same notes.</p>
-              <Link href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none', marginTop: 8 }} className="hover-gold">
-                BOOK A CONSULT →
-              </Link>
+          <div className="r-px" style={{ padding: '56px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 20, borderRight: '1px solid #2A2A2A' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(9,9,13,.85)', border: '1px solid rgba(74,222,128,.35)', alignSelf: 'flex-start' }}>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
+              <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#4ade80', letterSpacing: '.2em' }}>AVAILABLE NOW</span>
             </div>
+            <h2 style={{ fontSize: 'clamp(28px, 3.2vw, 44px)', fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>Physiotherapy with<br />Rehab &amp; Beyond.</h2>
+            <p style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: 0, maxWidth: 380 }}>Physiotherapy, rehab and training coordinated from the start. One point of contact, two teams sharing the same notes.</p>
+            <Link href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
+              BOOK A CONSULT →
+            </Link>
           </div>
 
-          {/* Right: R&B logo */}
-          <div style={{ background: '#0E0E0E', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', minHeight: 400 }}>
-            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(255,255,255,.03) 0%, transparent 70%)' }} />
+          {/* Right: R&B logo on white */}
+          <div style={{ background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 380, padding: 48 }}>
             <Image
               src="/rnb-logo.png"
               alt="Rehab & Beyond"
-              width={280}
-              height={120}
-              style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.8, position: 'relative' }}
+              width={300}
+              height={130}
+              style={{ objectFit: 'contain', width: '100%', maxWidth: 300, height: 'auto' }}
             />
           </div>
 
@@ -198,20 +193,21 @@ export default function HomePage() {
       </section>
 
       {/* ── 4b. Physio — Coming Soon ─────────────── */}
-      <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 560 }}>
+      <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 620 }}>
         <Image
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
           alt="Rebuilt training facility" fill
-          style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.38 }}
+          style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.35 }}
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,1) 0%, rgba(9,9,13,.78) 55%, rgba(9,9,13,.3) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,1) 0%, rgba(9,9,13,.8) 55%, rgba(9,9,13,.3) 100%)' }} />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'var(--accent)' }} />
-        <div className="r-px" style={{ position: 'relative', padding: '80px 48px', minHeight: 560, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', gap: 24 }}>
+        <div className="r-px" style={{ position: 'relative', padding: '88px 48px', minHeight: 620, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', gap: 26 }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '11px 26px', border: '1px solid var(--accent)', background: 'rgba(183,240,0,.1)', backdropFilter: 'blur(10px)' }}>
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
             <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.32em' }}>COMING SOON</span>
           </div>
-          <h2 style={{ fontSize: 'clamp(44px, 6vw, 76px)', fontWeight: 800, letterSpacing: '-.04em', margin: 0, lineHeight: 0.92, color: '#FFFFFF' }}>
+          <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.24em', margin: 0 }}>IN-HOUSE PHYSIOTHERAPY · REBUILT ACADEMY</p>
+          <h2 style={{ fontSize: 'clamp(44px, 6vw, 80px)', fontWeight: 800, letterSpacing: '-.04em', margin: 0, lineHeight: 0.92, color: '#FFFFFF' }}>
             In-house<br />Physiotherapy.
           </h2>
           <p style={{ fontSize: 15, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 480 }}>
@@ -225,6 +221,9 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          <Link href="/book?service=physio" className="btn-outline" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
+            Get in touch →
+          </Link>
         </div>
       </section>
 

@@ -22,7 +22,8 @@ const SERVICES = [
     title: 'Rehab',
     from: 'from SGD 120',
     href: '/rehab',
-    img: 'https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1598971639058-fab3c3109a73?auto=format&fit=crop&w=800&q=80',
+    imgPos: 'center 20%',
     desc: 'For anyone coming back from injury or surgery, working to a plan that starts from where you are right now.',
     tags: ['Post-surgery return to sport', 'Long-standing pain and niggles', 'Working alongside your clinician'],
   },
@@ -31,7 +32,8 @@ const SERVICES = [
     title: 'Strength Training',
     from: 'from SGD 90',
     href: '/strength',
-    img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1581009137042-c552e485697a?auto=format&fit=crop&w=800&q=80',
+    imgPos: 'center 30%',
     desc: 'One to one coaching for people who want structure, technique that holds up, and progress they can see.',
     tags: ['One to one sessions', 'Pairs and small groups', 'Programmes you keep between sessions'],
   },
@@ -40,7 +42,8 @@ const SERVICES = [
     title: 'Sports Performance',
     from: 'from SGD 100',
     href: '/performance',
-    img: 'https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80',
+    imgPos: 'center 25%',
     desc: 'For athletes chasing a number: speed, power, change of direction, and the conditioning to repeat it.',
     tags: ['Testing before and after', 'Sport-specific blocks', 'Off-season and in-season plans'],
   },
@@ -118,10 +121,10 @@ export default function HomePage() {
           </h2>
         </div>
         <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#2A2A2A' }}>
-          {SERVICES.map(({ num, title, from, href, img, desc, tags }) => (
+          {SERVICES.map(({ num, title, from, href, img, imgPos, desc, tags }) => (
             <div key={num} className="hover-card r-service-card" style={{ background: '#171717', display: 'flex', flexDirection: 'column' }}>
               <div className="img-zoom r-card-img" style={{ height: 340, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-                <Image src={img} alt={title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
+                <Image src={img} alt={title} fill style={{ objectFit: 'cover', objectPosition: imgPos }} sizes="(max-width: 768px) 100vw, 33vw" />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(13,15,18,.85) 100%)' }} />
                 <div className="img-overlay" />
               </div>

@@ -145,53 +145,50 @@ export default function PhysioPage() {
       />
 
       {/* Coming soon: In-house physio */}
-      <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 540 }}>
+      <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 640 }}>
         <Image
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
           alt="Rebuilt training facility"
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,1) 0%, rgba(9,9,13,0.75) 45%, rgba(9,9,13,0.35) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,.98) 0%, rgba(9,9,13,.82) 50%, rgba(9,9,13,.55) 100%)' }} />
 
-        <div className="r-px" style={{ position: 'relative', padding: '44px 48px 64px', minHeight: 540, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          {/* Top row */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={26} height={26} style={{ opacity: 0.9 }} />
-              <div>
-                <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
-                <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
-              </div>
-            </div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '7px 16px', border: '1px solid rgba(245,158,11,.4)', background: 'rgba(9,9,13,.65)', backdropFilter: 'blur(10px)' }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#f59e0b', display: 'block', flexShrink: 0 }} />
-              <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#f59e0b', letterSpacing: '.22em' }}>COMING SOON</span>
-            </div>
+        <div className="r-px" style={{ position: 'relative', padding: '96px 48px', minHeight: 640, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', gap: 28 }}>
+
+          {/* Badge */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '10px 22px', border: '1px solid var(--accent)', background: 'rgba(183,240,0,.08)', backdropFilter: 'blur(12px)' }}>
+            <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
+            <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.32em' }}>COMING SOON</span>
           </div>
 
-          {/* Bottom content */}
-          <div>
-            <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0 0 20px' }}>IN-HOUSE PHYSIOTHERAPY</p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'end' }} className="r2">
-              <h2 style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.96, color: '#FFFFFF' }}>
-                One team.<br />One building.<br />No handover gaps.
-              </h2>
-              <div>
-                <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 24px' }}>
-                  We are building Rebuilt Academy&apos;s own in-house physiotherapy. Treatment and coaching under the same roof, sharing the same notes from day one.
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  {['No referrals or handover gaps', 'Physio and coach share session notes', 'Assessment and rehab in the same building'].map(item => (
-                    <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0, display: 'block' }} />
-                      <span style={{ fontSize: 13.5, color: '#A5A5A5' }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
+          {/* Eyebrow */}
+          <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.24em', margin: 0 }}>IN-HOUSE PHYSIOTHERAPY · REBUILT ACADEMY</p>
+
+          {/* Heading */}
+          <h2 style={{ fontSize: 'clamp(44px, 7vw, 80px)', fontWeight: 800, letterSpacing: '-.04em', margin: 0, lineHeight: 0.92, color: '#FFFFFF', maxWidth: 720 }}>
+            One building.<br />One team.<br />Zero handovers.
+          </h2>
+
+          {/* Body */}
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#A5A5A5', margin: 0, maxWidth: 500 }}>
+            We&apos;re building Rebuilt Academy&apos;s own physiotherapy — no referrals, no gaps, no repeating yourself. Physio and coaching under one roof, sharing notes from session one.
+          </p>
+
+          {/* Features strip */}
+          <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', justifyContent: 'center', padding: '4px 0' }}>
+            {['No referrals or handovers', 'Shared session notes', 'Treatment + coaching in one building'].map(item => (
+              <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
+                <span style={{ fontSize: 13, color: '#909090', letterSpacing: '.01em' }}>{item}</span>
               </div>
-            </div>
+            ))}
           </div>
+
+          {/* CTA */}
+          <Link href="/about#contact" className="btn-gold" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 8 }}>
+            Get notified when we launch →
+          </Link>
         </div>
       </section>
 

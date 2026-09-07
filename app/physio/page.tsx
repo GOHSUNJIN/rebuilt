@@ -100,10 +100,10 @@ export default function PhysioPage() {
           </div>
           <div className="r-partner-img" style={{ position: 'relative', overflow: 'hidden', minHeight: 480 }}>
             <Image
-              src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=900&q=85"
-              alt="Physiotherapy session at Rebuilt"
+              src="/rnb-debra.jpg"
+              alt="Rehab & Beyond physiotherapist"
               fill
-              style={{ objectFit: 'cover', objectPosition: 'center 25%' }}
+              style={{ objectFit: 'cover', objectPosition: 'center 18%' }}
             />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(9,9,13,.55) 0%, transparent 40%)' }} />
           </div>

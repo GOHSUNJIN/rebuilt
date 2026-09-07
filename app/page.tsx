@@ -172,7 +172,7 @@ export default function HomePage() {
 
             {/* Available now */}
             <div style={{ background: '#0B0B0B', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-              <div className="r-physio-card-img" style={{ height: 260, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+              <div className="r-physio-card-img" style={{ height: 300, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
                 <Image
                   src="https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?auto=format&fit=crop&w=800&q=80"
                   alt="Physiotherapy session at Rebuilt with Rehab & Beyond" fill
@@ -194,29 +194,33 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Coming soon */}
-            <div style={{ background: '#0D0F0B', display: 'flex', flexDirection: 'column', outline: '1px solid rgba(183,240,0,.12)' }}>
-              <div className="r-physio-card-img" style={{ height: 260, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-                <Image
-                  src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
-                  alt="Rebuilt training facility" fill
-                  style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.5 }}
-                  sizes="50vw"
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(9,9,13,.3) 0%, #0D0F0B 95%)' }} />
-                <div style={{ position: 'absolute', top: 20, left: 24, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', border: '1px solid var(--accent)', background: 'rgba(183,240,0,.08)', backdropFilter: 'blur(4px)' }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
-                  <span style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.2em' }}>COMING SOON</span>
+            {/* Coming soon — full-bleed dramatic card */}
+            <div style={{ background: '#0B0B0B', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', minHeight: 540 }}>
+              <Image
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
+                alt="Rebuilt training facility" fill
+                style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.38 }}
+                sizes="50vw"
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,1) 0%, rgba(9,9,13,.8) 50%, rgba(9,9,13,.3) 100%)' }} />
+              {/* Accent top bar */}
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'var(--accent)' }} />
+              {/* Centred badge */}
+              <div style={{ position: 'absolute', top: 32, left: 0, right: 0, display: 'flex', justifyContent: 'center' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '11px 26px', border: '1px solid var(--accent)', background: 'rgba(183,240,0,.1)', backdropFilter: 'blur(10px)' }}>
+                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
+                  <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.32em' }}>COMING SOON</span>
                 </div>
               </div>
-              <div style={{ padding: '28px 32px 40px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-.02em', margin: '0 0 10px', lineHeight: 1 }}>In-house Physiotherapy</h3>
-                <p style={{ fontSize: 13, lineHeight: 1.65, color: '#C0C0C0', margin: '0 0 24px', flex: 1 }}>Rebuilt Academy is bringing physiotherapy in-house. Same building, same team, same notes from day one.</p>
+              {/* Content anchored to bottom */}
+              <div style={{ position: 'relative', padding: '32px 32px 40px' }}>
+                <h3 style={{ fontSize: 'clamp(36px, 3.5vw, 52px)', fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 14px', lineHeight: 0.92 }}>In-house<br />Physiotherapy.</h3>
+                <p style={{ fontSize: 13, lineHeight: 1.65, color: '#C0C0C0', margin: '0 0 22px' }}>Rebuilt Academy is bringing physiotherapy in-house. Same building, same team, same notes from day one.</p>
                 <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
                   {['No referrals', 'Shared notes', 'One building'].map(item => (
                     <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                       <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
-                      <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.1em' }}>{item}</span>
+                      <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#B0B0B0', letterSpacing: '.1em' }}>{item}</span>
                     </div>
                   ))}
                 </div>

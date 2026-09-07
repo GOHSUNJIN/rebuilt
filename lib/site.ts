@@ -48,9 +48,9 @@ export const SITE = {
 
   contact: {
     email: 'hello@rebuilt.sg',
-    phone: '+65 8223 8935',
-    phoneTel: 'tel:+6582238935',
-    whatsapp: 'https://wa.me/6582238935',
+    phone: '+65 9456 0563',
+    phoneTel: 'tel:+6594560563',
+    whatsapp: 'https://wa.me/6594560563',
   },
 
   social: {

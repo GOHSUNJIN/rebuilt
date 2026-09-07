@@ -589,7 +589,6 @@ p { text-wrap: pretty; }
   .admin-page-visitors { display: none !important; }
 
   /* ── Book page ─── */
-  .book-page-nav   { padding-top: 14px !important; padding-bottom: 14px !important; }
   .book-sidebar    { order: -1 !important; position: static !important; top: auto !important; }
   .book-content    { padding-top: 28px !important; padding-bottom: 48px !important; }
   .book-nav        { flex-direction: column-reverse !important; }

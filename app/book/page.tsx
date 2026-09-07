@@ -136,15 +136,15 @@ function BookContent() {
     <div className="book-page-root" style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0B0B0B', color: '#FFFFFF', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
 
       {/* Nav */}
-      <nav className="r-px book-page-nav" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 48px', background: '#0B0B0B', borderBottom: '1px solid #2A2A2A' }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11, textDecoration: 'none' }}>
-          <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={30} height={30} style={{ display: 'block' }} />
+      <nav className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 70, padding: '0 48px', background: 'rgba(11,12,14,.97)', borderBottom: '1px solid #1E1E1E' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, textDecoration: 'none' }}>
+          <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
           <div>
-            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
-            <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
+            <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
+            <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.22em', color: 'var(--accent)' }}>SINGAPORE</div>
           </div>
         </Link>
-        <Link href="/" style={{ fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', color: '#909090', textDecoration: 'none' }}>← Close</Link>
+        <Link href="/" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.2em', textTransform: 'uppercase', color: '#A5A5A5', textDecoration: 'none' }}>← Close</Link>
       </nav>
 
       {/* Step indicator */}

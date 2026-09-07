@@ -172,7 +172,7 @@ export default function PhysioPage() {
 
           {/* Body */}
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 500 }}>
-            Rebuilt Academy is bringing physiotherapy in-house. Physio and coaching in the same building, sharing notes from session one. No referrals. No gaps.
+            Rebuilt Academy is bringing physiotherapy in-house.<br />Physio and coaching in the same building, sharing notes from session one.<br />No referrals. No gaps.
           </p>
 
           {/* Features strip */}

@@ -47,7 +47,7 @@ export default function RehabPage() {
 
       <ServiceHero
 
-        imageSrc="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1400&q=85"
+        imageSrc="/img/rehab-hero.jpg"
         imageAlt="Rehab session"
         heading={<>Back to what<br />you did before.</>}
         subheading="Coached rehabilitation for people coming back from injury or surgery, built around what your body handles today and where you want it to be."
@@ -68,7 +68,7 @@ export default function RehabPage() {
       <PricingCards items={PRICING} />
 
       <ServiceTestimonial
-        imageSrc="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&q=80"
+        imageSrc="/img/physio-session.jpg"
         imageAlt="Rehab session"
         quote="I came in eight weeks after ACL surgery with no idea what was safe. The testing at the start and end made the whole process feel measured, not guesswork."
         initial="M" name="Marcus T." role="ACL RECONSTRUCTION · RECREATIONAL FOOTBALLER"
@@ -81,7 +81,7 @@ export default function RehabPage() {
         body="45 minutes. We map out where you are, write the plan and have you started that same week."
         bookHref="/book?service=rehab"
         bookLabel="Book a consult"
-        imageSrc="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+        imageSrc="/img/rehab-cta.jpg"
       />
 
       <ServiceCrosslinks items={CROSSLINKS} />

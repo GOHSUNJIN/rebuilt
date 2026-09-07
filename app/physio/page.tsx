@@ -48,7 +48,7 @@ export default function PhysioPage() {
 
       <ServiceHero
 
-        imageSrc="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1400&q=85"
+        imageSrc="/img/physio-session.jpg"
         imageAlt="Physiotherapy session"
         heading={<>Physiotherapy at Rebuilt Academy.</>}
         subheading="Delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training, coordinated from the start."
@@ -126,7 +126,7 @@ export default function PhysioPage() {
       </p>
 
       <ServiceTestimonial
-        imageSrc="https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?auto=format&fit=crop&w=800&q=80"
+        imageSrc="/img/physio-testimonial.jpg"
         imageAlt="Physiotherapy treatment session"
         quote="Having the physiotherapist and coach talking to each other meant I never had to explain my injury twice. The programme adapted the moment my physiotherapist updated my notes."
         initial="J" name="Jason K." role="SHOULDER REHAB · RETURNED TO COMPETITION"
@@ -139,14 +139,14 @@ export default function PhysioPage() {
         body="One message. Rebuilt Academy and Rehab & Beyond coordinate everything - your first appointment confirmed within the day."
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
-        imageSrc="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80"
+        imageSrc="/img/physio-cta.jpg"
         imagePosition="center 30%"
       />
 
       {/* Coming soon: In-house physio */}
       <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 640 }}>
         <Image
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+          src="/img/gym-interior.jpg"
           alt="Rebuilt training facility"
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
@@ -171,7 +171,7 @@ export default function PhysioPage() {
 
           {/* Body */}
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 500 }}>
-            Rebuilt Academy is bringing physiotherapy in-house.<br />Physio and coaching in the same building, sharing notes from session one.<br />No referrals. No gaps.
+            Rebuilt Academy is bringing physiotherapy in-house.<br />Same building, same team, same notes from day one.
           </p>
 
           {/* Features strip */}

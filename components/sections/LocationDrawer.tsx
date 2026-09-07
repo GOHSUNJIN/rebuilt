@@ -41,9 +41,9 @@ const LOCATIONS: Location[] = [
 ]
 
 const LOCATION_IMAGES: Record<string, string> = {
-  Robinson: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
-  Dempsey:  'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=80',
-  Katong:   'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=800&q=80',
+  Robinson: '/img/gym-interior.jpg',
+  Dempsey:  '/img/about-gym.jpg',
+  Katong:   '/img/strength-hero.jpg',
 }
 
 function LocationPlaceholder({ label, height }: { label: string; height: number }) {

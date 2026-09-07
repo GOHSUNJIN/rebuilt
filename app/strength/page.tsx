@@ -49,7 +49,7 @@ export default function StrengthPage() {
 
       <ServiceHero
 
-        imageSrc="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=1400&q=85"
+        imageSrc="/img/strength-hero.jpg"
         imageAlt="Personal training"
         heading={<>Train with a purpose.</>}
         subheading="A plan, honest feedback and measurable progress. Whatever shape you start in."
@@ -70,7 +70,7 @@ export default function StrengthPage() {
       <PricingCards items={PRICING} />
 
       <ServiceTestimonial
-        imageSrc="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80"
+        imageSrc="/img/strength-testimonial.jpg"
         imageAlt="Training session"
         quote="Three months in and I am lifting more than I ever have. The programme adapts when life gets in the way, and you can always see exactly where you stand."
         initial="S" name="Sarah K." role="TRAINING · 3-MONTH BLOCK"
@@ -83,7 +83,7 @@ export default function StrengthPage() {
         body="No induction. No assessment fee. Just a session where we find out what you need and start building it."
         bookHref="/book?service=strength"
         bookLabel="Book a consult"
-        imageSrc="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80"
+        imageSrc="/img/strength-cta.jpg"
         imagePosition="center 30%"
       />
 

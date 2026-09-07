@@ -44,7 +44,7 @@ export default function AboutPage() {
           {/* Right: photo */}
           <div className="r-about-img" style={{ position: 'relative', minHeight: 400, overflow: 'hidden' }}>
             <Image
-              src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=85"
+              src="/img/about-gym.jpg"
               alt="Rebuilt studio"
               fill
               style={{ objectFit: 'cover', objectPosition: 'center 40%' }}

@@ -22,7 +22,7 @@ const SERVICES = [
     title: 'Rehab',
     from: 'from SGD 120',
     href: '/rehab',
-    img: 'https://images.unsplash.com/photo-1598971639058-fab3c3109a73?auto=format&fit=crop&w=800&q=80',
+    img: '/img/card-rehab.jpg',
     imgPos: 'center 20%',
     desc: 'For anyone coming back from injury or surgery, working to a plan that starts from where you are right now.',
     tags: ['Post-surgery return to sport', 'Long-standing pain and niggles', 'Working alongside your clinician'],
@@ -32,7 +32,7 @@ const SERVICES = [
     title: 'Strength Training',
     from: 'from SGD 90',
     href: '/strength',
-    img: 'https://images.unsplash.com/photo-1581009137042-c552e485697a?auto=format&fit=crop&w=800&q=80',
+    img: '/img/card-strength.jpg',
     imgPos: 'center 30%',
     desc: 'One to one coaching for people who want structure, technique that holds up, and progress they can see.',
     tags: ['One to one sessions', 'Pairs and small groups', 'Programmes you keep between sessions'],
@@ -42,7 +42,7 @@ const SERVICES = [
     title: 'Sports Performance',
     from: 'from SGD 100',
     href: '/performance',
-    img: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80',
+    img: '/img/card-performance.jpg',
     imgPos: 'center 25%',
     desc: 'For athletes chasing a number: speed, power, change of direction, and the conditioning to repeat it.',
     tags: ['Testing before and after', 'Sport-specific blocks', 'Off-season and in-season plans'],
@@ -62,7 +62,7 @@ export default function HomePage() {
       >
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', animation: 'slowZoom 14s ease both' }}>
           <Image
-            src="https://images.unsplash.com/photo-1778828494354-9b717d36dc99?auto=format&fit=crop&w=1400&q=85"
+            src="/img/home-hero.jpg"
             alt="Strength and conditioning training session at Rebuilt Academy"
             fill
             priority
@@ -194,7 +194,7 @@ export default function HomePage() {
       {/* ── 4b. Physio — Coming Soon ─────────────── */}
       <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 620 }}>
         <Image
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+          src="/img/gym-interior.jpg"
           alt="Rebuilt training facility" fill
           style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.35 }}
         />
@@ -332,7 +332,7 @@ export default function HomePage() {
           {/* Right: image */}
           <div className="r-hide" style={{ position: 'relative', overflow: 'hidden', minHeight: 500 }}>
             <Image
-              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+              src="/img/gym-interior.jpg"
               alt=""
               aria-hidden="true"
               fill

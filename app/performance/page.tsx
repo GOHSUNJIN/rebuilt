@@ -47,7 +47,7 @@ export default function PerformancePage() {
 
       <ServiceHero
 
-        imageSrc="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1400&q=85"
+        imageSrc="/img/performance-hero.jpg"
         imageAlt="Sports performance"
         heading={<>Train to perform.</>}
         subheading="Speed, power, conditioning. Every block starts with a test and ends with one, so you can see the difference, not just feel it."
@@ -88,7 +88,7 @@ export default function PerformancePage() {
       </p>
 
       <ServiceTestimonial
-        imageSrc="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=800&q=80"
+        imageSrc="/img/performance-testimonial.jpg"
         imageAlt="Football athlete training"
         quote="My sprint numbers improved by 8% across a 12-week block. More importantly, the testing meant I could actually see it rather than just feel it."
         initial="R" name="Reuben Ng" role="FOOTBALL · SINGAPORE"
@@ -101,7 +101,7 @@ export default function PerformancePage() {
         body="Every block starts with a test. Book one and we find out where you stand before we build anything."
         bookHref="/book?service=performance"
         bookLabel="Book a consult"
-        imageSrc="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=800&q=80"
+        imageSrc="/img/performance-cta.jpg"
         imagePosition="center 30%"
       />
 

@@ -166,7 +166,7 @@ export default function PhysioPage() {
 
           {/* Heading */}
           <h2 style={{ fontSize: 'clamp(44px, 7vw, 80px)', fontWeight: 800, letterSpacing: '-.04em', margin: 0, lineHeight: 0.92, color: '#FFFFFF', maxWidth: 720 }}>
-            One building.<br />One team.<br />Zero handovers.
+            In-house<br />Physiotherapy.
           </h2>
 
           {/* Body */}

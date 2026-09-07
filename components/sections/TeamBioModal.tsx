@@ -141,7 +141,7 @@ export default function TeamBioModal() {
           <div className="r-team-img" style={{ height: 340, position: 'relative', overflow: 'hidden', background: '#FFFFFF', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://gobeyondrehab.sg/wp-content/uploads/2018/07/Rehab-and-Beyond-Logo-500.png"
+              src="/rnb-logo.png"
               alt="Rehab & Beyond"
               style={{ width: 240, maxWidth: '80%', objectFit: 'contain', display: 'block' }}
             />

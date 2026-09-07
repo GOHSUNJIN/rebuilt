@@ -13,9 +13,9 @@ A simple checklist of what needs to be sorted before the website launches public
 ### Photos and content
 
 - [ ] **You** - Provide real studio photos (for the hero banners on each service page, the About page, and the location gallery)
-- [ ] **You** - Provide headshots or photos of Shafiq and Joshua for their team cards
-- [ ] **You** - Confirm the phone number, email address, studio addresses, and opening hours are all correct
-- [ ] **You** - Confirm the team bios and credentials for Shafiq and Joshua read exactly as you want them
+- [x] **You** - Provide headshots or photos of Shafiq and Joshua for their team cards
+- [x] **You** - Confirm the phone number, email address, studio addresses, and opening hours are all correct
+- [x] **You** - Confirm the team bios and credentials for Shafiq and Joshua read exactly as you want them
 - [ ] **You** - Share 5 to 10 real client reviews (copy from your Google listing) to replace the placeholder ones on the site
 - [ ] **You** - Provide real Instagram content for the home page grid, or let us know if you want it connected to your account automatically
 - [ ] **You** - Read through the privacy policy and terms of service and confirm the details are accurate
@@ -34,7 +34,7 @@ A simple checklist of what needs to be sorted before the website launches public
 ### Final checks before launch
 
 - [ ] **Handled** - Test the contact form end to end to confirm enquiries reach the inbox.
-- [ ] **Handled** - Test the full booking flow to confirm WhatsApp and email links work correctly.
+- [x] **Handled** - Test the full booking flow to confirm WhatsApp and email links work correctly.
 - [ ] **Handled** - Check the site on iPhone and Android to confirm everything looks right on mobile.
 - [ ] **Handled** - Submit the site to Google so it starts appearing in search results.
 - [ ] **You** - Review the site on the staging link one final time and give the go-ahead to launch.

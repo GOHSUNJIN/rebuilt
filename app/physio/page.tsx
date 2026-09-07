@@ -73,9 +73,8 @@ export default function PhysioPage() {
               <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', margin: '0 0 16px' }}>PARTNER CLINIC</p>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="https://gobeyondrehab.sg/favicon.ico"
+                  <Image
+                    src="/rnb-favicon.ico"
                     alt="Rehab & Beyond"
                     width={40}
                     height={40}

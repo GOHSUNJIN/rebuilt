@@ -171,8 +171,8 @@ export default function PhysioPage() {
           </h2>
 
           {/* Body */}
-          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#A5A5A5', margin: 0, maxWidth: 500 }}>
-            We&apos;re building Rebuilt Academy&apos;s own physiotherapy — no referrals, no gaps, no repeating yourself. Physio and coaching under one roof, sharing notes from session one.
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 500 }}>
+            Rebuilt Academy is bringing physiotherapy in-house. Physio and coaching in the same building, sharing notes from session one. No referrals. No gaps.
           </p>
 
           {/* Features strip */}
@@ -180,15 +180,10 @@ export default function PhysioPage() {
             {['No referrals or handovers', 'Shared session notes', 'Treatment + coaching in one building'].map(item => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
-                <span style={{ fontSize: 13, color: '#909090', letterSpacing: '.01em' }}>{item}</span>
+                <span style={{ fontSize: 13, color: '#B5B5B5', letterSpacing: '.01em' }}>{item}</span>
               </div>
             ))}
           </div>
-
-          {/* CTA */}
-          <Link href="/about#contact" className="btn-gold" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 8 }}>
-            Get notified when we launch →
-          </Link>
         </div>
       </section>
 

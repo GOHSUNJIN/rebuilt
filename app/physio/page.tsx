@@ -98,14 +98,14 @@ export default function PhysioPage() {
               </div>
             </div>
           </div>
-          <div className="r-partner-img" style={{ position: 'relative', overflow: 'hidden', minHeight: 480 }}>
+          <div className="r-partner-img" style={{ background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 480, padding: 48 }}>
             <Image
-              src="/rnb-debra.jpg"
-              alt="Rehab & Beyond physiotherapist"
-              fill
-              style={{ objectFit: 'cover', objectPosition: 'center 18%' }}
+              src="/rnb-logo.png"
+              alt="Rehab & Beyond"
+              width={320}
+              height={140}
+              style={{ objectFit: 'contain', width: '100%', maxWidth: 320, height: 'auto' }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(9,9,13,.55) 0%, transparent 40%)' }} />
           </div>
         </div>
       </section>

@@ -41,9 +41,9 @@ const LOCATIONS: Location[] = [
 ]
 
 const LOCATION_IMAGES: Record<string, { src: string; position: string }> = {
-  Robinson: { src: '/img/cc-robinson.png', position: 'center 40%' },
-  Dempsey:  { src: '/img/cc-dempsey.jpg',  position: '62% center' },
-  Katong:   { src: '/img/cc-katong.png',   position: '58% center' },
+  Robinson: { src: '/img/cc-robinson.jpg', position: 'center 30%' },
+  Dempsey:  { src: '/img/cc-dempsey.jpg',  position: 'center 35%' },
+  Katong:   { src: '/img/cc-katong.jpg',   position: 'center 25%' },
 }
 
 function LocationPlaceholder({ label, height }: { label: string; height: number }) {

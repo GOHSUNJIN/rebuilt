@@ -90,6 +90,7 @@ export default function PerformancePage() {
       <ServiceTestimonial
         imageSrc="/img/performance-testimonial.jpg"
         imageAlt="Football athlete training"
+        imagePosition="center 40%"
         quote="My sprint numbers improved by 8% across a 12-week block. More importantly, the testing meant I could actually see it rather than just feel it."
         initial="R" name="Reuben Ng" role="FOOTBALL · SINGAPORE"
       />
@@ -102,7 +103,7 @@ export default function PerformancePage() {
         bookHref="/book?service=performance"
         bookLabel="Book a consult"
         imageSrc="/img/performance-cta.jpg"
-        imagePosition="center 30%"
+        imagePosition="center 75%"
       />
 
       <ServiceCrosslinks items={CROSSLINKS} />

@@ -50,7 +50,7 @@ export default function StrengthPage() {
       <ServiceHero
         imageSrc="/img/strength-hero.jpg"
         imageAlt="Personal training"
-        imagePosition="center 25%"
+        imagePosition="center 20%"
         heading={<>Train with a purpose.</>}
         subheading="A plan, honest feedback and measurable progress. Whatever shape you start in."
         bookHref="/book?service=strength"
@@ -72,7 +72,7 @@ export default function StrengthPage() {
       <ServiceTestimonial
         imageSrc="/img/strength-testimonial.jpg"
         imageAlt="Training session"
-        imagePosition="center 35%"
+        imagePosition="center 25%"
         quote="Three months in and I am lifting more than I ever have. The programme adapts when life gets in the way, and you can always see exactly where you stand."
         initial="S" name="Sarah K." role="TRAINING · 3-MONTH BLOCK"
       />

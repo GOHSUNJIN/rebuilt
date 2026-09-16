@@ -40,10 +40,10 @@ const LOCATIONS: Location[] = [
   },
 ]
 
-const LOCATION_IMAGES: Record<string, string> = {
-  Robinson: '/img/gym-interior.jpg',
-  Dempsey:  '/img/about-gym.jpg',
-  Katong:   '/img/strength-hero.jpg',
+const LOCATION_IMAGES: Record<string, { src: string; position: string }> = {
+  Robinson: { src: '/img/cc-robinson.png', position: 'center 40%' },
+  Dempsey:  { src: '/img/cc-dempsey.jpg',  position: '62% center' },
+  Katong:   { src: '/img/cc-katong.png',   position: '58% center' },
 }
 
 function LocationPlaceholder({ label, height }: { label: string; height: number }) {
@@ -91,10 +91,10 @@ export default function LocationDrawer() {
           >
             <div style={{ position: 'relative', height: 460, flexShrink: 0 }}>
               <Image
-                src={LOCATION_IMAGES[loc.label] ?? ''}
+                src={LOCATION_IMAGES[loc.label]?.src ?? ''}
                 alt={loc.label}
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: LOCATION_IMAGES[loc.label]?.position }}
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
@@ -146,10 +146,10 @@ export default function LocationDrawer() {
             <div style={{ position: 'relative' }}>
               <div style={{ position: 'relative', height: 240, flexShrink: 0 }}>
                 <Image
-                  src={LOCATION_IMAGES[selected.label] ?? ''}
+                  src={LOCATION_IMAGES[selected.label]?.src ?? ''}
                   alt={selected.label}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', objectPosition: LOCATION_IMAGES[selected.label]?.position }}
                   sizes="500px"
                 />
               </div>

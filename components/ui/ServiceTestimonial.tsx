@@ -10,20 +10,21 @@ function avatarColor(name: string) {
 interface Props {
   imageSrc: string
   imageAlt: string
+  imagePosition?: string
   quote: string
   initial: string
   name: string
   role: string
 }
 
-export default function ServiceTestimonial({ imageSrc, imageAlt, quote, initial, name, role }: Props) {
+export default function ServiceTestimonial({ imageSrc, imageAlt, imagePosition, quote, initial, name, role }: Props) {
   return (
     <section style={{ background: '#171717', borderTop: '1px solid #1E1E1E', borderBottom: '1px solid #1E1E1E' }}>
       <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 340 }}>
         <div style={{ position: 'relative', overflow: 'hidden', minHeight: 280 }}>
           <Image
             src={imageSrc} alt={imageAlt} fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'cover', objectPosition: imagePosition }}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom right, transparent 30%, #171717 100%)' }} />

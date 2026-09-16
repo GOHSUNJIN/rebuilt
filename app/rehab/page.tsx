@@ -71,6 +71,7 @@ export default function RehabPage() {
       <ServiceTestimonial
         imageSrc="/img/physio-session.jpg"
         imageAlt="Rehab session"
+        imagePosition="center 65%"
         quote="I came in eight weeks after ACL surgery with no idea what was safe. The testing at the start and end made the whole process feel measured, not guesswork."
         initial="M" name="Marcus T." role="ACL RECONSTRUCTION · RECREATIONAL FOOTBALLER"
       />
@@ -83,7 +84,7 @@ export default function RehabPage() {
         bookHref="/book?service=rehab"
         bookLabel="Book a consult"
         imageSrc="/img/rehab-cta.jpg"
-        imagePosition="center 35%"
+        imagePosition="center center"
       />
 
       <ServiceCrosslinks items={CROSSLINKS} />

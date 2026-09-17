@@ -231,44 +231,25 @@ export default function HomePage() {
 
       {/* ── 6. Instagram ────────────────────────── */}
       <section style={{ borderTop: '1px solid #2A2A2A', borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
-        {/* Header strip */}
-        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '28px 48px', borderBottom: '1px solid #2A2A2A', flexWrap: 'wrap', gap: 20 }}>
+        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '32px 48px', flexWrap: 'wrap', gap: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <div style={{ padding: 2, background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', borderRadius: '50%', flexShrink: 0 }}>
               <div style={{ background: '#0B0B0B', borderRadius: '50%', padding: 2 }}>
-                <Image src="/instagram-pfp.jpg" alt="@rebuiltbysk Instagram profile" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'cover', borderRadius: '50%', display: 'block' }} />
+                <Image src="/instagram-pfp.jpg" alt="@rebuiltbysk Instagram profile" width={44} height={44} style={{ width: 44, height: 44, objectFit: 'cover', borderRadius: '50%', display: 'block' }} />
               </div>
             </div>
             <div>
-              <p style={{ fontSize: 15, fontWeight: 800, margin: 0, color: '#FFFFFF', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
-              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: '4px 0 0' }}>INSTAGRAM</p>
+              <p style={{ fontSize: 15, fontWeight: 800, margin: '0 0 4px', color: '#FFFFFF', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
+              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: 0 }}>INSTAGRAM</p>
             </div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap' }}>
-            <p className="r-hide" style={{ fontSize: 14, color: '#A5A5A5', margin: 0, lineHeight: 1.5, maxWidth: 340 }}>
-              Training footage, client results and what actually happens in sessions.
-            </p>
-            <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
-              className="btn-outline" style={{ padding: '12px 22px', fontSize: 11, letterSpacing: '.2em', flexShrink: 0, textDecoration: 'none' }}>
-              Follow →
-            </a>
-          </div>
-        </div>
-        {/* Photo grid */}
-        <div className="r-ig" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 2, background: '#2A2A2A' }}>
-          {[
-            'photo-1571019613454-1cb2f99b2d8b',
-            'photo-1534438327276-14e5300c3a48',
-            'photo-1517466787929-bc90951d0974',
-            'photo-1576678927484-cc907957088c',
-            'photo-1549060279-7e168fcee0c2',
-            'photo-1526506118085-60ce8714f8c5',
-          ].map((id, i) => (
-            <a key={i} href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer" style={{ aspectRatio: '1', position: 'relative', overflow: 'hidden', background: '#0B0B0B', display: 'block', textDecoration: 'none', cursor: 'pointer' }}>
-              <Image src={`https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=80`} alt="@rebuiltbysk" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 50vw, 16vw" />
-              <div className="img-overlay" />
-            </a>
-          ))}
+          <p className="r-hide" style={{ fontSize: 14, color: '#6f7783', margin: 0, lineHeight: 1.5, flex: 1, minWidth: 160, maxWidth: 380, padding: '0 32px' }}>
+            Training footage, client results and what actually happens inside sessions.
+          </p>
+          <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
+            className="btn-outline" style={{ padding: '12px 22px', fontSize: 11, letterSpacing: '.2em', flexShrink: 0, textDecoration: 'none' }}>
+            Follow →
+          </a>
         </div>
       </section>
 

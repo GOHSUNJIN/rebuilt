@@ -240,13 +240,10 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <p style={{ fontSize: 15, fontWeight: 800, margin: '0 0 4px', color: '#FFFFFF', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
-              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: 0 }}>FOLLOW US ON INSTAGRAM</p>
+              <p style={{ fontSize: 15, fontWeight: 800, margin: '0 0 5px', color: '#FFFFFF', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
+              <p style={{ fontSize: 13, color: '#6f7783', margin: 0, lineHeight: 1.45 }}>Training footage, client results and what actually happens inside sessions.</p>
             </div>
           </div>
-          <p className="r-hide" style={{ fontSize: 14, color: '#6f7783', margin: 0, lineHeight: 1.5, flex: 1, minWidth: 160, maxWidth: 380, padding: '0 32px' }}>
-            Training footage, client results and what actually happens inside sessions.
-          </p>
           <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
             className="btn-gold" style={{ padding: '12px 24px', fontSize: 11, letterSpacing: '.2em', flexShrink: 0, textDecoration: 'none' }}>
             Follow on Instagram →

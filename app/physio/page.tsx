@@ -141,7 +141,7 @@ export default function PhysioPage() {
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
         imageSrc="/img/physio-cta.jpg"
-        imagePosition="center 70%"
+        imagePosition="center 40%"
       />
 
       {/* Coming soon: In-house physio */}

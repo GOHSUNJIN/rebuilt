@@ -69,11 +69,11 @@ export default function RehabPage() {
       <PricingCards items={PRICING} />
 
       <ServiceTestimonial
-        imageSrc="/img/physio-session.jpg"
+        imageSrc="/img/rehab-testimonial.jpg"
         imageAlt="Rehab session"
-        imagePosition="center 65%"
+        imagePosition="center 40%"
         quote="I came in eight weeks after ACL surgery with no idea what was safe. The testing at the start and end made the whole process feel measured, not guesswork."
-        initial="M" name="Marcus T." role="ACL RECONSTRUCTION · RECREATIONAL FOOTBALLER"
+        initial="J" name="James R." role="ACL RECONSTRUCTION · RECREATIONAL FOOTBALLER"
       />
 
       <FAQBar label="HAVE QUESTIONS ABOUT REHAB?" href="/faq?tab=rehab" />

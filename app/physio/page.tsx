@@ -128,7 +128,7 @@ export default function PhysioPage() {
       <ServiceTestimonial
         imageSrc="/img/physio-testimonial.jpg"
         imageAlt="Physiotherapy treatment session"
-        imagePosition="center 30%"
+        imagePosition="center 40%"
         quote="Having the physiotherapist and coach talking to each other meant I never had to explain my injury twice. The programme adapted the moment my physiotherapist updated my notes."
         initial="J" name="Jason K." role="SHOULDER REHAB · RETURNED TO COMPETITION"
       />
@@ -141,7 +141,7 @@ export default function PhysioPage() {
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
         imageSrc="/img/physio-cta.jpg"
-        imagePosition="center 40%"
+        imagePosition="center 70%"
       />
 
       {/* Coming soon: In-house physio */}

@@ -72,7 +72,7 @@ export default function StrengthPage() {
       <ServiceTestimonial
         imageSrc="/img/strength-testimonial.jpg"
         imageAlt="Training session"
-        imagePosition="center 30%"
+        imagePosition="center 35%"
         quote="Three months in and I am lifting more than I ever have. The programme adapts when life gets in the way, and you can always see exactly where you stand."
         initial="M" name="Marcus L." role="TRAINING · 3-MONTH BLOCK"
       />

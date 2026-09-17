@@ -230,25 +230,26 @@ export default function HomePage() {
       <ReviewsSection />
 
       {/* ── 6. Instagram ────────────────────────── */}
-      <section style={{ borderTop: '1px solid #2A2A2A', borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
-        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '32px 48px', flexWrap: 'wrap', gap: 20 }}>
+      <section style={{ borderBottom: '1px solid #2A2A2A', background: '#111111' }}>
+        <div style={{ height: 3, background: 'linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' }} />
+        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '28px 48px', flexWrap: 'wrap', gap: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <div style={{ padding: 2, background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', borderRadius: '50%', flexShrink: 0 }}>
-              <div style={{ background: '#0B0B0B', borderRadius: '50%', padding: 2 }}>
+              <div style={{ background: '#111111', borderRadius: '50%', padding: 2 }}>
                 <Image src="/instagram-pfp.jpg" alt="@rebuiltbysk Instagram profile" width={44} height={44} style={{ width: 44, height: 44, objectFit: 'cover', borderRadius: '50%', display: 'block' }} />
               </div>
             </div>
             <div>
               <p style={{ fontSize: 15, fontWeight: 800, margin: '0 0 4px', color: '#FFFFFF', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
-              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: 0 }}>INSTAGRAM</p>
+              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: 0 }}>FOLLOW US ON INSTAGRAM</p>
             </div>
           </div>
           <p className="r-hide" style={{ fontSize: 14, color: '#6f7783', margin: 0, lineHeight: 1.5, flex: 1, minWidth: 160, maxWidth: 380, padding: '0 32px' }}>
             Training footage, client results and what actually happens inside sessions.
           </p>
           <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
-            className="btn-outline" style={{ padding: '12px 22px', fontSize: 11, letterSpacing: '.2em', flexShrink: 0, textDecoration: 'none' }}>
-            Follow →
+            className="btn-gold" style={{ padding: '12px 24px', fontSize: 11, letterSpacing: '.2em', flexShrink: 0, textDecoration: 'none' }}>
+            Follow on Instagram →
           </a>
         </div>
       </section>

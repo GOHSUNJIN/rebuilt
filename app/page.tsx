@@ -232,29 +232,25 @@ export default function HomePage() {
       {/* ── 6. Instagram ────────────────────────── */}
       <section style={{ borderBottom: '1px solid #2A2A2A', background: '#111111' }}>
         <div style={{ height: 3, background: 'linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' }} />
-        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px 48px', flexWrap: 'wrap', gap: 16 }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
-                <defs>
-                  <linearGradient id="ig-s" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#f09433"/>
-                    <stop offset="40%" stopColor="#dc2743"/>
-                    <stop offset="100%" stopColor="#bc1888"/>
-                  </linearGradient>
-                </defs>
-                <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-s)" strokeWidth="2"/>
-                <circle cx="12" cy="12" r="4.5" stroke="url(#ig-s)" strokeWidth="2"/>
-                <circle cx="17.3" cy="6.7" r="1.2" fill="#dc2743"/>
-              </svg>
-              <p style={{ fontSize: 14, fontWeight: 800, margin: 0, color: '#FFFFFF', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
-            </div>
-            <p style={{ fontSize: 12.5, color: '#6f7783', margin: 0, lineHeight: 1.5 }}>
-              Training footage, client results and what actually happens inside sessions.
-            </p>
-          </div>
+        <div className="r-px" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '38px 48px', gap: 12, textAlign: 'center' }}>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <defs>
+              <linearGradient id="ig-s" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#f09433"/>
+                <stop offset="40%" stopColor="#dc2743"/>
+                <stop offset="100%" stopColor="#bc1888"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-s)" strokeWidth="1.75"/>
+            <circle cx="12" cy="12" r="4.5" stroke="url(#ig-s)" strokeWidth="1.75"/>
+            <circle cx="17.3" cy="6.7" r="1.1" fill="#dc2743"/>
+          </svg>
+          <p style={{ fontSize: 18, fontWeight: 800, margin: 0, color: '#FFFFFF', letterSpacing: '-.015em' }}>@rebuiltbysk</p>
+          <p style={{ fontSize: 13, color: '#6f7783', margin: 0, lineHeight: 1.55, maxWidth: 340 }}>
+            Training footage, client results and what actually happens inside sessions.
+          </p>
           <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
-            className="btn-gold" style={{ padding: '11px 22px', fontSize: 11, letterSpacing: '.2em', flexShrink: 0, textDecoration: 'none' }}>
+            className="btn-gold" style={{ padding: '11px 24px', fontSize: 11, letterSpacing: '.2em', textDecoration: 'none', marginTop: 4 }}>
             Follow →
           </a>
         </div>

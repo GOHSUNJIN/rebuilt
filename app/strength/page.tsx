@@ -74,7 +74,7 @@ export default function StrengthPage() {
         imageAlt="Training session"
         imagePosition="center 40%"
         quote="Three months in and I am lifting more than I ever have. The programme adapts when life gets in the way, and you can always see exactly where you stand."
-        initial="S" name="Sarah K." role="TRAINING · 3-MONTH BLOCK"
+        initial="M" name="Marcus L." role="TRAINING · 3-MONTH BLOCK"
       />
 
       <FAQBar label="HAVE QUESTIONS ABOUT TRAINING?" href="/faq?tab=training" />

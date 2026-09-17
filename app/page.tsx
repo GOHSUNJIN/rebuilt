@@ -23,7 +23,7 @@ const SERVICES = [
     from: 'from SGD 120',
     href: '/rehab',
     img: '/img/card-rehab.jpg',
-    imgPos: 'center 20%',
+    imgPos: 'center 15%',
     desc: 'For anyone coming back from injury or surgery, working to a plan that starts from where you are right now.',
     tags: ['Post-surgery return to sport', 'Long-standing pain and niggles', 'Working alongside your clinician'],
   },

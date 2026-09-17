@@ -232,20 +232,25 @@ export default function HomePage() {
       {/* ── 6. Instagram ────────────────────────── */}
       <section style={{ borderBottom: '1px solid #2A2A2A', background: '#111111' }}>
         <div style={{ height: 3, background: 'linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' }} />
-        <div className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '28px 48px', flexWrap: 'wrap', gap: 20 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div style={{ padding: 2, background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', borderRadius: '50%', flexShrink: 0 }}>
-              <div style={{ background: '#111111', borderRadius: '50%', padding: 2 }}>
-                <Image src="/instagram-pfp.jpg" alt="@rebuiltbysk Instagram profile" width={44} height={44} style={{ width: 44, height: 44, objectFit: 'cover', borderRadius: '50%', display: 'block' }} />
-              </div>
-            </div>
-            <div>
-              <p style={{ fontSize: 15, fontWeight: 800, margin: '0 0 5px', color: '#FFFFFF', letterSpacing: '-.01em' }}>@rebuiltbysk</p>
-              <p style={{ fontSize: 13, color: '#6f7783', margin: 0, lineHeight: 1.45 }}>Training footage, client results and what actually happens inside sessions.</p>
-            </div>
-          </div>
+        <div className="r-px" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '56px 48px', gap: 14, textAlign: 'center' }}>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <defs>
+              <linearGradient id="ig-s" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#f09433"/>
+                <stop offset="40%" stopColor="#dc2743"/>
+                <stop offset="100%" stopColor="#bc1888"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-s)" strokeWidth="1.75"/>
+            <circle cx="12" cy="12" r="4.5" stroke="url(#ig-s)" strokeWidth="1.75"/>
+            <circle cx="17.3" cy="6.7" r="1.1" fill="#dc2743"/>
+          </svg>
+          <p style={{ fontSize: 22, fontWeight: 800, margin: 0, color: '#FFFFFF', letterSpacing: '-.02em' }}>@rebuiltbysk</p>
+          <p style={{ fontSize: 13.5, color: '#6f7783', margin: 0, lineHeight: 1.55, maxWidth: 340 }}>
+            Training footage, client results and what actually happens inside sessions.
+          </p>
           <a href="https://www.instagram.com/rebuiltbysk/" target="_blank" rel="noopener noreferrer"
-            className="btn-gold" style={{ padding: '12px 24px', fontSize: 11, letterSpacing: '.2em', flexShrink: 0, textDecoration: 'none' }}>
+            className="btn-gold" style={{ padding: '12px 26px', fontSize: 11, letterSpacing: '.2em', textDecoration: 'none', marginTop: 6 }}>
             Follow on Instagram →
           </a>
         </div>

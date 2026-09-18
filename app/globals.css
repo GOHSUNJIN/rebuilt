@@ -480,7 +480,49 @@ p { text-wrap: pretty; }
 
   /* ── CTA / about images ─── */
   .r-cta-img   { min-height: 200px !important; }
-  .r-about-img { min-height: 220px !important; }
+  /* ── About page ─── */
+  .r-about-img            { min-height: 220px !important; order: -1 !important; }
+  .r-about-header-content { order: 0 !important; padding: 40px 20px !important; }
+  .r-about-stats {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    background: #2A2A2A !important;
+    gap: 1px !important;
+  }
+  .r-about-stats::-webkit-scrollbar { display: none; }
+  .r-about-stats > * { flex: 0 0 64vw !important; max-width: 240px !important; scroll-snap-align: start !important; }
+
+  /* ── Team scroll ─── */
+  .r-team-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 2px !important;
+    background: #2A2A2A !important;
+  }
+  .r-team-scroll::-webkit-scrollbar { display: none; }
+  .r-team-scroll > * { flex: 0 0 78vw !important; max-width: 320px !important; scroll-snap-align: start !important; }
+  .r-team-scroll .r-team-img { height: 220px !important; }
+  .r-team-dots { display: flex !important; }
+
+  /* ── Contact info grid ─── */
+  .r-contact-info-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    gap: 1px !important;
+    background: #1A1A1A !important;
+    margin: 0 -20px !important;
+    padding: 0 20px !important;
+  }
+  .r-contact-info-grid::-webkit-scrollbar { display: none; }
+  .r-contact-info-grid > * { flex: 0 0 55vw !important; min-width: 160px !important; scroll-snap-align: start !important; padding-right: 20px !important; }
 
   /* ── Team bio cards - reduce placeholder height when stacked ─── */
   .r-team-img  { height: 220px !important; }

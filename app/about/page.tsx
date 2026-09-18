@@ -27,7 +27,7 @@ export default function AboutPage() {
       <section style={{ borderBottom: '1px solid #2A2A2A' }}>
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 500 }}>
           {/* Left: text */}
-          <div className="r-px r-tall-pad" style={{ padding: '88px 48px 72px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#0B0B0B' }}>
+          <div className="r-px r-tall-pad r-about-header-content" style={{ padding: '88px 48px 72px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#0B0B0B' }}>
             <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 26 }}>
               ABOUT REBUILT
             </p>
@@ -55,7 +55,7 @@ export default function AboutPage() {
           </div>
         </div>
         {/* Stats strip */}
-        <div className="r4 r-px" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid #2A2A2A', background: '#2A2A2A', gap: 1 }} >
+        <div className="r4 r-px r-about-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid #2A2A2A', background: '#2A2A2A', gap: 1 }} >
           {[
             { label: 'BASED',   value: 'Singapore, 3 locations' },
             { label: 'OPENED',  value: '2021' },
@@ -156,7 +156,7 @@ export default function AboutPage() {
             <div style={{ borderTop: '1px solid #1E1E1E', marginBottom: 24 }} />
 
             {/* Hours + Contact + Social */}
-            <div className="r3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px 24px' }}>
+            <div className="r3 r-contact-info-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px 24px' }}>
 
               {/* Hours */}
               <div>

@@ -1,5 +1,5 @@
 ﻿'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { TEAM, type TeamMember } from '@/lib/team'
 import { useScrollLock } from '@/lib/hooks'
 
@@ -50,13 +50,24 @@ const RNB_TEAM = [
 
 const RNB_RECOGNITION = ['Channel 8', 'CNA938', 'UFM 100.3', 'Best Physio 2024', 'APAC Insider Awards', 'Wellness Festival SG']
 
+const TOTAL_CARDS = TEAM.length + 1 // team members + RnB card
+
 export default function TeamBioModal() {
   const [selected, setSelected] = useState<TeamMember | null>(null)
   const [showRnB, setShowRnB]   = useState(false)
+  const [activeIdx, setActiveIdx] = useState(0)
   const closeRef    = useRef<HTMLButtonElement>(null)
   const closeRnBRef = useRef<HTMLButtonElement>(null)
+  const scrollRef   = useRef<HTMLDivElement>(null)
 
   useScrollLock(!!selected || showRnB)
+
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const cardWidth = el.scrollWidth / TOTAL_CARDS
+    setActiveIdx(Math.min(Math.round(el.scrollLeft / cardWidth), TOTAL_CARDS - 1))
+  }, [])
 
   useEffect(() => {
     if (!selected) return
@@ -80,7 +91,9 @@ export default function TeamBioModal() {
     <>
       {/* ── Team grid ───────────────────────────── */}
       <div
-        className="r3"
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="r3 r-team-scroll"
         style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#2A2A2A' }}
       >
         {TEAM.map((member) => (
@@ -166,6 +179,13 @@ export default function TeamBioModal() {
             </span>
           </div>
         </div>
+      </div>
+
+      {/* Scroll dots — mobile only */}
+      <div className="r-team-dots" style={{ display: 'none', justifyContent: 'center', gap: 6, marginTop: 16 }}>
+        {Array.from({ length: TOTAL_CARDS }).map((_, i) => (
+          <span key={i} style={{ display: 'block', width: i === activeIdx ? 20 : 6, height: 4, borderRadius: 2, background: i === activeIdx ? 'var(--accent)' : '#3A3A3A', transition: 'width .25s, background .25s' }} />
+        ))}
       </div>
 
       {/* ── Team member bio drawer ───────────────── */}

@@ -185,7 +185,7 @@ export default function PhysioPage() {
             ))}
           </div>
 
-          <Link href="/book?service=physio" className="btn-outline" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
+          <Link href="/about#contact" className="btn-outline" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
             Get in touch →
           </Link>
         </div>

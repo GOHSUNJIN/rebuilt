@@ -128,7 +128,7 @@ export default function PhysioPage() {
       <ServiceTestimonial
         imageSrc="/img/physio-testimonial.jpg"
         imageAlt="Physiotherapy treatment session"
-        imagePosition="center 40%"
+        imagePosition="center 20%"
         quote="Having the physiotherapist and coach talking to each other meant I never had to explain my injury twice. The programme adapted the moment my physiotherapist updated my notes."
         initial="J" name="Jason K." role="SHOULDER REHAB · RETURNED TO COMPETITION"
       />

@@ -51,7 +51,7 @@ export default function ReviewsSection() {
 
   return (
     <section className="r-px r-tall-pad" style={{ background: '#0B0B0B', borderTop: '1px solid #2A2A2A', borderBottom: '1px solid #2A2A2A', padding: '80px 48px' }}>
-      <p className="r-mobile-only" style={{ display: 'none', font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0 0 20px' }}>REVIEWS</p>
+      <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0 0 24px' }}>REVIEWS</p>
       <div ref={scrollRef} onScroll={handleScroll} className="r-reviews r-reviews-scroll" style={{ display: 'grid', gridTemplateColumns: '.7fr 1fr 1fr 1fr', gap: 2, background: '#2A2A2A' }}>
         <div style={{ background: '#171717', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>

@@ -608,12 +608,12 @@ p { text-wrap: pretty; }
   .r-cta-section-grid { min-height: unset !important; }
   .r-cta-section-left { justify-content: flex-start !important; gap: 32px !important; padding: 48px 20px !important; }
   .r-cta-body         { margin-bottom: 0 !important; font-size: 14px !important; }
-  .r-decision-rows    { margin-bottom: 0 !important; display: flex; flex-direction: column; gap: 10px !important; }
+  .r-decision-rows    { margin-bottom: 0 !important; display: flex; flex-direction: column; gap: 12px !important; }
   .r-decision-row {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 8px !important;
-    padding: 20px 18px !important;
+    gap: 10px !important;
+    padding: 22px 18px !important;
     background: #111 !important;
     border-left: 2px solid var(--accent) !important;
     border-bottom: none !important;

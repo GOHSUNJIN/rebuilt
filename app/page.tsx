@@ -165,6 +165,18 @@ export default function HomePage() {
           </div>
 
         </div>
+
+        {/* Mobile-only: physio image strip */}
+        <div className="r-physio-mobile-img" style={{ display: 'none', position: 'relative', height: 220, overflow: 'hidden' }}>
+          <Image
+            src="/img/physio-session.jpg"
+            alt="Physiotherapy session"
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+            sizes="100vw"
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, #0B0B0B 0%, transparent 30%, transparent 70%, #0B0B0B 100%)' }} />
+        </div>
       </section>
 
       {/* ── 4b. Physio — Coming Soon ─────────────── */}
@@ -257,10 +269,10 @@ export default function HomePage() {
               {/* Decision rows */}
               <div className="r-decision-rows" style={{ display: 'flex', flexDirection: 'column', marginBottom: 44 }}>
                 {[
-                  { situation: 'Coming back from injury or surgery',    service: 'Rehab',             href: '/rehab' },
-                  { situation: 'Want to get stronger or fitter',        service: 'Training',          href: '/strength' },
-                  { situation: 'Training seriously for a sport',        service: 'Performance',       href: '/performance' },
-                  { situation: 'Have pain or need a physiotherapy assessment', service: 'Physiotherapy', href: '/physio' },
+                  { situation: 'Coming back from injury or surgery',         service: 'Rehab',          href: '/rehab' },
+                  { situation: 'Want to get stronger or fitter',             service: 'Training',       href: '/strength' },
+                  { situation: 'Training seriously for a sport',             service: 'Performance',    href: '/performance' },
+                  { situation: 'Pain or need a physio assessment',           service: 'Physiotherapy',  href: '/physio' },
                 ].map(({ situation, service, href }, i, arr) => (
                   <Link
                     key={service}
@@ -271,7 +283,7 @@ export default function HomePage() {
                       borderBottom: i < arr.length - 1 ? '1px solid #2A2A2A' : 'none',
                       textDecoration: 'none', gap: 24,
                     }}
-                    className="hover-approach"
+                    className="hover-approach r-decision-row"
                   >
                     <span style={{ fontSize: 14.5, color: '#909090', lineHeight: 1.4 }}>{situation}</span>
                     <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', flexShrink: 0 }}>

@@ -412,20 +412,25 @@ p { text-wrap: pretty; }
   .r-hero-btns .btn-gold     { justify-content: center !important; }
   .r-hero-btns a:not(.btn-gold) { text-align: center !important; }
 
-  /* ── Instagram section — centered on mobile ─── */
+  /* ── Instagram section — compact card on mobile ─── */
   .r-ig-section {
     flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 32px 24px !important;
-    gap: 20px !important;
+    align-items: stretch !important;
+    text-align: left !important;
+    padding: 24px 20px !important;
+    gap: 16px !important;
   }
   .r-ig-content {
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 14px !important;
   }
-  .r-ig-section .btn-gold { padding: 13px 40px !important; }
+  .r-ig-section .btn-gold {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 14px 24px !important;
+  }
 
   /* ── Stats — compact 3-col on mobile ─── */
   .r-stat-strip .r-stat-cell { padding: 18px 12px 20px !important; }
@@ -531,13 +536,25 @@ p { text-wrap: pretty; }
   .r-feature-dots { display: flex !important; }
   .r-reviews-dots { display: flex !important; }
 
+  /* ── Physio mobile image ─── */
+  .r-physio-mobile-img { display: block !important; }
+
   /* ── CTA "Start where you are" section ─── */
   .r-cta-section-grid { min-height: unset !important; }
-  .r-cta-section-left { justify-content: flex-start !important; gap: 32px !important; }
-  .r-cta-body         { margin-bottom: 20px !important; }
-  .r-decision-rows    { margin-bottom: 20px !important; }
-  .r-decision-rows a  { padding: 16px 0 16px 14px !important; border-left: 2px solid #222 !important; }
-  .r-decision-rows a > span:first-child { color: #D0D0D0 !important; font-size: 14px !important; }
+  .r-cta-section-left { justify-content: flex-start !important; gap: 28px !important; padding: 40px 20px !important; }
+  .r-cta-body         { margin-bottom: 0 !important; font-size: 14px !important; }
+  .r-decision-rows    { margin-bottom: 0 !important; display: flex; flex-direction: column; gap: 2px !important; }
+  .r-decision-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 5px !important;
+    padding: 14px 14px !important;
+    background: #111 !important;
+    border-left: 2px solid var(--accent) !important;
+    border-bottom: none !important;
+  }
+  .r-decision-row > span:last-child  { font-size: 12px !important; letter-spacing: .14em !important; }
+  .r-decision-row > span:first-child { font-size: 13px !important; color: #888 !important; line-height: 1.4 !important; }
   .r-cta-btns {
     flex-direction: column !important;
     align-items: stretch !important;

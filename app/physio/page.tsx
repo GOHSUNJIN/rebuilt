@@ -64,7 +64,7 @@ export default function PhysioPage() {
           <div className="r-px r-tall-pad r-physio-partner-content" style={{ padding: '64px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 40 }}>
             <div>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 20 }}>THE PARTNERSHIP</p>
-              <h2 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 20px', lineHeight: 0.9 }}>In partnership<br />with <span style={{ whiteSpace: 'nowrap' }}>Rehab &amp; Beyond.</span></h2>
+              <h2 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 20px', lineHeight: 0.9 }}>In partnership with<br /><span style={{ whiteSpace: 'nowrap' }}>Rehab &amp; Beyond.</span></h2>
               <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: 0, maxWidth: 420 }}>
                 Rebuilt Academy and Rehab &amp; Beyond run alongside each other. One point of contact, two teams sharing the same notes so your recovery and your training are never working against each other.
               </p>

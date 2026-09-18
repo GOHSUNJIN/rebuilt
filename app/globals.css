@@ -608,7 +608,7 @@ p { text-wrap: pretty; }
   .r-cta-section-grid { min-height: unset !important; }
   .r-cta-section-left { justify-content: flex-start !important; gap: 32px !important; padding: 48px 20px !important; }
   .r-cta-body         { margin-bottom: 0 !important; font-size: 14px !important; }
-  .r-decision-rows    { margin-bottom: 0 !important; display: flex; flex-direction: column; gap: 4px !important; }
+  .r-decision-rows    { margin-bottom: 0 !important; display: flex; flex-direction: column; gap: 10px !important; }
   .r-decision-row {
     flex-direction: column !important;
     align-items: flex-start !important;

@@ -97,7 +97,7 @@ export default function PrivacyPage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 40, flexWrap: 'wrap' }}>
             <div>
               <h1 className="r-h1" style={{ fontSize: 76, fontWeight: 800, lineHeight: 0.9, letterSpacing: '-.04em', margin: '0 0 24px', color: '#FFFFFF' }}>
-                Privacy<br />Policy.
+                Privacy <br />Policy.
               </h1>
               <p style={{ fontSize: 16, lineHeight: 1.65, color: '#A5A5A5', maxWidth: 460, margin: 0 }}>
                 How Rebuilt Academy collects, uses and protects personal data, in accordance with the Singapore Personal Data Protection Act 2012.

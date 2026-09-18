@@ -129,7 +129,7 @@ export default function HomePage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }} className="r2">
 
           {/* Left: content */}
-          <div className="r-px" style={{ padding: '56px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 20, borderRight: '1px solid #2A2A2A' }}>
+          <div className="r-px r-rnb-content" style={{ padding: '56px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 20, borderRight: '1px solid #2A2A2A' }}>
             <h2 style={{ fontSize: 'clamp(28px, 3.2vw, 44px)', fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>Physiotherapy with<br />Rehab &amp; Beyond.</h2>
             <p style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: 0, maxWidth: 380 }}>Physiotherapy, rehab and training coordinated from the start. One point of contact, two teams sharing the same notes.</p>
             <Link href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
@@ -178,7 +178,7 @@ export default function HomePage() {
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,1) 0%, rgba(9,9,13,.8) 55%, rgba(9,9,13,.3) 100%)' }} />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'var(--accent)' }} />
         <div className="r-px r-inhome-content" style={{ position: 'relative', padding: '88px 48px', minHeight: 620, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', gap: 26 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '11px 26px', border: '1px solid var(--accent)', background: 'rgba(183,240,0,.1)', backdropFilter: 'blur(10px)' }}>
+          <div className="r-inhome-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '11px 26px', border: '1px solid var(--accent)', background: 'rgba(183,240,0,.1)', backdropFilter: 'blur(10px)' }}>
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
             <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.32em' }}>COMING SOON</span>
           </div>
@@ -186,10 +186,10 @@ export default function HomePage() {
           <h2 style={{ fontSize: 'clamp(44px, 6vw, 80px)', fontWeight: 800, letterSpacing: '-.04em', margin: 0, lineHeight: 0.92, color: '#FFFFFF' }}>
             In-house<br />Physiotherapy.
           </h2>
-          <p style={{ fontSize: 15, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 480 }}>
+          <p className="r-inhome-body" style={{ fontSize: 15, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 480 }}>
             Rebuilt Academy is bringing physiotherapy in-house.<br />Same building, same team, same notes from day one.
           </p>
-          <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', justifyContent: 'center' }}>
+          <div className="r-inhome-bullets" style={{ display: 'flex', gap: 28, flexWrap: 'wrap', justifyContent: 'center' }}>
             {['No referrals', 'Shared notes', 'One building'].map(item => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
@@ -197,7 +197,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <Link href="/about#contact" className="btn-outline" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
+          <Link href="/about#contact" className="btn-gold r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
             Get in touch →
           </Link>
         </div>

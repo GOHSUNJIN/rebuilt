@@ -467,8 +467,12 @@ p { text-wrap: pretty; }
 
   /* ── In-house physio coming soon — tighter on mobile ─── */
   .r-inhome-section { min-height: unset !important; }
-  .r-inhome-content { min-height: unset !important; padding: 52px 20px !important; gap: 18px !important; }
+  .r-inhome-content { min-height: unset !important; padding: 48px 20px 52px !important; gap: 20px !important; }
   .r-inhome-eyebrow { display: none !important; }
+  .r-inhome-badge   { padding: 9px 18px !important; align-self: center !important; }
+  .r-inhome-body    { font-size: 14px !important; }
+  .r-inhome-bullets { flex-direction: column !important; align-items: center !important; gap: 14px !important; }
+  .r-inhome-btn     { display: block !important; width: 100% !important; text-align: center !important; justify-content: center !important; }
 
   /* ── CTA / about images ─── */
   .r-cta-img   { min-height: 200px !important; }
@@ -502,7 +506,8 @@ p { text-wrap: pretty; }
   /* ── Physio partnership image - reduce height when stacked ─── */
   .r-partner-img { min-height: 240px !important; }
   /* ── Home R&B logo white block - hidden on mobile, replaced by partner badge ─── */
-  .r-home-rnb { min-height: 180px !important; padding: 32px 24px !important; }
+  .r-home-rnb    { min-height: 180px !important; padding: 32px 24px !important; order: -1 !important; }
+  .r-rnb-content { order: 0 !important; }
   .r-partner-mobile { display: flex !important; flex-direction: column !important; }
   /* ── Home physio card images ─── */
   .r-physio-card-img { height: 180px !important; }

@@ -107,12 +107,12 @@ The client can choose Shafiq Khalit (Founder, strength and rehab) or Joshua Seow
 The client picks preferred days (Monday to Saturday) and time slots, and selects a preferred location from the three Core Collective sites. Multiple slots can be selected. All times are shown in Singapore time (SGT).
 
 **Step 4 - Contact details**
-Name, email, and an optional notes field for injury history, goals, or any other context the coach should know before the first session.
+Name, email address, phone number, and an optional notes field for injury history, goals, or any other context the coach should know before the first session. All three contact fields are required before the step can be completed.
 
 **Step 5 - Review and send**
-The client sees a summary of all their selections. They send the request via WhatsApp or email. The studio confirms the slot and arranges payment separately.
+The client sees a summary of all their selections. They send the request via WhatsApp or email. The page automatically advances to the confirmation screen once the send link is tapped. The studio confirms the slot and arranges payment separately.
 
-After sending, a confirmation screen shows with the studio's contact details in case there is no reply within 24 hours.
+The confirmation screen shows the studio contact details in case there is no reply within 24 hours.
 
 ---
 
@@ -323,6 +323,7 @@ components/
     TeamBioModal.tsx
 
   effects/                Fixed overlays and animation components
+    BackToTop.tsx
     CursorGlow.tsx
     MobileBookingBar.tsx
     ScrollProgress.tsx

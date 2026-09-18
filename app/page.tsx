@@ -186,14 +186,14 @@ export default function HomePage() {
           <h2 style={{ fontSize: 'clamp(44px, 6vw, 80px)', fontWeight: 800, letterSpacing: '-.04em', margin: 0, lineHeight: 0.92, color: '#FFFFFF' }}>
             In-house<br />Physiotherapy.
           </h2>
-          <p className="r-inhome-body" style={{ fontSize: 15, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 480 }}>
+          <p className="r-inhome-body" style={{ fontSize: 15, lineHeight: 1.7, color: '#A5A5A5', margin: 0, maxWidth: 480 }}>
             Rebuilt Academy is bringing physiotherapy in-house.<br />Same building, same team, same notes from day one.
           </p>
           <div className="r-inhome-bullets" style={{ display: 'flex', gap: 28, flexWrap: 'wrap', justifyContent: 'center' }}>
             {['No referrals', 'Shared notes', 'One building'].map(item => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
-                <span style={{ fontSize: 13, color: '#B5B5B5', letterSpacing: '.01em' }}>{item}</span>
+                <span style={{ fontSize: 13, color: '#A5A5A5', letterSpacing: '.01em' }}>{item}</span>
               </div>
             ))}
           </div>

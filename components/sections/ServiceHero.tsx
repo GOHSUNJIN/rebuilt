@@ -83,7 +83,7 @@ export default function ServiceHero({
             <div className="r-hero-btns" style={{ display: 'flex', alignItems: 'center', gap: 28, flexShrink: 0 }}>
               <Link href={bookHref} className="btn-gold" style={{ padding: '14px 28px' }}>{bookLabel}</Link>
               <Link href="/about#contact-form" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
-                ASK A QUESTION →
+                GET IN TOUCH →
               </Link>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function ServiceHero({
             <div className="r-hero-btns" style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
               <Link href={bookHref} className="btn-gold" style={{ padding: '14px 28px' }}>{bookLabel}</Link>
               <Link href="/about#contact-form" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
-                ASK A QUESTION →
+                GET IN TOUCH →
               </Link>
             </div>
           </>

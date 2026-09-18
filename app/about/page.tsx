@@ -65,7 +65,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── The team ────────────────────────────── */}
-      <section className="r-px r-section-pad" style={{ padding: '76px 48px' }}>
+      <section className="r-px r-section-pad" style={{ padding: '72px 48px' }}>
         <div
           style={{
             display: 'flex',

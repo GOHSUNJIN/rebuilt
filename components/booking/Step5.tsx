@@ -2,7 +2,7 @@
 import type { Step5Props } from './types'
 import StepHeader from './StepHeader'
 
-export default function Step5({ summaryRows, waUrl, gmailUrl, notSureYet }: Step5Props) {
+export default function Step5({ summaryRows, waUrl, gmailUrl, notSureYet, onSent }: Step5Props) {
   return (
     <>
       <StepHeader step={5} heading="Review & send" />
@@ -28,13 +28,13 @@ export default function Step5({ summaryRows, waUrl, gmailUrl, notSureYet }: Step
       </div>
       <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.14em', marginBottom: 16, marginTop: 0 }}>SEND YOUR REQUEST VIA</p>
       <div className="book-nav" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-        <a href={waUrl} target="_blank" rel="noopener noreferrer" className="btn-gold" style={{ padding: '15px 28px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+        <a href={waUrl} target="_blank" rel="noopener noreferrer" onClick={() => setTimeout(onSent, 400)} className="btn-gold" style={{ padding: '15px 28px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
             <path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.6-4.3A8.5 8.5 0 1 1 20.5 11.6z" />
           </svg>
           WhatsApp
         </a>
-        <a href={gmailUrl} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '15px 28px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+        <a href={gmailUrl} target="_blank" rel="noopener noreferrer" onClick={() => setTimeout(onSent, 400)} className="btn-outline" style={{ padding: '15px 28px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
             <rect x="2" y="4" width="20" height="16" rx="2" />
             <path d="M2 7l10 7 10-7" />

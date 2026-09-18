@@ -22,7 +22,7 @@ export default function CTASection({ heading, body, bookHref, bookLabel, imageSr
           <div className="r-hero-btns" style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
             <TrackLink href={bookHref} className="btn-gold" style={{ padding: '14px 28px' }} event="book_cta_click">{bookLabel}</TrackLink>
             <Link href="/about#contact-form" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
-              ASK A QUESTION →
+              GET IN TOUCH →
             </Link>
           </div>
         </div>

@@ -158,13 +158,13 @@ export default function TermsPage() {
           </Section>
 
           <Section id="cancel" num="03" title="Cancellations and rescheduling">
-            <p style={bodyText}>We require at least 12 hours&apos; notice to cancel or reschedule a session. Notify us by email at{' '}
+            <p style={bodyText}>We require at least 12 hours&apos; notice (SGT) to cancel or reschedule a session. Notify us by email at{' '}
               <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>{SITE.contact.email}</a>{' '}or by WhatsApp.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 16 }}>
               {[
-                { tier: 'More than 12 hours notice', policy: 'Reschedule to any available slot at no charge. Deposits are carried forward.' },
-                { tier: 'Less than 12 hours notice', policy: 'The deposit is forfeited. You may still reschedule but a new deposit is required.' },
+                { tier: 'More than 12 hours notice (SGT)', policy: 'Reschedule to any available slot at no charge. Deposits are carried forward.' },
+                { tier: 'Less than 12 hours notice (SGT)', policy: 'The deposit is forfeited. You may still reschedule but a new deposit is required.' },
                 { tier: 'No-show', policy: 'The full session fee is charged. We will always try to reach you first.' },
               ].map(({ tier, policy }) => (
                 <div key={tier} style={{ background: '#171717', border: '1px solid #1E1E1E', padding: '16px 20px', display: 'flex', gap: 20, alignItems: 'flex-start' }}>

@@ -8,6 +8,8 @@ import {
   SERVICE_PARAM_MAP, SERVICE_CATEGORY_MAP, SERVICE_FORMAT_MAP,
   isValidEmail, STEPS,
 } from '@/lib/bookData'
+
+function isValidPhone(p: string) { return p.replace(/\D/g, '').length >= 8 }
 import Step1 from '@/components/booking/Step1'
 import Step2 from '@/components/booking/Step2'
 import Step3 from '@/components/booking/Step3'
@@ -59,7 +61,7 @@ function BookContent() {
     if (step === 1) return !!service
     if (step === 2) return true
     if (step === 3) return slots.length > 0
-    if (step === 4) return name.trim() !== '' && isValidEmail(email) && phone.trim() !== ''
+    if (step === 4) return name.trim() !== '' && isValidEmail(email) && isValidPhone(phone)
     return true
   }
 
@@ -183,7 +185,7 @@ function BookContent() {
           {step === 2 && <Step2 coach={coach} setCoach={setCoach} />}
           {step === 3 && <Step3 activeDay={activeDay} slots={slots} setActiveDay={setActiveDay} toggleSlot={toggleSlot} location={location} setLocation={setLocation} showLocation={showLocation} />}
           {step === 4 && <Step4 name={name} email={email} phone={phone} notes={notes} setName={setName} setEmail={setEmail} setPhone={setPhone} setNotes={setNotes} />}
-          {step === 5 && <Step5 summaryRows={summaryRows} waUrl={waUrl} gmailUrl={gmailUrl} notSureYet={category === 'Not sure yet'} />}
+          {step === 5 && <Step5 summaryRows={summaryRows} waUrl={waUrl} gmailUrl={gmailUrl} notSureYet={category === 'Not sure yet'} onSent={() => setStep(6)} />}
           {step === 6 && <Done />}
 
           {/* Navigation (steps 1–4) */}

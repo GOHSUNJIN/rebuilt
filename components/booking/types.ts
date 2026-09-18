@@ -30,4 +30,5 @@ export interface Step5Props {
   waUrl: string
   gmailUrl: string
   notSureYet?: boolean
+  onSent: () => void
 }

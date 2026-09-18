@@ -175,7 +175,7 @@ function FAQInner() {
             {/* Mobile CTA */}
             <div className="r-faq-mobile-cta" style={{ marginTop: 48, paddingTop: 32, borderTop: '1px solid #1E1E1E', display: 'none', gap: 12 }}>
               <Link href="/book" className="btn-gold" style={{ padding: '13px 26px' }}>Book a consult</Link>
-              <Link href="/about#contact-form" className="btn-outline" style={{ padding: '13px 26px' }}>Send a message</Link>
+              <Link href="/about#contact-form" className="btn-outline" style={{ padding: '13px 26px' }}>Get in touch</Link>
             </div>
           </div>
         </div>

@@ -89,7 +89,7 @@ export default function HomePage() {
           <div className="r-hero-btns" style={{ marginTop: 36, display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
             <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>Book a consult</Link>
             <Link href="/about#contact-form" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
-              ASK A QUESTION →
+              GET IN TOUCH →
             </Link>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function HomePage() {
           ].map(({ num, label }) => (
             <div key={label} className="r-stat-cell" style={{ background: '#0B0B0B', padding: '52px 48px' }}>
               <p className="gradient-gold r-stat-num" style={{ fontSize: 68, fontWeight: 800, lineHeight: 1, letterSpacing: '-.04em', margin: '0 0 10px', fontFamily: 'Archivo,sans-serif' }}>{num}</p>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5', letterSpacing: '.2em', margin: 0 }}>{label.toUpperCase()}</p>
+              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#A5A5A5', letterSpacing: '.24em', margin: 0 }}>{label.toUpperCase()}</p>
             </div>
           ))}
         </div>
@@ -137,7 +137,7 @@ export default function HomePage() {
             </Link>
             {/* Mobile: partner badge replaces white logo box */}
             <div className="r-partner-mobile" style={{ display: 'none', borderTop: '1px solid #1E1E1E', paddingTop: 20 }}>
-              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', margin: '0 0 14px' }}>PARTNER CLINIC</p>
+              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.24em', margin: '0 0 14px' }}>PARTNER CLINIC</p>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <Image src="/rnb-favicon.ico" alt="Rehab & Beyond" width={32} height={32} style={{ width: 32, height: 32, borderRadius: '50%', background: '#fff', objectFit: 'cover', flexShrink: 0 }} />
@@ -287,7 +287,7 @@ export default function HomePage() {
             <div className="r-cta-btns" style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
               <Link href="/book" className="btn-gold" style={{ padding: '14px 28px' }}>Book a consult</Link>
               <Link href="/about#contact-form" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
-                ASK A QUESTION →
+                GET IN TOUCH →
               </Link>
             </div>
           </div>

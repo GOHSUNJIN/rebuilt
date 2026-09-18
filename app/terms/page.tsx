@@ -88,7 +88,7 @@ export default function TermsPage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 40, flexWrap: 'wrap' }}>
             <div>
               <h1 className="r-h1" style={{ fontSize: 76, fontWeight: 800, lineHeight: 0.9, letterSpacing: '-.04em', margin: '0 0 24px', color: '#FFFFFF' }}>
-                Terms of<br />Service.
+                Terms of <br />Service.
               </h1>
               <p style={{ fontSize: 16, lineHeight: 1.65, color: '#A5A5A5', maxWidth: 460, margin: 0 }}>
                 These terms govern your use of the Rebuilt Academy website and the services we provide. By booking a session or using our website, you agree to these terms.

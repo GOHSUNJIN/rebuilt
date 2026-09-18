@@ -260,10 +260,10 @@ export default function HomePage() {
 
       {/* ── 7. CTA ──────────────────────────────── */}
       <section style={{ borderTop: '1px solid #2A2A2A', background: '#0B0B0B' }}>
-        <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 680 }}>
+        <div className="r2 r-cta-section-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 680 }}>
 
           {/* Left: content */}
-          <div className="r-px r-tall-pad" style={{ padding: '80px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRight: '1px solid #1E1E1E' }}>
+          <div className="r-px r-tall-pad r-cta-section-left" style={{ padding: '80px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRight: '1px solid #1E1E1E' }}>
             <div>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 28 }}>
                 START WHERE YOU ARE
@@ -307,7 +307,7 @@ export default function HomePage() {
             </div>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
+            <div className="r-cta-btns" style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
               <Link href="/book" className="btn-gold" style={{ padding: '14px 28px' }}>Book a consult</Link>
               <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
                 ASK A QUESTION →

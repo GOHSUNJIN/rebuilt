@@ -2,7 +2,7 @@
 
 export default function FeatureGrid({ items, cols = 3 }: { items: FeatureItem[], cols?: 3 | 4 }) {
   return (
-    <div className={cols === 4 ? 'r4' : 'r3'} style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 2, background: '#1E1E1E' }}>
+    <div className={`r-feature-scroll ${cols === 4 ? 'r4' : 'r3'}`} style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 2, background: '#1E1E1E' }}>
       {items.map(({ num, title, desc, icon }) => (
         <div key={num} className="r-feature-cell" style={{ background: '#0B0B0B', padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
           <div style={{ color: 'var(--accent)' }}>{icon}</div>

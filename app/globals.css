@@ -436,6 +436,22 @@ p { text-wrap: pretty; }
   /* ── Location cards - reduce 460px height when stacked ─── */
   .r-location-card { height: 280px !important; }
 
+  /* ── Feature grid — horizontal snap-scroll on mobile ─── */
+  .r-feature-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    grid-template-columns: unset !important;
+  }
+  .r-feature-scroll::-webkit-scrollbar { display: none; }
+  .r-feature-scroll > * {
+    flex: 0 0 72vw !important;
+    max-width: 280px !important;
+    scroll-snap-align: start !important;
+  }
+
   /* ── Feature grid cells - tighter padding when stacked ─── */
   .r-feature-cell { padding: 20px !important; }
 
@@ -452,6 +468,18 @@ p { text-wrap: pretty; }
   /* ── PhysioForm buttons - stack vertically ─── */
   .r-physio-btns { flex-direction: column !important; }
   .r-physio-btns > a { flex: unset !important; }
+
+  /* ── CTA "Start where you are" section ─── */
+  .r-cta-section-grid { min-height: unset !important; }
+  .r-cta-section-left { justify-content: flex-start !important; gap: 32px !important; }
+  .r-cta-btns {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+  .r-cta-btns .btn-gold { justify-content: center !important; text-align: center !important; }
+  .r-cta-btns a:not(.btn-gold) { text-align: center !important; }
 
   /* ── Testimonial ─── */
   .r-testimonial-role {

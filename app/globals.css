@@ -579,9 +579,24 @@ p { text-wrap: pretty; }
   .r-testimonial-quote { font-size: 17px !important; margin-bottom: 20px !important; }
 
   /* ── Crosslinks ─── */
-  .r-crosslinks-section { padding: 36px 20px !important; }
+  .r-crosslinks-section { padding: 28px 20px !important; }
   .r-crosslinks-grid { grid-template-columns: 1fr !important; gap: 1px !important; }
-  .r-crosslinks-grid a { padding: 20px 16px !important; }
+  .r-crosslinks-card {
+    padding: 18px 44px 18px 16px !important;
+    position: relative !important;
+  }
+  .r-crosslinks-card::after {
+    content: '→';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 14px;
+  }
+  .r-crosslinks-label { margin-bottom: 4px !important; }
+  .r-crosslinks-desc  { font-size: 13px !important; line-height: 1.45 !important; margin-bottom: 0 !important; }
+  .r-crosslinks-cta   { display: none !important; }
 
   /* ── Reviews - horizontal scroll on mobile ─── */
   .r-reviews-scroll {

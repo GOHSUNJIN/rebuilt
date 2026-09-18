@@ -54,7 +54,7 @@ export default function PhysioPage() {
         subheading="Delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training, coordinated from the start."
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
-        imagePosition="center 30%"
+        imagePosition="center 15%"
         headingSize={84}
       />
 

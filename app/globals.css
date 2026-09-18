@@ -516,13 +516,8 @@ p { text-wrap: pretty; }
   .r-footer-desktop { display: none !important; }
   .r-footer-mobile  { display: flex !important; }
 
-  /* ── Mobile booking bar ─── */
-  .mobile-book-bar { display: flex; }
-  .whatsapp-btn    { display: none !important; }
-  body             { padding-bottom: 86px; }
   body:has(.book-page-root) { padding-bottom: 0 !important; }
   body:has(.admin-page)     { padding-bottom: 0 !important; }
-  body:has(.book-page-root) .mobile-book-bar { display: none !important; }
 
   /* ── Admin page mobile ─── */
   .admin-header      { padding: 0 16px !important; }
@@ -698,7 +693,4 @@ p { text-wrap: pretty; }
   .r-stat-cell    { padding: 18px 20px !important; }
   .r-stat-num     { font-size: 34px !important; }
 
-  /* Shrink the sticky book bar so it takes less of the landscape viewport */
-  .mobile-book-bar { padding: 8px 20px !important; padding-bottom: max(8px, env(safe-area-inset-bottom)) !important; }
-  body             { padding-bottom: 60px !important; }
 }

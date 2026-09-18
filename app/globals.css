@@ -408,6 +408,7 @@ p { text-wrap: pretty; }
   .r-hero-content { padding: 0 20px 28px !important; }
   .r-hero-label   { letter-spacing: .14em !important; font-size: 10px !important; }
   .r-hero-badge   { display: none !important; }
+  .r-hero-btns    { flex-direction: column !important; align-items: flex-start !important; gap: 18px !important; }
 
   /* ── Stats — compact 3-col on mobile ─── */
   .r-stat-strip .r-stat-cell { padding: 18px 12px 20px !important; }
@@ -478,8 +479,9 @@ p { text-wrap: pretty; }
 
   /* ── Physio partnership image - reduce height when stacked ─── */
   .r-partner-img { min-height: 240px !important; }
-  /* ── Home R&B logo white block - reduce tall gap when stacked ─── */
-  .r-home-rnb { min-height: 200px !important; padding: 32px !important; }
+  /* ── Home R&B logo white block - hidden on mobile, replaced by partner badge ─── */
+  .r-home-rnb { display: none !important; }
+  .r-partner-mobile { display: flex !important; flex-direction: column !important; }
   /* ── Home physio card images ─── */
   .r-physio-card-img { height: 180px !important; }
 
@@ -490,9 +492,31 @@ p { text-wrap: pretty; }
   .r-physio-btns { flex-direction: column !important; }
   .r-physio-btns > a { flex: unset !important; }
 
+  /* ── Pricing cards — horizontal snap-scroll ─── */
+  .r-pricing-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    grid-template-columns: unset !important;
+    gap: 1px !important;
+  }
+  .r-pricing-scroll::-webkit-scrollbar { display: none; }
+  .r-pricing-scroll > * {
+    flex: 0 0 88vw !important;
+    max-width: 360px !important;
+    scroll-snap-align: start !important;
+  }
+  .r-pricing-scroll .r-pricing-card { padding: 28px 22px 32px !important; }
+
   /* ── CTA "Start where you are" section ─── */
   .r-cta-section-grid { min-height: unset !important; }
   .r-cta-section-left { justify-content: flex-start !important; gap: 32px !important; }
+  .r-cta-body         { margin-bottom: 20px !important; }
+  .r-decision-rows    { margin-bottom: 20px !important; }
+  .r-decision-rows a  { padding: 16px 0 16px 14px !important; border-left: 2px solid #222 !important; }
+  .r-decision-rows a > span:first-child { color: #D0D0D0 !important; font-size: 14px !important; }
   .r-cta-btns {
     flex-direction: column !important;
     align-items: stretch !important;

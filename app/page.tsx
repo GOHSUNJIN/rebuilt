@@ -85,7 +85,7 @@ export default function HomePage() {
           <p style={{ fontSize: 17, lineHeight: 1.6, color: '#A5A5A5', marginBottom: 0, marginTop: 28, maxWidth: 460 }}>
             Rehab, training and performance. One team, three locations.
           </p>
-          <div style={{ marginTop: 36, display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
+          <div className="r-hero-btns" style={{ marginTop: 36, display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
             <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>Book a consult</Link>
             <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
               ASK A QUESTION →
@@ -175,6 +175,22 @@ export default function HomePage() {
             <Link href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
               BOOK A CONSULT →
             </Link>
+            {/* Mobile: partner badge replaces white logo box */}
+            <div className="r-partner-mobile" style={{ display: 'none', borderTop: '1px solid #1E1E1E', paddingTop: 20 }}>
+              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', margin: '0 0 14px' }}>PARTNER CLINIC</p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <Image src="/rnb-favicon.ico" alt="Rehab & Beyond" width={32} height={32} style={{ width: 32, height: 32, borderRadius: '50%', background: '#fff', objectFit: 'cover', flexShrink: 0 }} />
+                  <div>
+                    <p style={{ fontSize: 14, fontWeight: 800, letterSpacing: '-.01em', margin: '0 0 3px', color: '#FFFFFF', lineHeight: 1 }}>Rehab &amp; Beyond</p>
+                    <p style={{ font: '8px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.12em', margin: 0 }}>GOBEYONDREHAB.SG</p>
+                  </div>
+                </div>
+                <a href="https://gobeyondrehab.sg/" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '8px 14px', fontSize: 9, letterSpacing: '.16em', flexShrink: 0, textDecoration: 'none' }}>
+                  Visit ↗
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Right: R&B logo on white */}
@@ -274,12 +290,12 @@ export default function HomePage() {
               >
                 Whatever<br />the starting point.
               </h2>
-              <p style={{ fontSize: 15.5, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 44px', maxWidth: 400 }}>
+              <p className="r-cta-body" style={{ fontSize: 15.5, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 44px', maxWidth: 400 }}>
                 Two weeks post-op or chasing a personal best. The first step is the same: an honest look at where you are today.
               </p>
 
               {/* Decision rows */}
-              <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 44 }}>
+              <div className="r-decision-rows" style={{ display: 'flex', flexDirection: 'column', marginBottom: 44 }}>
                 {[
                   { situation: 'Coming back from injury or surgery',    service: 'Rehab',             href: '/rehab' },
                   { situation: 'Want to get stronger or fitter',        service: 'Training',          href: '/strength' },

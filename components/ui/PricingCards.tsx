@@ -8,7 +8,7 @@ export default function PricingCards({ items }: { items: PricingItem[] }) {
         <h2 className="r-section-h2" style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-.025em', margin: 0, lineHeight: 0.96 }}>Sessions &amp; pricing.</h2>
         <span className="r-hide" style={{ font: '11px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: '#909090' }}>PAYNOW · CARD</span>
       </div>
-      <div className="r3" style={{ display: 'grid', gridTemplateColumns: `repeat(${items.length}, 1fr)`, gap: 1, background: '#2A2A2A' }}>
+      <div className="r3 r-pricing-scroll" style={{ display: 'grid', gridTemplateColumns: `repeat(${items.length}, 1fr)`, gap: 1, background: '#2A2A2A' }}>
         {items.map(({ type, price, sub, features, featured, href }) => (
           <div
             key={type}

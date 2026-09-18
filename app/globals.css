@@ -771,6 +771,12 @@ p { text-wrap: pretty; }
   .r-footer-mobile  { display: flex !important; }
 
   body:has(.book-page-root) { padding-bottom: 0 !important; }
+  /* ── Booking page ─── */
+  .book-step-label { display: none !important; }
+  .book-steps { padding: 0 20px !important; }
+  .book-content { padding: 28px 20px 40px !important; }
+  .book-nav { flex-direction: column !important; align-items: stretch !important; }
+  .book-nav button { width: 100% !important; text-align: center !important; }
   body:has(.admin-page)     { padding-bottom: 0 !important; }
 
   /* ── Admin page mobile ─── */

@@ -148,7 +148,7 @@ function BookContent() {
       </nav>
 
       {/* Step indicator */}
-      <div className="r-px" style={{ display: 'flex', alignItems: 'center', padding: '0 48px', borderBottom: '1px solid #1E1E1E', background: '#0B0B0B', overflowX: 'auto' }}>
+      <div className="r-px book-steps" style={{ display: 'flex', alignItems: 'center', padding: '0 48px', borderBottom: '1px solid #1E1E1E', background: '#0B0B0B', overflowX: 'auto' }}>
         {STEPS.map(({ num, label }, i) => {
           const done = step > num; const current = step === num
           return (

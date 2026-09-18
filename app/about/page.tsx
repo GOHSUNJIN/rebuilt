@@ -8,6 +8,7 @@ import LocationMap from '@/components/ui/LocationMap'
 import LocationDrawer from '@/components/sections/LocationDrawer'
 import TeamBioModal from '@/components/sections/TeamBioModal'
 import CopyText from '@/components/ui/CopyText'
+import StatsStrip from '@/components/ui/StatsStrip'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -55,19 +56,7 @@ export default function AboutPage() {
           </div>
         </div>
         {/* Stats strip */}
-        <div className="r4 r-px r-about-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid #2A2A2A', background: '#2A2A2A', gap: 1 }} >
-          {[
-            { label: 'BASED',   value: 'Singapore, 3 locations' },
-            { label: 'OPENED',  value: '2021' },
-            { label: 'WE DO',   value: 'Rehab, training, performance, physiotherapy' },
-            { label: 'NEXT UP', value: 'In-house physio coming soon' },
-          ].map(({ label, value }) => (
-            <div key={label} style={{ padding: '28px 32px', background: '#0B0B0B' }}>
-              <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.22em', margin: '0 0 10px' }}>{label}</p>
-              <p style={{ fontSize: 14, color: '#FFFFFF', margin: 0, lineHeight: 1.5, fontWeight: 500 }}>{value}</p>
-            </div>
-          ))}
-        </div>
+        <StatsStrip />
       </section>
 
       {/* ── Facility photos ──────────────────────── */}
@@ -108,7 +97,7 @@ export default function AboutPage() {
       {/* ── Contact ────────────────────────────── */}
       <section
         id="contact"
-        className="r2"
+        className="r2 r-contact-section"
         style={{
           borderTop: '1px solid #2A2A2A',
           display: 'grid',
@@ -126,7 +115,7 @@ export default function AboutPage() {
         </div>
 
         {/* Right */}
-        <div style={{ minWidth: 0, overflow: 'hidden', width: '100%', display: 'flex', flexDirection: 'column' }}>
+        <div className="r-contact-right" style={{ minWidth: 0, overflow: 'hidden', width: '100%', display: 'flex', flexDirection: 'column' }}>
           {/* Map panel */}
           <div style={{ height: 360, overflow: 'hidden', borderBottom: '1px solid #2A2A2A', flexShrink: 0 }}>
             <LocationMap />

@@ -1,5 +1,5 @@
 ﻿'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import { SITE } from '@/lib/site'
 import { useScrollLock } from '@/lib/hooks'
@@ -64,6 +64,13 @@ function LocationPlaceholder({ label, height }: { label: string; height: number 
 
 export default function LocationDrawer() {
   const [selected, setSelected] = useState<Location | null>(null)
+  const [activeIdx, setActiveIdx] = useState(0)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current; if (!el) return
+    const cardWidth = el.scrollWidth / LOCATIONS.length
+    setActiveIdx(Math.min(Math.round(el.scrollLeft / cardWidth), LOCATIONS.length - 1))
+  }, [])
 
   useScrollLock(!!selected)
 
@@ -76,7 +83,7 @@ export default function LocationDrawer() {
 
   return (
     <>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#2A2A2A' }} className="r3">
+      <div ref={scrollRef} onScroll={handleScroll} style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#2A2A2A' }} className="r3 r-location-scroll">
         {LOCATIONS.map((loc) => (
           <button
             key={loc.label}
@@ -107,6 +114,11 @@ export default function LocationDrawer() {
               <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em' }}>VIEW DETAILS →</span>
             </div>
           </button>
+        ))}
+      </div>
+      <div className="r-location-dots" style={{ display: 'none', justifyContent: 'center', gap: 6, marginTop: 12, marginBottom: 4 }}>
+        {LOCATIONS.map((_, i) => (
+          <span key={i} style={{ width: i === activeIdx ? 20 : 6, height: 4, borderRadius: 2, background: i === activeIdx ? 'var(--accent)' : '#3A3A3A', transition: 'width .25s, background .25s', display: 'block' }} />
         ))}
       </div>
 

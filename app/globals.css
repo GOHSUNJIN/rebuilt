@@ -709,7 +709,44 @@ p { text-wrap: pretty; }
   .r-faq-mobile-cta a { width: 100% !important; justify-content: center; text-align: center; }
   .r-drawer-content { padding-left: 24px !important; padding-right: 24px !important; }
   .r-drawer-inline-img { margin-left: -24px !important; margin-right: -24px !important; }
-  .r-contact-left { border-right: none !important; border-bottom: 1px solid #2A2A2A !important; }
+  .r-contact-left { border-right: none !important; border-top: 1px solid #2A2A2A !important; order: 1 !important; padding: 40px 20px 48px !important; }
+  .r-contact-section { grid-template-columns: 1fr !important; }
+  .r-contact-right { order: 0 !important; }
+
+  /* ── Location carousel ─── */
+  .r-location-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    grid-template-columns: unset !important;
+    gap: 2px !important;
+    background: #2A2A2A !important;
+  }
+  .r-location-scroll::-webkit-scrollbar { display: none; }
+  .r-location-scroll > * {
+    flex: 0 0 88vw !important;
+    max-width: 360px !important;
+    scroll-snap-align: start !important;
+    height: 300px !important;
+  }
+  .r-location-scroll .r-location-card > div:first-child { height: 100% !important; }
+  .r-location-dots { display: flex !important; }
+
+  /* ── Stats strip dots ─── */
+  .r-stats-dots { display: flex !important; }
+
+  /* ── About header ─── */
+  .r-h1 { font-size: 40px !important; line-height: 1.05 !important; }
+  .r-about-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 64px;
+    background: linear-gradient(to bottom, transparent, #0B0B0B);
+    pointer-events: none;
+  }
 
   /* ── Footer ─── */
   .r-footer-nav     { display: none !important; }

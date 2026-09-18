@@ -51,7 +51,7 @@ export default function PhysioPage() {
         imageSrc="/img/physio-session.jpg"
         imageAlt="Physiotherapy session"
         heading={<>Physiotherapy at Rebuilt Academy.</>}
-        subheading="Delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training, coordinated from the start."
+        subheading="Physiotherapy, rehab and training — coordinated from the start."
         bookHref="/book?service=physio"
         bookLabel="Book a consult"
         imagePosition="center 40%"
@@ -180,7 +180,7 @@ export default function PhysioPage() {
             ))}
           </div>
 
-          <Link href="/about#contact" className="btn-gold r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
+          <Link href="/about#contact" className="btn-outline r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
             Get in touch →
           </Link>
         </div>

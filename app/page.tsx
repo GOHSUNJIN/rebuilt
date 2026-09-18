@@ -83,7 +83,7 @@ export default function HomePage() {
           >
             REBUILT<br />FROM SETBACK<br />TO COMEBACK.
           </h1>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: '#A5A5A5', marginBottom: 0, marginTop: 28, maxWidth: 460 }}>
+          <p className="r-hero-sub" style={{ fontSize: 17, lineHeight: 1.6, color: '#A5A5A5', marginBottom: 0, marginTop: 28, maxWidth: 460 }}>
             Rehab, training and performance. One team, three locations.
           </p>
           <div className="r-hero-btns" style={{ marginTop: 36, display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
@@ -197,7 +197,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <Link href="/about#contact" className="btn-gold r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
+          <Link href="/about#contact" className="btn-outline r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
             Get in touch →
           </Link>
         </div>

@@ -51,7 +51,7 @@ export default function RehabPage() {
         imageAlt="Rehab session"
         imagePosition="center 40%"
         heading={<>Back to what<br />you did before.</>}
-        subheading="Coached rehabilitation for people coming back from injury or surgery, built around what your body handles today and where you want it to be."
+        subheading="Coached rehabilitation for people coming back from injury or surgery."
         bookHref="/book?service=rehab"
         bookLabel="Book a consult"
       />

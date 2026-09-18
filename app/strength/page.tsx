@@ -52,7 +52,7 @@ export default function StrengthPage() {
         imageAlt="Personal training"
         imagePosition="center 40%"
         heading={<>Train with a purpose.</>}
-        subheading="A plan, honest feedback and measurable progress. Whatever shape you start in."
+        subheading="A plan, honest feedback and measurable progress."
         bookHref="/book?service=strength"
         bookLabel="Book a consult"
       />

@@ -88,7 +88,7 @@ export default function HomePage() {
           </p>
           <div className="r-hero-btns" style={{ marginTop: 36, display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
             <Link href="/book" className="btn-gold" style={{ padding: '16px 30px' }}>Book a consult</Link>
-            <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+            <Link href="/about#contact-form" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
               ASK A QUESTION →
             </Link>
           </div>
@@ -197,7 +197,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <Link href="/about#contact" className="btn-outline r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
+          <Link href="/about#contact-form" className="btn-outline r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
             Get in touch →
           </Link>
         </div>
@@ -286,7 +286,7 @@ export default function HomePage() {
             {/* CTAs */}
             <div className="r-cta-btns" style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
               <Link href="/book" className="btn-gold" style={{ padding: '14px 28px' }}>Book a consult</Link>
-              <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
+              <Link href="/about#contact-form" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
                 ASK A QUESTION →
               </Link>
             </div>

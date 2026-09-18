@@ -107,7 +107,7 @@ export default function AboutPage() {
         }}
       >
         {/* Left – form */}
-        <div className="r-px r-tall-pad r-contact-left" style={{ padding: '66px 48px', borderRight: '1px solid #2A2A2A' }}>
+        <div id="contact-form" className="r-px r-tall-pad r-contact-left" style={{ padding: '66px 48px', borderRight: '1px solid #2A2A2A', scrollMarginTop: 90 }}>
           <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: '-.025em', marginTop: 0, marginBottom: 32, lineHeight: 0.96 }}>
             Get in touch.
           </h2>

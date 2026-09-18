@@ -35,7 +35,7 @@ function FAQInner() {
   return (
     <>
       {/* Hero */}
-      <section className="r-px r-section-pad" style={{ padding: '64px 48px 52px', borderBottom: '1px solid #2A2A2A', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20 }}>
+      <section className="r-px r-section-pad r-faq-hero" style={{ padding: '64px 48px 52px', borderBottom: '1px solid #2A2A2A', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20 }}>
         <div>
           <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 18 }}>FAQ</p>
           <h1 className="r-h1" style={{ fontSize: 64, fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.92 }}>Questions answered.</h1>
@@ -154,7 +154,7 @@ function FAQInner() {
             <div className="r-faq-hide-mobile" style={{ borderTop: '1px solid #1E1E1E', margin: '32px 40px 28px' }} />
             <div className="r-faq-hide-mobile" style={{ padding: '0 40px', display: 'flex', flexDirection: 'column', gap: 12 }}>
               <Link href="/book" className="btn-gold" style={{ padding: '11px 16px', fontSize: 10, letterSpacing: '.18em', textAlign: 'center' }}>Book a consult</Link>
-              <Link href="/about#contact" style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.16em', textDecoration: 'none', textAlign: 'center', transition: 'color .15s' }} className="hover-gold">
+              <Link href="/about#contact-form" style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.16em', textDecoration: 'none', textAlign: 'center', transition: 'color .15s' }} className="hover-gold">
                 SEND A MESSAGE →
               </Link>
             </div>
@@ -175,7 +175,7 @@ function FAQInner() {
             {/* Mobile CTA */}
             <div className="r-faq-mobile-cta" style={{ marginTop: 48, paddingTop: 32, borderTop: '1px solid #1E1E1E', display: 'none', gap: 12 }}>
               <Link href="/book" className="btn-gold" style={{ padding: '13px 26px' }}>Book a consult</Link>
-              <Link href="/about#contact" className="btn-outline" style={{ padding: '13px 26px' }}>Send a message</Link>
+              <Link href="/about#contact-form" className="btn-outline" style={{ padding: '13px 26px' }}>Send a message</Link>
             </div>
           </div>
         </div>

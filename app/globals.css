@@ -477,6 +477,7 @@ p { text-wrap: pretty; }
 
   /* ── Hero subheading — show on mobile, smaller ─── */
   .r-hero-sub { display: block !important; font-size: 14px !important; line-height: 1.6 !important; margin: 0 0 24px !important; }
+  .r-hero-badge { display: none !important; }
 
   /* ── CTA / about images ─── */
   .r-cta-img   { min-height: 200px !important; }
@@ -493,7 +494,7 @@ p { text-wrap: pretty; }
     gap: 1px !important;
   }
   .r-about-stats::-webkit-scrollbar { display: none; }
-  .r-about-stats > * { flex: 0 0 64vw !important; max-width: 240px !important; scroll-snap-align: start !important; }
+  .r-about-stats > * { flex: 0 0 82vw !important; max-width: 280px !important; scroll-snap-align: start !important; }
 
   /* ── Team scroll ─── */
   .r-team-scroll {
@@ -510,19 +511,21 @@ p { text-wrap: pretty; }
   .r-team-scroll .r-team-img { height: 220px !important; }
   .r-team-dots { display: flex !important; }
 
-  /* ── Contact info grid ─── */
+  /* ── Contact info grid — vertical stack on mobile ─── */
   .r-contact-info-grid {
     display: flex !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    scrollbar-width: none !important;
-    gap: 1px !important;
-    background: #1A1A1A !important;
-    margin: 0 -20px !important;
-    padding: 0 20px !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: unset !important;
+    scroll-snap-type: unset !important;
   }
-  .r-contact-info-grid::-webkit-scrollbar { display: none; }
-  .r-contact-info-grid > * { flex: 0 0 55vw !important; min-width: 160px !important; scroll-snap-align: start !important; padding-right: 20px !important; }
+  .r-contact-info-grid > * { flex: unset !important; min-width: unset !important; scroll-snap-align: unset !important; padding-right: 0 !important; }
+
+  /* ── Contact right — tighter padding on mobile ─── */
+  .r-contact-right > div:last-child { padding: 28px 20px 36px !important; }
 
   /* ── Team bio cards - reduce placeholder height when stacked ─── */
   .r-team-img  { height: 220px !important; }
@@ -747,6 +750,17 @@ p { text-wrap: pretty; }
     background: linear-gradient(to bottom, transparent, #0B0B0B);
     pointer-events: none;
   }
+
+  /* ── FAQ ─── */
+  .r-faq-hero { padding: 32px 20px 28px !important; flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
+  .r-faq-hero p { font-size: 13px !important; max-width: 100% !important; }
+  .r-faq-btn span { display: none !important; }
+  .r-faq-btn { gap: 0 !important; padding: 14px 20px !important; font-size: 12px !important; }
+  .r-faq-content { padding: 24px 20px 48px !important; }
+
+  /* ── About header — more breathing room ─── */
+  .r-about-header-content { padding: 36px 24px 40px !important; gap: 16px !important; }
+  .r-about-header-content p:last-child { font-size: 14px !important; line-height: 1.65 !important; }
 
   /* ── Footer ─── */
   .r-footer-nav     { display: none !important; }

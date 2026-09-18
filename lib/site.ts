@@ -57,5 +57,5 @@ export const SITE = {
     instagram: 'https://www.instagram.com/rebuiltbysk/',
   },
 
-  hours: ['Mon-Fri: 7am-9pm', 'Sat: 8am-2pm', 'Sun: Closed'],
+  hours: ['Monday - Friday: 7am - 9pm', 'Saturday: 8am - 2pm', 'Sunday: Closed'],
 }

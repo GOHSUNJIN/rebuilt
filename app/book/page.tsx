@@ -28,7 +28,7 @@ function BookContent() {
   const [slots, setSlots]         = useState<string[]>([])
   const [name, setName]           = useState('')
   const [email, setEmail]         = useState('')
-
+  const [phone, setPhone]         = useState('')
   const [notes, setNotes]         = useState('')
   const [showError, setShowError] = useState(false)
   const [location, setLocation]   = useState('No preference')
@@ -112,7 +112,7 @@ function BookContent() {
     ``,
     `CONTACT`,
     `Name: ${name.trim()}`,
-    `Email: ${email.trim()}`,
+    phone.trim() ? `Phone: ${phone.trim()}` : null,
     notes.trim() ? `\nNotes:\n${notes.trim()}` : null,
     ``,
     `Thank you`,
@@ -129,6 +129,7 @@ function BookContent() {
     { label: 'Preferred times', value: slots.length > 0 ? slots.map(fmtSlot).join(', ') : null },
     { label: 'Name',            value: name || null },
     { label: 'Email',           value: email || null },
+    { label: 'Phone',           value: phone || null },
     { label: 'Notes',           value: notes || null },
   ].filter(r => r.value)
 
@@ -181,7 +182,7 @@ function BookContent() {
           {step === 1 && <Step1 category={category} ptFormat={ptFormat} service={service} selectCategory={selectCategory} setPtFormat={id => { setPtFormat(id); setService(null) }} setService={setService} />}
           {step === 2 && <Step2 coach={coach} setCoach={setCoach} />}
           {step === 3 && <Step3 activeDay={activeDay} slots={slots} setActiveDay={setActiveDay} toggleSlot={toggleSlot} location={location} setLocation={setLocation} showLocation={showLocation} />}
-          {step === 4 && <Step4 name={name} email={email} notes={notes} setName={setName} setEmail={setEmail} setNotes={setNotes} />}
+          {step === 4 && <Step4 name={name} email={email} phone={phone} notes={notes} setName={setName} setEmail={setEmail} setPhone={setPhone} setNotes={setNotes} />}
           {step === 5 && <Step5 summaryRows={summaryRows} waUrl={waUrl} gmailUrl={gmailUrl} notSureYet={category === 'Not sure yet'} />}
           {step === 6 && <Done />}
 

@@ -513,11 +513,11 @@ p { text-wrap: pretty; }
   .r-team-scroll .r-team-img { height: 220px !important; }
   .r-team-dots { display: flex !important; }
 
-  /* ── Contact info grid — vertical stack on mobile ─── */
+  /* ── Contact info grid — 2-col on mobile ─── */
   .r-contact-info-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 28px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px 16px !important;
     background: transparent !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -525,9 +525,10 @@ p { text-wrap: pretty; }
     scroll-snap-type: unset !important;
   }
   .r-contact-info-grid > * { flex: unset !important; min-width: unset !important; scroll-snap-align: unset !important; padding-right: 0 !important; }
+  .r-contact-info-grid > *:last-child { grid-column: 1 / -1 !important; }
 
   /* ── Contact right — tighter padding on mobile ─── */
-  .r-contact-right > div:last-child { padding: 28px 20px 36px !important; }
+  .r-contact-right > div:last-child { padding: 24px 20px 32px !important; }
 
   /* ── Team bio cards - reduce placeholder height when stacked ─── */
   .r-team-img  { height: 220px !important; }

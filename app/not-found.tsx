@@ -22,7 +22,7 @@ export default function NotFound() {
           </p>
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/" className="btn-gold" style={{ padding: '15px 28px' }}>Go home</Link>
-            <Link href="/about#contact" className="btn-outline" style={{ padding: '15px 28px' }}>Contact us</Link>
+            <Link href="/about#contact-form" className="btn-outline" style={{ padding: '15px 28px' }}>Contact us</Link>
           </div>
         </div>
       </div>

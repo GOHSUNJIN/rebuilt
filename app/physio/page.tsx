@@ -180,7 +180,7 @@ export default function PhysioPage() {
             ))}
           </div>
 
-          <Link href="/about#contact" className="btn-outline r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
+          <Link href="/about#contact-form" className="btn-outline r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
             Get in touch →
           </Link>
         </div>

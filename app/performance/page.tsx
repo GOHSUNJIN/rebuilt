@@ -48,8 +48,8 @@ export default function PerformancePage() {
       <ServiceHero
 
         imageSrc="/img/performance-hero.jpg"
-        mobileImageSrc="/img/card-performance.jpg"
-        mobileImagePosition="center 20%"
+        mobileImageSrc="/img/performance-hero-mobile.jpg"
+        mobileImagePosition="center 45%"
         imageAlt="Sports performance training"
         heading={<>Train to perform.</>}
         subheading="Speed, power, conditioning. Benchmarked on day one. Proven at the end of every block."

@@ -97,7 +97,7 @@ export default function Step2({ coach, setCoach }: Step2Props) {
                   {member ? member.short : detail}
                 </p>
                 {member && (
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 12 }}>
+                  <div className="r-step2-creds" style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 12 }}>
                     {member.credentials.slice(0, 2).map(c => (
                       <span key={c} style={{
                         font: '9px/1 ui-monospace,Menlo,monospace',

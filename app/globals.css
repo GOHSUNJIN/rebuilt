@@ -376,6 +376,9 @@ p { text-wrap: pretty; }
   .r-hero { height: auto !important; min-height: 560px !important; }
 }
 
+/* Mobile hero image hidden by default (shown via mobile media query) */
+.r-hero-img-mobile { display: none; }
+
 /* ══════════════════════════════════════════════════
    MOBILE - portrait  (≤ 768px)  - full overhaul
    ══════════════════════════════════════════════════ */
@@ -786,6 +789,10 @@ p { text-wrap: pretty; }
   .book-nav { flex-direction: column !important; align-items: stretch !important; }
   .book-nav button { width: 100% !important; text-align: center !important; }
   .r-step2-creds { display: none !important; }
+
+  /* ── Hero image swap (mobile vs desktop) ─── */
+  .r-hero-img-desktop { display: none !important; }
+  .r-hero-img-mobile  { display: block !important; }
 
   /* ── Legal pages (privacy + terms) ─── */
   .r-back-top { display: flex !important; }

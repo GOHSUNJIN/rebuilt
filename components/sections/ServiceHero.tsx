@@ -4,12 +4,14 @@ import Image from 'next/image'
 interface Props {
   label?: string
   imageSrc: string
+  mobileImageSrc?: string
   imageAlt: string
   heading: React.ReactNode
   subheading: string
   bookHref: string
   bookLabel?: string
   imagePosition?: string
+  mobileImagePosition?: string
   headingSize?: number
   contentMaxWidth?: number
   inline?: boolean
@@ -18,12 +20,14 @@ interface Props {
 export default function ServiceHero({
   label,
   imageSrc,
+  mobileImageSrc,
   imageAlt,
   heading,
   subheading,
   bookHref,
   bookLabel = 'Book a consult',
   imagePosition = 'center center',
+  mobileImagePosition = 'center center',
   headingSize = 84,
   contentMaxWidth = 820,
   inline = false,
@@ -33,9 +37,18 @@ export default function ServiceHero({
     <section className="r-hero" style={{ position: 'relative', height: 660, overflow: 'hidden', display: 'grid', alignItems: 'end' }}>
       <Image
         src={imageSrc} alt={imageAlt} fill priority
+        className={mobileImageSrc ? 'r-hero-img-desktop' : undefined}
         style={{ objectFit: 'cover', objectPosition: imagePosition }}
         sizes="100vw"
       />
+      {mobileImageSrc && (
+        <Image
+          src={mobileImageSrc} alt={imageAlt} fill priority
+          className="r-hero-img-mobile"
+          style={{ objectFit: 'cover', objectPosition: mobileImagePosition }}
+          sizes="100vw"
+        />
+      )}
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(8,9,11,.88) 0%, rgba(8,9,11,.52) 55%, rgba(8,9,11,.12) 100%)' }} />
       <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, #0B0B0B 0%, transparent ${large ? 50 : 45}%)` }} />
 

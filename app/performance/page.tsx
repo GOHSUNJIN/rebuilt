@@ -48,12 +48,12 @@ export default function PerformancePage() {
       <ServiceHero
 
         imageSrc="/img/performance-hero.jpg"
-        imageAlt="Sports performance"
+        imageAlt="Sports performance training"
         heading={<>Train to perform.</>}
         subheading="Speed, power, conditioning. Every block starts with a test and ends with one, so you can see the difference, not just feel it."
         bookHref="/book?service=performance"
         bookLabel="Book a consult"
-        imagePosition="center 30%"
+        imagePosition="center 35%"
         headingSize={84}
         contentMaxWidth={900}
       />

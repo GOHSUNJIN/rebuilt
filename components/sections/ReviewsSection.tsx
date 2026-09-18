@@ -1,6 +1,5 @@
 ﻿'use client'
 import { useState, useEffect } from 'react'
-import CountUp from '@/components/ui/CountUp'
 
 const REVIEW_POOL = [
   { stars: '★★★★★', text: 'Came in eight weeks post-ACL with no idea what was safe. Weekly testing meant I could see the improvement clearly every session.', name: 'Daniel C.', role: 'REHAB CLIENT' },
@@ -46,11 +45,7 @@ export default function ReviewsSection() {
           <div>
             <span style={{ fontSize: 14, color: '#F4B400', letterSpacing: '.08em', display: 'block', marginBottom: 18 }}>★★★★★</span>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
-              <CountUp
-                to={4.9}
-                decimals={1}
-                style={{ fontSize: 80, fontWeight: 800, lineHeight: 0.9, letterSpacing: '-.04em', color: 'var(--accent)' }}
-              />
+              <span style={{ fontSize: 80, fontWeight: 800, lineHeight: 0.9, letterSpacing: '-.04em', color: 'var(--accent)' }}>4.9</span>
               <span style={{ fontSize: 18, fontWeight: 600, color: '#5f6670' }}>/5</span>
             </div>
           </div>

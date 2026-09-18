@@ -178,7 +178,7 @@ export default function HomePage() {
           </div>
 
           {/* Right: R&B logo on white */}
-          <div style={{ background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 380, padding: 48 }}>
+          <div className="r-home-rnb" style={{ background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 380, padding: 48 }}>
             <Image
               src="/rnb-logo.png"
               alt="Rehab & Beyond"

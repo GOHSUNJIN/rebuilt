@@ -162,7 +162,7 @@ function FAQInner() {
 
           {/* Accordion content */}
           <div className="r-faq-content r-px" style={{ flex: 1, minWidth: 0, padding: '40px 56px 72px' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 32 }}>
+            <div className="r-faq-section-header" style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 32 }}>
               <h2 style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-.02em', margin: 0, color: '#FFFFFF' }}>
                 {FAQ_TABS.find(t => t.id === activeTab)?.label}
               </h2>

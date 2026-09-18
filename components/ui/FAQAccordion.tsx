@@ -17,6 +17,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
               aria-expanded={isOpen}
               aria-controls={`faq-answer-${num}`}
               onClick={() => { if (!isOpen) track('faq_open', { question: q.slice(0, 60) }); setOpen(isOpen ? null : num) }}
+              className="r-faq-q-btn"
               style={{
                 width: '100%',
                 padding: '22px 0',
@@ -41,6 +42,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
                 {num}
               </span>
               <h3
+                className="r-faq-q-text"
                 style={{
                   fontSize: 17,
                   fontWeight: 600,

@@ -50,7 +50,7 @@ export default function PerformancePage() {
         imageSrc="/img/performance-hero.jpg"
         imageAlt="Sports performance training"
         heading={<>Train to perform.</>}
-        subheading="Speed, power, conditioning. Tested at the start and end of every block."
+        subheading="Speed, power, conditioning. Benchmarked on day one. Proven at the end of every block."
         bookHref="/book?service=performance"
         bookLabel="Book a consult"
         imagePosition="center 35%"

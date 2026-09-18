@@ -209,6 +209,7 @@ export default function HomePage() {
       {/* ── 6. Instagram ────────────────────────── */}
       <section style={{ borderBottom: '1px solid #2A2A2A', background: '#111111' }}>
         <div style={{ height: 3, background: 'linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' }} />
+        <p className="r-mobile-only r-px" style={{ display: 'none', font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0', padding: '20px 20px 0' }}>SOCIALS</p>
         <div className="r-px r-ig-section" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '36px 48px', flexWrap: 'wrap', gap: 20 }}>
           <div className="r-ig-content" style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>

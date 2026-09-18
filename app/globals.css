@@ -790,6 +790,9 @@ p { text-wrap: pretty; }
   .book-nav button { width: 100% !important; text-align: center !important; }
   .r-step2-creds { display: none !important; }
 
+  /* ── Mobile-only labels ─── */
+  .r-mobile-only { display: block !important; }
+
   /* ── Hero image swap (mobile vs desktop) ─── */
   .r-hero-img-desktop { display: none !important; }
   .r-hero-img-mobile  { display: block !important; }

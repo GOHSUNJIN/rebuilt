@@ -117,6 +117,7 @@ export default function AboutPage() {
         {/* Right */}
         <div className="r-contact-right" style={{ minWidth: 0, overflow: 'hidden', width: '100%', display: 'flex', flexDirection: 'column' }}>
           {/* Map panel */}
+          <p className="r-mobile-only r-px" style={{ display: 'none', font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0', padding: '20px 20px 16px' }}>LOCATIONS</p>
           <div style={{ height: 360, overflow: 'hidden', borderBottom: '1px solid #2A2A2A', flexShrink: 0 }}>
             <LocationMap />
           </div>

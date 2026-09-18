@@ -403,19 +403,19 @@ export default function TeamBioModal() {
               </div>
 
               {/* Links */}
-              <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              <div className="r-rnb-btns" style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 <a
                   href="https://gobeyondrehab.sg/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-gold"
+                  className="btn-gold r-rnb-btn"
                   style={{ fontSize: 11, letterSpacing: '.18em', padding: '13px 22px' }}
                 >
                   VISIT SITE ↗
                 </a>
                 <a
                   href="/physio"
-                  className="btn-outline"
+                  className="btn-outline r-rnb-btn"
                   style={{ fontSize: 11, letterSpacing: '.18em', padding: '13px 22px' }}
                 >
                   PHYSIO AT REBUILT →

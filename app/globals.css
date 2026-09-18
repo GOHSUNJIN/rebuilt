@@ -476,8 +476,8 @@ p { text-wrap: pretty; }
   .r-inhome-btn     { display: block !important; width: 100% !important; text-align: center !important; justify-content: center !important; }
 
   /* ── Hero — shorter on mobile ─── */
-  .r-hero { height: 510px !important; }
-  .r-hero-content { padding: 0 20px 48px !important; }
+  .r-hero { height: 420px !important; }
+  .r-hero-content { padding: 0 20px 28px !important; }
   .r-hero-sub { display: block !important; font-size: 14px !important; line-height: 1.6 !important; margin: 0 0 24px !important; }
   .r-hero-badge { display: none !important; }
 

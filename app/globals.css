@@ -404,27 +404,48 @@ p { text-wrap: pretty; }
   nav              { padding: 0 20px !important; }
 
   /* ── Hero ─── */
-  .r-hero         { height: auto !important; min-height: 500px !important; }
-  .r-hero-content { padding: 0 20px 48px !important; }
+  .r-hero         { height: auto !important; min-height: 400px !important; }
+  .r-hero-content { padding: 0 20px 28px !important; }
   .r-hero-label   { letter-spacing: .14em !important; font-size: 10px !important; }
   .r-hero-badge   { display: none !important; }
 
-  /* ── Stats ─── */
-  .r-stat-cell { padding: 28px 20px !important; }
-  .r-stat-num  { font-size: 46px !important; letter-spacing: -.03em !important; }
+  /* ── Stats — compact 3-col on mobile ─── */
+  .r-stat-strip .r-stat-cell { padding: 18px 12px 20px !important; }
+  .r-stat-strip .r-stat-num  { font-size: 32px !important; letter-spacing: -.03em !important; }
+  .r-stat-strip              { grid-template-columns: repeat(3, 1fr) !important; }
 
   /* ── Section vertical padding ─── */
   .r-section-pad { padding-top: 44px !important; padding-bottom: 44px !important; }
   .r-tall-pad    { padding-top: 44px !important; padding-bottom: 44px !important; }
 
-  /* ── Service cards ─── */
-  .r-service-card       { flex-direction: row !important; align-items: flex-start !important; }
-  .r-card-img           { width: 110px !important; height: 175px !important; flex-shrink: 0 !important; }
-  .r-service-content    { padding: 14px 14px 18px !important; min-width: 0 !important; }
-  .r-service-content h3 { font-size: 15px !important; letter-spacing: -.01em !important; }
-  .r-service-price      { display: none !important; }
-  .r-service-tags       { display: none !important; }
-  .r-service-link       { border-top: none !important; padding-top: 6px !important; }
+  /* ── Service cards — horizontal snap-scroll carousel ─── */
+  .r-service-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    grid-template-columns: unset !important;
+    gap: 2px !important;
+  }
+  .r-service-scroll::-webkit-scrollbar { display: none; }
+  .r-service-scroll > * {
+    flex: 0 0 82vw !important;
+    max-width: 340px !important;
+    scroll-snap-align: start !important;
+  }
+  .r-service-scroll .r-service-card  { flex-direction: column !important; align-items: stretch !important; }
+  .r-service-scroll .r-card-img      { width: 100% !important; height: 200px !important; }
+  .r-service-scroll .r-service-content { padding: 20px 18px 26px !important; min-width: 0 !important; }
+  .r-service-scroll .r-service-content h3 { font-size: 20px !important; letter-spacing: -.02em !important; }
+  .r-service-scroll .r-service-price { display: block !important; }
+  .r-service-scroll .r-service-tags  { display: flex !important; }
+  .r-service-scroll .r-service-link  { border-top: 1px solid #1E1E1E !important; padding-top: 16px !important; }
+
+  /* ── In-house physio coming soon — tighter on mobile ─── */
+  .r-inhome-section { min-height: unset !important; }
+  .r-inhome-content { min-height: unset !important; padding: 52px 20px !important; gap: 18px !important; }
+  .r-inhome-eyebrow { display: none !important; }
 
   /* ── CTA / about images ─── */
   .r-cta-img   { min-height: 200px !important; }

@@ -99,7 +99,7 @@ export default function HomePage() {
 
       {/* ── 2. Stats strip ──────────────────────── */}
       <section style={{ borderBottom: '1px solid #2A2A2A' }}>
-        <div className="r3 r-px" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#2A2A2A' }}>
+        <div className="r3 r-px r-stat-strip" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#2A2A2A' }}>
           {[
             { num: '300+', label: 'Clients coached' },
             { num: '4.9', label: 'Google rating' },
@@ -120,7 +120,7 @@ export default function HomePage() {
             What we do.
           </h2>
         </div>
-        <div className="r3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#2A2A2A' }}>
+        <div className="r3 r-service-scroll" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, background: '#2A2A2A' }}>
           {SERVICES.map(({ num, title, from, href, img, imgPos, desc, tags }) => (
             <div key={num} className="hover-card r-service-card" style={{ background: '#171717', display: 'flex', flexDirection: 'column' }}>
               <div className="img-zoom r-card-img" style={{ height: 340, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
@@ -192,7 +192,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 4b. Physio — Coming Soon ─────────────── */}
-      <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 620 }}>
+      <section className="r-inhome-section" style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 620 }}>
         <Image
           src="/img/gym-interior.jpg"
           alt="Rebuilt training facility" fill
@@ -200,12 +200,12 @@ export default function HomePage() {
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,1) 0%, rgba(9,9,13,.8) 55%, rgba(9,9,13,.3) 100%)' }} />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'var(--accent)' }} />
-        <div className="r-px" style={{ position: 'relative', padding: '88px 48px', minHeight: 620, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', gap: 26 }}>
+        <div className="r-px r-inhome-content" style={{ position: 'relative', padding: '88px 48px', minHeight: 620, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', gap: 26 }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '11px 26px', border: '1px solid var(--accent)', background: 'rgba(183,240,0,.1)', backdropFilter: 'blur(10px)' }}>
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
             <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.32em' }}>COMING SOON</span>
           </div>
-          <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.24em', margin: 0 }}>IN-HOUSE PHYSIOTHERAPY · REBUILT ACADEMY</p>
+          <p className="r-inhome-eyebrow" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.24em', margin: 0 }}>IN-HOUSE PHYSIOTHERAPY · REBUILT ACADEMY</p>
           <h2 style={{ fontSize: 'clamp(44px, 6vw, 80px)', fontWeight: 800, letterSpacing: '-.04em', margin: 0, lineHeight: 0.92, color: '#FFFFFF' }}>
             In-house<br />Physiotherapy.
           </h2>

@@ -59,13 +59,14 @@ export default function PerformancePage() {
       />
 
       {/* Who it's for */}
-      <section className="r-px" style={{ padding: '32px 48px', borderBottom: '1px solid #2A2A2A', background: '#0B0B0B', display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
+      <section className="r-px r-whosfor" style={{ padding: '28px 48px', borderBottom: '1px solid #2A2A2A', background: '#0B0B0B', display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap' }}>
         <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', margin: 0, flexShrink: 0 }}>
           WHO IT&apos;S FOR
         </p>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+        <div className="r-whosfor-grid" style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {['Weekend warriors', 'Club athletes', 'Semi-professional', 'National competitors'].map(level => (
-            <span key={level} style={{ padding: '6px 14px', border: '1px solid #1E1E1E', background: '#0B0B0B', color: '#A5A5A5', fontSize: 12.5, fontWeight: 500, letterSpacing: '-.01em' }}>
+            <span key={level} className="r-whosfor-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', border: '1px solid #242424', background: '#111', color: '#C0C0C0', fontSize: 12.5, fontWeight: 500, letterSpacing: '-.01em' }}>
+              <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
               {level}
             </span>
           ))}
@@ -83,7 +84,7 @@ export default function PerformancePage() {
       </section>
 
       <PricingCards items={PRICING} />
-      <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #2A2A2A' }}>
+      <p className="r-px r-instalment-note" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #2A2A2A' }}>
         Instalment plans: Pre-season splits into 2 × SGD 1200 / month · Off-season splits into 2 × SGD 2160 / month
       </p>
 

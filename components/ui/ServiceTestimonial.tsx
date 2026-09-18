@@ -19,9 +19,9 @@ interface Props {
 
 export default function ServiceTestimonial({ imageSrc, imageAlt, imagePosition, quote, initial, name, role }: Props) {
   return (
-    <section style={{ background: '#171717', borderTop: '1px solid #1E1E1E', borderBottom: '1px solid #1E1E1E' }}>
+    <section className="r-testimonial-section" style={{ background: '#171717', borderTop: '1px solid #1E1E1E', borderBottom: '1px solid #1E1E1E' }}>
       <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 340 }}>
-        <div style={{ position: 'relative', overflow: 'hidden', minHeight: 280 }}>
+        <div className="r-testimonial-img" style={{ position: 'relative', overflow: 'hidden', minHeight: 280 }}>
           <Image
             src={imageSrc} alt={imageAlt} fill
             style={{ objectFit: 'cover', objectPosition: imagePosition }}
@@ -29,9 +29,9 @@ export default function ServiceTestimonial({ imageSrc, imageAlt, imagePosition, 
           />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom right, transparent 30%, #171717 100%)' }} />
         </div>
-        <div className="r-px r-tall-pad" style={{ padding: '52px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="r-testimonial-content r-px r-tall-pad" style={{ padding: '52px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <p style={{ fontSize: 14, color: '#F4B400', letterSpacing: '.06em', margin: '0 0 20px' }}>★★★★★</p>
-          <blockquote style={{ fontSize: 22, lineHeight: 1.55, fontWeight: 500, letterSpacing: '-.01em', color: '#FFFFFF', margin: '0 0 28px', fontStyle: 'normal', borderLeft: '2px solid var(--accent)', paddingLeft: 20 }}>
+          <blockquote className="r-testimonial-quote" style={{ fontSize: 22, lineHeight: 1.55, fontWeight: 500, letterSpacing: '-.01em', color: '#FFFFFF', margin: '0 0 28px', fontStyle: 'normal', borderLeft: '2px solid var(--accent)', paddingLeft: 20 }}>
             &ldquo;{quote}&rdquo;
           </blockquote>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>

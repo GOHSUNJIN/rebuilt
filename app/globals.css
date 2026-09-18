@@ -527,6 +527,9 @@ p { text-wrap: pretty; }
   }
   .r-pricing-scroll .r-pricing-card { padding: 28px 22px 32px !important; }
   .r-pricing-dots { display: flex !important; }
+  .r-service-dots { display: flex !important; }
+  .r-feature-dots { display: flex !important; }
+  .r-reviews-dots { display: flex !important; }
 
   /* ── CTA "Start where you are" section ─── */
   .r-cta-section-grid { min-height: unset !important; }
@@ -550,6 +553,15 @@ p { text-wrap: pretty; }
     white-space: normal !important;
     line-height: 1.5 !important;
   }
+  .r-testimonial-section .r2 { grid-template-columns: 1fr !important; }
+  .r-testimonial-img { min-height: unset !important; height: 200px !important; }
+  .r-testimonial-content { padding: 28px 20px 32px !important; }
+  .r-testimonial-quote { font-size: 17px !important; margin-bottom: 20px !important; }
+
+  /* ── Crosslinks ─── */
+  .r-crosslinks-section { padding: 36px 20px !important; }
+  .r-crosslinks-grid { grid-template-columns: 1fr !important; gap: 1px !important; }
+  .r-crosslinks-grid a { padding: 20px 16px !important; }
 
   /* ── Reviews - horizontal scroll on mobile ─── */
   .r-reviews-scroll {

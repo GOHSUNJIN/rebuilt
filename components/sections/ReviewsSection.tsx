@@ -1,5 +1,5 @@
 ﻿'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 const REVIEW_POOL = [
   { stars: '★★★★★', text: 'Came in eight weeks post-ACL with no idea what was safe. Weekly testing meant I could see the improvement clearly every session.', name: 'Daniel C.', role: 'REHAB CLIENT' },
@@ -31,16 +31,27 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
+const TOTAL_ITEMS = 4 // rating card + 3 reviews
+
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState(REVIEW_POOL.slice(0, 3))
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
     setReviews(shuffle(REVIEW_POOL).slice(0, 3))
   }, [])
 
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const cardWidth = el.scrollWidth / TOTAL_ITEMS
+    setActiveIndex(Math.min(Math.round(el.scrollLeft / cardWidth), TOTAL_ITEMS - 1))
+  }, [])
+
   return (
     <section className="r-px r-tall-pad" style={{ background: '#0B0B0B', borderTop: '1px solid #2A2A2A', borderBottom: '1px solid #2A2A2A', padding: '80px 48px' }}>
-      <div className="r-reviews r-reviews-scroll" style={{ display: 'grid', gridTemplateColumns: '.7fr 1fr 1fr 1fr', gap: 2, background: '#2A2A2A' }}>
+      <div ref={scrollRef} onScroll={handleScroll} className="r-reviews r-reviews-scroll" style={{ display: 'grid', gridTemplateColumns: '.7fr 1fr 1fr 1fr', gap: 2, background: '#2A2A2A' }}>
         <div style={{ background: '#171717', padding: '36px 28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <span style={{ fontSize: 14, color: '#F4B400', letterSpacing: '.08em', display: 'block', marginBottom: 18 }}>★★★★★</span>
@@ -75,6 +86,22 @@ export default function ReviewsSection() {
               </div>
             </div>
           </div>
+        ))}
+      </div>
+
+      <div className="r-reviews-dots" style={{ display: 'none', justifyContent: 'center', gap: 6, marginTop: 16 }}>
+        {Array.from({ length: TOTAL_ITEMS }).map((_, i) => (
+          <span
+            key={i}
+            style={{
+              display: 'block',
+              width: i === activeIndex ? 20 : 6,
+              height: 4,
+              borderRadius: 2,
+              background: i === activeIndex ? 'var(--accent)' : '#3A3A3A',
+              transition: 'width .25s, background .25s',
+            }}
+          />
         ))}
       </div>
     </section>

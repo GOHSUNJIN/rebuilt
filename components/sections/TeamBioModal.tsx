@@ -131,8 +131,11 @@ export default function TeamBioModal() {
               <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10 }}>
                 {member.name}
               </h3>
-              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 18px' }}>
+              <p className="r-team-bio-full" style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 18px' }}>
                 {member.short}
+              </p>
+              <p className="r-team-bio-mini" style={{ display: 'none', fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 18px' }}>
+                {member.mini}
               </p>
               <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em' }}>
                 READ FULL BIO →
@@ -171,8 +174,11 @@ export default function TeamBioModal() {
             <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 0, marginBottom: 10, color: '#FFFFFF' }}>
               Rehab &amp; Beyond
             </h3>
-            <p style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 18px' }}>
+            <p className="r-team-bio-full" style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 18px' }}>
               AHPC-registered physiotherapists treating sports injuries, post-surgery rehab and musculoskeletal conditions. Named Best Physiotherapy Clinic Singapore 2024.
+            </p>
+            <p className="r-team-bio-mini" style={{ display: 'none', fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 18px' }}>
+              AHPC-registered physiotherapists. Named Best Physio Clinic Singapore 2024.
             </p>
             <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.16em' }}>
               READ MORE →

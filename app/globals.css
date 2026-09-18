@@ -498,6 +498,10 @@ p { text-wrap: pretty; }
   .r-about-stats::-webkit-scrollbar { display: none; }
   .r-about-stats > * { flex: 0 0 82vw !important; max-width: 280px !important; scroll-snap-align: start !important; }
 
+  /* ── Team card bio: mini on mobile ─── */
+  .r-team-bio-full { display: none !important; }
+  .r-team-bio-mini { display: block !important; }
+
   /* ── Team scroll ─── */
   .r-team-scroll {
     display: flex !important;

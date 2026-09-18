@@ -61,7 +61,7 @@ export default function PhysioPage() {
       {/* Partnership */}
       <section style={{ borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }} className="r2">
-          <div className="r-px r-tall-pad" style={{ padding: '64px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 40 }}>
+          <div className="r-px r-tall-pad r-physio-partner-content" style={{ padding: '64px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 40 }}>
             <div>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 20 }}>THE PARTNERSHIP</p>
               <h2 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 20px', lineHeight: 0.9 }}>In partnership<br />with Rehab &amp; Beyond.</h2>
@@ -120,7 +120,7 @@ export default function PhysioPage() {
       </section>
 
       <PricingCards items={PRICING} />
-      <p className="r-px" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #2A2A2A' }}>
+      <p className="r-px r-instalment-note" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.12em', marginTop: -40, marginBottom: 0, paddingLeft: 48, paddingRight: 48, paddingBottom: 40, borderBottom: '1px solid #2A2A2A' }}>
         Prices are indicative and set by Rehab &amp; Beyond.{' '}
         <Link href="/book?service=physio" style={{ color: 'var(--accent)', textDecoration: 'none' }}>Get in touch</Link> to confirm current rates before booking.
       </p>
@@ -145,38 +145,33 @@ export default function PhysioPage() {
       />
 
       {/* Coming soon: In-house physio */}
-      <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 640 }}>
+      <section className="r-inhome-section" style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid #2A2A2A', minHeight: 640 }}>
         <Image
           src="/img/gym-interior.jpg"
           alt="Rebuilt training facility"
           fill
-          style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.45 }}
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,.98) 0%, rgba(9,9,13,.82) 50%, rgba(9,9,13,.55) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,9,13,1) 0%, rgba(9,9,13,.75) 55%, rgba(9,9,13,.3) 100%)' }} />
 
-        <div className="r-px" style={{ position: 'relative', padding: '96px 48px', minHeight: 640, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', gap: 28 }}>
+        <div className="r-px r-inhome-content" style={{ position: 'relative', padding: '96px 48px', minHeight: 640, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', gap: 28 }}>
 
-          {/* Badge */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '10px 22px', border: '1px solid var(--accent)', background: 'rgba(183,240,0,.08)', backdropFilter: 'blur(12px)' }}>
+          <div className="r-inhome-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '10px 22px', border: '1px solid var(--accent)', background: 'rgba(183,240,0,.08)', backdropFilter: 'blur(12px)' }}>
             <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--accent)', display: 'block', flexShrink: 0, animation: 'pulseDot 1.8s ease-in-out infinite' }} />
             <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.32em' }}>COMING SOON</span>
           </div>
 
-          {/* Eyebrow */}
-          <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.24em', margin: 0 }}>IN-HOUSE PHYSIOTHERAPY · REBUILT ACADEMY</p>
+          <p className="r-inhome-eyebrow" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.24em', margin: 0 }}>IN-HOUSE PHYSIOTHERAPY · REBUILT ACADEMY</p>
 
-          {/* Heading */}
           <h2 style={{ fontSize: 'clamp(44px, 7vw, 80px)', fontWeight: 800, letterSpacing: '-.04em', margin: 0, lineHeight: 0.92, color: '#FFFFFF', maxWidth: 720 }}>
             In-house<br />Physiotherapy.
           </h2>
 
-          {/* Body */}
-          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 500 }}>
-            Rebuilt Academy is bringing physiotherapy in-house.<br />Same building, same team, same notes from day one.
+          <p className="r-inhome-body" style={{ fontSize: 16, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 500 }}>
+            Rebuilt Academy is bringing physiotherapy in-house. Same building, same team, same notes from day one.
           </p>
 
-          {/* Features strip */}
-          <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', justifyContent: 'center', padding: '4px 0' }}>
+          <div className="r-inhome-bullets" style={{ display: 'flex', gap: 28, flexWrap: 'wrap', justifyContent: 'center', padding: '4px 0' }}>
             {['No referrals or handovers', 'Shared session notes', 'Treatment + coaching in one building'].map(item => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
@@ -185,7 +180,7 @@ export default function PhysioPage() {
             ))}
           </div>
 
-          <Link href="/about#contact" className="btn-outline" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
+          <Link href="/about#contact" className="btn-gold r-inhome-btn" style={{ fontSize: 11, letterSpacing: '.2em', padding: '14px 30px', marginTop: 6 }}>
             Get in touch →
           </Link>
         </div>

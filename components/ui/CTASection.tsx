@@ -15,7 +15,7 @@ export default function CTASection({ heading, body, bookHref, bookLabel, imageSr
   return (
     <section style={{ background: '#0B0B0B', borderTop: '1px solid #1E1E1E' }}>
       <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 540 }}>
-        <div className="r-px r-tall-pad" style={{ padding: '88px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="r-px r-tall-pad r-cta-content" style={{ padding: '88px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{ width: 36, height: 2, background: 'var(--accent)', marginBottom: 28 }} />
           <h2 className="r-h2" style={{ fontSize: 52, fontWeight: 800, lineHeight: 0.95, letterSpacing: '-.025em', margin: '0 0 20px' }}>{heading}</h2>
           <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 36px', maxWidth: 380 }}>{body}</p>

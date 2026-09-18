@@ -504,8 +504,11 @@ p { text-wrap: pretty; }
   /* ── Feature grid cells - tighter padding when stacked ─── */
   .r-feature-cell { padding: 20px !important; }
 
-  /* ── Physio partnership image - reduce height when stacked ─── */
-  .r-partner-img { min-height: 240px !important; }
+  /* ── Physio partnership section ─── */
+  .r-partner-img            { min-height: 180px !important; padding: 28px 24px !important; order: -1 !important; }
+  .r-physio-partner-content { order: 0 !important; padding: 36px 20px !important; gap: 28px !important; justify-content: flex-start !important; }
+  .r-physio-partner-content h2 { font-size: 36px !important; }
+  .r-physio-partner-content > div:first-child p:last-child { font-size: 13.5px !important; }
   /* ── Home R&B logo white block - hidden on mobile, replaced by partner badge ─── */
   .r-home-rnb    { min-height: 180px !important; padding: 32px 24px !important; order: -1 !important; }
   .r-rnb-content { order: 0 !important; }
@@ -597,6 +600,10 @@ p { text-wrap: pretty; }
   .r-crosslinks-label { margin-bottom: 4px !important; }
   .r-crosslinks-desc  { font-size: 13px !important; line-height: 1.45 !important; margin-bottom: 0 !important; }
   .r-crosslinks-cta   { display: none !important; }
+
+  /* ── CTA section — image above content on mobile ─── */
+  .r-cta-img     { order: -1 !important; min-height: 220px !important; }
+  .r-cta-content { order: 0 !important; padding: 40px 20px !important; }
 
   /* ── Performance: Who it's for ─── */
   .r-whosfor { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; padding: 24px 20px !important; }

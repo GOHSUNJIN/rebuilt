@@ -526,6 +526,7 @@ p { text-wrap: pretty; }
     scroll-snap-align: start !important;
   }
   .r-pricing-scroll .r-pricing-card { padding: 28px 22px 32px !important; }
+  .r-pricing-dots { display: flex !important; }
 
   /* ── CTA "Start where you are" section ─── */
   .r-cta-section-grid { min-height: unset !important; }

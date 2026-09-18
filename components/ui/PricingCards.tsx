@@ -1,14 +1,33 @@
-﻿import type { PricingItem } from '@/lib/types'
+'use client'
+
+import { useRef, useState, useCallback } from 'react'
+import type { PricingItem } from '@/lib/types'
 import TrackLink from '@/components/ui/TrackLink'
 
 export default function PricingCards({ items }: { items: PricingItem[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const cardWidth = el.scrollWidth / items.length
+    const index = Math.round(el.scrollLeft / cardWidth)
+    setActiveIndex(Math.min(index, items.length - 1))
+  }, [items.length])
+
   return (
     <section className="r-px r-section-pad" style={{ padding: '72px 48px', borderTop: '1px solid #2A2A2A' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 36, flexWrap: 'wrap', gap: 16 }}>
         <h2 className="r-section-h2" style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-.025em', margin: 0, lineHeight: 0.96 }}>Sessions &amp; pricing.</h2>
         <span className="r-hide" style={{ font: '11px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: '#909090' }}>PAYNOW · CARD</span>
       </div>
-      <div className="r3 r-pricing-scroll" style={{ display: 'grid', gridTemplateColumns: `repeat(${items.length}, 1fr)`, gap: 1, background: '#2A2A2A' }}>
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="r3 r-pricing-scroll"
+        style={{ display: 'grid', gridTemplateColumns: `repeat(${items.length}, 1fr)`, gap: 1, background: '#2A2A2A' }}
+      >
         {items.map(({ type, price, sub, features, featured, href }) => (
           <div
             key={type}
@@ -36,6 +55,23 @@ export default function PricingCards({ items }: { items: PricingItem[] }) {
             </div>
             <TrackLink href={href} className={`${featured ? 'btn-gold' : 'btn-outline'} r-btn-full`} style={{ padding: '14px 24px', textAlign: 'center' }} event="book_cta_click">Book</TrackLink>
           </div>
+        ))}
+      </div>
+
+      {/* Scroll dots — visible only on mobile via CSS */}
+      <div className="r-pricing-dots" style={{ display: 'none', justifyContent: 'center', gap: 6, marginTop: 16 }}>
+        {items.map((_, i) => (
+          <span
+            key={i}
+            style={{
+              display: 'block',
+              width: i === activeIndex ? 20 : 6,
+              height: 4,
+              borderRadius: 2,
+              background: i === activeIndex ? 'var(--accent)' : '#3A3A3A',
+              transition: 'width .25s, background .25s',
+            }}
+          />
         ))}
       </div>
     </section>

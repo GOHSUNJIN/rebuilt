@@ -20,7 +20,7 @@ export default function Step4({ name, email, phone, notes, setName, setEmail, se
           </div>
         </div>
         <div>
-          <label htmlFor="book-phone" style={labelStyle}>PHONE NUMBER</label>
+          <label htmlFor="book-phone" style={labelStyle}>PHONE NUMBER *</label>
           <input id="book-phone" type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="+65 9123 4567" style={inputStyle} />
         </div>
 

@@ -59,7 +59,7 @@ function BookContent() {
     if (step === 1) return !!service
     if (step === 2) return true
     if (step === 3) return slots.length > 0
-    if (step === 4) return name.trim() !== '' && isValidEmail(email)
+    if (step === 4) return name.trim() !== '' && isValidEmail(email) && phone.trim() !== ''
     return true
   }
 
@@ -202,7 +202,7 @@ function BookContent() {
               </div>
               {showError && !canContinue() && (
                 <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#B7F000', letterSpacing: '.12em', marginTop: 16, marginBottom: 0 }}>
-                  {step === 1 ? 'Please select a session type to continue.' : step === 3 ? 'Please select at least one preferred time slot.' : 'Please enter your name and email to continue.'}
+                  {step === 1 ? 'Please select a session type to continue.' : step === 3 ? 'Please select at least one preferred time slot.' : 'Please enter your name, email and phone number to continue.'}
                 </p>
               )}
             </div>

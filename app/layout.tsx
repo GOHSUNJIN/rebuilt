@@ -6,6 +6,7 @@ import WhatsAppButton from '@/components/effects/WhatsAppButton'
 import ScrollProgress from '@/components/effects/ScrollProgress'
 import CursorGlow from '@/components/effects/CursorGlow'
 import ThemePlayground from '@/components/effects/ThemePlayground'
+import BackToTop from '@/components/ui/BackToTop'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -105,6 +106,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CursorGlow />
         <ScrollProgress />
         <div id="main-content">{children}</div>
+        <BackToTop />
         <WhatsAppButton />
         {process.env.NODE_ENV === 'development' && <ThemePlayground />}
         <Analytics />

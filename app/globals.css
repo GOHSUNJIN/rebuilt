@@ -411,7 +411,7 @@ p { text-wrap: pretty; }
   .r-hero-sub     { display: none !important; }
   .r-hero-btns                { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
   .r-hero-btns .btn-gold     { justify-content: center !important; }
-  .r-hero-btns a:not(.btn-gold) { text-align: center !important; }
+  .r-hero-btns a:not(.btn-gold) { text-align: center !important; padding: 12px 0 !important; }
 
   /* ── Instagram section — compact card on mobile ─── */
   .r-ig-section {
@@ -503,20 +503,18 @@ p { text-wrap: pretty; }
   .r-team-bio-full { display: none !important; }
   .r-team-bio-mini { display: block !important; }
 
-  /* ── Team scroll ─── */
+  /* ── Team grid — 2-col on mobile ─── */
   .r-team-scroll {
-    display: flex !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    scrollbar-width: none !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 2px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    overflow-x: unset !important;
+    scroll-snap-type: unset !important;
+    scrollbar-width: unset !important;
     background: #2A2A2A !important;
   }
-  .r-team-scroll::-webkit-scrollbar { display: none; }
-  .r-team-scroll > * { flex: 0 0 78vw !important; max-width: 320px !important; scroll-snap-align: start !important; }
-  .r-team-scroll .r-team-img { height: 220px !important; }
-  .r-team-dots { display: flex !important; }
+  .r-team-scroll > * { flex: unset !important; max-width: unset !important; scroll-snap-align: unset !important; }
+  .r-team-scroll .r-team-img { height: 190px !important; }
+  .r-team-dots { display: none !important; }
 
   /* ── Contact info grid — 2-col on mobile ─── */
   .r-contact-info-grid {
@@ -785,6 +783,7 @@ p { text-wrap: pretty; }
   .r-step2-creds { display: none !important; }
 
   /* ── Legal pages (privacy + terms) ─── */
+  .r-back-top { display: flex !important; }
   .r-rnb-btns { flex-direction: column !important; }
   .r-rnb-btn  { text-align: center !important; justify-content: center !important; }
   .r-legal-bg     { display: none !important; }

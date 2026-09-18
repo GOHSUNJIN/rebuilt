@@ -404,11 +404,26 @@ p { text-wrap: pretty; }
   nav              { padding: 0 20px !important; }
 
   /* ── Hero ─── */
-  .r-hero         { height: auto !important; min-height: 400px !important; }
-  .r-hero-content { padding: 0 20px 28px !important; }
+  .r-hero         { height: auto !important; min-height: 480px !important; }
+  .r-hero-content { padding: 0 20px 36px !important; }
   .r-hero-label   { letter-spacing: .14em !important; font-size: 10px !important; }
   .r-hero-badge   { display: none !important; }
   .r-hero-btns    { flex-direction: column !important; align-items: flex-start !important; gap: 18px !important; }
+
+  /* ── Instagram section — centered on mobile ─── */
+  .r-ig-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 32px 24px !important;
+    gap: 20px !important;
+  }
+  .r-ig-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .r-ig-section .btn-gold { padding: 13px 40px !important; }
 
   /* ── Stats — compact 3-col on mobile ─── */
   .r-stat-strip .r-stat-cell { padding: 18px 12px 20px !important; }

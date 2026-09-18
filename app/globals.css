@@ -502,7 +502,7 @@ p { text-wrap: pretty; }
   /* ── Physio partnership image - reduce height when stacked ─── */
   .r-partner-img { min-height: 240px !important; }
   /* ── Home R&B logo white block - hidden on mobile, replaced by partner badge ─── */
-  .r-home-rnb { display: none !important; }
+  .r-home-rnb { min-height: 180px !important; padding: 32px 24px !important; }
   .r-partner-mobile { display: flex !important; flex-direction: column !important; }
   /* ── Home physio card images ─── */
   .r-physio-card-img { height: 180px !important; }
@@ -535,9 +535,6 @@ p { text-wrap: pretty; }
   .r-service-dots { display: flex !important; }
   .r-feature-dots { display: flex !important; }
   .r-reviews-dots { display: flex !important; }
-
-  /* ── Physio mobile image ─── */
-  .r-physio-mobile-img { display: block !important; }
 
   /* ── CTA "Start where you are" section ─── */
   .r-cta-section-grid { min-height: unset !important; }

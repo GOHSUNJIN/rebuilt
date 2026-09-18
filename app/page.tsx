@@ -166,17 +166,6 @@ export default function HomePage() {
 
         </div>
 
-        {/* Mobile-only: physio image strip */}
-        <div className="r-physio-mobile-img" style={{ display: 'none', position: 'relative', height: 220, overflow: 'hidden' }}>
-          <Image
-            src="/img/physio-session.jpg"
-            alt="Physiotherapy session"
-            fill
-            style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
-            sizes="100vw"
-          />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, #0B0B0B 0%, transparent 30%, transparent 70%, #0B0B0B 100%)' }} />
-        </div>
       </section>
 
       {/* ── 4b. Physio — Coming Soon ─────────────── */}

@@ -42,7 +42,7 @@ function Section({ id, num, title, children, first = false }: {
   id: string; num: string; title: string; children: React.ReactNode; first?: boolean
 }) {
   return (
-    <div id={id} style={{ scrollMarginTop: 90, paddingTop: first ? 0 : 56, paddingBottom: 56, borderTop: first ? 'none' : '1px solid #1E1E1E' }}>
+    <div id={id} className="r-legal-section" style={{ scrollMarginTop: 90, paddingTop: first ? 0 : 56, paddingBottom: 56, borderTop: first ? 'none' : '1px solid #1E1E1E' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 22 }}>
         <Num n={num} />
         <h2 style={{ fontSize: 22, fontWeight: 800, margin: 0, letterSpacing: '-.02em', color: '#FFFFFF', lineHeight: 1.1 }}>{title}</h2>
@@ -80,8 +80,8 @@ export default function TermsPage() {
         </div>
 
         {/* Title area */}
-        <div className="r-px" style={{ padding: '56px 48px 52px', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: -10, right: 40, font: '200px/0.82 ui-monospace,Menlo,monospace', color: 'rgba(183,240,0,.04)', fontWeight: 700, userSelect: 'none', pointerEvents: 'none', letterSpacing: '-.05em' }}>
+        <div className="r-px r-legal-header" style={{ padding: '56px 48px 52px', position: 'relative', overflow: 'hidden' }}>
+          <div className="r-legal-bg" style={{ position: 'absolute', top: -10, right: 40, font: '200px/0.82 ui-monospace,Menlo,monospace', color: 'rgba(183,240,0,.04)', fontWeight: 700, userSelect: 'none', pointerEvents: 'none', letterSpacing: '-.05em' }}>
             §
           </div>
 
@@ -111,7 +111,7 @@ export default function TermsPage() {
       </section>
 
       {/* ── Body ──────────────────────────────────── */}
-      <div className="r-px" style={{ padding: '72px 48px', display: 'flex', gap: 72, maxWidth: 1100, margin: '0 auto', boxSizing: 'border-box' }}>
+      <div className="r-px r-legal-body" style={{ padding: '72px 48px', display: 'flex', gap: 72, maxWidth: 1100, margin: '0 auto', boxSizing: 'border-box' }}>
 
         {/* TOC */}
         <div className="r-hide" style={{ width: 196, flexShrink: 0, position: 'sticky', top: 90, alignSelf: 'start' }}>

@@ -408,6 +408,7 @@ p { text-wrap: pretty; }
   .r-hero-content { padding: 0 20px 36px !important; }
   .r-hero-label   { letter-spacing: .14em !important; font-size: 10px !important; }
   .r-hero-badge   { display: none !important; }
+  .r-hero-sub     { display: none !important; }
   .r-hero-btns                { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
   .r-hero-btns .btn-gold     { justify-content: center !important; }
   .r-hero-btns a:not(.btn-gold) { text-align: center !important; }

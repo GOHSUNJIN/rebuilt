@@ -66,7 +66,7 @@ export default function ServiceHero({
 
         {inline ? (
           <div style={{ display: 'flex', alignItems: 'center', gap: 40, flexWrap: 'wrap' }}>
-            <p style={{ fontSize: 17, lineHeight: 1.65, color: '#A5A5A5', maxWidth: 480, margin: 0 }}>{subheading}</p>
+            <p className="r-hero-sub" style={{ fontSize: 17, lineHeight: 1.65, color: '#A5A5A5', maxWidth: 480, margin: 0 }}>{subheading}</p>
             <div className="r-hero-btns" style={{ display: 'flex', alignItems: 'center', gap: 28, flexShrink: 0 }}>
               <Link href={bookHref} className="btn-gold" style={{ padding: '14px 28px' }}>{bookLabel}</Link>
               <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">
@@ -76,7 +76,7 @@ export default function ServiceHero({
           </div>
         ) : (
           <>
-            <p style={{ fontSize: 17, lineHeight: 1.65, color: '#A5A5A5', maxWidth: 520, margin: '0 0 32px' }}>{subheading}</p>
+            <p className="r-hero-sub" style={{ fontSize: 17, lineHeight: 1.65, color: '#A5A5A5', maxWidth: 520, margin: '0 0 32px' }}>{subheading}</p>
             <div className="r-hero-btns" style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>
               <Link href={bookHref} className="btn-gold" style={{ padding: '14px 28px' }}>{bookLabel}</Link>
               <Link href="/about#contact" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', textDecoration: 'none', transition: 'color .15s' }} className="hover-gold">

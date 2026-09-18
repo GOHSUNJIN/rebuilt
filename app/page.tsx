@@ -133,7 +133,7 @@ export default function HomePage() {
             <h2 style={{ fontSize: 'clamp(28px, 3.2vw, 44px)', fontWeight: 800, letterSpacing: '-.03em', margin: 0, lineHeight: 0.95 }}>Physiotherapy with<br />Rehab &amp; Beyond.</h2>
             <p style={{ fontSize: 14, lineHeight: 1.65, color: '#A5A5A5', margin: 0, maxWidth: 380 }}>Physiotherapy, rehab and training coordinated from the start. One point of contact, two teams sharing the same notes.</p>
             <Link href="/physio" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none' }} className="hover-gold">
-              BOOK A CONSULT →
+              LEARN MORE →
             </Link>
             {/* Mobile: partner badge replaces white logo box */}
             <div className="r-partner-mobile" style={{ display: 'none', borderTop: '1px solid #1E1E1E', paddingTop: 20 }}>

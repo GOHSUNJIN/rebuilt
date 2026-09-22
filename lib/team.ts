@@ -21,7 +21,7 @@ export const TEAM: TeamMember[] = [
     mini: 'Strength coach, rehabilitation specialist, and founder of Rebuilt Academy.',
     bio: [
       'Before founding Rebuilt, Shafiq spent years as a personal trainer and rehabilitation coach, working with post-surgical clients rebuilding strength and mobility from the ground up. He later moved into business leadership as a director and shareholder in the fitness industry, and that combination of hands-on coaching and operational experience shapes how Rebuilt runs today.',
-      'His approach is built on one idea: People Before Programmes™. No client is a template. Coaching starts with the person in front of him, taking into account their history, goals, and constraints, and the plan gets built around that.',
+      'His approach is built on one idea: People Before Programmes. No client is a template. Coaching starts with the person in front of him, taking into account their history, goals, and constraints, and the plan gets built around that.',
       'Outside client work, Shafiq teaches on coaching new trainers and strength physiology, with a particular focus on perimenopause and male body composition. He sees both as underserved by mainstream fitness content and approaches them with considerably more rigour.',
     ],
     credentials: [

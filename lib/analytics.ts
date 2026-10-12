@@ -59,21 +59,25 @@ export interface SecondaryData {
   referrers: ReferrerStat[]
 }
 
-// First render wave: totals + daily chart + events (3 parallel calls)
+// First render wave: daily chart + events (count is derived from daily sum to avoid API day-snapping)
 export async function fetchCritical(since: string, until: string): Promise<CriticalData> {
-  const [totalsJson, dailyJson, eventsJson] = await Promise.all([
-    vercelGet('/v1/query/web-analytics/visits/count', buildParams(since, until)),
+  const [dailyJson, eventsJson] = await Promise.all([
     vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'day' })),
     vercelGet('/v1/query/web-analytics/events/aggregate', buildParams(since, until, { by: 'eventName', limit: '20' })),
   ])
 
-  const td = totalsJson?.data as { pageviews?: number; visitors?: number } | null
+  const daily = ((dailyJson?.data ?? []) as Row[])
+    .map(r => ({ timestamp: String(r.timestamp ?? ''), pageviews: Number(r.pageviews ?? 0), visitors: Number(r.visitors ?? 0) }))
+    .sort((a, b) => a.timestamp.localeCompare(b.timestamp))
+
+  const totals = daily.reduce(
+    (acc, d) => ({ pageviews: acc.pageviews + d.pageviews, visitors: acc.visitors + d.visitors }),
+    { pageviews: 0, visitors: 0 }
+  )
 
   return {
-    totals: { pageviews: td?.pageviews ?? 0, visitors: td?.visitors ?? 0 },
-    daily: ((dailyJson?.data ?? []) as Row[])
-      .map(r => ({ timestamp: String(r.timestamp ?? ''), pageviews: Number(r.pageviews ?? 0), visitors: Number(r.visitors ?? 0) }))
-      .sort((a, b) => a.timestamp.localeCompare(b.timestamp)),
+    totals,
+    daily,
     events: ((eventsJson?.data ?? []) as Row[])
       .map(r => ({ eventName: String(r.eventName ?? ''), count: Number(r.count ?? r.events ?? r.pageviews ?? 0) }))
       .filter(e => e.eventName)

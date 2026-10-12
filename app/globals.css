@@ -382,9 +382,9 @@ p { text-wrap: pretty; }
 .r-footer-desktop { display: flex; }
 
 /* ══════════════════════════════════════════════════
-   TABLET  (769px – 1024px)  — mirrors mobile UX
+   TABLET  (769px – 1023px)  — mirrors mobile UX
    ══════════════════════════════════════════════════ */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1023px) {
 
   /* ── Core spacing ── */
   .r-px   { padding-left: 24px !important; padding-right: 24px !important; }
@@ -1298,5 +1298,22 @@ p { text-wrap: pretty; }
   .r-section-pad  { padding-top: 28px !important; padding-bottom: 28px !important; }
   .r-stat-cell    { padding: 18px 20px !important; }
   .r-stat-num     { font-size: 34px !important; }
+}
 
+/* ══════════════════════════════════════════════════
+   LARGE DESKTOP  (≥ 1440px)  — cap content at ~1200px
+   ══════════════════════════════════════════════════ */
+@media (min-width: 1440px) {
+  /* Centers a ~1200px content column at all wide viewport sizes */
+  .r-px { padding-left: max(48px, calc(50vw - 600px)) !important; padding-right: max(48px, calc(50vw - 600px)) !important; }
+  nav   { padding-left: max(48px, calc(50vw - 600px)) !important; padding-right: max(48px, calc(50vw - 600px)) !important; }
+}
+
+/* ══════════════════════════════════════════════════
+   GALAXY FOLD  (≤ 320px)  — ultra-narrow viewport
+   ══════════════════════════════════════════════════ */
+@media (max-width: 320px) {
+  nav { padding: 0 12px !important; }
+  .r-social-modal { padding: 20px !important; max-width: calc(100vw - 24px) !important; }
+  .r-drawer-content { padding-left: 16px !important; padding-right: 16px !important; }
 }

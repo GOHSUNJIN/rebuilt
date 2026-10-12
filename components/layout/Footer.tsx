@@ -95,6 +95,7 @@ export default function Footer() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
+            className="r-social-modal"
             style={{
               background: '#171717',
               border: '1px solid #2A2A2A',

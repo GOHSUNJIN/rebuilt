@@ -1131,21 +1131,21 @@ p { text-wrap: pretty; }
   .admin-period-btn  { padding: 10px 12px !important; }
   .admin-signout-btn { padding: 10px 12px !important; font-size: 10px !important; }
 
-  /* Stat cards: horizontal snap-scroll strip */
+  /* Stat cards: 2×2 grid so all 4 are visible at once */
   .admin-stat-scroll {
-    display: flex !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    scrollbar-width: none !important;
-    grid-template-columns: unset !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    scrollbar-width: unset !important;
   }
-  .admin-stat-scroll::-webkit-scrollbar { display: none; }
   .admin-stat-scroll .admin-stat-card {
-    flex: 0 0 190px !important;
-    scroll-snap-align: start !important;
-    padding: 24px 20px !important;
+    flex: unset !important;
+    scroll-snap-align: none !important;
+    padding: 18px 16px !important;
   }
-  .admin-stat-scroll .admin-stat-num { font-size: 38px !important; }
+  .admin-stat-scroll .admin-stat-num  { font-size: 32px !important; }
+  .admin-stat-scroll .admin-spark     { display: none !important; }
 
   /* Chart: reduce height */
   .admin-chart      { padding: 24px 20px 18px !important; }

@@ -54,7 +54,7 @@ function Spark({ data }: { data: number[] }) {
   const W = 80, H = 22
   const pts = data.map((v, i) => `${(i / (data.length - 1)) * W},${H - (v / max) * (H - 2) - 1}`).join(' ')
   return (
-    <svg width={W} height={H} style={{ display: 'block', marginTop: 10, opacity: 0.45 }} aria-hidden>
+    <svg className="admin-spark" width={W} height={H} style={{ display: 'block', marginTop: 10, opacity: 0.45 }} aria-hidden>
       <polyline points={pts} fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" />
     </svg>
   )

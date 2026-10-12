@@ -8,6 +8,7 @@ import { inputStyle, formLabelStyle as labelStyle } from '@/lib/styles'
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [enquiryId, setEnquiryId] = useState('')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -15,6 +16,7 @@ export default function ContactForm() {
     const result = await submitContact(new FormData(e.currentTarget))
     if (result.ok) {
       track('contact_submit')
+      if (result.enquiryId) setEnquiryId(result.enquiryId)
       setStatus('done')
     } else {
       setErrorMsg(result.error ?? 'Something went wrong.')
@@ -37,6 +39,11 @@ export default function ContactForm() {
         <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 10px' }}>
           We will get back to you within one business day.
         </p>
+        {enquiryId && (
+          <p style={{ fontSize: 12, fontFamily: 'ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.12em', margin: '0 0 14px' }}>
+            REF: <span style={{ color: '#A5A5A5' }}>{enquiryId}</span>
+          </p>
+        )}
         <p style={{ fontSize: 14, lineHeight: 1.65, color: '#5f6670', margin: 0 }}>
           Need something sooner? Reach us at{' '}
           <a href={`mailto:${SITE.contact.email}`} style={{ color: 'var(--accent)', textDecoration: 'none' }}>{SITE.contact.email}</a>

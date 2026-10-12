@@ -20,6 +20,12 @@ function sanitize(v: FormDataEntryValue | null): string {
   return String(v ?? '').trim().slice(0, 5000).replace(/[<>"'`&]/g, '')
 }
 
+function generateEnquiryId(): string {
+  const date = new Date().toISOString().slice(0, 10).replace(/-/g, '')
+  const rand = Math.random().toString(36).toUpperCase().slice(2, 6)
+  return `ENQ-${date}-${rand}`
+}
+
 const tdLabel = `font-family:monospace;font-size:10px;color:#6f7783;letter-spacing:.14em;padding:12px 0;border-bottom:1px solid #1E1E1E;white-space:nowrap;padding-right:32px;vertical-align:top`
 const tdValue = `font-size:14px;color:#C0C0C0;padding:12px 0;border-bottom:1px solid #1E1E1E;vertical-align:top;line-height:1.5`
 
@@ -49,7 +55,10 @@ export async function submitContact(formData: FormData) {
     auth: { user: process.env.MAIL_USER, pass: process.env.MAIL_PASS },
   })
 
+  const enquiryId = generateEnquiryId()
+
   const rows = [
+    `<tr><td style="${tdLabel}">ENQUIRY</td><td style="${tdValue}">${enquiryId}</td></tr>`,
     `<tr><td style="${tdLabel}">NAME</td><td style="${tdValue}">${name}</td></tr>`,
     `<tr><td style="${tdLabel}">EMAIL</td><td style="${tdValue}">${email}</td></tr>`,
     service ? `<tr><td style="${tdLabel}">SERVICE</td><td style="${tdValue}">${service}</td></tr>` : '',
@@ -61,7 +70,7 @@ export async function submitContact(formData: FormData) {
       from: `"Rebuilt Academy" <${process.env.MAIL_USER}>`,
       to: SITE.contact.email,
       replyTo: email,
-      subject: `New enquiry from ${name}${service ? `: ${service}` : ''}`,
+      subject: `[${enquiryId}] New enquiry from ${name}${service ? `: ${service}` : ''}`,
       html: `<!DOCTYPE html>
 <html><head><meta charset="utf-8"/></head>
 <body style="margin:0;padding:0;background:#0B0B0B;font-family:Arial,Helvetica,sans-serif;">
@@ -86,7 +95,7 @@ export async function submitContact(formData: FormData) {
 </div>
 </body></html>`,
     })
-    return { ok: true }
+    return { ok: true, enquiryId }
   } catch (err) {
     console.error('[contact]', err instanceof Error ? err.message : String(err))
     return { ok: false, error: 'Failed to send. Please email us directly.' }

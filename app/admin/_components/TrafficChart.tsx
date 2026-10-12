@@ -56,7 +56,7 @@ export default function TrafficChart({ daily, dow }: Props) {
 
       <div
         className="admin-chart-bars"
-        style={{ display: 'flex', alignItems: 'flex-end', gap: tab === 'dow' ? 6 : 2, height: 120 }}
+        style={{ display: 'flex', alignItems: 'flex-end', gap: tab === 'dow' ? 6 : 2, height: 160 }}
       >
         {tab === 'daily' ? <DailyBars daily={daily} /> : <DOWBars dow={dow} />}
       </div>

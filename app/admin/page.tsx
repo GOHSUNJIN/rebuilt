@@ -17,7 +17,6 @@ const Ic = {
   users:    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="13" height="13"><path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM2 14v-1a6 6 0 0 1 12 0v1"/></svg>,
   trending: <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="13" height="13"><polyline points="1 11 5 7 8 10 11 6 15 6"/><polyline points="11 6 15 6 15 10"/></svg>,
   target:   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="13" height="13"><circle cx="8" cy="8" r="7"/><circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15"/><line x1="1" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15" y2="8"/></svg>,
-  activity: <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="12" height="12"><polyline points="1 8 4 8 6 3 9 13 11 8 15 8"/></svg>,
   file:     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="12" height="12"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6L9 2z"/><polyline points="9 2 9 6 13 6"/><line x1="5" y1="9" x2="11" y2="9"/><line x1="5" y1="11" x2="9" y2="11"/></svg>,
   globe:    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="12" height="12"><circle cx="8" cy="8" r="7"/><path d="M1 8h14M8 1c-2 2-3 4.5-3 7s1 5 3 7M8 1c2 2 3 4.5 3 7s-1 5-3 7"/></svg>,
   monitor:  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="12" height="12"><rect x="1" y="2" width="14" height="10" rx="1"/><path d="M5 15h6M8 12v3"/></svg>,
@@ -29,17 +28,6 @@ const PAGE_LABELS: Record<string, string> = {
   '/': 'Home', '/rehab': 'Rehab', '/strength': 'Training',
   '/performance': 'Performance', '/physio': 'Physio',
   '/about': 'About', '/book': 'Book', '/faq': 'FAQ',
-}
-
-const EVENT_LABELS: Record<string, string> = {
-  book_cta_click:    'Book CTA',
-  whatsapp_click:    'WhatsApp',
-  mobile_book_click: 'Mobile book',
-  mobile_call_click: 'Mobile call',
-  contact_submit:    'Contact form',
-  booking_complete:  'Booking done',
-  faq_open:          'FAQ open',
-  faq_tab:           'FAQ tab',
 }
 
 function fmt(n: number) {
@@ -286,39 +274,22 @@ async function CriticalSection({
 }: {
   since: string; until: string; rangeDays: number; rangeLabel: string
 }) {
-  const { totals, daily, events }: CriticalData = await fetchCritical(since, until)
+  const { totals, daily }: CriticalData = await fetchCritical(since, until)
 
   const avgDaily = Math.round(totals.pageviews / rangeDays)
-  const bookings = events.find(e => e.eventName === 'booking_complete')?.count ?? 0
-  const convRate = totals.visitors > 0 ? `${((bookings / totals.visitors) * 100).toFixed(1)}%` : '--'
-  const maxEv    = Math.max(...events.map(e => e.count), 1)
   const dow      = computeDOW(daily)
 
   return (
     <>
       <section style={{ borderBottom: '1px solid #222' }}>
         <div className="r4 admin-stat-scroll" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 1, background: '#222' }}>
-          <StatCard icon={Ic.eye}      title="PAGE VIEWS"      value={fmt(totals.pageviews)} sub={rangeLabel}             tip="Total pages loaded by all visitors. Refreshing counts as another view." />
-          <StatCard icon={Ic.users}    title="UNIQUE VISITORS" value={fmt(totals.visitors)}  sub={rangeLabel}             tip="Estimated distinct people based on device and browser fingerprint." />
-          <StatCard icon={Ic.trending} title="AVG DAILY VIEWS" value={fmt(avgDaily)}         sub="PER DAY"                tip="Total page views divided by the number of days in the selected period." />
-          <StatCard icon={Ic.target}   title="BOOKING RATE"    value={convRate}              sub={`${bookings} BOOKINGS`} tip="Bookings completed divided by unique visitors. A rough conversion metric." />
+          <StatCard icon={Ic.eye}      title="PAGE VIEWS"      value={fmt(totals.pageviews)} sub={rangeLabel} tip="Total pages loaded by all visitors. Refreshing counts as another view." />
+          <StatCard icon={Ic.users}    title="UNIQUE VISITORS" value={fmt(totals.visitors)}  sub={rangeLabel} tip="Estimated distinct people based on device and browser fingerprint." />
+          <StatCard icon={Ic.trending} title="AVG DAILY VIEWS" value={fmt(avgDaily)}         sub="PER DAY"    tip="Total page views divided by the number of days in the selected period." />
         </div>
       </section>
 
       <TrafficChart daily={daily} dow={dow} />
-
-      <section style={{ borderBottom: '1px solid #222' }}>
-        <SecHead icon={Ic.activity} label="EVENTS" tip="Tracked user interactions: WhatsApp clicks, Book CTA clicks, contact form submissions, FAQ opens, and bookings completed." />
-        {events.length === 0 ? (
-          <p style={{ padding: `16px ${P}`, fontSize: 13, color: '#909090', margin: 0 }}>No events yet.</p>
-        ) : (
-          <div className="admin-rows-scroll">
-            {events.map(e => (
-              <BarRow key={e.eventName} label={EVENT_LABELS[e.eventName] ?? e.eventName} value={fmt(e.count)} pct={(e.count / maxEv) * 100} barColor="#4ade80" />
-            ))}
-          </div>
-        )}
-      </section>
     </>
   )
 }
@@ -425,13 +396,18 @@ export default async function AdminPage({
 
   const isCustom = p === 'custom'
   const days     = isCustom ? null : Math.min(Math.max(Number(p) || 30, 1), 90)
+  const todayStr = new Date().toISOString().slice(0, 10)
 
   const since = isCustom && sinceParam
     ? new Date(sinceParam + 'T00:00:00.000Z').toISOString()
+    : days === 1
+    ? new Date(todayStr + 'T00:00:00.000Z').toISOString()
     : roundToHour(Date.now() - (days ?? 30) * 86_400_000)
 
   const until = isCustom && untilParam
     ? new Date(untilParam + 'T23:59:59.999Z').toISOString()
+    : days === 1
+    ? new Date(todayStr + 'T23:59:59.999Z').toISOString()
     : roundToHour(Date.now())
 
   const activePeriod = isCustom ? 'custom' : String(days)
@@ -453,7 +429,7 @@ export default async function AdminPage({
   if (isAnalyticsConfigured() && !isCustom) {
     after(async () => {
       const now = Date.now()
-      const others = ([1, 7, 30, 90] as const).filter(d => String(d) !== activePeriod)
+      const others = ([7, 30, 90] as const).filter(d => String(d) !== activePeriod)
       await Promise.all(others.flatMap(d => {
         const s = roundToHour(now - d * 86_400_000)
         const u = roundToHour(now)

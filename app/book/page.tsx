@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import { track } from '@vercel/analytics'
 import { SITE } from '@/lib/site'
 import {
   SERVICE_PARAM_MAP, SERVICE_CATEGORY_MAP, SERVICE_FORMAT_MAP,
@@ -106,6 +107,7 @@ function BookContent() {
         }),
       })
       if (!res.ok) throw new Error('server error')
+      track('booking_complete')
       setStep(6)
     } catch {
       setSubmitError('Something went wrong sending your request. Please try again or send via WhatsApp below.')

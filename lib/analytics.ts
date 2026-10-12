@@ -44,13 +44,11 @@ export interface TopPage        { requestPath: string; pageviews: number; visito
 export interface DeviceStat     { deviceType: string; pageviews: number }
 export interface DailyStat      { timestamp: string; pageviews: number; visitors: number }
 export interface DOWStat        { day: string; pageviews: number; visitors: number }
-export interface EventStat      { eventName: string; count: number }
 export interface ReferrerStat   { referrerHostname: string; pageviews: number }
 
 export interface CriticalData {
   totals: AnalyticsTotals
   daily: DailyStat[]
-  events: EventStat[]
 }
 
 export interface SecondaryData {
@@ -59,12 +57,9 @@ export interface SecondaryData {
   referrers: ReferrerStat[]
 }
 
-// First render wave: daily chart + events (count is derived from daily sum to avoid API day-snapping)
+// First render wave: daily chart (totals derived from daily sum to avoid API day-snapping)
 export async function fetchCritical(since: string, until: string): Promise<CriticalData> {
-  const [dailyJson, eventsJson] = await Promise.all([
-    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'day' })),
-    vercelGet('/v1/query/web-analytics/events/aggregate', buildParams(since, until, { by: 'eventName', limit: '20' })),
-  ])
+  const dailyJson = await vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'day' }))
 
   const daily = ((dailyJson?.data ?? []) as Row[])
     .map(r => ({ timestamp: String(r.timestamp ?? ''), pageviews: Number(r.pageviews ?? 0), visitors: Number(r.visitors ?? 0) }))
@@ -75,20 +70,13 @@ export async function fetchCritical(since: string, until: string): Promise<Criti
     { pageviews: 0, visitors: 0 }
   )
 
-  return {
-    totals,
-    daily,
-    events: ((eventsJson?.data ?? []) as Row[])
-      .map(r => ({ eventName: String(r.eventName ?? ''), count: Number(r.count ?? r.events ?? r.pageviews ?? 0) }))
-      .filter(e => e.eventName)
-      .sort((a, b) => b.count - a.count),
-  }
+  return { totals, daily }
 }
 
 // Second render wave: pages + devices + referrers (3 parallel calls)
 export async function fetchSecondary(since: string, until: string): Promise<SecondaryData> {
   const [pagesJson, devicesJson, referrersJson] = await Promise.all([
-    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'requestPath', limit: '10' })),
+    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'requestPath', limit: '10', filter: "not startswith(requestPath, '/admin')" })),
     vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'deviceType' })),
     vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'referrerHostname', limit: '8' })),
   ])

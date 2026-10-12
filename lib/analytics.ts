@@ -14,19 +14,28 @@ function buildParams(since: string, until: string, extra: Record<string, string>
 }
 
 async function vercelGet(path: string, params: URLSearchParams) {
-  const res = await fetch(`${BASE}${path}?${params}`, {
+  const url = `${BASE}${path}?${params}`
+  console.log(`[analytics] GET ${path} projectId=${params.get('projectId')} since=${params.get('since')} until=${params.get('until')}`)
+  const res = await fetch(url, {
     headers: authHeaders(),
     next: { revalidate: 300 },
   })
   if (!res.ok) {
-    console.error(`Vercel Analytics API ${res.status}:`, path, await res.text().catch(() => ''))
+    const body = await res.text().catch(() => '')
+    console.error(`[analytics] ${res.status} ${res.statusText} — ${path}`, body)
     return null
   }
-  return res.json() as Promise<{ data: unknown }>
+  const json = await res.json() as { data: unknown }
+  const rows = Array.isArray(json?.data) ? json.data.length : '(non-array)'
+  console.log(`[analytics] OK ${path} — ${rows} rows`)
+  return json
 }
 
 export function isAnalyticsConfigured(): boolean {
-  return !!(process.env.VA_TOKEN && process.env.VA_PROJECT_ID)
+  const ok = !!(process.env.VA_TOKEN && process.env.VA_PROJECT_ID)
+  if (!ok) console.warn('[analytics] VA_TOKEN or VA_PROJECT_ID is missing')
+  else console.log(`[analytics] configured — project=${process.env.VA_PROJECT_ID?.slice(0, 12)}…`)
+  return ok
 }
 
 type Row = Record<string, unknown>

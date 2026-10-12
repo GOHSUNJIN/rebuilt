@@ -115,7 +115,7 @@ export default function AboutPage() {
           </div>
 
           {/* Contact details */}
-          <div className="r-px" style={{ padding: '32px 48px 48px', flex: 1 }}>
+          <div style={{ padding: '32px 48px 48px', flex: 1 }}>
 
             {/* Locations */}
             <div style={{ marginBottom: 24 }}>

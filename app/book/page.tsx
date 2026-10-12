@@ -23,7 +23,7 @@ function getPrice(service: string | null): string | null {
 
 function formatServiceDisplay(service: string | null): string | null {
   if (!service) return null
-  if (service === 'Not sure yet') return 'Not Sure Yet'
+  if (service === 'Not sure yet') return 'Not sure yet'
   if (service === 'Physiotherapy') return 'Physiotherapy with Rehab & Beyond'
   if (service.endsWith(' · block')) {
     const format = service.replace(' · block', '')
@@ -39,7 +39,7 @@ function formatServiceDisplay(service: string | null): string | null {
 
 function formatCategoryDisplay(cat: string | null): string | null {
   if (!cat) return null
-  if (cat === 'Not sure yet') return 'Not Sure Yet'
+  if (cat === 'Not sure yet') return 'Not sure yet'
   return cat
 }
 
@@ -118,7 +118,14 @@ function BookContent() {
     return `${day} ${hour}${m > 0 ? `:${String(m).padStart(2, '0')}` : ''}${period}`
   }
 
-  const fmtSlots = slots.length > 0 ? slots.map(fmtSlot).join(', ') : 'TBC'
+  const DAY_ORDER = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  const sortSlots = (s: string[]) => [...s].sort((a, b) => {
+    const [da, ta] = a.split('-'); const [db, tb] = b.split('-')
+    const d = DAY_ORDER.indexOf(da) - DAY_ORDER.indexOf(db)
+    return d !== 0 ? d : (ta ?? '').localeCompare(tb ?? '')
+  })
+
+  const fmtSlots = slots.length > 0 ? sortSlots(slots).map(fmtSlot).join(', ') : 'TBC'
 
   const handleSubmit = async () => {
     setSubmitting(true)
@@ -132,7 +139,7 @@ function BookContent() {
           category,
           coach,
           location,
-          slots: slots.map(fmtSlot),
+          slots: sortSlots(slots).map(fmtSlot),
           name: name.trim(),
           email: email.trim(),
           phone: phone.trim(),
@@ -200,7 +207,7 @@ function BookContent() {
     { label: 'Price',           value: getPrice(service) },
     { label: 'Coach',           value: coach },
     { label: 'Location',        value: showLocation ? location : null },
-    { label: 'Preferred times', value: slots.length > 0 ? slots.map(fmtSlot).join(', ') : null },
+    { label: 'Preferred times', value: slots.length > 0 ? sortSlots(slots).map(fmtSlot).join(', ') : null },
     { label: 'Name',            value: name || null },
     { label: 'Email',           value: email || null },
     { label: 'Phone',           value: phone || null },

@@ -25,13 +25,13 @@ const FORMAT_DISPLAY: Record<string, string> = {
 }
 
 function categoryLabel(cat: string): string {
-  if (cat === 'Not sure yet') return 'Not Sure Yet'
+  if (cat === 'Not sure yet') return 'Not sure yet'
   return cat
 }
 
 function serviceLabel(service: string): string {
   if (service === 'Physiotherapy') return 'Physiotherapy with Rehab & Beyond'
-  if (service === 'Not sure yet') return 'Not Sure Yet'
+  if (service === 'Not sure yet') return 'Not sure yet'
   if (service.endsWith(' · block')) {
     const format = service.replace(' · block', '')
     return `${FORMAT_DISPLAY[format] ?? format}, Block of 10`

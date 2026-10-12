@@ -14,11 +14,12 @@ export default function WhatsAppButton() {
       const total = document.documentElement.scrollHeight
       setNearBottom(scrolled >= total - 10)
     }
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  if (pathname.startsWith('/admin')) return null
+  if (pathname.startsWith('/admin') || pathname === '/contact') return null
 
   const message = WHATSAPP_MESSAGES[pathname] ?? DEFAULT_WHATSAPP_MESSAGE
   const href = `${SITE.contact.whatsapp}?text=${encodeURIComponent(message)}`

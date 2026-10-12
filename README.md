@@ -62,13 +62,13 @@ Three locations across Singapore at Core Collective: Robinson (CBD), Dempsey Hil
 
 **Converts visitors into bookings.** Every page has a direct booking path. The five-step booking wizard collects all the information the studio needs and submits it automatically as an email, so the team receives a complete booking request instantly without chasing the client for details.
 
-**Shows pricing upfront.** All services have transparent pricing listed on their pages. No hidden costs, no "contact us for a quote." Clients can compare options and know what they are committing to before reaching out.
+**Shows pricing upfront.** All services have transparent pricing listed on their pages. No hidden costs and no "contact us for a quote." Clients can compare options and know what they are committing to before reaching out.
 
 **Handles enquiries automatically.** The contact form on the About page sends messages directly to the studio inbox without anyone needing to check a separate tool. Replies go straight to the client's email.
 
 **Runs on mobile.** The site is fully responsive and works on any phone, tablet or desktop. The mobile version has a fixed booking bar at the bottom of every page so the booking button is always visible no matter how far a user has scrolled.
 
-**Tracks what matters.** Vercel Analytics records page views, unique visitors and booking-related actions (button clicks, form submissions, WhatsApp taps). The admin dashboard at `/admin` shows all of this in one place with filters for the last 7, 30 or 90 days or any custom date range.
+**Tracks what matters.** Vercel Analytics records page views, unique visitors and booking-related actions (button clicks, form submissions and WhatsApp taps). The admin dashboard at `/admin` shows all of this in one place with filters for the last 7, 30 or 90 days or any custom date range.
 
 **Supports search engines.** Every page has proper meta titles, descriptions and structured data so Google understands what the business does and can show it in search results for relevant queries in Singapore.
 
@@ -111,7 +111,7 @@ The client picks preferred days (Monday to Saturday) and time slots and selects 
 Name, email address, phone number and an optional notes field for injury history, goals or any other context the coach should know before the first session. All three contact fields are required before the step can be completed.
 
 **Step 5 - Review and send**
-The client sees a summary of all their selections including category, service and price, then clicks Send booking request. The request is submitted automatically and two emails are sent: one to the studio with full booking details and a reply-to set to the client, and one to the client confirming receipt with a unique order reference (format: `RA-YYYYMMDD-XXXX`). The studio confirms the slot and arranges payment separately.
+The client sees a summary of all their selections including category, service and price then clicks Send booking request. The request is submitted automatically and two emails are sent: one to the studio with full booking details and a reply-to set to the client and one to the client confirming receipt with a unique order reference (format: `RA-YYYYMMDD-XXXX`). The studio confirms the slot and arranges payment separately.
 
 The confirmation screen shows the studio contact details in case there is no reply within 24 hours.
 
@@ -125,7 +125,7 @@ All emails are sent via Microsoft 365 SMTP and use a dark-themed HTML design con
 
 When a booking request is submitted, two emails are sent simultaneously.
 
-**Studio notification** goes to `info@rebuiltacademy.sg` and includes the order ID, category, service, price, location (if applicable), coach preference, preferred time slots, client name, email and phone. The reply-to is set to the client's address so replying in the inbox goes straight back to them. A WhatsApp link is included for the client's number. A direct reply button is shown in the email.
+**Studio notification** goes to `info@rebuiltacademy.sg` and includes the order ID, category, service, price, location (if applicable), coach preference, preferred time slots, client name, email and phone. The reply-to is set to the client's address so replying in the inbox goes straight back to them. A WhatsApp link is included for the client's number and a direct reply button is shown in the email.
 
 **Client confirmation** goes to the address the client entered and includes their unique order reference, a summary of what they selected and a three-step guide covering what happens next (slot confirmation, payment details and first session). The reference format is `RA-YYYYMMDD-XXXX`.
 
@@ -149,7 +149,7 @@ The admin dashboard is at `/admin`. It is password-protected and shows live traf
 - Average daily views
 - Booking rate (how many visitors clicked to book vs total visitors)
 - A traffic chart showing daily trends
-- Events log: how many times each key button was clicked (Book, WhatsApp, Contact form, etc.)
+- Events log: how many times each key button was clicked (Book, WhatsApp, Contact form etc.)
 - Top pages by traffic
 - Top referring sites
 - Device breakdown (mobile vs desktop vs tablet)
@@ -162,7 +162,7 @@ Access is protected by a username and password. The session lasts 8 hours then r
 
 ## Contact and email
 
-**Contact form** on the About page sends messages directly to `info@rebuiltacademy.sg` via Microsoft 365. The client's reply-to address is set automatically so replying to the email in the inbox goes straight back to them. The form is rate-limited to prevent spam. The client receives a confirmation email with a unique enquiry reference.
+**Contact form** on the About page sends messages directly to `info@rebuiltacademy.sg` via Microsoft 365. The client's reply-to address is set automatically so replying to the email in the inbox goes straight back to them. The form is rate-limited to prevent spam and the client receives a confirmation email with a unique enquiry reference.
 
 **Booking form** submits automatically via the Send booking request button and delivers a formatted email to `info@rebuiltacademy.sg` with all booking details. The client receives a confirmation email with a unique order reference. A WhatsApp fallback link is shown if the submission fails.
 
@@ -203,7 +203,7 @@ All business information is in one place. Most updates do not require touching a
 Edit `lib/site.ts`. This file is the single source of truth. Change it once and it updates everywhere on the site automatically.
 
 **Team bios**
-Edit `lib/team.ts`. Each team member has a name, role, short description (used on the card), full bio paragraphs and credentials. To add a real photo, update `components/sections/TeamBioModal.tsx` to use an image file from the `public/` folder instead of the initials placeholder.
+Edit `lib/team.ts`. Each team member has a name, role, short description (used on the card), full bio paragraphs and credentials. To add a real photo, update the `image` field with a path to a file in the `public/` folder.
 
 **Pricing**
 Edit the `PRICING` array at the top of each service page:
@@ -249,7 +249,7 @@ This project was built end to end as a production website for a real business. I
 
 - **React and Next.js 15 App Router** - Server components, client components and server actions used together. Each page uses the right rendering strategy: static where possible, dynamic only where needed.
 - **TypeScript throughout** - All components, data files, API handlers and utility functions are fully typed. No implicit `any`.
-- **Custom design system without a CSS framework** - The entire UI is built with hand-written CSS using inline styles and a small set of utility classes. No Tailwind, no Bootstrap. Every breakpoint, animation and layout rule is written directly.
+- **Custom design system without a CSS framework** - The entire UI is built with hand-written CSS using inline styles and a small set of utility classes. No Tailwind and no Bootstrap. Every breakpoint, animation and layout rule is written directly.
 - **Responsive design** - Three breakpoints (mobile at 768px, tablet at 1023px and wide desktop at 1440px) with a custom responsive class system. Mobile layout uses a fixed bottom booking bar, horizontal scroll carousels and stacked grids.
 - **Multi-step form architecture** - The five-step booking wizard manages complex interdependent state across service selection, coach preference, time slot picking, contact details and review. Each step validates independently before allowing progression.
 - **Accessible UI** - ARIA labels, keyboard navigation, focus management in modal drawers, skip-to-content link and semantic HTML throughout.
@@ -258,7 +258,7 @@ This project was built end to end as a production website for a real business. I
 
 - **Next.js Route Handlers and Server Actions** - Booking submissions handled via a typed POST API route. Contact form uses a server action with rate limiting and input sanitisation run entirely on the server, never exposed to the client.
 - **Email delivery via SMTP** - Nodemailer connected to Microsoft 365 SMTP (port 587, STARTTLS). Two emails sent per submission: an admin notification with reply-to and a styled client confirmation. Handles both booking requests and contact enquiries.
-- **HTML email design** - Dark-themed transactional emails built with table-based layouts for Outlook compatibility. Inline styles only, preheader suppression, mobile-safe structure. Admin emails include WhatsApp deep links and contextual action buttons.
+- **HTML email design** - Dark-themed transactional emails built with table-based layouts for Outlook compatibility. Inline styles only, preheader suppression and mobile-safe structure. Admin emails include WhatsApp deep links and contextual action buttons.
 - **Rate limiting** - In-memory rate limiter on the contact form server action. Keyed by IP address with a sliding window, automatic map pruning and configurable limits.
 - **Session-based authentication** - The admin dashboard uses a signed session token (HMAC-SHA256 via the Web Crypto API) stored in an HttpOnly cookie. No third-party auth library.
 - **Unique reference generation** - Booking orders (`RA-YYYYMMDD-XXXX`) and enquiries (`ENQ-YYYYMMDD-XXXX`) each get a unique date-prefixed reference on submission for tracking.
@@ -329,7 +329,7 @@ vercel --prod # Deploy to production
 
 ```
 app/
-  layout.tsx              Root layout: fonts, analytics, JSON-LD schema, skip link
+  layout.tsx              Root layout: fonts, analytics, JSON-LD schema and skip link
   page.tsx                Home page
   globals.css             All styles, animations and responsive CSS classes
   error.tsx               Branded error page
@@ -350,7 +350,7 @@ app/
 
   admin/
     page.tsx              Analytics dashboard (protected)
-    _components/          Dashboard-only components (chart, date picker, etc.)
+    _components/          Dashboard-only components (chart, date picker etc.)
 
   api/
     book/route.ts         POST endpoint: receives booking form and sends two emails via Microsoft 365
@@ -375,20 +375,24 @@ components/
     LocationMap.tsx
     OpenStatus.tsx
     PricingCards.tsx
+    ScrollDots.tsx        Reusable scroll indicator dots used across all carousels
     SectionHeader.tsx
+    ServiceCarousel.tsx
     ServiceCrosslinks.tsx
     ServiceTestimonial.tsx
+    TrackLink.tsx
 
   sections/               Large page-level section components
     FAQContent.tsx
     LocationDrawer.tsx
     Marquee.tsx
+    PartnerDrawer.tsx     Rehab & Beyond slide-out drawer
     ReviewsSection.tsx
     ServiceHero.tsx
-    TeamBioModal.tsx
+    TeamBioModal.tsx      Team grid with scroll dots
+    TeamMemberDrawer.tsx  Individual coach bio slide-out drawer
 
   effects/                Fixed overlays and animation components
-    BackToTop.tsx
     CursorGlow.tsx
     MobileBookingBar.tsx
     ScrollProgress.tsx
@@ -408,6 +412,7 @@ lib/
   bookData.ts   Booking wizard data: services, pricing, coaches and time slots
   types.ts      Shared TypeScript interfaces
   styles.ts     Shared form input styles
+  utils.ts      Shared utility functions: avatarColor, shuffle and getInitials
   adminAuth.ts  Session token signing and verification
   analytics.ts  Vercel Analytics API helpers
   hooks.ts      useScrollLock

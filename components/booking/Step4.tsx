@@ -12,7 +12,7 @@ export default function Step4({ name, email, phone, notes, setName, setEmail, se
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <div>
             <label htmlFor="book-name" style={labelStyle}>NAME *</label>
-            <input id="book-name" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="First and last name" style={inputStyle} />
+            <input id="book-name" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Your full name" style={inputStyle} />
           </div>
           <div>
             <label htmlFor="book-email" style={labelStyle}>EMAIL *</label>
@@ -21,7 +21,7 @@ export default function Step4({ name, email, phone, notes, setName, setEmail, se
         </div>
         <div>
           <label htmlFor="book-phone" style={labelStyle}>PHONE NUMBER *</label>
-          <input id="book-phone" type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="+65 9123 4567" style={inputStyle} />
+          <input id="book-phone" type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="Your phone number" style={inputStyle} />
         </div>
 
         <div>

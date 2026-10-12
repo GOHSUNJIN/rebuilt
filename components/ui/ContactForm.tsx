@@ -47,7 +47,7 @@ export default function ContactForm() {
         <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <label>
             <span style={labelStyle}>NAME *</span>
-            <input required name="name" type="text" placeholder="First and last name" style={inputStyle} />
+            <input required name="name" type="text" placeholder="Your full name" style={inputStyle} />
           </label>
           <label>
             <span style={labelStyle}>EMAIL *</span>

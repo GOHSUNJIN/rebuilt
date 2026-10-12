@@ -99,6 +99,7 @@ export async function POST(req: Request) {
       html: `<!DOCTYPE html>
 <html><head><meta charset="utf-8"/></head>
 <body style="margin:0;padding:0;background:#0B0B0B;font-family:Arial,Helvetica,sans-serif;">
+<span style="display:none;font-size:1px;color:#0B0B0B;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">&#847;</span>
 <div style="max-width:560px;margin:0 auto;padding:40px 20px;">
 
   <div style="background:#171717;border:1px solid #2A2A2A;border-bottom:none;padding:28px 32px;">
@@ -129,6 +130,7 @@ export async function POST(req: Request) {
       html: `<!DOCTYPE html>
 <html><head><meta charset="utf-8"/></head>
 <body style="margin:0;padding:0;background:#0B0B0B;font-family:Arial,Helvetica,sans-serif;">
+<span style="display:none;font-size:1px;color:#0B0B0B;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">&#847;</span>
 <div style="max-width:560px;margin:0 auto;padding:40px 20px;">
 
   <div style="background:#171717;border:1px solid #2A2A2A;border-bottom:none;padding:28px 32px;">

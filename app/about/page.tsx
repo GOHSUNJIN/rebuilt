@@ -155,7 +155,7 @@ export default function AboutPage() {
                 <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.2em', margin: '0 0 12px' }}>CONTACT</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   <CopyText value={SITE.contact.email}>
-                    <a href={`https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}`}
+                    <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`}
                       target="_blank" rel="noopener noreferrer"
                       style={{ fontSize: 13, color: '#A5A5A5', textDecoration: 'none' }} className="hover-gold">
                       {SITE.contact.email}

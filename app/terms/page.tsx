@@ -139,7 +139,7 @@ export default function TermsPage() {
 
           <div style={{ marginTop: 36, paddingTop: 24, borderTop: '1px solid #1E1E1E' }}>
             <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', marginTop: 0, marginBottom: 10 }}>QUESTIONS?</p>
-            <a href={`https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, color: 'var(--accent)', textDecoration: 'none', lineHeight: 1.5 }}>
+            <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, color: 'var(--accent)', textDecoration: 'none', lineHeight: 1.5 }}>
               {SITE.contact.email}
             </a>
           </div>
@@ -159,7 +159,7 @@ export default function TermsPage() {
 
           <Section id="cancel" num="03" title="Cancellations and rescheduling">
             <p style={bodyText}>We require at least 12 hours&apos; notice (SGT) to cancel or reschedule a session. Notify us by email at{' '}
-              <a href={`https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>{SITE.contact.email}</a>{' '}or by WhatsApp.
+              <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>{SITE.contact.email}</a>{' '}or by WhatsApp.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 16 }}>
               {[
@@ -216,7 +216,7 @@ export default function TermsPage() {
               <p style={{ fontSize: 14, color: '#6f7783', margin: '0 0 10px', lineHeight: 1.6 }}>
                 Core Collective · Robinson, Dempsey &amp; Katong
               </p>
-              <a href={`https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }}>
+              <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }}>
                 {SITE.contact.email}
               </a>
             </div>

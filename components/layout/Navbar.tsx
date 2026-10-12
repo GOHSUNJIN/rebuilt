@@ -155,6 +155,20 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
 
       {/* Spacer so content doesn't sit under the fixed nav */}
       <div style={{ height: 70 }} />
+
+      {/* Mobile menu backdrop */}
+      {menuOpen && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.75)',
+            zIndex: 99,
+            animation: 'ovIn 0.2s ease both',
+          }}
+        />
+      )}
     </>
   )
 }

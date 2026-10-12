@@ -19,7 +19,7 @@ export default function Done() {
         No reply? Reach us at{' '}
         <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>{SITE.contact.email}</a>
         {' '}or{' '}
-        <a href={SITE.contact.phoneTel} style={{ color: 'var(--accent)' }}>{SITE.contact.phone}</a>.
+        <a href={SITE.contact.phoneTel} style={{ color: 'var(--accent)', whiteSpace: 'nowrap' }}>{SITE.contact.phone}</a>.
       </p>
       <Link href="/" className="btn-outline" style={{ padding: '14px 28px' }}>Back to home</Link>
     </div>

@@ -11,11 +11,8 @@ const transporter = nodemailer.createTransport({
 })
 
 export async function POST(req: Request) {
-  console.log('[api/book] MAIL_USER set:', !!process.env.MAIL_USER)
-  console.log('[api/book] MAIL_PASS set:', !!process.env.MAIL_PASS)
   try {
     const { service, coach, location, slots, name, email, phone, notes, showLocation } = await req.json()
-    console.log('[api/book] payload received:', { service, name, email })
 
     const rows: [string, string][] = [
       ['Service', service ?? 'Not sure yet'],
@@ -35,12 +32,11 @@ export async function POST(req: Request) {
       </tr>
     `).join('')
 
-    console.log('[api/book] attempting sendMail...')
     await transporter.sendMail({
       from: `"Rebuilt Academy" <${process.env.MAIL_USER}>`,
       to: process.env.MAIL_USER,
       replyTo: email,
-      subject: `New Booking — ${service ?? 'Not sure yet'} · ${name}`,
+      subject: `New Booking: ${service ?? 'Not sure yet'} from ${name}`,
       html: `<!DOCTYPE html>
 <html><head><meta charset="utf-8"/></head>
 <body style="margin:0;padding:0;background:#0B0B0B;font-family:Arial,Helvetica,sans-serif;">
@@ -64,11 +60,9 @@ export async function POST(req: Request) {
 </body></html>`,
     })
 
-    console.log('[api/book] sendMail success')
     return Response.json({ ok: true })
   } catch (err) {
-    console.error('[api/book] ERROR:', err instanceof Error ? err.message : err)
-    console.error('[api/book] STACK:', err instanceof Error ? err.stack : '')
+    console.error('[api/book]', err instanceof Error ? err.message : err)
     return Response.json({ ok: false }, { status: 500 })
   }
 }

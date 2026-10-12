@@ -37,9 +37,9 @@ export const REHAB_OPTIONS = [
 ]
 
 export const PT_FORMATS = [
-  { id: 'One to one',  label: 'One to One',  sub: '1 coach · 1 client' },
-  { id: 'Pairs',       label: 'Pairs',        sub: '1 coach · 2 clients' },
-  { id: 'Small group', label: 'Small Group',  sub: '1 coach · 3-5 clients' },
+  { id: 'One to one',  label: 'One to One',  sub: '1 client' },
+  { id: 'Pairs',       label: 'Pairs',        sub: '2 clients' },
+  { id: 'Small group', label: 'Small Group',  sub: '3-5 clients' },
 ]
 
 export const PT_TYPES: Record<string, { single: string; block: string }> = {

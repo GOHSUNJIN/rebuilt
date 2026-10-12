@@ -1,6 +1,6 @@
 # Rebuilt Academy
 
-Website for **Rebuilt Academy**, a gym and rehab studio across three Core Collective locations in Singapore. The studio offers coached rehabilitation, personal training, sports performance, and physiotherapy in partnership with Rehab & Beyond.
+Website for **Rebuilt Academy**, a gym and rehab studio across three Core Collective locations in Singapore. The studio offers coached rehabilitation, personal training, sports performance and physiotherapy in partnership with Rehab & Beyond.
 
 Built with Next.js 15.
 
@@ -12,9 +12,9 @@ A simple checklist of what needs to be sorted before the website launches public
 
 ### Photos and content
 
-- [ ] **You** - Provide real studio photos (for the hero banners on each service page, the About page, and the location gallery)
+- [ ] **You** - Provide real studio photos (for the hero banners on each service page, the About page and the location gallery)
 - [x] **You** - Provide headshots or photos of Shafiq and Joshua for their team cards
-- [x] **You** - Confirm the phone number, email address, studio addresses, and opening hours are all correct
+- [x] **You** - Confirm the phone number, email address, studio addresses and opening hours are all correct
 - [x] **You** - Confirm the team bios and credentials for Shafiq and Joshua read exactly as you want them
 - [ ] **You** - Share 5 to 10 real client reviews (copy from your Google listing) to replace the placeholder ones on the site
 - [ ] **You** - Provide real Instagram content for the home page grid, or let us know if you want it connected to your account automatically
@@ -22,54 +22,54 @@ A simple checklist of what needs to be sorted before the website launches public
 
 ### Domain and email
 
-- [ ] **You** - Purchase a website domain, for example `rebuiltacademy.sg` or `rebuilt.sg`. This costs around SGD 30 to 50 per year. You can buy one from any domain registrar (GoDaddy, Namecheap, or SGNIC for a .sg address).
-- [ ] **You** - Set up a business email inbox so that `hello@rebuilt.sg` is a real, working address. Google Workspace or Zoho Mail both work and cost around SGD 8 to 20 per month. Without this, contact form messages have nowhere to land.
-- [ ] **Handled** - Connect the domain to the website once purchased.
+- [x] **You** - Purchase a website domain. Domain is live at `rebuiltacademy.sg`.
+- [x] **You** - Set up a business email inbox. Microsoft 365 inbox is active at `info@rebuiltacademy.sg`.
+- [x] **Handled** - Connect the domain to the website.
 
 ### Analytics and admin dashboard
 
-- [ ] **You** - Decide on a username and password for the private analytics dashboard at `/admin`. This is where you will see visitor numbers, booking clicks, and traffic sources.
+- [ ] **You** - Decide on a username and password for the private analytics dashboard at `/admin`. This is where you will see visitor numbers, booking clicks and traffic sources.
 - [ ] **Handled** - Set up the analytics connection and admin login using the credentials you provide.
 
 ### Final checks before launch
 
-- [ ] **Handled** - Test the contact form end to end to confirm enquiries reach the inbox.
-- [x] **Handled** - Test the full booking flow to confirm WhatsApp and email links work correctly.
+- [x] **Handled** - Test the contact form end to end to confirm enquiries reach the inbox.
+- [x] **Handled** - Test the full booking flow to confirm booking requests are submitted and received by email.
 - [ ] **Handled** - Check the site on iPhone and Android to confirm everything looks right on mobile.
 - [ ] **Handled** - Submit the site to Google so it starts appearing in search results.
 - [ ] **You** - Review the site on the staging link one final time and give the go-ahead to launch.
-- [ ] **Handled** - Flip the site live on your domain.
+- [x] **Handled** - Flip the site live on your domain.
 
 ---
 
 ## What Rebuilt Academy does
 
-Rebuilt Academy is built around one idea: rehab, training, and physiotherapy should all be handled by the same team, sharing the same notes, without clients having to repeat themselves or be passed between providers who never speak to each other.
+Rebuilt Academy is built around one idea: rehab, training and physiotherapy should all be handled by the same team, sharing the same notes, without clients having to repeat themselves or be passed between providers who never speak to each other.
 
 The studio runs four services:
 
 - **Rehabilitation** - coached return from injury or surgery, 1-on-1, with progress tested every four weeks
-- **Strength Training** - personal training in one-to-one, pairs, or small group formats
-- **Sports Performance** - pre-season, in-season, and off-season blocks for athletes, with testing at the start and end of every programme
+- **Strength Training** - personal training in one-to-one, pairs or small group formats
+- **Sports Performance** - pre-season, in-season and off-season blocks for athletes, with testing at the start and end of every programme
 - **Physiotherapy** - delivered in partnership with Rehab & Beyond, coordinated directly with the coaching team
 
-Three locations across Singapore at Core Collective: Robinson (CBD), Dempsey Hill, and Katong (East Coast).
+Three locations across Singapore at Core Collective: Robinson (CBD), Dempsey Hill and Katong (East Coast).
 
 ---
 
 ## What the website does for the business
 
-**Converts visitors into bookings.** Every page has a direct booking path. The five-step booking wizard collects all the information the studio needs and sends it as a pre-filled WhatsApp or email message, so the team can confirm and reply quickly without chasing the client for details.
+**Converts visitors into bookings.** Every page has a direct booking path. The five-step booking wizard collects all the information the studio needs and submits it automatically as an email, so the team receives a complete booking request instantly without chasing the client for details.
 
 **Shows pricing upfront.** All services have transparent pricing listed on their pages. No hidden costs, no "contact us for a quote." Clients can compare options and know what they are committing to before reaching out.
 
-**Handles enquiries automatically.** The contact form on the About page sends messages directly to the studio inbox (hello@rebuilt.sg) without anyone needing to check a separate tool. Replies go straight to the client's email.
+**Handles enquiries automatically.** The contact form on the About page sends messages directly to the studio inbox without anyone needing to check a separate tool. Replies go straight to the client's email.
 
-**Runs on mobile.** The site is fully responsive and works on any phone, tablet, or desktop. The mobile version has a fixed booking bar at the bottom of every page so the booking button is always visible, no matter how far a user has scrolled.
+**Runs on mobile.** The site is fully responsive and works on any phone, tablet or desktop. The mobile version has a fixed booking bar at the bottom of every page so the booking button is always visible, no matter how far a user has scrolled.
 
-**Tracks what matters.** Vercel Analytics records page views, unique visitors, and booking-related actions (button clicks, form submissions, WhatsApp taps). The admin dashboard at /admin shows all of this in one place, with filters for the last 7, 30, or 90 days, or any custom date range.
+**Tracks what matters.** Vercel Analytics records page views, unique visitors and booking-related actions (button clicks, form submissions, WhatsApp taps). The admin dashboard at /admin shows all of this in one place, with filters for the last 7, 30 or 90 days, or any custom date range.
 
-**Supports search engines.** Every page has proper meta titles, descriptions, and structured data so Google understands what the business does and can show it in search results for relevant queries in Singapore.
+**Supports search engines.** Every page has proper meta titles, descriptions and structured data so Google understands what the business does and can show it in search results for relevant queries in Singapore.
 
 **Handles legal compliance.** A full privacy policy and terms of service are included, written for PDPA (Singapore's personal data protection law).
 
@@ -80,11 +80,11 @@ Three locations across Singapore at Core Collective: Robinson (CBD), Dempsey Hil
 | Page | What it does |
 |---|---|
 | `/` | Home page: hero, stats (300+ clients, 4.9 rating), service overview, physio partnership cards, client reviews, Instagram grid, call to action |
-| `/rehab` | Rehabilitation service page with features, pricing, testimonial, and FAQ link |
-| `/strength` | Personal training page with format options (1-on-1, pairs, small group), pricing, and features |
-| `/performance` | Sports performance page with block types (pre-season, in-season, off-season), testing overview, and instalment plan details |
-| `/physio` | Physiotherapy page covering the Rehab & Beyond partnership, session types, pricing, and the upcoming in-house physiotherapy |
-| `/about` | Team bios (slide-out detail panels), all three location cards with maps, and the contact form |
+| `/rehab` | Rehabilitation service page with features, pricing, testimonial and FAQ link |
+| `/strength` | Personal training page with format options (1-on-1, pairs, small group), pricing and features |
+| `/performance` | Sports performance page with block types (pre-season, in-season, off-season), testing overview and instalment plan details |
+| `/physio` | Physiotherapy page covering the Rehab & Beyond partnership, session types, pricing and the upcoming in-house physiotherapy |
+| `/about` | Team bios (slide-out detail panels), all three location cards with maps and the contact form |
 | `/faq` | Frequently asked questions across five categories (General, Rehab, Training, Performance, Physiotherapy) with live search |
 | `/book` | Five-step booking wizard (see below) |
 | `/privacy` | Privacy policy, PDPA-compliant |
@@ -95,22 +95,22 @@ Three locations across Singapore at Core Collective: Robinson (CBD), Dempsey Hil
 
 ## The booking flow
 
-The booking wizard collects everything the studio needs in five steps and then opens a pre-filled WhatsApp message or Gmail compose window with all the details already written out.
+The booking wizard collects everything the studio needs in five steps and submits it as an email directly to the studio inbox. A WhatsApp fallback is available if the submission fails.
 
 **Step 1 - Service selection**
-The client picks a category (Rehab, Training, Performance, Physiotherapy, or Not sure yet). Training shows a second stage for format (one-to-one, pairs, or small group) and then session type (single or block of 10). All options show pricing.
+The client picks a category (Rehab, Training, Performance, Physiotherapy or Not sure yet). Training shows a second stage for format (one-to-one, pairs or small group) and then session type (single or block of 10). All options show pricing.
 
 **Step 2 - Coach preference**
 The client can choose Shafiq Khalit (Founder, strength and rehab) or Joshua Seow (Co-Founder, sports performance), or no preference.
 
 **Step 3 - Time slots and location**
-The client picks preferred days (Monday to Saturday) and time slots, and selects a preferred location from the three Core Collective sites. Multiple slots can be selected. All times are shown in Singapore time (SGT).
+The client picks preferred days (Monday to Saturday) and time slots and selects a preferred location from the three Core Collective sites. Multiple slots can be selected. All times are shown in Singapore time (SGT).
 
 **Step 4 - Contact details**
-Name, email address, phone number, and an optional notes field for injury history, goals, or any other context the coach should know before the first session. All three contact fields are required before the step can be completed.
+Name, email address, phone number and an optional notes field for injury history, goals or any other context the coach should know before the first session. All three contact fields are required before the step can be completed.
 
 **Step 5 - Review and send**
-The client sees a summary of all their selections. They send the request via WhatsApp or email. The page automatically advances to the confirmation screen once the send link is tapped. The studio confirms the slot and arranges payment separately.
+The client sees a summary of all their selections and clicks Send booking request. The request is submitted automatically and an email is sent to the studio. The page advances to the confirmation screen once sent. The studio confirms the slot and arranges payment separately.
 
 The confirmation screen shows the studio contact details in case there is no reply within 24 hours.
 
@@ -131,7 +131,7 @@ The admin dashboard is at `/admin`. It is password-protected and shows live traf
 - Top referring sites
 - Device breakdown (mobile vs desktop vs tablet)
 
-**Period options:** Last 7 days, 30 days, 90 days, or a custom date range.
+**Period options:** Last 7 days, 30 days, 90 days or a custom date range.
 
 Access is protected by a username and password. The session lasts 8 hours, then requires logging in again.
 
@@ -139,7 +139,9 @@ Access is protected by a username and password. The session lasts 8 hours, then 
 
 ## Contact and email
 
-**Contact form** on the About page sends messages directly to hello@rebuilt.sg via Resend. The client's reply-to address is set automatically, so replying to the email in the inbox goes straight back to them. The form is rate-limited to prevent spam.
+**Contact form** on the About page sends messages directly to `info@rebuiltacademy.sg` via Microsoft 365. The client's reply-to address is set automatically, so replying to the email in the inbox goes straight back to them. The form is rate-limited to prevent spam.
+
+**Booking form** submits automatically via the Send booking request button and delivers a formatted email to `info@rebuiltacademy.sg` with all booking details. A WhatsApp fallback link is shown if the submission fails.
 
 **WhatsApp** is available as a floating button on every page. On the booking page, it pre-fills a full booking request with all the details the client entered in the wizard.
 
@@ -178,7 +180,7 @@ All business information is in one place. Most updates do not require touching a
 Edit `lib/site.ts`. This file is the single source of truth. Change it once and it updates everywhere on the site automatically.
 
 **Team bios**
-Edit `lib/team.ts`. Each team member has a name, role, short description (used on the card), full bio paragraphs, and credentials. To add a real photo, update `components/sections/TeamBioModal.tsx` to use an image file from the `public/` folder instead of the initials placeholder.
+Edit `lib/team.ts`. Each team member has a name, role, short description (used on the card), full bio paragraphs and credentials. To add a real photo, update `components/sections/TeamBioModal.tsx` to use an image file from the `public/` folder instead of the initials placeholder.
 
 **Pricing**
 Edit the `PRICING` array at the top of each service page:
@@ -196,7 +198,7 @@ Edit `lib/faqData.ts`. Questions are grouped by the same category tabs shown on 
 Edit `lib/bookData.ts`.
 
 **Photos**
-All current photos use placeholder images from Unsplash. To replace with real studio photos, upload the image to the `public/` folder and update the `src` value on each page. Photos appear in the hero sections, service pages, and About page.
+All current photos use placeholder images from Unsplash. To replace with real studio photos, upload the image to the `public/` folder and update the `src` value on each page. Photos appear in the hero sections, service pages and About page.
 
 **Reviews**
 Edit `components/sections/ReviewsSection.tsx`. The review pool is a static array. Add or remove review cards from the list.
@@ -207,11 +209,11 @@ Edit `components/sections/ReviewsSection.tsx`. The review pool is a static array
 
 | What | Purpose |
 |---|---|
-| Next.js 15 | Website framework. Handles pages, routing, server logic, and performance optimisation |
+| Next.js 15 | Website framework. Handles pages, routing, server logic and performance optimisation |
 | TypeScript | Catches errors before they reach the live site |
 | Vercel | Hosting. Deploys automatically every time code is pushed |
-| Resend | Sends contact form emails to the studio inbox |
-| Vercel Analytics | Tracks page views, visitors, and key button clicks |
+| Nodemailer + Microsoft 365 | Sends booking and contact form emails to the studio inbox |
+| Vercel Analytics | Tracks page views, visitors and key button clicks |
 | Vercel Speed Insights | Monitors how fast the site loads for real visitors |
 
 ---
@@ -222,7 +224,7 @@ Requires Node.js 18 or later.
 
 ```bash
 npm install
-cp .env.example .env.local   # add RESEND_API_KEY and admin credentials
+cp .env.example .env.local   # add MAIL_USER, MAIL_PASS and admin credentials
 npm run dev                  # opens at http://localhost:3000
 ```
 
@@ -238,7 +240,8 @@ npm run lint     # ESLint
 
 | Variable | Purpose | Required |
 |---|---|---|
-| `RESEND_API_KEY` | Sends contact form emails | Yes (soft-fails if missing, no email sent) |
+| `MAIL_USER` | Microsoft 365 email address used to send emails | Yes |
+| `MAIL_PASS` | Microsoft 365 password for the sending account | Yes |
 | `ADMIN_USERNAME` | Admin dashboard login | Yes for /admin access |
 | `ADMIN_PASSWORD` | Admin dashboard login | Yes for /admin access |
 | `ADMIN_SECRET` | Signs the admin session token | Yes for /admin access |
@@ -248,7 +251,7 @@ npm run lint     # ESLint
 
 Set all variables in Vercel under Project Settings > Environment Variables before going to production. The `.env.example` file in the repo lists all of them.
 
-If `RESEND_API_KEY` is missing, the contact form shows a success message but no email is sent. If the `VA_*` variables are missing, the admin dashboard shows a setup guide instead of data.
+If `MAIL_USER` or `MAIL_PASS` are missing, the booking and contact forms will return an error. If the `VA_*` variables are missing, the admin dashboard shows a setup guide instead of data.
 
 ---
 
@@ -269,7 +272,7 @@ vercel --prod # Deploy to production
 app/
   layout.tsx              Root layout: fonts, analytics, JSON-LD schema, skip link
   page.tsx                Home page
-  globals.css             All styles, animations, and responsive CSS classes
+  globals.css             All styles, animations and responsive CSS classes
   error.tsx               Branded error page
   not-found.tsx           404 page
   opengraph-image.tsx     Social share image (auto-generated, 1200 x 630 px)
@@ -282,7 +285,7 @@ app/
   physio/page.tsx         Physiotherapy service page
   about/page.tsx          About page: team, locations, contact form
   faq/page.tsx            FAQ page
-  book/page.tsx           Booking wizard: all state, step navigation, message building
+  book/page.tsx           Booking wizard: all state, step navigation, submission
   privacy/page.tsx        Privacy policy
   terms/page.tsx          Terms and conditions
 
@@ -290,8 +293,11 @@ app/
     page.tsx              Analytics dashboard (protected)
     _components/          Dashboard-only components (chart, date picker, etc.)
 
+  api/
+    book/route.ts         POST endpoint: receives booking form and sends email via Microsoft 365
+
   actions/
-    contact.ts            Server action: rate-limited, sanitised, sends via Resend
+    contact.ts            Server action: rate-limited, sanitised, sends via Microsoft 365
     admin.ts              Server action: logout
 
 components/
@@ -360,7 +366,7 @@ public/
 
 ## Responsive design
 
-The site works on all screen sizes. Breakpoints are at 768px (tablet/mobile) and 480px (small phones). Custom CSS classes handle layout changes:
+The site works on all screen sizes. Breakpoints are at 768px (mobile), 1023px (tablet) and 1440px (large desktop). Custom CSS classes handle layout changes:
 
 | Class | Desktop | Mobile |
 |---|---|---|
@@ -382,7 +388,7 @@ The mobile booking bar (fixed at the bottom of the screen) is shown only on mobi
 
 ### Booking and scheduling
 
-**Real booking calendar.** The current flow sends a pre-filled WhatsApp or email request. A live calendar integration (Calendly, Acuity, or a custom build) would let clients pick and confirm a slot instantly, without waiting for the studio to reply.
+**Real booking calendar.** The current flow sends a booking request by email. A live calendar integration (Calendly, Acuity or a custom build) would let clients pick and confirm a slot instantly, without waiting for the studio to reply.
 
 **Online payments.** No payment is collected at the point of booking. Stripe or PayNow integration at checkout would reduce no-shows and remove the follow-up step for the team.
 
@@ -392,9 +398,9 @@ The mobile booking bar (fixed at the bottom of the screen) is shown only on mobi
 
 ### Client experience
 
-**Client portal.** A secure login area where clients can see session history, programme notes, upcoming bookings, and progress data. Requires a database (Supabase or similar) and authentication (Clerk or NextAuth).
+**Client portal.** A secure login area where clients can see session history, programme notes, upcoming bookings and progress data. Requires a database (Supabase or similar) and authentication (Clerk or NextAuth).
 
-**Progress tracking dashboard.** Charts showing strength numbers, sprint times, movement scores, and rehab milestones over time. Particularly valuable for performance and rehab clients who already receive entry and exit testing.
+**Progress tracking dashboard.** Charts showing strength numbers, sprint times, movement scores and rehab milestones over time. Particularly valuable for performance and rehab clients who already receive entry and exit testing.
 
 **Automated session reminders.** WhatsApp or email reminders sent 24 hours and 2 hours before a session. Reduces no-shows without any manual work from the team. Built on WhatsApp Business API or a service like Twilio.
 
@@ -402,7 +408,7 @@ The mobile booking bar (fixed at the bottom of the screen) is shown only on mobi
 
 ### Marketing
 
-**Blog or resources section.** Articles on rehab protocols, training principles, and injury prevention improve organic search rankings and build the coaches' authority online. A Next.js blog with proper schema markup is straightforward to add.
+**Blog or resources section.** Articles on rehab protocols, training principles and injury prevention improve organic search rankings and build the coaches' authority online. A Next.js blog with proper schema markup is straightforward to add.
 
 **Case studies page.** Anonymised client journeys with before and after metrics (ACL return-to-sport timeline, strength numbers across a block). More persuasive than short testimonials and harder for competitors to replicate.
 
@@ -414,10 +420,10 @@ The mobile booking bar (fixed at the bottom of the screen) is shown only on mobi
 
 ### Operations
 
-**WhatsApp Business API.** Replace the basic phone link with a proper API integration. Enables automated confirmations, session reminders, programme updates, and a structured inbox rather than messages landing on a personal number.
+**WhatsApp Business API.** Replace the basic phone link with a proper API integration. Enables automated confirmations, session reminders, programme updates and a structured inbox rather than messages landing on a personal number.
 
 **Coach availability management.** A simple internal tool or Notion/Airtable integration where coaches mark their availability, feeding directly into the booking calendar. Removes the manual back-and-forth of confirming slots.
 
-**Physiotherapy intake form.** A structured form for Rehab & Beyond referrals, separate from the general booking wizard. Captures injury details, surgeon or GP notes, and consent upfront so the first appointment can be fully clinical from the start.
+**Physiotherapy intake form.** A structured form for Rehab & Beyond referrals, separate from the general booking wizard. Captures injury details, surgeon or GP notes and consent upfront so the first appointment can be fully clinical from the start.
 
-**Email marketing.** A newsletter or programme announcement list for existing clients. Resend (already in use for contact form emails) supports audience lists, so no new tool is needed.
+**Email marketing.** A newsletter or programme announcement list for existing clients. The existing Microsoft 365 setup can handle transactional sends. A dedicated tool like Mailchimp or Loops would be needed for broadcast campaigns and audience management.

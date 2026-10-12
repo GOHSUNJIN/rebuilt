@@ -502,6 +502,8 @@ p { text-wrap: pretty; }
     scroll-snap-align: start !important;
   }
   .r-reviews-dots { display: flex !important; }
+  .r-rating-source { font-size: 11px !important; letter-spacing: .14em !important; }
+  .r-rating-count  { font-size: 10px !important; letter-spacing: .1em !important; color: #5f6670 !important; }
 
   /* ── Location carousel ── */
   .r-location-scroll {

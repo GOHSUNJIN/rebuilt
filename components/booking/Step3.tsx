@@ -70,7 +70,11 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
             SELECTED · {slots.length} {slots.length === 1 ? 'SLOT' : 'SLOTS'}
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            {slots.map(s => (
+            {[...slots].sort((a, b) => {
+              const [da, ta] = a.split('-'); const [db, tb] = b.split('-')
+              const d = DAYS.indexOf(da) - DAYS.indexOf(db)
+              return d !== 0 ? d : (ta ?? '').localeCompare(tb ?? '')
+            }).map(s => (
               <button key={s} type="button" onClick={() => toggleSlot(s)}
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 12px', background: '#171717', border: '1px solid rgba(183,240,0,.25)', color: 'var(--accent)', cursor: 'pointer', fontSize: 12, fontFamily: 'inherit', letterSpacing: '.08em' }}
               >

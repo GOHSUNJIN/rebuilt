@@ -1114,7 +1114,6 @@ p { text-wrap: pretty; }
   .r-hero-img-mobile  { display: block !important; }
 
   /* ── Legal pages (privacy + terms) ─── */
-  .r-back-top { display: none !important; }
   .r-404-wrap { padding-top: 52px !important; padding-bottom: 52px !important; }
   .r-404-btns { flex-direction: column !important; align-items: stretch !important; }
   .r-404-btns a { text-align: center !important; justify-content: center !important; }

@@ -2,6 +2,7 @@
 
 import { useRef, useState, useCallback } from 'react'
 import type { FeatureItem } from '@/lib/types'
+import ScrollDots from '@/components/ui/ScrollDots'
 
 export default function FeatureGrid({ items, cols = 3 }: { items: FeatureItem[], cols?: 3 | 4 }) {
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -20,7 +21,7 @@ export default function FeatureGrid({ items, cols = 3 }: { items: FeatureItem[],
         ref={scrollRef}
         onScroll={handleScroll}
         className={`r-feature-scroll ${cols === 4 ? 'r4' : 'r3'}`}
-        style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 2, background: '#1E1E1E' }}
+        style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 2, background: '#2A2A2A' }}
       >
         {items.map(({ num, title, desc, icon }) => (
           <div key={num} className="r-feature-cell" style={{ background: '#0B0B0B', padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -33,21 +34,7 @@ export default function FeatureGrid({ items, cols = 3 }: { items: FeatureItem[],
         ))}
       </div>
 
-      <div className="r-feature-dots" style={{ display: 'none', justifyContent: 'center', gap: 6, marginTop: 16 }}>
-        {items.map((_, i) => (
-          <span
-            key={i}
-            style={{
-              display: 'block',
-              width: i === activeIndex ? 20 : 6,
-              height: 4,
-              borderRadius: 2,
-              background: i === activeIndex ? 'var(--accent)' : '#3A3A3A',
-              transition: 'width .25s, background .25s',
-            }}
-          />
-        ))}
-      </div>
+      <ScrollDots count={items.length} activeIndex={activeIndex} className="r-feature-dots" />
     </>
   )
 }

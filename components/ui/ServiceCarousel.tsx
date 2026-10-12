@@ -3,6 +3,7 @@
 import { useRef, useState, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import ScrollDots from '@/components/ui/ScrollDots'
 
 interface ServiceItem {
   num: string
@@ -66,21 +67,7 @@ export default function ServiceCarousel({ items }: { items: ServiceItem[] }) {
         ))}
       </div>
 
-      <div className="r-service-dots" style={{ display: 'none', justifyContent: 'center', gap: 6, marginTop: 16 }}>
-        {items.map((_, i) => (
-          <span
-            key={i}
-            style={{
-              display: 'block',
-              width: i === activeIndex ? 20 : 6,
-              height: 4,
-              borderRadius: 2,
-              background: i === activeIndex ? 'var(--accent)' : '#3A3A3A',
-              transition: 'width .25s, background .25s',
-            }}
-          />
-        ))}
-      </div>
+      <ScrollDots count={items.length} activeIndex={activeIndex} className="r-service-dots" />
     </>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 import { COACHES } from '@/lib/bookData'
 import { TEAM } from '@/lib/team'
+import { getInitials } from '@/lib/utils'
 import type { Step2Props } from './types'
 import StepHeader from './StepHeader'
 
@@ -9,11 +10,11 @@ export default function Step2({ coach, setCoach }: Step2Props) {
     <>
       <StepHeader step={2} heading="Choose a coach." />
       <p style={{ fontSize: 15, color: '#A5A5A5', marginTop: 0, marginBottom: 28 }}>You can always switch after your first session.</p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 2, background: '#1E1E1E' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 2, background: '#2A2A2A' }}>
         {COACHES.map(({ label, sub, detail }) => {
           const member = TEAM.find(t => t.name === label)
           const selected = coach === label
-          const initials = label.split(' ').map((n: string) => n[0]).join('')
+          const initials = getInitials(label)
 
           return (
             <button

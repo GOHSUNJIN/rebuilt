@@ -3,6 +3,7 @@
 import { useRef, useState, useCallback } from 'react'
 import type { PricingItem } from '@/lib/types'
 import TrackLink from '@/components/ui/TrackLink'
+import ScrollDots from '@/components/ui/ScrollDots'
 
 export default function PricingCards({ items }: { items: PricingItem[] }) {
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -58,22 +59,7 @@ export default function PricingCards({ items }: { items: PricingItem[] }) {
         ))}
       </div>
 
-      {/* Scroll dots — visible only on mobile via CSS */}
-      <div className="r-pricing-dots" style={{ display: 'none', justifyContent: 'center', gap: 6, marginTop: 16 }}>
-        {items.map((_, i) => (
-          <span
-            key={i}
-            style={{
-              display: 'block',
-              width: i === activeIndex ? 20 : 6,
-              height: 4,
-              borderRadius: 2,
-              background: i === activeIndex ? 'var(--accent)' : '#3A3A3A',
-              transition: 'width .25s, background .25s',
-            }}
-          />
-        ))}
-      </div>
+      <ScrollDots count={items.length} activeIndex={activeIndex} className="r-pricing-dots" />
     </section>
   )
 }

@@ -1,5 +1,7 @@
-﻿'use client'
+'use client'
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { avatarColor, shuffle } from '@/lib/utils'
+import ScrollDots from '@/components/ui/ScrollDots'
 
 const REVIEW_POOL = [
   { stars: '★★★★★', text: 'Came in eight weeks post-ACL with no idea what was safe. Weekly testing meant I could see the improvement clearly every session.', name: 'Daniel C.', role: 'REHAB CLIENT' },
@@ -12,24 +14,6 @@ const REVIEW_POOL = [
   { stars: '★★★★★', text: 'Off-season block sorted out every gap the season exposed. Came back faster and more durable, and the exit test proved it with actual numbers.', name: 'Zi Xuan K.', role: 'PERFORMANCE CLIENT' },
   { stars: '★★★★★', text: 'The level of detail in the programming is unlike anywhere else I have trained in Singapore. Every session has a clear purpose and you can feel it working.', name: 'Sarah N.', role: 'TRAINING CLIENT' },
 ]
-
-// Google-style avatar palette
-const AVATAR_COLORS = ['#4285F4', '#0F9D58', '#DB4437', '#F4B400', '#9C27B0', '#00ACC1', '#FF7043', '#5C6BC0', '#26A69A']
-
-function avatarColor(name: string) {
-  let hash = 0
-  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash)
-  return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length]
-}
-
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr]
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]]
-  }
-  return a
-}
 
 const TOTAL_ITEMS = 4 // rating card + 3 reviews
 
@@ -91,21 +75,7 @@ export default function ReviewsSection() {
         ))}
       </div>
 
-      <div className="r-reviews-dots" style={{ display: 'none', justifyContent: 'center', gap: 6, marginTop: 16 }}>
-        {Array.from({ length: TOTAL_ITEMS }).map((_, i) => (
-          <span
-            key={i}
-            style={{
-              display: 'block',
-              width: i === activeIndex ? 20 : 6,
-              height: 4,
-              borderRadius: 2,
-              background: i === activeIndex ? 'var(--accent)' : '#3A3A3A',
-              transition: 'width .25s, background .25s',
-            }}
-          />
-        ))}
-      </div>
+      <ScrollDots count={TOTAL_ITEMS} activeIndex={activeIndex} className="r-reviews-dots" />
     </section>
   )
 }

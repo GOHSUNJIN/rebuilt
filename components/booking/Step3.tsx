@@ -36,10 +36,10 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
           const isActive = activeDay === d
           return (
             <button key={d} type="button" onClick={() => setActiveDay(d)}
-              style={{ padding: '12px 20px', background: isActive ? 'var(--accent)' : hasSelected ? '#1a2010' : '#171717', border: `1px solid ${isActive ? 'var(--accent)' : hasSelected ? '#4a7c30' : '#1E1E1E'}`, color: isActive ? '#0B0B0B' : hasSelected ? '#8dc860' : '#A5A5A5', cursor: 'pointer', fontSize: 12, fontWeight: 700, letterSpacing: '.16em', fontFamily: 'inherit', transition: 'all .15s', position: 'relative' }}
+              style={{ padding: '12px 20px', background: isActive ? 'var(--accent)' : hasSelected ? 'rgba(183,240,0,.07)' : '#171717', border: `1px solid ${isActive ? 'var(--accent)' : hasSelected ? 'rgba(183,240,0,.3)' : '#2A2A2A'}`, color: isActive ? '#0B0B0B' : hasSelected ? 'var(--accent)' : '#A5A5A5', cursor: 'pointer', fontSize: 12, fontWeight: 700, letterSpacing: '.16em', fontFamily: 'inherit', transition: 'all .15s', position: 'relative' }}
             >
               {d.toUpperCase()}
-              {hasSelected && !isActive && <span style={{ position: 'absolute', top: 4, right: 4, width: 5, height: 5, borderRadius: '50%', background: '#8dc860', display: 'block' }} />}
+              {hasSelected && !isActive && <span style={{ position: 'absolute', top: 4, right: 4, width: 5, height: 5, borderRadius: '50%', background: 'var(--accent)', display: 'block' }} />}
             </button>
           )
         })}
@@ -54,7 +54,7 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
               const isSelected = slots.includes(key)
               return (
                 <button key={time} type="button" onClick={() => toggleSlot(key)}
-                  style={{ padding: '13px 22px', fontSize: 13, background: isSelected ? 'var(--accent)' : '#171717', border: `1px solid ${isSelected ? 'var(--accent)' : '#1E1E1E'}`, color: isSelected ? '#0B0B0B' : '#A5A5A5', cursor: 'pointer', fontFamily: 'inherit', transition: 'all .15s', fontWeight: isSelected ? 700 : 400 }}
+                  style={{ padding: '13px 22px', fontSize: 13, background: isSelected ? 'var(--accent)' : '#171717', border: `1px solid ${isSelected ? 'var(--accent)' : '#2A2A2A'}`, color: isSelected ? '#0B0B0B' : '#A5A5A5', cursor: 'pointer', fontFamily: 'inherit', transition: 'all .15s', fontWeight: isSelected ? 700 : 400 }}
                 >
                   {time}
                 </button>
@@ -65,7 +65,7 @@ export default function Step3({ activeDay, slots, setActiveDay, toggleSlot, loca
       )}
 
       {slots.length > 0 && (
-        <div style={{ padding: '16px 18px', background: '#171717', border: '1px solid #1E1E1E' }}>
+        <div style={{ padding: '16px 18px', background: '#171717', border: '1px solid #2A2A2A' }}>
           <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.16em', margin: '0 0 12px' }}>
             SELECTED · {slots.length} {slots.length === 1 ? 'SLOT' : 'SLOTS'}
           </p>

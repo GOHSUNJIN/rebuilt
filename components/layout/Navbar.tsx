@@ -53,7 +53,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
           background: 'rgba(11,12,14,.97)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid #1E1E1E',
+          borderBottom: '1px solid #2A2A2A',
           transform: hidden ? 'translateY(-100%)' : 'translateY(0)',
           transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
@@ -130,7 +130,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
 
         {/* ── Mobile dropdown ──────────────────────── */}
         {menuOpen && (
-          <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#0B0B0B', borderBottom: '1px solid #1E1E1E', zIndex: 100, animation: 'mdIn 0.22s cubic-bezier(0.4,0,0.2,1) both' }}>
+          <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#0B0B0B', borderBottom: '1px solid #2A2A2A', zIndex: 100, animation: 'mdIn 0.22s cubic-bezier(0.4,0,0.2,1) both' }}>
             {NAV_LINKS.map(({ href, label, page }) => (
               <Link
                 key={page}
@@ -139,7 +139,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
                 style={{
                   display: 'block',
                   padding: '16px 24px',
-                  borderBottom: '1px solid #1E1E1E',
+                  borderBottom: '1px solid #2A2A2A',
                   fontSize: 11,
                   fontWeight: 600,
                   letterSpacing: '.2em',

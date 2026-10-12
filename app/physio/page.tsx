@@ -167,7 +167,7 @@ export default function PhysioPage() {
             In-house<br />Physiotherapy.
           </h2>
 
-          <p className="r-inhome-body" style={{ fontSize: 16, lineHeight: 1.7, color: '#C0C0C0', margin: 0, maxWidth: 500 }}>
+          <p className="r-inhome-body" style={{ fontSize: 16, lineHeight: 1.7, color: '#A5A5A5', margin: 0, maxWidth: 500 }}>
             Rebuilt Academy is bringing physiotherapy in-house. Same building, same team, same notes from day one.
           </p>
 
@@ -175,7 +175,7 @@ export default function PhysioPage() {
             {['No referrals or handovers', 'Shared session notes', 'Treatment + coaching in one building'].map(item => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
-                <span style={{ fontSize: 13, color: '#B5B5B5', letterSpacing: '.01em' }}>{item}</span>
+                <span style={{ fontSize: 13, color: '#A5A5A5', letterSpacing: '.01em' }}>{item}</span>
               </div>
             ))}
           </div>

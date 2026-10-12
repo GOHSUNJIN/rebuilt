@@ -2,9 +2,9 @@
 export const inputStyle: React.CSSProperties = {
   width: '100%',
   padding: '13px 14px',
-  background: '#14161a',
-  border: '1px solid #262a30',
-  color: '#f2f4f7',
+  background: '#171717',
+  border: '1px solid #2A2A2A',
+  color: '#FFFFFF',
   fontSize: 14,
   fontFamily: 'inherit',
   boxSizing: 'border-box',

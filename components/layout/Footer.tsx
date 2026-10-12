@@ -1,7 +1,6 @@
 ﻿'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { SITE, NAV_LINKS } from '@/lib/site'
 import OpenStatus from '@/components/ui/OpenStatus'
@@ -134,7 +133,7 @@ export default function Footer() {
       )}
 
       {/* ── Desktop nav row (hidden on mobile) ─────── */}
-      <div className="r-px r-footer-nav" style={{ borderTop: '1px solid #2A2A2A', background: '#0B0B0B', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #1E1E1E' }}>
+      <div className="r-px r-footer-nav" style={{ borderTop: '1px solid #2A2A2A', background: '#0B0B0B', padding: '18px 48px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center', borderBottom: '1px solid #2A2A2A' }}>
         {[...NAV_LINKS, { label: 'Book a consult', href: '/book', page: 'book' }].map(({ label, href }) => {
           const active = pathname === href || (href !== '/' && pathname.startsWith(href))
           return (

@@ -218,7 +218,7 @@ function BookContent() {
     <div className="book-page-root" style={{ fontFamily: 'Archivo,Helvetica,Arial,sans-serif', background: '#0B0B0B', color: '#FFFFFF', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
 
       {/* Nav */}
-      <nav className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 70, padding: '0 48px', background: 'rgba(11,12,14,.97)', borderBottom: '1px solid #1E1E1E' }}>
+      <nav className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 70, padding: '0 48px', background: 'rgba(11,12,14,.97)', borderBottom: '1px solid #2A2A2A' }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, textDecoration: 'none' }}>
           <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
           <div>
@@ -230,7 +230,7 @@ function BookContent() {
       </nav>
 
       {/* Step indicator */}
-      <div className="r-px book-steps" style={{ display: 'flex', alignItems: 'center', padding: '0 48px', borderBottom: '1px solid #1E1E1E', background: '#0B0B0B', overflowX: 'auto' }}>
+      <div className="r-px book-steps" style={{ display: 'flex', alignItems: 'center', padding: '0 48px', borderBottom: '1px solid #2A2A2A', background: '#0B0B0B', overflowX: 'auto' }}>
         {STEPS.map(({ num, label }, i) => {
           const done = step > num; const current = step === num
           return (
@@ -241,7 +241,7 @@ function BookContent() {
                 </span>
                 <span className="book-step-label" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: current ? '#FFFFFF' : done ? 'var(--accent)' : '#5f6670' }}>{label}</span>
               </div>
-              {i < STEPS.length - 1 && <span style={{ width: 16, height: 1, background: '#1E1E1E', display: 'block', marginRight: 20, flexShrink: 0 }} />}
+              {i < STEPS.length - 1 && <span style={{ width: 16, height: 1, background: '#2A2A2A', display: 'block', marginRight: 20, flexShrink: 0 }} />}
             </div>
           )
         })}
@@ -253,7 +253,7 @@ function BookContent() {
 
           {/* Summary bar (steps 2-5) */}
           {step >= 2 && step < 6 && (service || slots.length > 0) && (
-            <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 40, padding: '13px 18px', background: '#171717', border: '1px solid #1E1E1E' }}>
+            <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 40, padding: '13px 18px', background: '#171717', border: '1px solid #2A2A2A' }}>
               {service && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>SERVICE: <span style={{ color: '#A5A5A5' }}>{service}</span></span>}
               {coach !== 'No Preference' && step > 2 && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>COACH: <span style={{ color: '#A5A5A5' }}>{coach}</span></span>}
               {slots.length > 0 && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>TIMES: <span style={{ color: '#A5A5A5' }}>{slots.length} selected</span></span>}
@@ -269,14 +269,14 @@ function BookContent() {
 
           {/* Navigation (steps 1–4) */}
           {step >= 1 && step <= 4 && (
-            <div style={{ marginTop: 40, paddingTop: 28, borderTop: '1px solid #1E1E1E' }}>
+            <div style={{ marginTop: 40, paddingTop: 28, borderTop: '1px solid #2A2A2A' }}>
               <div className="book-nav" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                 {step > 1 && (
                   <button type="button" onClick={() => setStep(s => s - 1)} style={{ padding: '14px 24px', background: 'transparent', border: '1px solid #2A2A2A', color: '#909090', fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>← Back</button>
                 )}
                 <button type="button"
                   onClick={() => { if (canContinue()) { setStep(s => s + 1); setShowError(false) } else { setShowError(true) } }}
-                  style={{ padding: '14px 36px', background: canContinue() ? 'var(--accent)' : '#1E1E1E', color: canContinue() ? '#0B0B0B' : '#444444', border: 'none', fontSize: 12, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', cursor: canContinue() ? 'pointer' : 'not-allowed', fontFamily: 'inherit', transition: 'background .2s, color .2s', opacity: canContinue() ? 1 : 0.65 }}
+                  style={{ padding: '14px 36px', background: canContinue() ? 'var(--accent)' : '#1E1E1E', color: canContinue() ? '#0B0B0B' : '#909090', border: 'none', fontSize: 12, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', cursor: canContinue() ? 'pointer' : 'not-allowed', fontFamily: 'inherit', transition: 'background .2s, color .2s', opacity: canContinue() ? 1 : 0.65 }}
                 >
                   Continue →
                 </button>
@@ -291,7 +291,7 @@ function BookContent() {
 
           {/* Back button on review step */}
           {step === 5 && (
-            <div style={{ marginTop: 20, paddingTop: 20, borderTop: '1px solid #1E1E1E' }}>
+            <div style={{ marginTop: 20, paddingTop: 20, borderTop: '1px solid #2A2A2A' }}>
               <button type="button" onClick={() => setStep(4)} style={{ padding: '12px 22px', background: 'transparent', border: '1px solid #2A2A2A', color: '#909090', fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>← Back</button>
             </div>
           )}

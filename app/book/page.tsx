@@ -7,8 +7,19 @@ import { track } from '@vercel/analytics'
 import { SITE } from '@/lib/site'
 import {
   SERVICE_PARAM_MAP, SERVICE_CATEGORY_MAP, SERVICE_FORMAT_MAP,
-  isValidEmail, STEPS,
+  isValidEmail, STEPS, PT_TYPES, REHAB_OPTIONS,
 } from '@/lib/bookData'
+
+function getPrice(service: string | null): string | null {
+  if (!service) return null
+  if (service.endsWith(' · block')) {
+    const format = service.replace(' · block', '')
+    return PT_TYPES[format]?.block ?? null
+  }
+  if (PT_TYPES[service]) return PT_TYPES[service].single
+  const rehab = REHAB_OPTIONS.find(o => o.label === service)
+  return rehab?.sub ?? null
+}
 
 function isValidPhone(p: string) { return p.replace(/\D/g, '').length >= 8 }
 import Step1 from '@/components/booking/Step1'
@@ -160,6 +171,7 @@ function BookContent() {
   const summaryRows = [
     { label: 'Category',        value: category },
     { label: 'Service',         value: service },
+    { label: 'Price',           value: getPrice(service) },
     { label: 'Coach',           value: coach },
     { label: 'Location',        value: showLocation ? location : null },
     { label: 'Preferred times', value: slots.length > 0 ? slots.map(fmtSlot).join(', ') : null },

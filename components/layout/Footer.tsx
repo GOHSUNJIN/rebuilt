@@ -1,6 +1,7 @@
 ﻿'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { SITE, NAV_LINKS } from '@/lib/site'
 import OpenStatus from '@/components/ui/OpenStatus'

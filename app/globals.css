@@ -685,8 +685,8 @@ p { text-wrap: pretty; }
   /* ── Mobile-only labels ── */
   .r-mobile-only { display: block !important; }
 
-  /* ── Footer: use mobile footer on tablet ── */
-  .r-footer-nav     { display: none !important; }
+  /* ── Footer: show nav row + mobile bar on tablet ── */
+  .r-footer-nav     { display: flex !important; }
   .r-footer-desktop { display: none !important; }
   .r-footer-mobile  { display: flex !important; }
 }

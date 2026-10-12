@@ -23,7 +23,7 @@ export const DEFAULT_WHATSAPP_MESSAGE = "Hi! I'd like to find out more about Reb
 export const SITE = {
   name: 'Rebuilt Academy',
   tagline: 'SINGAPORE',
-  url: 'https://rebuilt.sg',
+  url: 'https://www.rebuiltacademy.sg',
 
   locations: [
     {
@@ -47,7 +47,7 @@ export const SITE = {
   ],
 
   contact: {
-    email: 'hello@rebuilt.sg',
+    email: 'info@rebuiltacademy.sg',
     phone: '+65 9456 0563',
     phoneTel: 'tel:+6594560563',
     whatsapp: 'https://wa.me/6594560563',

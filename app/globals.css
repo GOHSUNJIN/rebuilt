@@ -1306,6 +1306,7 @@ p { text-wrap: pretty; }
   /* Centers a ~1200px content column at all wide viewport sizes */
   /* Excludes hero-content which has its own maxWidth and must keep 48px padding */
   .r-px:not(.r-hero-content) { padding-left: max(48px, calc(50vw - 600px)) !important; padding-right: max(48px, calc(50vw - 600px)) !important; }
+  .r-hero-content             { padding-left: 48px !important; padding-right: 48px !important; }
   nav                         { padding-left: max(48px, calc(50vw - 600px)) !important; padding-right: max(48px, calc(50vw - 600px)) !important; }
 }
 

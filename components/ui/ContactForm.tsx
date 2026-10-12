@@ -27,15 +27,21 @@ export default function ContactForm() {
       <div style={{ paddingTop: 40, paddingBottom: 40 }}>
         <div style={{
           width: 48, height: 48, border: '1px solid var(--accent)', borderRadius: '50%',
-          display: 'grid', placeItems: 'center', color: 'var(--accent)', fontSize: 20, marginBottom: 24,
+          display: 'grid', placeItems: 'center', color: 'var(--accent)', fontSize: 20, marginBottom: 28,
         }}>
           ✓
         </div>
-        <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 12 }}>
+        <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 14 }}>
           Message sent.
         </h2>
-        <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: 0 }}>
-          We&apos;ll get back to you at {SITE.contact.email} within one business day.
+        <p style={{ fontSize: 15, lineHeight: 1.65, color: '#A5A5A5', margin: '0 0 10px' }}>
+          We will get back to you within one business day.
+        </p>
+        <p style={{ fontSize: 14, lineHeight: 1.65, color: '#5f6670', margin: 0 }}>
+          Need something sooner? Reach us at{' '}
+          <a href={`mailto:${SITE.contact.email}`} style={{ color: 'var(--accent)', textDecoration: 'none' }}>{SITE.contact.email}</a>
+          {' '}or{' '}
+          <a href={SITE.contact.phoneTel} style={{ color: 'var(--accent)', textDecoration: 'none', whiteSpace: 'nowrap' }}>{SITE.contact.phone}</a>.
         </p>
       </div>
     )

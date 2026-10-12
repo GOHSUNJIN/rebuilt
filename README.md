@@ -241,6 +241,42 @@ Edit `components/sections/ReviewsSection.tsx`. The review pool is a static array
 
 ---
 
+## Skills demonstrated
+
+This project was built end to end as a production website for a real business. It covers the full range of what goes into shipping something that actually runs in the world.
+
+### Frontend
+
+- **React and Next.js 15 App Router** - Server components, client components and server actions used together. Each page uses the right rendering strategy: static where possible, dynamic only where needed.
+- **TypeScript throughout** - All components, data files, API handlers and utility functions are fully typed. No implicit `any`.
+- **Custom design system without a CSS framework** - The entire UI is built with hand-written CSS using inline styles and a small set of utility classes. No Tailwind, no Bootstrap. Every breakpoint, animation and layout rule is written directly.
+- **Responsive design** - Three breakpoints (mobile at 768px, tablet at 1023px and wide desktop at 1440px) with a custom responsive class system. Mobile layout uses a fixed bottom booking bar, horizontal scroll carousels and stacked grids.
+- **Multi-step form architecture** - The five-step booking wizard manages complex interdependent state across service selection, coach preference, time slot picking, contact details and review. Each step validates independently before allowing progression.
+- **Accessible UI** - ARIA labels, keyboard navigation, focus management in modal drawers, skip-to-content link and semantic HTML throughout.
+
+### Backend and server
+
+- **Next.js Route Handlers and Server Actions** - Booking submissions handled via a typed POST API route. Contact form uses a server action with rate limiting and input sanitisation run entirely on the server, never exposed to the client.
+- **Email delivery via SMTP** - Nodemailer connected to Microsoft 365 SMTP (port 587, STARTTLS). Two emails sent per submission: an admin notification with reply-to and a styled client confirmation. Handles both booking requests and contact enquiries.
+- **HTML email design** - Dark-themed transactional emails built with table-based layouts for Outlook compatibility. Inline styles only, preheader suppression, mobile-safe structure. Admin emails include WhatsApp deep links and contextual action buttons.
+- **Rate limiting** - In-memory rate limiter on the contact form server action. Keyed by IP address with a sliding window, automatic map pruning and configurable limits.
+- **Session-based authentication** - The admin dashboard uses a signed session token (HMAC-SHA256 via the Web Crypto API) stored in an HttpOnly cookie. No third-party auth library.
+- **Unique reference generation** - Booking orders (`RA-YYYYMMDD-XXXX`) and enquiries (`ENQ-YYYYMMDD-XXXX`) each get a unique date-prefixed reference on submission for tracking.
+
+### Data and API integration
+
+- **Vercel Analytics API** - The admin dashboard queries the Vercel Analytics REST API directly to pull page views, unique visitors, event counts, top pages, referrers and device breakdown. All data is fetched server-side with date range filtering.
+- **Centralised data architecture** - All business content (locations, hours, pricing, coaches, time slots and FAQ entries) lives in typed data files under `lib/`. Components read from these files so updating the business means editing one place, not hunting through JSX.
+
+### Infrastructure and tooling
+
+- **Vercel deployment pipeline** - Automatic production deploys on every push to `main`. Preview deployments on branches. Environment variables managed through the Vercel dashboard and referenced in code via `process.env`.
+- **SEO implementation** - JSON-LD structured data (LocalBusiness schema), auto-generated Open Graph images using Next.js `ImageResponse`, dynamic sitemap and per-page meta tags including canonical URLs and social share descriptions.
+- **Microsoft 365 administration** - Configured SMTP AUTH at the tenant level in the Exchange admin centre to enable programmatic email sending from the production domain.
+- **Git workflow** - Feature development on a `dev` branch with atomic commits, merged to `main` for production releases.
+
+---
+
 ## Local setup
 
 Requires Node.js 18 or later.

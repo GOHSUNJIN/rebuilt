@@ -46,6 +46,17 @@ function toWaLink(phone: string): string {
 
 const tdLabel = `font-family:monospace;font-size:10px;color:#6f7783;letter-spacing:.14em;padding:12px 0;border-bottom:1px solid #1E1E1E;white-space:nowrap;padding-right:32px;vertical-align:top`
 const tdValue = `font-size:14px;color:#C0C0C0;padding:12px 0;border-bottom:1px solid #1E1E1E;vertical-align:top;line-height:1.5`
+const tdLabelLast = tdLabel.replace('border-bottom:1px solid #1E1E1E;', 'border-bottom:none;')
+const tdValueLast = tdValue.replace('border-bottom:1px solid #1E1E1E;', 'border-bottom:none;')
+
+function buildRows(rows: string[]): string {
+  if (rows.length === 0) return ''
+  const all = [...rows]
+  all[all.length - 1] = all[all.length - 1]
+    .replace(tdLabel, tdLabelLast)
+    .replace(tdValue, tdValueLast)
+  return all.join('')
+}
 
 function tableRow(lbl: string, value: string) {
   return `<tr>
@@ -63,33 +74,38 @@ export async function POST(req: Request) {
     const orderId = generateOrderId()
     const label = service ? serviceLabel(service) : 'Not sure yet'
     const price = service ? servicePrice(service) : null
+    const notSureYet = category === 'Not sure yet' || !service
 
-    const adminRows = [
+    const adminRows = buildRows([
       tableRow('Order', orderId),
       tableRow('Category', category ?? 'Not specified'),
-      tableRow('Service', label),
+      ...(label !== (category ?? '') ? [tableRow('Service', label)] : []),
       ...(price ? [tableRow('Price', price)] : []),
       ...(showLocation && location ? [tableRow('Location', location)] : []),
       tableRow('Coach', coach),
       ...(slots?.length > 0 ? [tableRow('Preferred times', slots.join(', '))] : []),
       tableRow('Name', name),
       tableRow('Email', email),
-      ...(phone ? [tableRow('Phone', `<a href="${toWaLink(phone)}" style="color:#B7F000;text-decoration:none">${phone}</a> · <a href="${toWaLink(phone)}" style="color:#B7F000;text-decoration:none">WhatsApp</a>`)] : []),
+      ...(phone ? [tableRow('Phone', `<a href="${toWaLink(phone)}" style="color:#B7F000;text-decoration:none">${phone}</a> &middot; <a href="${toWaLink(phone)}" style="color:#B7F000;text-decoration:none">WhatsApp</a>`)] : []),
       ...(notes ? [tableRow('Notes', notes)] : []),
-    ].join('')
+    ])
 
-    const subject = service
+    const subject = service && !notSureYet
       ? `[${orderId}] ${label} - ${name}`
       : `[${orderId}] New Booking from ${name}`
 
-    // Customer summary rows (no contact details)
-    const customerSummaryRows = [
-      tableRow('Service', label),
+    const customerSummaryRows = buildRows([
+      tableRow('Category', category ?? 'Not specified'),
+      ...(label !== (category ?? '') ? [tableRow('Service', label)] : []),
       ...(price ? [tableRow('Price', price)] : []),
       ...(showLocation && location ? [tableRow('Location', location)] : []),
       tableRow('Coach', coach),
       ...(slots?.length > 0 ? [tableRow('Preferred times', slots.join(', '))] : []),
-    ].join('')
+    ])
+
+    const bookingIntro = notSureYet
+      ? `Thanks for reaching out. We have received your request and will be in touch to help you find the right programme.`
+      : `Thanks for reaching out. We have received your booking request for <strong style="color:#ffffff">${label}</strong> and will confirm your slot within the day.`
 
     await transporter.sendMail({
       from: `"Rebuilt Academy" <${process.env.MAIL_USER}>`,
@@ -113,10 +129,14 @@ export async function POST(req: Request) {
     </table>
   </div>
 
-  <div style="margin-top:16px;display:flex;gap:12px;">
-    <a href="mailto:${email}" style="display:inline-block;padding:12px 24px;background:#B7F000;color:#0B0B0B;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-decoration:none;text-transform:uppercase;">Reply to ${name}</a>
-    ${phone ? `<a href="${toWaLink(phone)}" style="display:inline-block;padding:12px 24px;background:#171717;border:1px solid #2A2A2A;color:#B7F000;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-decoration:none;text-transform:uppercase;">WhatsApp</a>` : ''}
-  </div>
+  <table style="border-collapse:collapse;margin-top:16px;">
+    <tr>
+      <td style="padding-right:12px;">
+        <a href="mailto:${email}" style="display:inline-block;padding:12px 24px;background:#B7F000;color:#0B0B0B;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-decoration:none;text-transform:uppercase;">Reply to ${name}</a>
+      </td>
+      ${phone ? `<td><a href="${toWaLink(phone)}" style="display:inline-block;padding:12px 24px;background:#171717;border:1px solid #2A2A2A;color:#B7F000;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-decoration:none;text-transform:uppercase;">WhatsApp</a></td>` : ''}
+    </tr>
+  </table>
 
   ${footer}
 </div>
@@ -140,7 +160,7 @@ export async function POST(req: Request) {
 
   <div style="background:#171717;border:1px solid #2A2A2A;border-top:none;padding:24px 32px 28px">
     <p style="font-size:15px;color:#C0C0C0;margin:0 0 20px;line-height:1.6">Hi ${name},</p>
-    <p style="font-size:15px;color:#C0C0C0;margin:0 0 28px;line-height:1.6">Thanks for reaching out. We have received your booking request and will confirm your slot within the day.</p>
+    <p style="font-size:15px;color:#C0C0C0;margin:0 0 28px;line-height:1.6">${bookingIntro}</p>
 
     <p style="font-family:monospace;font-size:10px;color:#6f7783;letter-spacing:.14em;margin:0 0 4px">YOUR REFERENCE</p>
     <p style="font-size:17px;font-weight:700;color:#ffffff;margin:0 0 28px;letter-spacing:.06em">${orderId}</p>

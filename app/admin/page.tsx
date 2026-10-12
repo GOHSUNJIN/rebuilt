@@ -377,10 +377,12 @@ async function SecondarySection({ since, until }: { since: string; until: string
             {devices.length === 0 ? (
               <p style={{ padding: `16px ${P}`, fontSize: 13, color: '#909090', margin: 0 }}>No data yet.</p>
             ) : (
-              devices.map(d => {
-                const pct = Math.round((d.pageviews / totDev) * 100)
-                return <BarRow key={d.deviceType} label={d.deviceType.charAt(0).toUpperCase() + d.deviceType.slice(1)} value={`${pct}%`} pct={pct} barColor="var(--accent)" />
-              })
+              <div className="admin-rows-scroll">
+                {devices.map(d => {
+                  const pct = Math.round((d.pageviews / totDev) * 100)
+                  return <BarRow key={d.deviceType} label={d.deviceType.charAt(0).toUpperCase() + d.deviceType.slice(1)} value={`${pct}%`} pct={pct} barColor="var(--accent)" />
+                })}
+              </div>
             )}
           </div>
         </div>

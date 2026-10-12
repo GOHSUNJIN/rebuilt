@@ -7,6 +7,7 @@ import { logoutAction } from '@/app/actions/admin'
 import { isAnalyticsConfigured, fetchCritical, fetchSecondary } from '@/lib/analytics'
 import type { CriticalData, SecondaryData, DailyStat, CountryStat } from '@/lib/analytics'
 import RefreshButton from './_components/RefreshButton'
+import AdminMarker from './_components/AdminMarker'
 import DateRangePicker from './_components/DateRangePicker'
 import TrafficChart from './_components/TrafficChart'
 
@@ -462,6 +463,7 @@ export default async function AdminPage({
 
   return (
     <>
+      <AdminMarker />
       <AdminHeader activePeriod={activePeriod} />
 
       {isCustom && (

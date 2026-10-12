@@ -7,7 +7,7 @@ import ScrollProgress from '@/components/effects/ScrollProgress'
 import CursorGlow from '@/components/effects/CursorGlow'
 import ThemePlayground from '@/components/effects/ThemePlayground'
 import BackToTop from '@/components/ui/BackToTop'
-import { Analytics } from '@vercel/analytics/react'
+import AnalyticsWrapper from './_components/AnalyticsWrapper'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const archivo = Archivo({
@@ -109,7 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <BackToTop />
         <WhatsAppButton />
         {process.env.NODE_ENV === 'development' && <ThemePlayground />}
-        <Analytics />
+        <AnalyticsWrapper />
         <SpeedInsights />
       </body>
     </html>

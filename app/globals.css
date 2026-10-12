@@ -63,7 +63,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  word-break: break-word;
   overflow-wrap: break-word;
 }
 

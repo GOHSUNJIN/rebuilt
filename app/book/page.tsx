@@ -152,7 +152,7 @@ function BookContent() {
 
   const waUrl = `${SITE.contact.whatsapp}?text=${encodeURIComponent(waText)}`
 
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}&su=${encodeURIComponent('Consultation Booking - Rebuilt')}&body=${encodeURIComponent(emailBody)}`
+  const gmailUrl = `https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}&subject=${encodeURIComponent('Consultation Booking - Rebuilt')}&body=${encodeURIComponent(emailBody)}`
 
   const summaryRows = [
     { label: 'Service',         value: service },

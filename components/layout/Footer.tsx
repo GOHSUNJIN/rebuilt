@@ -27,8 +27,8 @@ export default function Footer() {
     },
     {
       label: 'Email',
-      href: `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`,
-      note: `This will open Gmail to send a message to ${SITE.contact.email}.`,
+      href: `https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}`,
+      note: `This will open Outlook to send a message to ${SITE.contact.email}.`,
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
           <rect x="2.5" y="5" width="19" height="14" rx="2" />

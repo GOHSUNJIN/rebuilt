@@ -1304,8 +1304,9 @@ p { text-wrap: pretty; }
    ══════════════════════════════════════════════════ */
 @media (min-width: 1440px) {
   /* Centers a ~1200px content column at all wide viewport sizes */
-  .r-px { padding-left: max(48px, calc(50vw - 600px)) !important; padding-right: max(48px, calc(50vw - 600px)) !important; }
-  nav   { padding-left: max(48px, calc(50vw - 600px)) !important; padding-right: max(48px, calc(50vw - 600px)) !important; }
+  /* Excludes hero-content which has its own maxWidth and must keep 48px padding */
+  .r-px:not(.r-hero-content) { padding-left: max(48px, calc(50vw - 600px)) !important; padding-right: max(48px, calc(50vw - 600px)) !important; }
+  nav                         { padding-left: max(48px, calc(50vw - 600px)) !important; padding-right: max(48px, calc(50vw - 600px)) !important; }
 }
 
 /* ══════════════════════════════════════════════════

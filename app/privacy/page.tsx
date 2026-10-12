@@ -148,7 +148,7 @@ export default function PrivacyPage() {
 
           <div style={{ marginTop: 36, paddingTop: 24, borderTop: '1px solid #1E1E1E' }}>
             <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', marginTop: 0, marginBottom: 10 }}>QUESTIONS?</p>
-            <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, color: 'var(--accent)', textDecoration: 'none', lineHeight: 1.5 }}>
+            <a href={`https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, color: 'var(--accent)', textDecoration: 'none', lineHeight: 1.5 }}>
               {SITE.contact.email}
             </a>
           </div>
@@ -229,7 +229,7 @@ export default function PrivacyPage() {
               ))}
             </div>
             <p style={bodyText}>To exercise any of these rights, contact us at{' '}
-              <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>{SITE.contact.email}</a>.
+              <a href={`https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>{SITE.contact.email}</a>.
               {' '}We will respond within 30 days.
             </p>
           </Section>
@@ -251,7 +251,7 @@ export default function PrivacyPage() {
               <p style={{ fontSize: 14, color: '#6f7783', margin: '0 0 10px', lineHeight: 1.6 }}>
                 Core Collective · Robinson, Dempsey &amp; Katong
               </p>
-              <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }}>
+              <a href={`https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }}>
                 {SITE.contact.email}
               </a>
             </div>

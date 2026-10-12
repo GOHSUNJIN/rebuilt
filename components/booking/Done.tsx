@@ -17,7 +17,7 @@ export default function Done() {
       <p style={{ fontSize: 16, color: '#A5A5A5', marginTop: 0, marginBottom: 16 }}>We&apos;ll get back to you shortly to confirm your slot and arrange payment.</p>
       <p style={{ fontSize: 14, color: '#5f6670', marginTop: 0, marginBottom: 40, lineHeight: 1.6 }}>
         No reply? Reach us at{' '}
-        <a href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>{SITE.contact.email}</a>
+        <a href={`https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SITE.contact.email)}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>{SITE.contact.email}</a>
         {' '}or{' '}
         <a href={SITE.contact.phoneTel} style={{ color: 'var(--accent)' }}>{SITE.contact.phone}</a>.
       </p>

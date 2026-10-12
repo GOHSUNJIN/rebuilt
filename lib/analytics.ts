@@ -15,26 +15,25 @@ function buildParams(since: string, until: string, extra: Record<string, string>
 
 async function vercelGet(path: string, params: URLSearchParams) {
   const url = `${BASE}${path}?${params}`
-  console.log(`[analytics] GET ${path} projectId=${params.get('projectId')} since=${params.get('since')} until=${params.get('until')}`)
+  console.log(`[analytics] GET ${path} by=${params.get('by')} since=${params.get('since')?.slice(0, 10)}`)
   const res = await fetch(url, {
     headers: authHeaders(),
-    next: { revalidate: 300 },
+    next: { revalidate: 60, tags: ['analytics'] },
   })
   if (!res.ok) {
     const body = await res.text().catch(() => '')
-    console.error(`[analytics] ${res.status} ${res.statusText} — ${path}`, body)
+    console.error(`[analytics] ${res.status} ${res.statusText} - ${path}`, body)
     return null
   }
   const json = await res.json() as { data: unknown }
   const rows = Array.isArray(json?.data) ? json.data.length : '(non-array)'
-  console.log(`[analytics] OK ${path} — ${rows} rows`)
+  console.log(`[analytics] OK ${path} - ${rows} rows`)
   return json
 }
 
 export function isAnalyticsConfigured(): boolean {
   const ok = !!(process.env.VA_TOKEN && process.env.VA_PROJECT_ID)
   if (!ok) console.warn('[analytics] VA_TOKEN or VA_PROJECT_ID is missing')
-  else console.log(`[analytics] configured — project=${process.env.VA_PROJECT_ID?.slice(0, 12)}…`)
   return ok
 }
 
@@ -64,8 +63,8 @@ export interface SecondaryData {
 export async function fetchCritical(since: string, until: string): Promise<CriticalData> {
   const [totalsJson, dailyJson, eventsJson] = await Promise.all([
     vercelGet('/v1/query/web-analytics/visits/count', buildParams(since, until)),
-    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: JSON.stringify(['day']), limit: '366' })),
-    vercelGet('/v1/query/web-analytics/events/aggregate', buildParams(since, until, { by: JSON.stringify(['eventName']), limit: '20' })),
+    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'day', limit: '366' })),
+    vercelGet('/v1/query/web-analytics/events/aggregate', buildParams(since, until, { by: 'eventName', limit: '20' })),
   ])
 
   const td = totalsJson?.data as { pageviews?: number; visitors?: number } | null
@@ -85,9 +84,9 @@ export async function fetchCritical(since: string, until: string): Promise<Criti
 // Second render wave: pages + devices + referrers (3 parallel calls)
 export async function fetchSecondary(since: string, until: string): Promise<SecondaryData> {
   const [pagesJson, devicesJson, referrersJson] = await Promise.all([
-    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: JSON.stringify(['requestPath']), limit: '10' })),
-    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: JSON.stringify(['deviceType']) })),
-    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: JSON.stringify(['referrerHostname']), limit: '8' })),
+    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'requestPath', limit: '10' })),
+    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'deviceType' })),
+    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'referrerHostname', limit: '8' })),
   ])
 
   return {

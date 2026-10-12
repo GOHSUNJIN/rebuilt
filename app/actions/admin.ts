@@ -1,7 +1,7 @@
 'use server'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import { createHash, timingSafeEqual } from 'crypto'
 import { signToken, COOKIE_NAME, MAX_AGE_S } from '@/lib/adminAuth'
 
@@ -43,6 +43,7 @@ export async function logoutAction() {
 }
 
 export async function refreshAdminAction() {
+  revalidateTag('analytics')
   revalidatePath('/admin')
   redirect('/admin')
 }

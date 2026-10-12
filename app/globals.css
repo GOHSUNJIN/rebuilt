@@ -385,9 +385,23 @@ p { text-wrap: pretty; }
    TABLET  (769px – 1024px)
    ══════════════════════════════════════════════════ */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .r4 { grid-template-columns: repeat(2, 1fr) !important; }
-  .r3 { grid-template-columns: repeat(2, 1fr) !important; }
-  .r-hero { height: auto !important; min-height: 560px !important; }
+  /* ── Grids ── */
+  .r4   { grid-template-columns: repeat(2, 1fr) !important; }
+  .r3   { grid-template-columns: repeat(2, 1fr) !important; }
+  .r-hero { height: auto !important; min-height: 580px !important; }
+
+  /* ── Horizontal padding: 48px → 32px everywhere ── */
+  .r-px { padding-left: 32px !important; padding-right: 32px !important; }
+  nav   { padding: 0 32px !important; }
+
+  /* ── Typography ── */
+  .r-h1         { font-size: 62px !important; line-height: 0.93 !important; }
+  .r-section-h2 { font-size: 38px !important; line-height: 0.94 !important; }
+  .r-testimonial-quote { font-size: 19px !important; }
+
+  /* ── Physio partnership: stack the white logo panel below content ── */
+  .r-partner-grid { grid-template-columns: 1fr !important; }
+  .r-partner-img  { min-height: 300px !important; padding: 40px !important; order: -1; }
 }
 
 /* Mobile hero image hidden by default (shown via mobile media query) */

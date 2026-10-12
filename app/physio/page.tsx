@@ -60,7 +60,7 @@ export default function PhysioPage() {
 
       {/* Partnership */}
       <section style={{ borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }} className="r2">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }} className="r2 r-partner-grid">
           <div className="r-px r-tall-pad r-physio-partner-content" style={{ padding: '72px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 40 }}>
             <div>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', marginTop: 0, marginBottom: 20 }}>THE PARTNERSHIP</p>

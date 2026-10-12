@@ -21,7 +21,7 @@ export default function Marquee({
   const doubled = [...items, ...items]
 
   return (
-    <div style={{ overflow: 'hidden', background: '#0B0B0B', borderTop: '1px solid #1E1E1E', borderBottom: '1px solid #1E1E1E' }}>
+    <div style={{ overflow: 'hidden', background: '#0B0B0B', borderTop: '1px solid #2A2A2A', borderBottom: '1px solid #2A2A2A' }}>
       <div
         style={{
           display: 'flex',

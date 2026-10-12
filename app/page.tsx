@@ -147,7 +147,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <a href="https://gobeyondrehab.sg/" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '8px 14px', fontSize: 9, letterSpacing: '.16em', flexShrink: 0, textDecoration: 'none' }}>
-                  Visit ↗
+                  Visit ↗︎
                 </a>
               </div>
             </div>
@@ -207,7 +207,7 @@ export default function HomePage() {
       <ReviewsSection />
 
       {/* ── 6. Instagram ────────────────────────── */}
-      <section style={{ borderBottom: '1px solid #2A2A2A', background: '#111111' }}>
+      <section style={{ borderBottom: '1px solid #2A2A2A', background: '#0B0B0B' }}>
         <div style={{ height: 3, background: 'linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' }} />
         <p className="r-px" style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.24em', margin: '0', padding: '28px 48px 0' }}>SOCIALS</p>
         <div className="r-px r-ig-section" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '36px 48px', flexWrap: 'wrap', gap: 20 }}>

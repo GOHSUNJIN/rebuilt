@@ -3,7 +3,7 @@ import type { CrosslinkItem } from '@/lib/types'
 
 export default function ServiceCrosslinks({ items }: { items: CrosslinkItem[] }) {
   return (
-    <section style={{ borderTop: '1px solid #1E1E1E', background: '#0B0B0B' }}>
+    <section style={{ borderTop: '1px solid #2A2A2A', background: '#0B0B0B' }}>
       <div className="r-crosslinks-section r-px r-tall-pad" style={{ padding: '52px 48px' }}>
         <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.22em', marginTop: 0, marginBottom: 28 }}>
           ALSO AT REBUILT

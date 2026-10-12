@@ -12,7 +12,9 @@ export default function Done() {
 
   return (
     <div style={{ textAlign: 'center', paddingTop: 40 }}>
-      <div style={{ width: 56, height: 56, border: '1px solid var(--accent)', borderRadius: '50%', display: 'grid', placeItems: 'center', margin: '0 auto 28px', color: 'var(--accent)', fontSize: 22 }}>✓</div>
+      <div style={{ width: 56, height: 56, border: '1px solid var(--accent)', borderRadius: '50%', display: 'grid', placeItems: 'center', margin: '0 auto 28px', color: 'var(--accent)' }}>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="3 11 9 17 19 5"/></svg>
+      </div>
       <h2 className="r-h2" style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.025em', marginTop: 0, marginBottom: 12, lineHeight: 0.96 }}>Request sent.</h2>
       <p style={{ fontSize: 16, color: '#A5A5A5', marginTop: 0, marginBottom: 16 }}>We&apos;ll get back to you shortly to confirm your slot and arrange payment.</p>
       <p style={{ fontSize: 14, color: '#5f6670', marginTop: 0, marginBottom: 40, lineHeight: 1.6 }}>

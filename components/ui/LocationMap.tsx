@@ -78,7 +78,7 @@ export default function LocationMap() {
             textDecoration: 'none', zIndex: 1, backdropFilter: 'blur(4px)',
           }}
         >
-          GET DIRECTIONS ↗
+          GET DIRECTIONS ↗︎
         </a>
       </div>
     </div>

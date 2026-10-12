@@ -641,7 +641,7 @@ p { text-wrap: pretty; }
   .r-faq-sidebar {
     width: 100% !important;
     border-right: none !important;
-    border-bottom: 1px solid #212429 !important;
+    border-bottom: 1px solid #1E1E1E !important;
     padding: 0 !important;
     flex-direction: row !important;
     overflow-x: auto !important;
@@ -933,7 +933,7 @@ p { text-wrap: pretty; }
     border-bottom: none !important;
   }
   .r-decision-row > span:last-child  { font-size: 12px !important; letter-spacing: .14em !important; }
-  .r-decision-row > span:first-child { font-size: 13.5px !important; color: #888 !important; line-height: 1.4 !important; }
+  .r-decision-row > span:first-child { font-size: 13.5px !important; color: #909090 !important; line-height: 1.4 !important; }
   .r-cta-btns {
     flex-direction: column !important;
     align-items: stretch !important;
@@ -1010,7 +1010,7 @@ p { text-wrap: pretty; }
   .r-faq-sidebar {
     width: 100% !important;
     border-right: none !important;
-    border-bottom: 1px solid #212429 !important;
+    border-bottom: 1px solid #1E1E1E !important;
     padding: 0 !important;
     flex-direction: row !important;
     overflow-x: auto !important;

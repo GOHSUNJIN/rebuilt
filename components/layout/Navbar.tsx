@@ -144,7 +144,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
                   fontWeight: 600,
                   letterSpacing: '.2em',
                   textTransform: 'uppercase',
-                  color: activePage === page ? 'var(--accent)' : '#b0b7c0',
+                  color: activePage === page ? 'var(--accent)' : '#A5A5A5',
                 }}
               >
                 {label}

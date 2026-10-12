@@ -92,7 +92,7 @@ export default function PhysioPage() {
                   className="btn-outline"
                   style={{ padding: '10px 18px', fontSize: 10, letterSpacing: '.2em', flexShrink: 0 }}
                 >
-                  Visit site ↗
+                  Visit site ↗︎
                 </a>
               </div>
             </div>

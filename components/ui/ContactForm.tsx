@@ -29,9 +29,9 @@ export default function ContactForm() {
       <div style={{ paddingTop: 40, paddingBottom: 40 }}>
         <div style={{
           width: 48, height: 48, border: '1px solid var(--accent)', borderRadius: '50%',
-          display: 'grid', placeItems: 'center', color: 'var(--accent)', fontSize: 20, marginBottom: 28,
+          display: 'grid', placeItems: 'center', color: 'var(--accent)', marginBottom: 28,
         }}>
-          ✓
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="2.5 10 8 16 17.5 4"/></svg>
         </div>
         <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-.02em', marginTop: 0, marginBottom: 14 }}>
           Message sent.

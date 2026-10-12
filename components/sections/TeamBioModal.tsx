@@ -220,11 +220,11 @@ export default function TeamBioModal() {
                 position: 'absolute', top: 16, right: 16,
                 background: 'rgba(15,17,21,.8)', border: 'none',
                 color: '#FFFFFF', width: 48, height: 48, borderRadius: '50%',
-                cursor: 'pointer', display: 'grid', placeItems: 'center', fontSize: 18,
+                cursor: 'pointer', display: 'grid', placeItems: 'center',
                 fontFamily: 'inherit', zIndex: 1, backdropFilter: 'blur(8px)',
               }}
             >
-              ✕
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
             </button>
 
             <div style={{ position: 'relative' }}>
@@ -301,11 +301,11 @@ export default function TeamBioModal() {
                 position: 'absolute', top: 20, right: 20,
                 background: 'rgba(15,17,21,.8)', border: 'none',
                 color: '#FFFFFF', width: 40, height: 40, borderRadius: '50%',
-                cursor: 'pointer', display: 'grid', placeItems: 'center', fontSize: 18,
+                cursor: 'pointer', display: 'grid', placeItems: 'center',
                 fontFamily: 'inherit', zIndex: 2, backdropFilter: 'blur(8px)',
               }}
             >
-              ✕
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/></svg>
             </button>
 
             {/* Header — dark branded block */}
@@ -362,7 +362,7 @@ export default function TeamBioModal() {
                   {RNB_TEAM.map((person) => (
                     <div
                       key={person.name}
-                      style={{ border: '1px solid #1E1E1E', background: '#0c0e13', overflow: 'hidden' }}
+                      style={{ border: '1px solid #1E1E1E', background: '#0B0B0B', overflow: 'hidden' }}
                     >
                       {/* Photo + name header */}
                       <div style={{ display: 'flex', gap: 0 }}>
@@ -392,7 +392,7 @@ export default function TeamBioModal() {
                           {person.credentials.map((c) => (
                             <div key={c} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                               <span style={{ width: 3, height: 3, background: '#5f6670', borderRadius: '50%', flexShrink: 0 }} />
-                              <span style={{ fontSize: 12, color: '#7a8290' }}>{c}</span>
+                              <span style={{ fontSize: 12, color: '#6f7783' }}>{c}</span>
                             </div>
                           ))}
                         </div>
@@ -411,7 +411,7 @@ export default function TeamBioModal() {
                   className="btn-gold r-rnb-btn"
                   style={{ fontSize: 11, letterSpacing: '.18em', padding: '13px 22px' }}
                 >
-                  VISIT SITE ↗
+                  VISIT SITE ↗︎
                 </a>
                 <a
                   href="/physio"

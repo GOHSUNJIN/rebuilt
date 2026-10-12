@@ -115,7 +115,7 @@ export default function Step2({ coach, setCoach }: Step2Props) {
               </div>
 
               {selected && (
-                <span style={{ color: 'var(--accent)', fontSize: 14, flexShrink: 0, marginTop: 4 }}>✓</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--accent)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0, marginTop: 4 }}><polyline points="2 7 6 11 12 3"/></svg>
               )}
             </button>
           )

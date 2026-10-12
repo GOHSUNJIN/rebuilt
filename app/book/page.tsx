@@ -237,7 +237,7 @@ function BookContent() {
             <div key={num} style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '18px 0', paddingRight: i < STEPS.length - 1 ? 20 : 0, opacity: done || current ? 1 : 0.3 }}>
                 <span style={{ width: 22, height: 22, border: `1px solid ${done || current ? 'var(--accent)' : '#2A2A2A'}`, background: done ? 'var(--accent)' : 'transparent', color: done ? '#0B0B0B' : current ? 'var(--accent)' : '#5f6670', font: '9px/1 ui-monospace,Menlo,monospace', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
-                  {done ? '✓' : num}
+                  {done ? <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="1 5 4 8 9 2"/></svg> : num}
                 </span>
                 <span className="book-step-label" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: current ? '#FFFFFF' : done ? 'var(--accent)' : '#5f6670' }}>{label}</span>
               </div>

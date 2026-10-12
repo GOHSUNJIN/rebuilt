@@ -149,10 +149,10 @@ export default function LocationDrawer() {
                 background: 'rgba(15,17,21,.8)', border: 'none',
                 color: '#FFFFFF', width: 48, height: 48, borderRadius: '50%',
                 cursor: 'pointer', display: 'grid', placeItems: 'center',
-                fontSize: 18, fontFamily: 'inherit', zIndex: 1, backdropFilter: 'blur(8px)',
+                fontFamily: 'inherit', zIndex: 1, backdropFilter: 'blur(8px)',
               }}
             >
-              ✕
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
             </button>
 
             <div style={{ position: 'relative' }}>
@@ -212,7 +212,7 @@ export default function LocationDrawer() {
                   gap: 10, padding: '15px 24px', textDecoration: 'none',
                 }}
               >
-                Get directions ↗
+                Get directions ↗︎
               </a>
             </div>
           </div>

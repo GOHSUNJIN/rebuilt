@@ -67,7 +67,7 @@ export default function PerformancePage() {
         </p>
         <div className="r-whosfor-grid" style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {['Weekend warriors', 'Club athletes', 'Semi-professional', 'National competitors'].map(level => (
-            <span key={level} className="r-whosfor-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', border: '1px solid #242424', background: '#111', color: '#C0C0C0', fontSize: 12.5, fontWeight: 500, letterSpacing: '-.01em' }}>
+            <span key={level} className="r-whosfor-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', border: '1px solid #1E1E1E', background: '#0B0B0B', color: '#A5A5A5', fontSize: 12.5, fontWeight: 500, letterSpacing: '-.01em' }}>
               <span style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%', flexShrink: 0 }} />
               {level}
             </span>

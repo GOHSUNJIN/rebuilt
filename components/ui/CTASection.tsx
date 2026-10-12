@@ -13,7 +13,7 @@ interface CTASectionProps {
 
 export default function CTASection({ heading, body, bookHref, bookLabel, imageSrc, imagePosition = 'center' }: CTASectionProps) {
   return (
-    <section style={{ background: '#0B0B0B', borderTop: '1px solid #1E1E1E' }}>
+    <section style={{ background: '#0B0B0B', borderTop: '1px solid #2A2A2A' }}>
       <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 540 }}>
         <div className="r-px r-tall-pad r-cta-content" style={{ padding: '88px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{ width: 36, height: 2, background: 'var(--accent)', marginBottom: 28 }} />

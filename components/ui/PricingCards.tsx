@@ -32,7 +32,7 @@ export default function PricingCards({ items }: { items: PricingItem[] }) {
           <div
             key={type}
             className="r-pricing-card"
-            style={{ background: featured ? '#171717' : '#171717', padding: '36px 32px 40px', display: 'flex', flexDirection: 'column', borderTop: featured ? '3px solid var(--accent)' : '3px solid transparent' }}
+            style={{ background: featured ? '#171717' : '#0B0B0B', padding: '36px 32px 40px', display: 'flex', flexDirection: 'column', borderTop: featured ? '3px solid var(--accent)' : '3px solid transparent' }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 }}>
               <p style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.2em', margin: 0 }}>{type.toUpperCase()}</p>

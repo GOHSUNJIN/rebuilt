@@ -41,7 +41,7 @@ export default function CopyText({ value, children, style, className }: CopyText
           flexShrink: 0,
         }}
       >
-        {copied ? 'COPIED ✓' : 'COPY'}
+        {copied ? 'COPIED ✓︎' : 'COPY'}
       </button>
     </span>
   )

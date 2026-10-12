@@ -19,7 +19,7 @@ interface Props {
 
 export default function ServiceTestimonial({ imageSrc, imageAlt, imagePosition, quote, initial, name, role }: Props) {
   return (
-    <section className="r-testimonial-section" style={{ background: '#171717', borderTop: '1px solid #1E1E1E', borderBottom: '1px solid #1E1E1E' }}>
+    <section className="r-testimonial-section" style={{ background: '#171717', borderTop: '1px solid #2A2A2A', borderBottom: '1px solid #2A2A2A' }}>
       <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 340 }}>
         <div className="r-testimonial-img" style={{ position: 'relative', overflow: 'hidden', minHeight: 280 }}>
           <Image

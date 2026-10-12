@@ -45,7 +45,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
                 </div>
                 <span style={{ fontSize: 12, color: '#5f6670' }}>{sub}</span>
               </div>
-              {service === label && <span style={{ color: 'var(--accent)', flexShrink: 0, marginLeft: 16 }}>✓</span>}
+              {service === label && <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--accent)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0, marginLeft: 16 }}><polyline points="2 7 6 11 12 3"/></svg>}
             </button>
           ))}
         </div>
@@ -64,7 +64,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
                   <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 3px', color: ptFormat === id ? '#FFFFFF' : '#A5A5A5' }}>{label}</p>
                   <p style={{ fontSize: 12, color: '#5f6670', margin: 0 }}>{sub}</p>
                 </div>
-                {ptFormat === id && <span style={{ color: 'var(--accent)', flexShrink: 0, marginLeft: 16 }}>✓</span>}
+                {ptFormat === id && <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--accent)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0, marginLeft: 16 }}><polyline points="2 7 6 11 12 3"/></svg>}
               </button>
             ))}
           </div>
@@ -79,7 +79,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
                     <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 3px', color: service === ptFormat ? '#FFFFFF' : '#A5A5A5' }}>Single Session</p>
                     <p style={{ fontSize: 12, color: '#5f6670', margin: 0 }}>{PT_TYPES[ptFormat].single}</p>
                   </div>
-                  {service === ptFormat && <span style={{ color: 'var(--accent)', flexShrink: 0, marginLeft: 16 }}>✓</span>}
+                  {service === ptFormat && <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--accent)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0, marginLeft: 16 }}><polyline points="2 7 6 11 12 3"/></svg>}
                 </button>
                 <button type="button" onClick={() => setService(`${ptFormat} · block`)}
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 18px', position: 'relative', background: service === `${ptFormat} · block` ? '#171717' : '#0B0B0B', border: 'none', borderLeft: `3px solid ${service === `${ptFormat} · block` ? 'var(--accent)' : 'transparent'}`, cursor: 'pointer', color: '#FFFFFF', fontFamily: 'inherit', textAlign: 'left', transition: 'all .15s' }}
@@ -91,7 +91,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
                     </div>
                     <p style={{ fontSize: 12, color: '#5f6670', margin: 0 }}>{PT_TYPES[ptFormat].block}</p>
                   </div>
-                  {service === `${ptFormat} · block` && <span style={{ color: 'var(--accent)', flexShrink: 0, marginLeft: 16 }}>✓</span>}
+                  {service === `${ptFormat} · block` && <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--accent)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0, marginLeft: 16 }}><polyline points="2 7 6 11 12 3"/></svg>}
                 </button>
               </div>
             </>
@@ -108,7 +108,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
                 <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 4px', color: '#A5A5A5' }}>Physiotherapy with Rehab &amp; Beyond</p>
                 <p style={{ fontSize: 12, color: '#909090', margin: 0 }}>Partner clinic · available now</p>
               </div>
-              <span style={{ color: 'var(--accent)', fontSize: 14, flexShrink: 0, marginLeft: 20 }}>✓</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--accent)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0, marginLeft: 20 }}><polyline points="2 7 6 11 12 3"/></svg>
             </div>
             <div style={{ padding: '18px 20px', background: '#0a0b0e', borderLeft: '3px solid transparent', display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'not-allowed', userSelect: 'none' }}>
               <div>

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { logoutAction } from '@/app/actions/admin'
 import { isAnalyticsConfigured, fetchCritical, fetchSecondary } from '@/lib/analytics'
-import type { CriticalData, SecondaryData, DailyStat } from '@/lib/analytics'
+import type { CriticalData, SecondaryData, DailyStat, CountryStat } from '@/lib/analytics'
 import RefreshButton from './_components/RefreshButton'
 import DateRangePicker from './_components/DateRangePicker'
 import TrafficChart from './_components/TrafficChart'
@@ -42,6 +42,26 @@ function fmtShort(iso: string) {
 
 function roundToHour(ms: number): string {
   return new Date(Math.floor(ms / 3_600_000) * 3_600_000).toISOString()
+}
+
+// ─── sparkline ────────────────────────────────────────────────────────────────
+
+function Spark({ data }: { data: number[] }) {
+  if (data.length < 2) return null
+  const max = Math.max(...data, 1)
+  const W = 80, H = 22
+  const pts = data.map((v, i) => `${(i / (data.length - 1)) * W},${H - (v / max) * (H - 2) - 1}`).join(' ')
+  return (
+    <svg width={W} height={H} style={{ display: 'block', marginTop: 10, opacity: 0.45 }} aria-hidden>
+      <polyline points={pts} fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function flag(code: string) {
+  if (code.length !== 2) return ''
+  const pt = (c: string) => String.fromCodePoint(0x1F1E6 + c.toUpperCase().charCodeAt(0) - 65)
+  return pt(code[0]) + pt(code[1])
 }
 
 // ─── tooltip ──────────────────────────────────────────────────────────────────
@@ -97,8 +117,8 @@ function BarRow({ label, value, pct, barColor, mono }: {
 
 // ─── stat card ─────────────────────────────────────────────────────────────────
 
-function StatCard({ icon, title, value, sub, tip }: {
-  icon: React.ReactNode; title: string; value: string; sub?: string; tip?: string
+function StatCard({ icon, title, value, sub, tip, spark }: {
+  icon: React.ReactNode; title: string; value: string; sub?: string; tip?: string; spark?: number[]
 }) {
   return (
     <div className="admin-stat-card" style={{ background: '#111', padding: '24px 28px', position: 'relative' }}>
@@ -113,6 +133,7 @@ function StatCard({ icon, title, value, sub, tip }: {
         {value}
       </p>
       {sub && <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', margin: '10px 0 0', letterSpacing: '.12em' }}>{sub}</p>}
+      {spark && <Spark data={spark} />}
     </div>
   )
 }
@@ -214,12 +235,13 @@ function CriticalSkeleton() {
   return (
     <>
       <section style={{ borderBottom: '1px solid #222' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: '#222' }}>
-          {[1, 2, 3].map(i => (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 1, background: '#222' }}>
+          {[1, 2, 3, 4].map(i => (
             <div key={i} style={{ background: '#111', padding: '24px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
               {bar('52%', 8, 0.06)}
               {bar('38%', 36, 0.04)}
               {bar('44%', 7, 0.03)}
+              {bar(80, 22, 0.02)}
             </div>
           ))}
         </div>
@@ -259,15 +281,20 @@ async function CriticalSection({
 }) {
   const { totals, daily }: CriticalData = await fetchCritical(since, until)
 
-  const avgDaily = Math.round(totals.pageviews / rangeDays)
+  const avgDaily      = Math.round(totals.pageviews / rangeDays)
+  const pagesPerVisit = totals.visitors > 0 ? (totals.pageviews / totals.visitors).toFixed(1) : '—'
+  const pvSpark       = daily.map(d => d.pageviews)
+  const uvSpark       = daily.map(d => d.visitors)
+  const ppvSpark      = daily.map(d => d.visitors > 0 ? d.pageviews / d.visitors : 0)
 
   return (
     <>
       <section style={{ borderBottom: '1px solid #222' }}>
-        <div className="r4 admin-stat-scroll" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: '#222' }}>
-          <StatCard icon={Ic.eye}      title="PAGE VIEWS"      value={fmt(totals.pageviews)} sub={rangeLabel} tip="Total pages loaded by all visitors. Refreshing counts as another view." />
-          <StatCard icon={Ic.users}    title="UNIQUE VISITORS" value={fmt(totals.visitors)}  sub={rangeLabel} tip="Estimated distinct people based on device and browser fingerprint." />
-          <StatCard icon={Ic.trending} title="AVG DAILY VIEWS" value={fmt(avgDaily)}         sub="PER DAY"    tip="Total page views divided by the number of days in the selected period." />
+        <div className="r4 admin-stat-scroll" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 1, background: '#222' }}>
+          <StatCard icon={Ic.eye}      title="PAGE VIEWS"      value={fmt(totals.pageviews)} sub={rangeLabel} tip="Total pages loaded by all visitors. Refreshing counts as another view." spark={pvSpark} />
+          <StatCard icon={Ic.users}    title="UNIQUE VISITORS" value={fmt(totals.visitors)}  sub={rangeLabel} tip="Estimated distinct people based on device and browser fingerprint." spark={uvSpark} />
+          <StatCard icon={Ic.trending} title="AVG DAILY VIEWS" value={fmt(avgDaily)}         sub="PER DAY"    tip="Total page views divided by the number of days in the selected period." spark={pvSpark} />
+          <StatCard icon={Ic.target}   title="PAGES / VISIT"   value={pagesPerVisit}         sub="ENGAGEMENT" tip="Average pages viewed per unique visitor. Higher means people explore more." spark={ppvSpark} />
         </div>
       </section>
 
@@ -279,11 +306,12 @@ async function CriticalSection({
 // ─── secondary section ─────────────────────────────────────────────────────────
 
 async function SecondarySection({ since, until }: { since: string; until: string }) {
-  const { topPages, devices, referrers }: SecondaryData = await fetchSecondary(since, until)
+  const { topPages, devices, referrers, countries }: SecondaryData = await fetchSecondary(since, until)
 
   const maxPg  = Math.max(...topPages.map(p => p.pageviews), 1)
   const totDev = devices.reduce((s, d) => s + d.pageviews, 0) || 1
   const maxRef = Math.max(...referrers.map(r => r.pageviews), 1)
+  const maxCo  = Math.max(...countries.map(c => c.pageviews), 1)
 
   return (
     <>
@@ -314,9 +342,21 @@ async function SecondarySection({ since, until }: { since: string; until: string
       </section>
 
       <section style={{ borderBottom: '1px solid #222' }}>
-        <div className="r2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: '#222' }}>
+        <div className="admin-bottom-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 1, background: '#222' }}>
           <div style={{ background: '#0B0B0B' }}>
-            <SecHead icon={Ic.globe} label="TOP REFERRERS" tip="External sites and sources that sent visitors here. Direct traffic and search engines typically lead." />
+            <SecHead icon={Ic.globe} label="TOP COUNTRIES" tip="Countries sending the most traffic, based on visitor IP." />
+            {countries.length === 0 ? (
+              <p style={{ padding: `16px ${P}`, fontSize: 13, color: '#909090', margin: 0 }}>No data yet.</p>
+            ) : (
+              <div className="admin-rows-scroll">
+                {countries.map((c: CountryStat) => (
+                  <BarRow key={c.country} label={`${flag(c.country)}  ${c.country}`} value={fmt(c.pageviews)} pct={(c.pageviews / maxCo) * 100} barColor="var(--accent)" mono />
+                ))}
+              </div>
+            )}
+          </div>
+          <div style={{ background: '#111' }}>
+            <SecHead icon={Ic.globe} label="TOP REFERRERS" tip="External sites and sources that sent visitors here." />
             {referrers.length === 0 ? (
               <p style={{ padding: `16px ${P}`, fontSize: 13, color: '#909090', margin: 0 }}>No data yet.</p>
             ) : (
@@ -327,7 +367,7 @@ async function SecondarySection({ since, until }: { since: string; until: string
               </div>
             )}
           </div>
-          <div style={{ background: '#111' }}>
+          <div style={{ background: '#0B0B0B' }}>
             <SecHead icon={Ic.monitor} label="DEVICES" tip="Traffic split by device type: mobile, desktop, or tablet." />
             {devices.length === 0 ? (
               <p style={{ padding: `16px ${P}`, fontSize: 13, color: '#909090', margin: 0 }}>No data yet.</p>

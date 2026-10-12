@@ -44,6 +44,7 @@ export interface TopPage        { requestPath: string; pageviews: number; visito
 export interface DeviceStat     { deviceType: string; pageviews: number }
 export interface DailyStat      { timestamp: string; pageviews: number; visitors: number }
 export interface ReferrerStat   { referrerHostname: string; pageviews: number }
+export interface CountryStat    { country: string; pageviews: number }
 
 export interface CriticalData {
   totals: AnalyticsTotals
@@ -54,6 +55,7 @@ export interface SecondaryData {
   topPages: TopPage[]
   devices: DeviceStat[]
   referrers: ReferrerStat[]
+  countries: CountryStat[]
 }
 
 // First render wave: daily chart (totals derived from daily sum to avoid API day-snapping)
@@ -72,12 +74,13 @@ export async function fetchCritical(since: string, until: string): Promise<Criti
   return { totals, daily }
 }
 
-// Second render wave: pages + devices + referrers (3 parallel calls)
+// Second render wave: pages + devices + referrers + countries (4 parallel calls)
 export async function fetchSecondary(since: string, until: string): Promise<SecondaryData> {
-  const [pagesJson, devicesJson, referrersJson] = await Promise.all([
+  const [pagesJson, devicesJson, referrersJson, countriesJson] = await Promise.all([
     vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'requestPath', limit: '10', filter: "not startswith(requestPath, '/admin')" })),
     vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'deviceType' })),
     vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'referrerHostname', limit: '8' })),
+    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'country', limit: '8' })),
   ])
 
   return {
@@ -90,6 +93,10 @@ export async function fetchSecondary(since: string, until: string): Promise<Seco
     referrers: ((referrersJson?.data ?? []) as Row[])
       .map(r => ({ referrerHostname: String(r.referrerHostname ?? ''), pageviews: Number(r.pageviews ?? 0) }))
       .filter(r => r.referrerHostname)
+      .sort((a, b) => b.pageviews - a.pageviews),
+    countries: ((countriesJson?.data ?? []) as Row[])
+      .map(r => ({ country: String(r.country ?? r.countryCode ?? ''), pageviews: Number(r.pageviews ?? 0) }))
+      .filter(r => r.country)
       .sort((a, b) => b.pageviews - a.pageviews),
   }
 }

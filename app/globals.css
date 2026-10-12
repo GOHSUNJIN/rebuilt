@@ -1187,6 +1187,7 @@ p { text-wrap: pretty; }
     text-align: left !important;
   }
   .admin-page-visitors { display: none !important; }
+  .admin-bottom-grid  { grid-template-columns: 1fr !important; }
 
   /* ── Book page ─── */
   .book-sidebar    { order: -1 !important; position: static !important; top: auto !important; }

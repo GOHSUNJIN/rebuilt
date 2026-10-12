@@ -139,7 +139,6 @@ const PERIOD_TABS = [
   { value: '1',      label: 'TODAY' },
   { value: '7',      label: '7D' },
   { value: '30',     label: '30D' },
-  { value: '90',     label: '90D' },
   { value: 'custom', label: 'RANGE' },
 ]
 
@@ -395,7 +394,7 @@ export default async function AdminPage({
   const { p, since: sinceParam, until: untilParam } = await searchParams
 
   const isCustom = p === 'custom'
-  const days     = isCustom ? null : Math.min(Math.max(Number(p) || 30, 1), 90)
+  const days     = isCustom ? null : Math.min(Math.max(Number(p) || 30, 1), 30)
   const todayStr = new Date().toISOString().slice(0, 10)
 
   const since = isCustom && sinceParam
@@ -429,7 +428,7 @@ export default async function AdminPage({
   if (isAnalyticsConfigured() && !isCustom) {
     after(async () => {
       const now = Date.now()
-      const others = ([7, 30, 90] as const).filter(d => String(d) !== activePeriod)
+      const others = ([7, 30] as const).filter(d => String(d) !== activePeriod)
       await Promise.all(others.flatMap(d => {
         const s = roundToHour(now - d * 86_400_000)
         const u = roundToHour(now)

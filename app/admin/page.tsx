@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { logoutAction } from '@/app/actions/admin'
 import { isAnalyticsConfigured, fetchCritical, fetchSecondary } from '@/lib/analytics'
-import type { CriticalData, SecondaryData, DailyStat, DOWStat } from '@/lib/analytics'
+import type { CriticalData, SecondaryData, DailyStat } from '@/lib/analytics'
 import RefreshButton from './_components/RefreshButton'
 import DateRangePicker from './_components/DateRangePicker'
 import TrafficChart from './_components/TrafficChart'
@@ -34,22 +34,6 @@ function fmt(n: number) {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`
   if (n >= 1_000) return `${(n / 1_000).toFixed(1)}k`
   return String(n)
-}
-
-const DOW_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
-function computeDOW(daily: DailyStat[]): DOWStat[] {
-  const b = DOW_LABELS.map(day => ({ day, pageviews: 0, visitors: 0, count: 0 }))
-  for (const d of daily) {
-    if (!d.timestamp) continue
-    const i = new Date(d.timestamp).getUTCDay()
-    b[i].pageviews += d.pageviews; b[i].visitors += d.visitors; b[i].count++
-  }
-  return b.map(x => ({
-    day: x.day,
-    pageviews: x.count > 0 ? Math.round(x.pageviews / x.count) : 0,
-    visitors:  x.count > 0 ? Math.round(x.visitors  / x.count) : 0,
-  }))
 }
 
 function fmtShort(iso: string) {
@@ -230,8 +214,8 @@ function CriticalSkeleton() {
   return (
     <>
       <section style={{ borderBottom: '1px solid #222' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 1, background: '#222' }}>
-          {[1, 2, 3, 4].map(i => (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: '#222' }}>
+          {[1, 2, 3].map(i => (
             <div key={i} style={{ background: '#111', padding: '24px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
               {bar('52%', 8, 0.06)}
               {bar('38%', 36, 0.04)}
@@ -276,19 +260,18 @@ async function CriticalSection({
   const { totals, daily }: CriticalData = await fetchCritical(since, until)
 
   const avgDaily = Math.round(totals.pageviews / rangeDays)
-  const dow      = computeDOW(daily)
 
   return (
     <>
       <section style={{ borderBottom: '1px solid #222' }}>
-        <div className="r4 admin-stat-scroll" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 1, background: '#222' }}>
+        <div className="r4 admin-stat-scroll" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: '#222' }}>
           <StatCard icon={Ic.eye}      title="PAGE VIEWS"      value={fmt(totals.pageviews)} sub={rangeLabel} tip="Total pages loaded by all visitors. Refreshing counts as another view." />
           <StatCard icon={Ic.users}    title="UNIQUE VISITORS" value={fmt(totals.visitors)}  sub={rangeLabel} tip="Estimated distinct people based on device and browser fingerprint." />
           <StatCard icon={Ic.trending} title="AVG DAILY VIEWS" value={fmt(avgDaily)}         sub="PER DAY"    tip="Total page views divided by the number of days in the selected period." />
         </div>
       </section>
 
-      <TrafficChart daily={daily} dow={dow} />
+      <TrafficChart daily={daily} />
     </>
   )
 }

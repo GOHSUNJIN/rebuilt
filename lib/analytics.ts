@@ -43,7 +43,6 @@ export interface AnalyticsTotals { pageviews: number; visitors: number }
 export interface TopPage        { requestPath: string; pageviews: number; visitors: number }
 export interface DeviceStat     { deviceType: string; pageviews: number }
 export interface DailyStat      { timestamp: string; pageviews: number; visitors: number }
-export interface DOWStat        { day: string; pageviews: number; visitors: number }
 export interface ReferrerStat   { referrerHostname: string; pageviews: number }
 
 export interface CriticalData {

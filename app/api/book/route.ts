@@ -18,13 +18,20 @@ function generateOrderId(): string {
   return `RA-${date}-${rand}`
 }
 
+const FORMAT_DISPLAY: Record<string, string> = {
+  'One to one': 'One to One',
+  'Small group': 'Small Group',
+  'Pairs': 'Pairs',
+}
+
 function serviceLabel(service: string): string {
   if (service === 'Physiotherapy') return 'Physiotherapy with Rehab & Beyond'
+  if (service === 'Not sure yet') return 'Not Sure Yet'
   if (service.endsWith(' · block')) {
     const format = service.replace(' · block', '')
-    return `${format}, Block of 10`
+    return `${FORMAT_DISPLAY[format] ?? format}, Block of 10`
   }
-  if (PT_TYPES[service]) return `${service}, Single Session`
+  if (PT_TYPES[service]) return `${FORMAT_DISPLAY[service] ?? service}, Single Session`
   return service
 }
 

@@ -21,6 +21,28 @@ function getPrice(service: string | null): string | null {
   return rehab?.sub ?? null
 }
 
+function formatServiceDisplay(service: string | null): string | null {
+  if (!service) return null
+  if (service === 'Not sure yet') return 'Not Sure Yet'
+  if (service === 'Physiotherapy') return 'Physiotherapy with Rehab & Beyond'
+  if (service.endsWith(' · block')) {
+    const format = service.replace(' · block', '')
+    const name = format === 'One to one' ? 'One to One' : format === 'Small group' ? 'Small Group' : format
+    return `${name}, Block of 10`
+  }
+  if (PT_TYPES[service]) {
+    const name = service === 'One to one' ? 'One to One' : service === 'Small group' ? 'Small Group' : service
+    return `${name}, Single Session`
+  }
+  return service
+}
+
+function formatCategoryDisplay(cat: string | null): string | null {
+  if (!cat) return null
+  if (cat === 'Not sure yet') return 'Not Sure Yet'
+  return cat
+}
+
 function isValidPhone(p: string) { return p.replace(/\D/g, '').length >= 8 }
 import Step1 from '@/components/booking/Step1'
 import Step2 from '@/components/booking/Step2'
@@ -168,9 +190,13 @@ function BookContent() {
 
   const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}&su=${encodeURIComponent('Consultation Booking - Rebuilt')}&body=${encodeURIComponent(emailBody)}`
 
+  const displayCategory = formatCategoryDisplay(category)
+  const displayService  = formatServiceDisplay(service)
+  const showServiceRow  = displayService && displayService !== displayCategory
+
   const summaryRows = [
-    { label: 'Category',        value: category },
-    { label: 'Service',         value: service },
+    { label: 'Category',        value: displayCategory },
+    ...(showServiceRow ? [{ label: 'Service', value: displayService }] : []),
     { label: 'Price',           value: getPrice(service) },
     { label: 'Coach',           value: coach },
     { label: 'Location',        value: showLocation ? location : null },

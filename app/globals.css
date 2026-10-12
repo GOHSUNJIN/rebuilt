@@ -1113,6 +1113,9 @@ p { text-wrap: pretty; }
 
   /* ── Legal pages (privacy + terms) ─── */
   .r-back-top { display: none !important; }
+  .r-404-wrap { padding-top: 52px !important; padding-bottom: 52px !important; }
+  .r-404-btns { flex-direction: column !important; align-items: stretch !important; }
+  .r-404-btns a { text-align: center !important; justify-content: center !important; }
   .r-rnb-btns { flex-direction: column !important; }
   .r-rnb-btn  { text-align: center !important; justify-content: center !important; }
   .r-legal-bg     { display: none !important; }
@@ -1201,7 +1204,7 @@ p { text-wrap: pretty; }
 
   /* ── Misc ─── */
   .scroll-top-btn { bottom: 100px !important; right: 16px !important; }
-  .r-404          { font-size: 80px !important; }
+  .r-404-wrap { padding-top: 40px !important; padding-bottom: 40px !important; }
 }
 
 /* ── Admin interactive states ───────────────────── */

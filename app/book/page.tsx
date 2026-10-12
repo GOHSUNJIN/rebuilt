@@ -96,6 +96,7 @@ function BookContent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           service,
+          category,
           coach,
           location,
           slots: slots.map(fmtSlot),

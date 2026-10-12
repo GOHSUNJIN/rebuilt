@@ -1,10 +1,9 @@
 'use server'
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 import { headers } from 'next/headers'
 import { SITE } from '@/lib/site'
 import { isValidEmail } from '@/lib/bookData'
 
-// In-memory rate limiter (resets on cold start; use Upstash Redis for stricter limits)
 const rateMap = new Map<string, { n: number; resetAt: number }>()
 function checkRate(ip: string): boolean {
   const now = Date.now()
@@ -34,15 +33,20 @@ export async function submitContact(formData: FormData) {
   if (!isValidEmail(email)) return { ok: false, error: 'Please enter a valid email address.' }
   if (message.length > 2000) return { ok: false, error: 'Message must be under 2000 characters.' }
 
-  if (!process.env.RESEND_API_KEY) {
+  if (!process.env.MAIL_USER || !process.env.MAIL_PASS) {
     return { ok: false, error: 'Email service is temporarily unavailable. Please try again later.' }
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY)
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.office365.com',
+    port: 587,
+    secure: false,
+    auth: { user: process.env.MAIL_USER, pass: process.env.MAIL_PASS },
+  })
 
   try {
-    await resend.emails.send({
-      from: 'Rebuilt Website <noreply@rebuilt.sg>',
+    await transporter.sendMail({
+      from: `"Rebuilt Academy" <${process.env.MAIL_USER}>`,
       to: SITE.contact.email,
       replyTo: email,
       subject: `New enquiry from ${name}${service ? `: ${service}` : ''}`,
@@ -56,7 +60,7 @@ export async function submitContact(formData: FormData) {
     })
     return { ok: true }
   } catch (err) {
-    console.error('Resend error:', err instanceof Error ? err.message : String(err))
+    console.error('[contact]', err instanceof Error ? err.message : String(err))
     return { ok: false, error: 'Failed to send. Please email us directly.' }
   }
 }

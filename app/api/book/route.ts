@@ -1,6 +1,14 @@
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const transporter = nodemailer.createTransport({
+  host: 'smtp.office365.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+  },
+})
 
 export async function POST(req: Request) {
   try {
@@ -24,9 +32,9 @@ export async function POST(req: Request) {
       </tr>
     `).join('')
 
-    await resend.emails.send({
-      from: 'Rebuilt Booking <onboarding@resend.dev>',
-      to: ['hello@rebuilt.sg'],
+    await transporter.sendMail({
+      from: `"Rebuilt Academy" <${process.env.MAIL_USER}>`,
+      to: process.env.MAIL_USER,
       replyTo: email,
       subject: `New Booking — ${service ?? 'Not sure yet'} · ${name}`,
       html: `<!DOCTYPE html>

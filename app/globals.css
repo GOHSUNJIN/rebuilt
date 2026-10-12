@@ -636,7 +636,7 @@ p { text-wrap: pretty; }
   .r-crosslinks-cta     { display: none !important; }
 
   /* ── FAQ ── */
-  .r-faq { flex-direction: column !important; }
+  .r-faq { flex-direction: column !important; min-height: 0 !important; }
   .r-faq-hero { padding: 36px 24px 32px !important; flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
   .r-faq-hero p { font-size: 13px !important; max-width: 100% !important; }
   .r-faq-sidebar {

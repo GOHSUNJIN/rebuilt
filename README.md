@@ -17,7 +17,7 @@ A simple checklist of what needs to be sorted before the website launches public
 - [x] **You** - Confirm the phone number, email address, studio addresses and opening hours are all correct
 - [x] **You** - Confirm the team bios and credentials for Shafiq and Joshua read exactly as you want them
 - [ ] **You** - Share 5 to 10 real client reviews (copy from your Google listing) to replace the placeholder ones on the site
-- [ ] **You** - Provide real Instagram content for the home page grid, or let us know if you want it connected to your account automatically
+- [ ] **You** - Provide real Instagram content for the home page grid or let us know if you want it connected to your account automatically
 - [ ] **You** - Read through the privacy policy and terms of service and confirm the details are accurate
 
 ### Domain and email
@@ -25,6 +25,7 @@ A simple checklist of what needs to be sorted before the website launches public
 - [x] **You** - Purchase a website domain. Domain is live at `rebuiltacademy.sg`.
 - [x] **You** - Set up a business email inbox. Microsoft 365 inbox is active at `info@rebuiltacademy.sg`.
 - [x] **Handled** - Connect the domain to the website.
+- [x] **Handled** - Enable SMTP AUTH on Microsoft 365 so booking and contact emails can be delivered.
 
 ### Analytics and admin dashboard
 
@@ -65,9 +66,9 @@ Three locations across Singapore at Core Collective: Robinson (CBD), Dempsey Hil
 
 **Handles enquiries automatically.** The contact form on the About page sends messages directly to the studio inbox without anyone needing to check a separate tool. Replies go straight to the client's email.
 
-**Runs on mobile.** The site is fully responsive and works on any phone, tablet or desktop. The mobile version has a fixed booking bar at the bottom of every page so the booking button is always visible, no matter how far a user has scrolled.
+**Runs on mobile.** The site is fully responsive and works on any phone, tablet or desktop. The mobile version has a fixed booking bar at the bottom of every page so the booking button is always visible no matter how far a user has scrolled.
 
-**Tracks what matters.** Vercel Analytics records page views, unique visitors and booking-related actions (button clicks, form submissions, WhatsApp taps). The admin dashboard at /admin shows all of this in one place, with filters for the last 7, 30 or 90 days, or any custom date range.
+**Tracks what matters.** Vercel Analytics records page views, unique visitors and booking-related actions (button clicks, form submissions, WhatsApp taps). The admin dashboard at `/admin` shows all of this in one place with filters for the last 7, 30 or 90 days or any custom date range.
 
 **Supports search engines.** Every page has proper meta titles, descriptions and structured data so Google understands what the business does and can show it in search results for relevant queries in Singapore.
 
@@ -79,13 +80,13 @@ Three locations across Singapore at Core Collective: Robinson (CBD), Dempsey Hil
 
 | Page | What it does |
 |---|---|
-| `/` | Home page: hero, stats (300+ clients, 4.9 rating), service overview, physio partnership cards, client reviews, Instagram grid, call to action |
+| `/` | Home page: hero, stats (300+ clients, 4.9 rating), service overview, physio partnership cards, client reviews, Instagram grid and call to action |
 | `/rehab` | Rehabilitation service page with features, pricing, testimonial and FAQ link |
-| `/strength` | Personal training page with format options (1-on-1, pairs, small group), pricing and features |
-| `/performance` | Sports performance page with block types (pre-season, in-season, off-season), testing overview and instalment plan details |
+| `/strength` | Personal training page with format options (one-to-one, pairs and small group), pricing and features |
+| `/performance` | Sports performance page with block types (pre-season, in-season and off-season), testing overview and instalment plan details |
 | `/physio` | Physiotherapy page covering the Rehab & Beyond partnership, session types, pricing and the upcoming in-house physiotherapy |
 | `/about` | Team bios (slide-out detail panels), all three location cards with maps and the contact form |
-| `/faq` | Frequently asked questions across five categories (General, Rehab, Training, Performance, Physiotherapy) with live search |
+| `/faq` | Frequently asked questions across five categories (General, Rehab, Training, Performance and Physiotherapy) with live search |
 | `/book` | Five-step booking wizard (see below) |
 | `/privacy` | Privacy policy, PDPA-compliant |
 | `/terms` | Terms and conditions |
@@ -95,24 +96,46 @@ Three locations across Singapore at Core Collective: Robinson (CBD), Dempsey Hil
 
 ## The booking flow
 
-The booking wizard collects everything the studio needs in five steps and submits it as an email directly to the studio inbox. A WhatsApp fallback is available if the submission fails.
+The booking wizard collects everything the studio needs in five steps and submits it as a formatted email directly to the studio inbox. A WhatsApp fallback is available if the submission fails.
 
 **Step 1 - Service selection**
-The client picks a category (Rehab, Training, Performance, Physiotherapy or Not sure yet). Training shows a second stage for format (one-to-one, pairs or small group) and then session type (single or block of 10). All options show pricing.
+The client picks a category (Rehab, Training, Performance, Physiotherapy or Not sure yet). Training shows a second stage for format (One to One, Pairs or Small Group) and then commitment type (Single Session or Block of 10). All options show pricing.
 
 **Step 2 - Coach preference**
-The client can choose Shafiq Khalit (Founder, strength and rehab) or Joshua Seow (Co-Founder, sports performance), or no preference.
+The client can choose Shafiq Khalit (Founder, strength and rehab) or Joshua Seow (Co-Founder, sports performance) or No Preference.
 
 **Step 3 - Time slots and location**
-The client picks preferred days (Monday to Saturday) and time slots and selects a preferred location from the three Core Collective sites. Multiple slots can be selected. All times are shown in Singapore time (SGT).
+The client picks preferred days (Monday to Saturday) and time slots and selects a preferred location from the three Core Collective sites. Multiple slots can be selected. All times are shown in Singapore time (SGT). Selected slots are displayed sorted by day and time.
 
 **Step 4 - Contact details**
 Name, email address, phone number and an optional notes field for injury history, goals or any other context the coach should know before the first session. All three contact fields are required before the step can be completed.
 
 **Step 5 - Review and send**
-The client sees a summary of all their selections and clicks Send booking request. The request is submitted automatically and an email is sent to the studio. The page advances to the confirmation screen once sent. The studio confirms the slot and arranges payment separately.
+The client sees a summary of all their selections including category, service and price, then clicks Send booking request. The request is submitted automatically and two emails are sent: one to the studio with full booking details and a reply-to set to the client, and one to the client confirming receipt with a unique order reference (format: `RA-YYYYMMDD-XXXX`). The studio confirms the slot and arranges payment separately.
 
 The confirmation screen shows the studio contact details in case there is no reply within 24 hours.
+
+---
+
+## Emails
+
+All emails are sent via Microsoft 365 SMTP and use a dark-themed HTML design consistent with the site.
+
+### Booking emails
+
+When a booking request is submitted, two emails are sent simultaneously.
+
+**Studio notification** goes to `info@rebuiltacademy.sg` and includes the order ID, category, service, price, location (if applicable), coach preference, preferred time slots, client name, email and phone. The reply-to is set to the client's address so replying in the inbox goes straight back to them. A WhatsApp link is included for the client's number. A direct reply button is shown in the email.
+
+**Client confirmation** goes to the address the client entered and includes their unique order reference, a summary of what they selected and a three-step guide covering what happens next (slot confirmation, payment details and first session). The reference format is `RA-YYYYMMDD-XXXX`.
+
+### Enquiry emails (contact form)
+
+When the contact form is submitted, two emails are sent simultaneously.
+
+**Studio notification** goes to `info@rebuiltacademy.sg` with the enquiry ID, client name, email, selected service and message. Reply-to is set to the client.
+
+**Client confirmation** goes to the client with a unique enquiry reference (`ENQ-YYYYMMDD-XXXX`) and confirms we will respond within one business day.
 
 ---
 
@@ -124,7 +147,7 @@ The admin dashboard is at `/admin`. It is password-protected and shows live traf
 
 - Page views and unique visitors for the selected period
 - Average daily views
-- Booking rate (how many visitors clicked to book vs. total visitors)
+- Booking rate (how many visitors clicked to book vs total visitors)
 - A traffic chart showing daily trends
 - Events log: how many times each key button was clicked (Book, WhatsApp, Contact form, etc.)
 - Top pages by traffic
@@ -133,17 +156,17 @@ The admin dashboard is at `/admin`. It is password-protected and shows live traf
 
 **Period options:** Last 7 days, 30 days, 90 days or a custom date range.
 
-Access is protected by a username and password. The session lasts 8 hours, then requires logging in again.
+Access is protected by a username and password. The session lasts 8 hours then requires logging in again.
 
 ---
 
 ## Contact and email
 
-**Contact form** on the About page sends messages directly to `info@rebuiltacademy.sg` via Microsoft 365. The client's reply-to address is set automatically, so replying to the email in the inbox goes straight back to them. The form is rate-limited to prevent spam.
+**Contact form** on the About page sends messages directly to `info@rebuiltacademy.sg` via Microsoft 365. The client's reply-to address is set automatically so replying to the email in the inbox goes straight back to them. The form is rate-limited to prevent spam. The client receives a confirmation email with a unique enquiry reference.
 
-**Booking form** submits automatically via the Send booking request button and delivers a formatted email to `info@rebuiltacademy.sg` with all booking details. A WhatsApp fallback link is shown if the submission fails.
+**Booking form** submits automatically via the Send booking request button and delivers a formatted email to `info@rebuiltacademy.sg` with all booking details. The client receives a confirmation email with a unique order reference. A WhatsApp fallback link is shown if the submission fails.
 
-**WhatsApp** is available as a floating button on every page. On the booking page, it pre-fills a full booking request with all the details the client entered in the wizard.
+**WhatsApp** is available as a floating button on every page except the contact section of the About page. On the booking page it pre-fills a full booking request with all the details the client entered in the wizard. The button hides automatically when the user reaches the bottom of the page.
 
 **Click to copy** is available on the email address and phone number wherever they appear on the site.
 
@@ -154,14 +177,14 @@ Access is protected by a username and password. The session lasts 8 hours, then 
 | Service | Price |
 |---|---|
 | Rehab - Assessment | SGD 100 (45 min) |
-| Rehab - Single session | SGD 140 (60 min) |
+| Rehab - Single Session | SGD 140 (60 min) |
 | Rehab - Block of 10 | SGD 120 per session |
-| Training - One-to-one (single) | SGD 160 per session |
-| Training - One-to-one (block of 10) | SGD 140 per session |
+| Training - One to One (single) | SGD 160 per session |
+| Training - One to One (block of 10) | SGD 140 per session |
 | Training - Pairs (single) | SGD 120 per person |
 | Training - Pairs (block of 10) | SGD 90 per person |
-| Training - Small group (single) | SGD 100 per person |
-| Training - Small group (block of 10) | SGD 70 per person |
+| Training - Small Group (single) | SGD 100 per person |
+| Training - Small Group (block of 10) | SGD 70 per person |
 | Performance - Pre-season | SGD 100 per session (3x per week, 8 weeks) |
 | Performance - In-season | SGD 140 per session (2x per week, monthly) |
 | Performance - Off-season | SGD 120 per session (3x per week, 12 weeks) |
@@ -176,7 +199,7 @@ Performance instalment plans: pre-season splits into 2 x SGD 1,200 per month. Of
 
 All business information is in one place. Most updates do not require touching any design or code.
 
-**Contact details, address, hours, social links**
+**Contact details, address, hours and social links**
 Edit `lib/site.ts`. This file is the single source of truth. Change it once and it updates everywhere on the site automatically.
 
 **Team bios**
@@ -194,7 +217,7 @@ Also update `lib/bookData.ts` to keep the booking wizard in sync with the servic
 **FAQ content**
 Edit `lib/faqData.ts`. Questions are grouped by the same category tabs shown on the FAQ page. Add or remove items from any category.
 
-**Booking options** (services listed, coaches, time slots)
+**Booking options** (services, coaches and time slots)
 Edit `lib/bookData.ts`.
 
 **Photos**
@@ -260,7 +283,7 @@ If `MAIL_USER` or `MAIL_PASS` are missing, the booking and contact forms will re
 Hosted on Vercel. Every push to the `main` branch redeploys the live site automatically.
 
 ```bash
-vercel        # Preview deploy: generates a unique URL, does not touch production
+vercel        # Preview deploy: generates a unique URL and does not touch production
 vercel --prod # Deploy to production
 ```
 
@@ -283,9 +306,9 @@ app/
   strength/page.tsx       Personal training service page
   performance/page.tsx    Sports performance service page
   physio/page.tsx         Physiotherapy service page
-  about/page.tsx          About page: team, locations, contact form
+  about/page.tsx          About page: team, locations and contact form
   faq/page.tsx            FAQ page
-  book/page.tsx           Booking wizard: all state, step navigation, submission
+  book/page.tsx           Booking wizard: all state, step navigation and submission
   privacy/page.tsx        Privacy policy
   terms/page.tsx          Terms and conditions
 
@@ -294,10 +317,10 @@ app/
     _components/          Dashboard-only components (chart, date picker, etc.)
 
   api/
-    book/route.ts         POST endpoint: receives booking form and sends email via Microsoft 365
+    book/route.ts         POST endpoint: receives booking form and sends two emails via Microsoft 365
 
   actions/
-    contact.ts            Server action: rate-limited, sanitised, sends via Microsoft 365
+    contact.ts            Server action: rate-limited and sanitised, sends two emails via Microsoft 365
     admin.ts              Server action: logout
 
 components/
@@ -343,10 +366,10 @@ components/
     StepHeader.tsx
 
 lib/
-  site.ts       Business config: contact, locations, hours, social
+  site.ts       Business config: contact, locations, hours and social
   team.ts       Coach and staff data
-  faqData.ts    All FAQ content, grouped by category
-  bookData.ts   Booking wizard data: services, pricing, coaches, time slots
+  faqData.ts    All FAQ content grouped by category
+  bookData.ts   Booking wizard data: services, pricing, coaches and time slots
   types.ts      Shared TypeScript interfaces
   styles.ts     Shared form input styles
   adminAuth.ts  Session token signing and verification
@@ -388,11 +411,11 @@ The mobile booking bar (fixed at the bottom of the screen) is shown only on mobi
 
 ### Booking and scheduling
 
-**Real booking calendar.** The current flow sends a booking request by email. A live calendar integration (Calendly, Acuity or a custom build) would let clients pick and confirm a slot instantly, without waiting for the studio to reply.
+**Real booking calendar.** The current flow sends a booking request by email. A live calendar integration (Calendly, Acuity or a custom build) would let clients pick and confirm a slot instantly without waiting for the studio to reply.
 
 **Online payments.** No payment is collected at the point of booking. Stripe or PayNow integration at checkout would reduce no-shows and remove the follow-up step for the team.
 
-**Session packages and credits.** Selling blocks of sessions upfront (for example, a 10-session rehab block) with a digital credit balance the client draws down. Requires a database and a basic client account system.
+**Session packages and credits.** Selling blocks of sessions upfront (for example a 10-session rehab block) with a digital credit balance the client draws down. Requires a database and a basic client account system.
 
 **Waitlist for cancelled slots.** When a session cancels, automatically notify the next client on a waitlist. Keeps the calendar full without manual effort.
 
@@ -416,7 +439,7 @@ The mobile booking bar (fixed at the bottom of the screen) is shown only on mobi
 
 **Google Reviews.** Pull live reviews and ratings directly from Google Places so the numbers on the site always reflect the current score without manual editing.
 
-**Referral programme page.** A dedicated page explaining the referral incentive and tracking referral links. Most gym clients come through word of mouth; formalising it usually increases volume.
+**Referral programme page.** A dedicated page explaining the referral incentive and tracking referral links. Most gym clients come through word of mouth and formalising it usually increases volume.
 
 ### Operations
 

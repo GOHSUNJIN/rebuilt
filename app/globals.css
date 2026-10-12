@@ -1112,7 +1112,7 @@ p { text-wrap: pretty; }
   .r-hero-img-mobile  { display: block !important; }
 
   /* ── Legal pages (privacy + terms) ─── */
-  .r-back-top { display: flex !important; }
+  .r-back-top { display: none !important; }
   .r-rnb-btns { flex-direction: column !important; }
   .r-rnb-btn  { text-align: center !important; justify-content: center !important; }
   .r-legal-bg     { display: none !important; }

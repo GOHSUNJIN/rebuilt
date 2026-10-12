@@ -27,7 +27,7 @@ export default function BackToTop() {
         color: '#909090',
         fontSize: 16,
         cursor: 'pointer',
-        display: 'none',
+        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         zIndex: 900,

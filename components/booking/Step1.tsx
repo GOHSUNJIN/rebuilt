@@ -56,12 +56,12 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
         <>
           <p style={miniLabel}>FORMAT</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 2, background: '#1E1E1E', marginBottom: ptFormat ? 2 : 0 }}>
-            {PT_FORMATS.map(({ id, sub }) => (
+            {PT_FORMATS.map(({ id, label, sub }) => (
               <button key={id} type="button" onClick={() => { setPtFormat(id); setService(null) }}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '15px 18px', background: ptFormat === id ? '#171717' : '#0B0B0B', border: 'none', borderLeft: `3px solid ${ptFormat === id ? 'var(--accent)' : 'transparent'}`, cursor: 'pointer', color: '#FFFFFF', fontFamily: 'inherit', textAlign: 'left', transition: 'all .15s' }}
               >
                 <div>
-                  <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 3px', color: ptFormat === id ? '#FFFFFF' : '#A5A5A5' }}>{id}</p>
+                  <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 3px', color: ptFormat === id ? '#FFFFFF' : '#A5A5A5' }}>{label}</p>
                   <p style={{ fontSize: 12, color: '#5f6670', margin: 0 }}>{sub}</p>
                 </div>
                 {ptFormat === id && <span style={{ color: 'var(--accent)', flexShrink: 0, marginLeft: 16 }}>✓</span>}
@@ -76,7 +76,7 @@ export default function Step1({ category, ptFormat, service, selectCategory, set
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 18px', background: service === ptFormat ? '#171717' : '#0B0B0B', border: 'none', borderLeft: `3px solid ${service === ptFormat ? 'var(--accent)' : 'transparent'}`, cursor: 'pointer', color: '#FFFFFF', fontFamily: 'inherit', textAlign: 'left', transition: 'all .15s' }}
                 >
                   <div>
-                    <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 3px', color: service === ptFormat ? '#FFFFFF' : '#A5A5A5' }}>Single session</p>
+                    <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 3px', color: service === ptFormat ? '#FFFFFF' : '#A5A5A5' }}>Single Session</p>
                     <p style={{ fontSize: 12, color: '#5f6670', margin: 0 }}>{PT_TYPES[ptFormat].single}</p>
                   </div>
                   {service === ptFormat && <span style={{ color: 'var(--accent)', flexShrink: 0, marginLeft: 16 }}>✓</span>}

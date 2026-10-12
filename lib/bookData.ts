@@ -31,15 +31,15 @@ export const TABS = [
 ]
 
 export const REHAB_OPTIONS = [
-  { label: 'Assessment',        sub: '45 min · SGD 100' },
-  { label: 'Single session',    sub: '60 min · SGD 140' },
-  { label: 'Block of 10',       sub: 'SGD 120 / session · 10 sessions', popular: true },
+  { label: 'Assessment',     sub: '45 min · SGD 100' },
+  { label: 'Single Session', sub: '60 min · SGD 140' },
+  { label: 'Block of 10',    sub: 'SGD 120 / session · 10 sessions', popular: true },
 ]
 
 export const PT_FORMATS = [
-  { id: 'One to one',  sub: '1 coach · 1 client' },
-  { id: 'Pairs',       sub: '1 coach · 2 clients' },
-  { id: 'Small group', sub: '1 coach · 3-5 clients' },
+  { id: 'One to one',  label: 'One to One',  sub: '1 coach · 1 client' },
+  { id: 'Pairs',       label: 'Pairs',        sub: '1 coach · 2 clients' },
+  { id: 'Small group', label: 'Small Group',  sub: '1 coach · 3-5 clients' },
 ]
 
 export const PT_TYPES: Record<string, { single: string; block: string }> = {
@@ -51,14 +51,14 @@ export const PT_TYPES: Record<string, { single: string; block: string }> = {
 export const COACHES = [
   { label: 'Shafiq Khalit', sub: 'Founder',        detail: 'Strength & rehabilitation' },
   { label: 'Joshua Seow',   sub: 'Co-Founder',      detail: 'Sports performance & rehab' },
-  { label: 'No preference', sub: 'First available', detail: 'We\'ll match you' },
+  { label: 'No Preference', sub: 'First available', detail: 'We\'ll match you' },
 ]
 
 export const LOCATION_OPTIONS = [
   { id: 'Robinson',      sub: 'CBD' },
   { id: 'Dempsey',       sub: 'Dempsey Hill' },
   { id: 'Katong',        sub: 'East Coast' },
-  { id: 'No preference', sub: 'Any location' },
+  { id: 'No Preference', sub: 'Any location' },
 ]
 
 export const DAYS      = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']

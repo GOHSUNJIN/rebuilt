@@ -59,7 +59,7 @@ function BookContent() {
   const [category, setCategory]   = useState<string | null>('Rehabilitation')
   const [ptFormat, setPtFormat]   = useState<string | null>(null)
   const [service, setService]     = useState<string | null>(null)
-  const [coach, setCoach]         = useState('No preference')
+  const [coach, setCoach]         = useState('No Preference')
   const [activeDay, setActiveDay] = useState<string | null>(null)
   const [slots, setSlots]         = useState<string[]>([])
   const [name, setName]           = useState('')
@@ -67,7 +67,7 @@ function BookContent() {
   const [phone, setPhone]         = useState('')
   const [notes, setNotes]         = useState('')
   const [showError, setShowError]     = useState(false)
-  const [location, setLocation]       = useState('No preference')
+  const [location, setLocation]       = useState('No Preference')
   const [submitting, setSubmitting]   = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -248,7 +248,7 @@ function BookContent() {
           {step >= 2 && step < 6 && (service || slots.length > 0) && (
             <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 40, padding: '13px 18px', background: '#171717', border: '1px solid #1E1E1E' }}>
               {service && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>SERVICE: <span style={{ color: '#A5A5A5' }}>{service}</span></span>}
-              {coach !== 'No preference' && step > 2 && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>COACH: <span style={{ color: '#A5A5A5' }}>{coach}</span></span>}
+              {coach !== 'No Preference' && step > 2 && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>COACH: <span style={{ color: '#A5A5A5' }}>{coach}</span></span>}
               {slots.length > 0 && <span style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em' }}>TIMES: <span style={{ color: '#A5A5A5' }}>{slots.length} selected</span></span>}
             </div>
           )}

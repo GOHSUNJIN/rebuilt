@@ -24,6 +24,11 @@ const FORMAT_DISPLAY: Record<string, string> = {
   'Pairs': 'Pairs',
 }
 
+function categoryLabel(cat: string): string {
+  if (cat === 'Not sure yet') return 'Not Sure Yet'
+  return cat
+}
+
 function serviceLabel(service: string): string {
   if (service === 'Physiotherapy') return 'Physiotherapy with Rehab & Beyond'
   if (service === 'Not sure yet') return 'Not Sure Yet'
@@ -79,14 +84,15 @@ export async function POST(req: Request) {
     const { service, category, coach, location, slots, name, email, phone, notes, showLocation } = await req.json()
 
     const orderId = generateOrderId()
-    const label = service ? serviceLabel(service) : 'Not sure yet'
+    const catLabel = category ? categoryLabel(category) : 'Not specified'
+    const label = service ? serviceLabel(service) : catLabel
     const price = service ? servicePrice(service) : null
     const notSureYet = category === 'Not sure yet' || !service
 
     const adminRows = buildRows([
       tableRow('Order', orderId),
-      tableRow('Category', category ?? 'Not specified'),
-      ...(label !== (category ?? '') ? [tableRow('Service', label)] : []),
+      tableRow('Category', catLabel),
+      ...(label !== catLabel ? [tableRow('Service', label)] : []),
       ...(price ? [tableRow('Price', price)] : []),
       ...(showLocation && location ? [tableRow('Location', location)] : []),
       tableRow('Coach', coach),
@@ -102,8 +108,8 @@ export async function POST(req: Request) {
       : `[${orderId}] New Booking from ${name}`
 
     const customerSummaryRows = buildRows([
-      tableRow('Category', category ?? 'Not specified'),
-      ...(label !== (category ?? '') ? [tableRow('Service', label)] : []),
+      tableRow('Category', catLabel),
+      ...(label !== catLabel ? [tableRow('Service', label)] : []),
       ...(price ? [tableRow('Price', price)] : []),
       ...(showLocation && location ? [tableRow('Location', location)] : []),
       tableRow('Coach', coach),

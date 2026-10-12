@@ -20,6 +20,7 @@ const Ic = {
   target:   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="13" height="13"><circle cx="8" cy="8" r="7"/><circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15"/><line x1="1" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15" y2="8"/></svg>,
   file:     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="12" height="12"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6L9 2z"/><polyline points="9 2 9 6 13 6"/><line x1="5" y1="9" x2="11" y2="9"/><line x1="5" y1="11" x2="9" y2="11"/></svg>,
   globe:    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="12" height="12"><circle cx="8" cy="8" r="7"/><path d="M1 8h14M8 1c-2 2-3 4.5-3 7s1 5 3 7M8 1c2 2 3 4.5 3 7s-1 5-3 7"/></svg>,
+  link:     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="12" height="12"><path d="M7 9a4 4 0 0 0 5.657 0l2-2a4 4 0 0 0-5.657-5.657l-1 1"/><path d="M9 7a4 4 0 0 0-5.657 0l-2 2a4 4 0 0 0 5.657 5.657l1-1"/></svg>,
   monitor:  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" width="12" height="12"><rect x="1" y="2" width="14" height="10" rx="1"/><path d="M5 15h6M8 12v3"/></svg>,
 }
 
@@ -59,10 +60,13 @@ function Spark({ data }: { data: number[] }) {
   )
 }
 
-function flag(code: string) {
-  if (code.length !== 2) return ''
-  const pt = (c: string) => String.fromCodePoint(0x1F1E6 + c.toUpperCase().charCodeAt(0) - 65)
-  return pt(code[0]) + pt(code[1])
+const COUNTRY_NAMES: Record<string, string> = {
+  SG: 'Singapore',   MY: 'Malaysia',      ID: 'Indonesia',    PH: 'Philippines',
+  TH: 'Thailand',    VN: 'Vietnam',       IN: 'India',        CN: 'China',
+  HK: 'Hong Kong',   TW: 'Taiwan',        JP: 'Japan',        KR: 'South Korea',
+  AU: 'Australia',   NZ: 'New Zealand',   US: 'United States',CA: 'Canada',
+  GB: 'United Kingdom', DE: 'Germany',    FR: 'France',       NL: 'Netherlands',
+  ES: 'Spain',       IT: 'Italy',         AE: 'UAE',          SA: 'Saudi Arabia',
 }
 
 // ─── tooltip ──────────────────────────────────────────────────────────────────
@@ -351,13 +355,13 @@ async function SecondarySection({ since, until }: { since: string; until: string
             ) : (
               <div className="admin-rows-scroll">
                 {countries.map((c: CountryStat) => (
-                  <BarRow key={c.country} label={`${flag(c.country)}  ${c.country}`} value={fmt(c.pageviews)} pct={(c.pageviews / maxCo) * 100} barColor="var(--accent)" mono />
+                  <BarRow key={c.country} label={COUNTRY_NAMES[c.country] ?? c.country} value={fmt(c.pageviews)} pct={(c.pageviews / maxCo) * 100} barColor="var(--accent)" mono />
                 ))}
               </div>
             )}
           </div>
           <div style={{ background: '#111' }}>
-            <SecHead icon={Ic.globe} label="TOP REFERRERS" tip="External sites and sources that sent visitors here." />
+            <SecHead icon={Ic.link} label="TOP REFERRERS" tip="External sites and sources that sent visitors here." />
             {referrers.length === 0 ? (
               <p style={{ padding: `16px ${P}`, fontSize: 13, color: '#909090', margin: 0 }}>No data yet.</p>
             ) : (

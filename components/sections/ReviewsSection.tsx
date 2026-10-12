@@ -61,9 +61,6 @@ export default function ReviewsSection() {
               <span style={{ fontSize: 18, fontWeight: 600, color: '#5f6670' }}>/5</span>
             </div>
           </div>
-          <a href="https://www.google.com/search?q=Rebuilt+Singapore+gym+reviews" target="_blank" rel="noopener noreferrer" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: 'var(--accent)', letterSpacing: '.18em', textDecoration: 'none', marginTop: 28 }} className="hover-gold">
-            Read on Google →
-          </a>
         </div>
 
         {reviews.map(({ stars, text, name, role }) => (

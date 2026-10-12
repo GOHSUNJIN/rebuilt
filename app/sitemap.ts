@@ -4,7 +4,6 @@ import { SITE } from '@/lib/site'
 export default function sitemap(): MetadataRoute.Sitemap {
   const u = (path: string, priority: number, freq: MetadataRoute.Sitemap[0]['changeFrequency'] = 'monthly') => ({
     url: `${SITE.url}${path}`,
-    lastModified: new Date(),
     changeFrequency: freq,
     priority,
   })

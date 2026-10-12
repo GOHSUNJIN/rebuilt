@@ -62,8 +62,8 @@ export default function ReviewsSection() {
             </div>
           </div>
           <div>
-            <p className="r-rating-source" style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: '0 0 6px' }}>GOOGLE RATING</p>
-            <p className="r-rating-count" style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47', letterSpacing: '.14em', margin: 0 }}>300+ CLIENTS COACHED</p>
+            <p className="r-rating-source" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', letterSpacing: '.18em', margin: '0 0 6px' }}>GOOGLE RATING</p>
+            <p className="r-rating-count" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#6f7783', letterSpacing: '.14em', margin: 0 }}>300+ CLIENTS COACHED</p>
           </div>
         </div>
 

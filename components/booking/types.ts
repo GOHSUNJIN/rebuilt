@@ -28,7 +28,9 @@ export interface Step4Props {
 export interface Step5Props {
   summaryRows: { label: string; value: string | null | undefined }[]
   waUrl: string
-  gmailUrl: string
   notSureYet?: boolean
+  onSubmit: () => Promise<void>
+  submitting: boolean
+  submitError: string | null
   onSent: () => void
 }

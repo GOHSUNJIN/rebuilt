@@ -32,8 +32,10 @@ function BookContent() {
   const [email, setEmail]         = useState('')
   const [phone, setPhone]         = useState('')
   const [notes, setNotes]         = useState('')
-  const [showError, setShowError] = useState(false)
-  const [location, setLocation]   = useState('No preference')
+  const [showError, setShowError]     = useState(false)
+  const [location, setLocation]       = useState('No preference')
+  const [submitting, setSubmitting]   = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const mounted    = useRef(false)
 
@@ -83,6 +85,34 @@ function BookContent() {
   }
 
   const fmtSlots = slots.length > 0 ? slots.map(fmtSlot).join(', ') : 'TBC'
+
+  const handleSubmit = async () => {
+    setSubmitting(true)
+    setSubmitError(null)
+    try {
+      const res = await fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service,
+          coach,
+          location,
+          slots: slots.map(fmtSlot),
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          notes: notes.trim(),
+          showLocation,
+        }),
+      })
+      if (!res.ok) throw new Error('server error')
+      setStep(6)
+    } catch {
+      setSubmitError('Something went wrong sending your request. Please try again or send via WhatsApp below.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   const waText = [
     `Hi Rebuilt Academy,`,
@@ -185,7 +215,7 @@ function BookContent() {
           {step === 2 && <Step2 coach={coach} setCoach={setCoach} />}
           {step === 3 && <Step3 activeDay={activeDay} slots={slots} setActiveDay={setActiveDay} toggleSlot={toggleSlot} location={location} setLocation={setLocation} showLocation={showLocation} />}
           {step === 4 && <Step4 name={name} email={email} phone={phone} notes={notes} setName={setName} setEmail={setEmail} setPhone={setPhone} setNotes={setNotes} />}
-          {step === 5 && <Step5 summaryRows={summaryRows} waUrl={waUrl} gmailUrl={gmailUrl} notSureYet={category === 'Not sure yet'} onSent={() => setStep(6)} />}
+          {step === 5 && <Step5 summaryRows={summaryRows} waUrl={waUrl} notSureYet={category === 'Not sure yet'} onSubmit={handleSubmit} submitting={submitting} submitError={submitError} onSent={() => setStep(6)} />}
           {step === 6 && <Done />}
 
           {/* Navigation (steps 1–4) */}
@@ -210,14 +240,10 @@ function BookContent() {
             </div>
           )}
 
-          {/* Back + Done on review step */}
+          {/* Back button on review step */}
           {step === 5 && (
-            <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid #1E1E1E' }}>
-              <p style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#4a5060', letterSpacing: '.12em', margin: '0 0 16px' }}>SENT YOUR REQUEST? CLICK DONE TO FINISH.</p>
-              <div className="book-nav" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                <button type="button" onClick={() => setStep(4)} style={{ padding: '12px 22px', background: 'transparent', border: '1px solid #2A2A2A', color: '#909090', fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>← Back</button>
-                <button type="button" onClick={() => setStep(6)} style={{ padding: '12px 28px', background: 'var(--accent)', border: 'none', color: '#0B0B0B', fontSize: 12, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>Done</button>
-              </div>
+            <div style={{ marginTop: 20, paddingTop: 20, borderTop: '1px solid #1E1E1E' }}>
+              <button type="button" onClick={() => setStep(4)} style={{ padding: '12px 22px', background: 'transparent', border: '1px solid #2A2A2A', color: '#909090', fontSize: 12, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>← Back</button>
             </div>
           )}
 

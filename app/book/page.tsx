@@ -158,6 +158,7 @@ function BookContent() {
   const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}&su=${encodeURIComponent('Consultation Booking - Rebuilt')}&body=${encodeURIComponent(emailBody)}`
 
   const summaryRows = [
+    { label: 'Category',        value: category },
     { label: 'Service',         value: service },
     { label: 'Coach',           value: coach },
     { label: 'Location',        value: showLocation ? location : null },

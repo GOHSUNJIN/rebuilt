@@ -19,11 +19,12 @@ function generateOrderId(): string {
 }
 
 function serviceLabel(service: string): string {
+  if (service === 'Physiotherapy') return 'Physiotherapy with Rehab & Beyond'
   if (service.endsWith(' · block')) {
     const format = service.replace(' · block', '')
-    return `${format} — Block of 10`
+    return `${format}, Block of 10`
   }
-  if (PT_TYPES[service]) return `${service} — Single session`
+  if (PT_TYPES[service]) return `${service}, Single session`
   return service
 }
 
@@ -78,7 +79,7 @@ export async function POST(req: Request) {
     ].join('')
 
     const subject = service
-      ? `[${orderId}] ${label} — ${name}`
+      ? `[${orderId}] ${label} - ${name}`
       : `[${orderId}] New Booking from ${name}`
 
     // Customer summary rows (no contact details)

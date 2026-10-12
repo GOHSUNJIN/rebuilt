@@ -133,7 +133,7 @@ export async function POST(req: Request) {
 
   <div style="background:#171717;border:1px solid #2A2A2A;border-bottom:none;padding:28px 32px;">
     <p style="font-family:monospace;font-size:10px;color:#B7F000;letter-spacing:.24em;margin:0 0 10px">REBUILT ACADEMY</p>
-    <h1 style="font-size:22px;font-weight:800;color:#ffffff;margin:0;letter-spacing:-.02em">Request received.</h1>
+    <h1 style="font-size:22px;font-weight:800;color:#ffffff;margin:0;letter-spacing:-.02em">Request Received.</h1>
   </div>
 
   <div style="background:#171717;border:1px solid #2A2A2A;border-top:none;padding:24px 32px 28px">
@@ -152,15 +152,15 @@ export async function POST(req: Request) {
     <table style="width:100%;border-collapse:collapse;margin-bottom:28px">
       <tr>
         <td style="font-family:monospace;font-size:10px;color:#B7F000;letter-spacing:.1em;padding:10px 0;border-bottom:1px solid #1E1E1E;white-space:nowrap;padding-right:24px;vertical-align:top">01</td>
-        <td style="font-size:14px;color:#C0C0C0;padding:10px 0;border-bottom:1px solid #1E1E1E;line-height:1.5">We confirm your slot and send a calendar invite.</td>
+        <td style="font-size:14px;color:#C0C0C0;padding:10px 0;border-bottom:1px solid #1E1E1E;line-height:1.5">We will reach out to confirm your slot.</td>
       </tr>
       <tr>
         <td style="font-family:monospace;font-size:10px;color:#B7F000;letter-spacing:.1em;padding:10px 0;border-bottom:1px solid #1E1E1E;white-space:nowrap;padding-right:24px;vertical-align:top">02</td>
-        <td style="font-size:14px;color:#C0C0C0;padding:10px 0;border-bottom:1px solid #1E1E1E;line-height:1.5">Payment details are sent once your slot is confirmed.</td>
+        <td style="font-size:14px;color:#C0C0C0;padding:10px 0;border-bottom:1px solid #1E1E1E;line-height:1.5">Once confirmed, we will send payment details.</td>
       </tr>
       <tr>
         <td style="font-family:monospace;font-size:10px;color:#B7F000;letter-spacing:.1em;padding:10px 0;white-space:nowrap;padding-right:24px;vertical-align:top">03</td>
-        <td style="font-size:14px;color:#C0C0C0;padding:10px 0;line-height:1.5">Show up for session one. No induction, no assessment fee.</td>
+        <td style="font-size:14px;color:#C0C0C0;padding:10px 0;line-height:1.5">We look forward to seeing you at your first session.</td>
       </tr>
     </table>
 

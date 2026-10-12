@@ -10,11 +10,19 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
   const lastY = useRef(0)
+  const menuOpenRef = useRef(false)
+
+  useEffect(() => { menuOpenRef.current = menuOpen }, [menuOpen])
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY
-      setMenuOpen(false)
+      if (menuOpenRef.current) {
+        setMenuOpen(false)
+        menuOpenRef.current = false
+        lastY.current = y
+        return
+      }
       if (y < 80) {
         setHidden(false)
       } else if (y > lastY.current + 4) {

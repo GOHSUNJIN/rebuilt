@@ -25,10 +25,12 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
       }
       if (y < 80) {
         setHidden(false)
-      } else if (y > lastY.current + 4) {
+      } else if (y > lastY.current + 40) {
         setHidden(true)
-      } else if (y < lastY.current - 4) {
+        lastY.current = y
+      } else if (y < lastY.current - 8) {
         setHidden(false)
+        lastY.current = y
       }
       lastY.current = y
     }

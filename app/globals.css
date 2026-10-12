@@ -1193,6 +1193,9 @@ p { text-wrap: pretty; }
   .admin-page-visitors { display: none !important; }
   .admin-bottom-grid  { grid-template-columns: 1fr !important; }
 
+  /* DEVICES bar rows have no admin-rows-scroll wrapper, so override padding directly */
+  .admin-bar-row { padding-left: 16px !important; padding-right: 16px !important; }
+
   /* ── Book page ─── */
   .book-sidebar    { order: -1 !important; position: static !important; top: auto !important; }
   .book-content    { padding-top: 28px !important; padding-bottom: 48px !important; }

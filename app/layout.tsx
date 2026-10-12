@@ -49,6 +49,9 @@ export const metadata: Metadata = {
     icon: '/rebuilt-mark.svg',
     shortcut: '/rebuilt-mark.svg',
   },
+  ...(process.env.GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  }),
 }
 
 const jsonLd = {

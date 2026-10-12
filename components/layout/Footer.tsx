@@ -209,7 +209,7 @@ export default function Footer() {
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={24} height={24} style={{ display: 'block' }} />
             <div>
-              <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '.34em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT</div>
+              <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
               <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
             </div>
           </Link>

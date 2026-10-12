@@ -63,7 +63,7 @@ export interface SecondaryData {
 export async function fetchCritical(since: string, until: string): Promise<CriticalData> {
   const [totalsJson, dailyJson, eventsJson] = await Promise.all([
     vercelGet('/v1/query/web-analytics/visits/count', buildParams(since, until)),
-    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'day', limit: '366' })),
+    vercelGet('/v1/query/web-analytics/visits/aggregate', buildParams(since, until, { by: 'day' })),
     vercelGet('/v1/query/web-analytics/events/aggregate', buildParams(since, until, { by: 'eventName', limit: '20' })),
   ])
 

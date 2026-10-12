@@ -148,6 +148,7 @@ function StatCard({ icon, title, value, sub, tip }: {
 // ─── period tabs ───────────────────────────────────────────────────────────────
 
 const PERIOD_TABS = [
+  { value: '1',      label: 'TODAY' },
   { value: '7',      label: '7D' },
   { value: '30',     label: '30D' },
   { value: '90',     label: '90D' },
@@ -349,9 +350,8 @@ async function SecondarySection({ since, until }: { since: string; until: string
                   <div className="admin-bar-track" style={{ flex: 1, height: 3, background: '#333', borderRadius: 2 }}>
                     <div style={{ height: '100%', width: `${(p.pageviews / maxPg) * 100}%`, background: 'var(--accent)', borderRadius: 2 }} />
                   </div>
-                  <div className="admin-bar-value" style={{ flex: '0 0 100px', textAlign: 'right' }}>
+                  <div className="admin-bar-value" style={{ flex: '0 0 44px', textAlign: 'right' }}>
                     <span style={{ font: '11px/1 ui-monospace,Menlo,monospace', color: '#C0C0C0' }}>{fmt(p.pageviews)}</span>
-                    <span className="admin-page-visitors" style={{ font: '10px/1 ui-monospace,Menlo,monospace', color: '#909090', marginLeft: 8 }}>{fmt(p.visitors)}v</span>
                   </div>
                 </div>
               )
@@ -424,7 +424,7 @@ export default async function AdminPage({
   const { p, since: sinceParam, until: untilParam } = await searchParams
 
   const isCustom = p === 'custom'
-  const days     = isCustom ? null : Math.min(Math.max(Number(p) || 30, 7), 90)
+  const days     = isCustom ? null : Math.min(Math.max(Number(p) || 30, 1), 90)
 
   const since = isCustom && sinceParam
     ? new Date(sinceParam + 'T00:00:00.000Z').toISOString()
@@ -444,6 +444,8 @@ export default async function AdminPage({
     ? `${fmtShort(since)} to ${fmtShort(until)}`
     : isCustom
     ? 'CUSTOM RANGE'
+    : days === 1
+    ? 'TODAY'
     : `LAST ${days}D`
 
   // Pre-warm the cache for other standard periods after responding,
@@ -451,7 +453,7 @@ export default async function AdminPage({
   if (isAnalyticsConfigured() && !isCustom) {
     after(async () => {
       const now = Date.now()
-      const others = ([7, 30, 90] as const).filter(d => String(d) !== activePeriod)
+      const others = ([1, 7, 30, 90] as const).filter(d => String(d) !== activePeriod)
       await Promise.all(others.flatMap(d => {
         const s = roundToHour(now - d * 86_400_000)
         const u = roundToHour(now)

@@ -38,7 +38,9 @@ export async function submitContact(formData: FormData) {
   }
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.office365.com',
+    port: 587,
+    secure: false,
     auth: { user: process.env.MAIL_USER, pass: process.env.MAIL_PASS },
   })
 

@@ -382,26 +382,312 @@ p { text-wrap: pretty; }
 .r-footer-desktop { display: flex; }
 
 /* ══════════════════════════════════════════════════
-   TABLET  (769px – 1024px)
+   TABLET  (769px – 1024px)  — mirrors mobile UX
    ══════════════════════════════════════════════════ */
 @media (min-width: 769px) and (max-width: 1024px) {
-  /* ── Grids ── */
-  .r4   { grid-template-columns: repeat(2, 1fr) !important; }
-  .r3   { grid-template-columns: repeat(2, 1fr) !important; }
-  .r-hero { height: auto !important; min-height: 580px !important; }
 
-  /* ── Horizontal padding: 48px → 32px everywhere ── */
-  .r-px { padding-left: 32px !important; padding-right: 32px !important; }
-  nav   { padding: 0 32px !important; }
+  /* ── Core spacing ── */
+  .r-px   { padding-left: 24px !important; padding-right: 24px !important; }
+  .r-hide { display: none !important; }
+  .r-col  { flex-direction: column !important; }
+
+  /* ── Grid collapses ── */
+  .r2       { grid-template-columns: 1fr !important; }
+  .r3       { grid-template-columns: 1fr !important; }
+  .r4       { grid-template-columns: 1fr 1fr !important; }
+  .r6       { grid-template-columns: repeat(3, 1fr) !important; }
+  .r-reviews { grid-template-columns: 1fr !important; }
+
+  /* ── Navigation: hamburger on tablet ── */
+  .desktop-nav     { display: none !important; }
+  .mobile-menu-btn { display: block !important; }
+  nav              { padding: 0 24px !important; }
+
+  /* ── Hero ── */
+  .r-hero         { height: 520px !important; align-items: end !important; }
+  .r-hero-content { padding: 0 24px 52px !important; }
+  .r-hero-label   { letter-spacing: .14em !important; font-size: 10px !important; }
+  .r-hero-badge   { display: none !important; }
+  .r-hero-sub     { font-size: 15px !important; line-height: 1.6 !important; }
+  .r-hero-btns                   { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
+  .r-hero-btns .btn-gold         { justify-content: center !important; }
+  .r-hero-btns a:not(.btn-gold)  { text-align: center !important; padding: 12px 0 !important; }
 
   /* ── Typography ── */
-  .r-h1         { font-size: 62px !important; line-height: 0.93 !important; }
-  .r-section-h2 { font-size: 38px !important; line-height: 0.94 !important; }
-  .r-testimonial-quote { font-size: 19px !important; }
+  .r-h1         { font-size: 52px !important; line-height: 0.95 !important; }
+  .r-h2         { font-size: 32px !important; line-height: 1.02 !important; }
+  .r-section-h2 { font-size: 40px !important; line-height: 0.95 !important; }
 
-  /* ── Physio partnership: stack the white logo panel below content ── */
-  .r-partner-grid { grid-template-columns: 1fr !important; }
-  .r-partner-img  { min-height: 300px !important; padding: 40px !important; order: -1; }
+  /* ── Section vertical padding ── */
+  .r-section-pad { padding-top: 52px !important; padding-bottom: 52px !important; }
+  .r-tall-pad    { padding-top: 52px !important; padding-bottom: 52px !important; }
+
+  /* ── Stats strip ── */
+  .r-stat-strip               { grid-template-columns: repeat(3, 1fr) !important; }
+  .r-stat-strip .r-stat-cell  { padding: 22px 16px 24px !important; }
+  .r-stat-strip .r-stat-num   { font-size: 36px !important; }
+
+  /* ── Service cards — horizontal snap-scroll ── */
+  .r-service-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    grid-template-columns: unset !important;
+    gap: 2px !important;
+  }
+  .r-service-scroll::-webkit-scrollbar { display: none; }
+  .r-service-scroll > * {
+    flex: 0 0 72vw !important;
+    max-width: 420px !important;
+    scroll-snap-align: start !important;
+  }
+  .r-service-scroll .r-service-card     { flex-direction: column !important; align-items: stretch !important; }
+  .r-service-scroll .r-card-img         { width: 100% !important; height: 220px !important; }
+  .r-service-scroll .r-service-content  { padding: 22px 20px 28px !important; min-width: 0 !important; }
+  .r-service-scroll .r-service-content h3 { font-size: 22px !important; }
+  .r-service-scroll .r-service-price    { display: block !important; }
+  .r-service-scroll .r-service-tags     { display: flex !important; }
+  .r-service-scroll .r-service-link     { border-top: 1px solid #1E1E1E !important; padding-top: 16px !important; }
+  .r-service-dots { display: flex !important; }
+
+  /* ── Feature grid — horizontal snap-scroll ── */
+  .r-feature-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    grid-template-columns: unset !important;
+  }
+  .r-feature-scroll::-webkit-scrollbar { display: none; }
+  .r-feature-scroll > * {
+    flex: 0 0 58vw !important;
+    max-width: 340px !important;
+    scroll-snap-align: start !important;
+  }
+  .r-feature-dots { display: flex !important; }
+
+  /* ── Pricing cards — horizontal snap-scroll ── */
+  .r-pricing-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    grid-template-columns: unset !important;
+    gap: 1px !important;
+  }
+  .r-pricing-scroll::-webkit-scrollbar { display: none; }
+  .r-pricing-scroll > * {
+    flex: 0 0 72vw !important;
+    max-width: 420px !important;
+    scroll-snap-align: start !important;
+  }
+  .r-pricing-dots { display: flex !important; }
+
+  /* ── Reviews — horizontal snap-scroll ── */
+  .r-reviews-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 2px !important;
+  }
+  .r-reviews-scroll::-webkit-scrollbar { display: none; }
+  .r-reviews-scroll > * {
+    flex: 0 0 68vw !important;
+    max-width: 400px !important;
+    scroll-snap-align: start !important;
+  }
+  .r-reviews-dots { display: flex !important; }
+
+  /* ── Location carousel ── */
+  .r-location-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    grid-template-columns: unset !important;
+    gap: 2px !important;
+    background: #2A2A2A !important;
+  }
+  .r-location-scroll::-webkit-scrollbar { display: none; }
+  .r-location-scroll > * {
+    flex: 0 0 72vw !important;
+    max-width: 460px !important;
+    scroll-snap-align: start !important;
+    height: 340px !important;
+  }
+  .r-location-scroll .r-location-card > div:first-child { height: 100% !important; }
+  .r-location-dots { display: flex !important; }
+
+  /* ── Team scroll carousel ── */
+  .r-team-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 2px !important;
+    background: #2A2A2A !important;
+  }
+  .r-team-scroll::-webkit-scrollbar { display: none; }
+  .r-team-scroll > * { flex: 0 0 65vw !important; max-width: 400px !important; scroll-snap-align: start !important; }
+  .r-team-scroll .r-team-img { height: 240px !important; }
+  .r-team-bio-full { display: none !important; }
+  .r-team-bio-mini { display: block !important; }
+  .r-team-dots { display: flex !important; }
+
+  /* ── About page ── */
+  .r-about-img            { min-height: 280px !important; order: -1 !important; }
+  .r-about-header-content { order: 0 !important; padding: 44px 24px !important; }
+  .r-about-stats {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    background: #2A2A2A !important;
+    gap: 1px !important;
+  }
+  .r-about-stats::-webkit-scrollbar { display: none; }
+  .r-about-stats > * { flex: 0 0 70vw !important; max-width: 360px !important; scroll-snap-align: start !important; }
+
+  /* ── Contact ── */
+  .r-contact-section { grid-template-columns: 1fr !important; }
+  .r-contact-left  { border-right: none !important; border-top: 1px solid #2A2A2A !important; order: 1 !important; padding: 40px 24px 48px !important; }
+  .r-contact-right { order: 0 !important; }
+  .r-contact-right > div:last-child { padding: 24px !important; }
+  .r-contact-info-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px 16px !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: unset !important;
+  }
+  .r-contact-info-grid > * { flex: unset !important; min-width: unset !important; }
+  .r-contact-info-grid > *:last-child { grid-column: 1 / -1 !important; }
+
+  /* ── Testimonial ── */
+  .r-testimonial-section .r2 { grid-template-columns: 1fr !important; }
+  .r-testimonial-img     { min-height: unset !important; height: 240px !important; }
+  .r-testimonial-content { padding: 32px 24px 36px !important; }
+  .r-testimonial-quote   { font-size: 19px !important; margin-bottom: 20px !important; }
+  .r-testimonial-role    { white-space: normal !important; line-height: 1.5 !important; }
+
+  /* ── CTA section ── */
+  .r-cta-img     { order: -1 !important; min-height: 260px !important; }
+  .r-cta-content { order: 0 !important; padding: 48px 24px !important; }
+
+  /* ── CTA "Start where you are" section ── */
+  .r-cta-section-left { padding: 52px 24px !important; gap: 32px !important; justify-content: flex-start !important; }
+  .r-decision-rows    { gap: 12px !important; display: flex; flex-direction: column; }
+  .r-decision-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding: 22px 18px !important;
+    background: #111 !important;
+    border-left: 2px solid var(--accent) !important;
+    border-bottom: none !important;
+  }
+  .r-cta-btns { flex-direction: column !important; align-items: stretch !important; gap: 16px !important; width: 100% !important; }
+  .r-cta-btns .btn-gold { justify-content: center !important; }
+  .r-cta-btns a:not(.btn-gold) { text-align: center !important; }
+
+  /* ── Physio partnership ── */
+  .r-partner-grid           { grid-template-columns: 1fr !important; }
+  .r-partner-img            { min-height: 240px !important; padding: 40px !important; order: -1 !important; }
+  .r-physio-partner-content { order: 0 !important; padding: 44px 24px !important; gap: 28px !important; }
+  .r-physio-partner-content h2 { font-size: 40px !important; }
+
+  /* ── Inhome / coming soon ── */
+  .r-inhome-content { padding: 56px 24px 60px !important; gap: 22px !important; }
+  .r-inhome-eyebrow { display: none !important; }
+  .r-inhome-bullets { flex-wrap: wrap !important; justify-content: center !important; gap: 10px 24px !important; }
+  .r-inhome-btn     { display: block !important; width: 100% !important; text-align: center !important; justify-content: center !important; }
+
+  /* ── Instagram ── */
+  .r-ig-section {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 28px 24px !important;
+    gap: 18px !important;
+  }
+  .r-ig-content { flex-direction: row !important; align-items: center !important; gap: 14px !important; }
+  .r-ig-section .btn-gold { width: 100% !important; justify-content: center !important; }
+
+  /* ── Performance: Who it's for ── */
+  .r-whosfor { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; padding: 28px 24px !important; }
+  .r-whosfor-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px !important; width: 100% !important; }
+
+  /* ── Instalment note ── */
+  .r-instalment-note { padding: 20px 24px !important; margin-top: 0 !important; }
+
+  /* ── Crosslinks ── */
+  .r-crosslinks-section { padding: 32px 24px !important; }
+  .r-crosslinks-grid    { grid-template-columns: 1fr !important; gap: 1px !important; }
+  .r-crosslinks-cta     { display: none !important; }
+
+  /* ── FAQ ── */
+  .r-faq { flex-direction: column !important; }
+  .r-faq-hero { padding: 36px 24px 32px !important; flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
+  .r-faq-hero p { font-size: 13px !important; max-width: 100% !important; }
+  .r-faq-sidebar {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid #212429 !important;
+    padding: 0 !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+  .r-faq-sidebar::-webkit-scrollbar { display: none; }
+  .r-faq-hide-mobile { display: none !important; }
+  .r-faq-section-header { display: none !important; }
+  .r-faq-btn {
+    border-left: none !important;
+    border-bottom: 2px solid transparent !important;
+    padding: 14px 18px !important;
+    white-space: nowrap !important;
+    width: auto !important;
+    flex-shrink: 0 !important;
+    text-align: center !important;
+  }
+  .r-faq-btn-active {
+    border-left: none !important;
+    border-bottom: 2px solid var(--accent) !important;
+  }
+  .r-faq-content { padding: 32px 24px 52px !important; }
+  .r-faq-mobile-cta a { width: 100% !important; justify-content: center !important; text-align: center !important; }
+  .r-drawer-content { padding-left: 24px !important; padding-right: 24px !important; }
+
+  /* ── Home R&B / physio cards ── */
+  .r-home-rnb     { min-height: 220px !important; padding: 36px 24px !important; order: -1 !important; }
+  .r-rnb-content  { order: 0 !important; }
+  .r-physio-card-img { height: 200px !important; }
+  .r-pricing-card { padding: 28px 22px 32px !important; }
+
+  /* ── Booking page ── */
+  .book-step-label { display: none !important; }
+  .book-steps      { padding: 0 24px !important; }
+  .book-content    { padding: 32px 24px 48px !important; }
+  .book-nav        { flex-direction: column !important; align-items: stretch !important; }
+  .book-nav button { width: 100% !important; }
+
+  /* ── Mobile-only labels ── */
+  .r-mobile-only { display: block !important; }
+
+  /* ── Footer: use mobile footer on tablet ── */
+  .r-footer-nav     { display: none !important; }
+  .r-footer-desktop { display: none !important; }
+  .r-footer-mobile  { display: flex !important; }
 }
 
 /* Mobile hero image hidden by default (shown via mobile media query) */

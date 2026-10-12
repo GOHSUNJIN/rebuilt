@@ -27,11 +27,9 @@ export default function Step4({ name, email, phone, notes, setName, setEmail, se
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
             <label htmlFor="book-notes" style={labelStyle}>ANYTHING WE SHOULD KNOW?</label>
-            {notes.length > 0 && (
-              <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: notes.length > 2700 ? '#e07070' : '#5f6670', letterSpacing: '.1em' }}>
-                {notes.length} / 3000
-              </span>
-            )}
+            <span style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: notes.length > 2700 ? '#e07070' : '#5f6670', letterSpacing: '.1em' }}>
+              {notes.length} / 3000
+            </span>
           </div>
           <textarea id="book-notes" value={notes} onChange={e => setNotes(e.target.value)} placeholder="Tell us about your current condition, injury history, or any goals we should know before your first session" rows={4} maxLength={3000} style={{ ...inputStyle, resize: 'none' }} />
         </div>

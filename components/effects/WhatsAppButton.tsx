@@ -34,7 +34,7 @@ export default function WhatsAppButton() {
         position: 'fixed',
         bottom: 28,
         right: 28,
-        zIndex: 999,
+        zIndex: 95,
         width: 52,
         height: 52,
         borderRadius: '50%',

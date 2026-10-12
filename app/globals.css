@@ -223,6 +223,20 @@ a:hover {
   background: #1E1E1E;
 }
 
+/* ── Touch active states (mobile tap feedback) ──── */
+
+.hover-gold:active      { color: var(--accent); opacity: 0.7; }
+.hover-card:active      { transform: translateY(-2px) !important; background: #1E1E1E !important; }
+.hover-border:active    { border-color: var(--accent); opacity: 0.8; }
+.hover-nav:active       { color: var(--accent); background: rgba(183,240,0,0.12); }
+.hover-social:active    { border-color: var(--accent); color: var(--accent); background: #1E1E1E; }
+.hover-faq:active       { border-color: var(--accent); background: #1E1E1E; }
+.hover-approach:active  { background: #141414; box-shadow: inset 3px 0 0 var(--accent); }
+.hover-review:active    { background: #1E1E1E; }
+.btn-gold:active        { opacity: 0.85; transform: scale(0.98); }
+.whatsapp-btn:active    { transform: scale(0.93); }
+.scroll-top-btn:active  { border-color: var(--accent); background: #1E1E1E; }
+
 /* ── Input focus ────────────────────────────────── */
 
 input:focus,

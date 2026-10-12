@@ -217,9 +217,9 @@ export default function TeamBioModal() {
               onClick={() => setSelected(null)}
               aria-label="Close bio"
               style={{
-                position: 'absolute', top: 20, right: 20,
+                position: 'absolute', top: 16, right: 16,
                 background: 'rgba(15,17,21,.8)', border: 'none',
-                color: '#FFFFFF', width: 40, height: 40, borderRadius: '50%',
+                color: '#FFFFFF', width: 48, height: 48, borderRadius: '50%',
                 cursor: 'pointer', display: 'grid', placeItems: 'center', fontSize: 18,
                 fontFamily: 'inherit', zIndex: 1, backdropFilter: 'blur(8px)',
               }}

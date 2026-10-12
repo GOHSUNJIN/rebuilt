@@ -11,7 +11,7 @@ const miniLabel: React.CSSProperties = {
 export default function Step1({ category, ptFormat, service, selectCategory, setPtFormat, setService }: Step1Props) {
   return (
     <>
-      <StepHeader step={1} heading={<>What are you<br />coming in for?</>} large />
+      <StepHeader step={1} heading="What are you coming in for?" large />
 
       {/* Tab bar */}
       <div style={{ display: 'flex', borderBottom: '2px solid #1E1E1E', marginBottom: 24, overflowX: 'auto', gap: 0, scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}>

@@ -70,7 +70,7 @@ export async function submitContact(formData: FormData) {
       from: `"Rebuilt Academy" <${process.env.MAIL_USER}>`,
       to: SITE.contact.email,
       replyTo: email,
-      subject: `[${enquiryId}] New enquiry from ${name}${service ? `: ${service}` : ''}`,
+      subject: `[${enquiryId}] New Enquiry from ${name}${service ? `: ${service}` : ''}`,
       html: `<!DOCTYPE html>
 <html><head><meta charset="utf-8"/></head>
 <body style="margin:0;padding:0;background:#0B0B0B;font-family:Arial,Helvetica,sans-serif;">

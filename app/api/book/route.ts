@@ -24,7 +24,7 @@ function serviceLabel(service: string): string {
     const format = service.replace(' · block', '')
     return `${format}, Block of 10`
   }
-  if (PT_TYPES[service]) return `${service}, Single session`
+  if (PT_TYPES[service]) return `${service}, Single Session`
   return service
 }
 
@@ -126,7 +126,7 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: `"Rebuilt Academy" <${process.env.MAIL_USER}>`,
       to: email,
-      subject: `Request received: ${orderId}`,
+      subject: `Request Received: ${orderId}`,
       html: `<!DOCTYPE html>
 <html><head><meta charset="utf-8"/></head>
 <body style="margin:0;padding:0;background:#0B0B0B;font-family:Arial,Helvetica,sans-serif;">

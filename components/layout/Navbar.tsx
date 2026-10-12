@@ -18,8 +18,6 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
     const onScroll = () => {
       const y = window.scrollY
       if (menuOpenRef.current) {
-        setMenuOpen(false)
-        menuOpenRef.current = false
         lastY.current = y
         return
       }

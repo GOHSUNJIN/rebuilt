@@ -61,6 +61,10 @@ export default function ReviewsSection() {
               <span style={{ fontSize: 18, fontWeight: 600, color: '#5f6670' }}>/5</span>
             </div>
           </div>
+          <div>
+            <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#5f6670', letterSpacing: '.18em', margin: '0 0 6px' }}>GOOGLE RATING</p>
+            <p style={{ font: '9px/1 ui-monospace,Menlo,monospace', color: '#3a3f47', letterSpacing: '.14em', margin: 0 }}>300+ CLIENTS COACHED</p>
+          </div>
         </div>
 
         {reviews.map(({ stars, text, name, role }) => (

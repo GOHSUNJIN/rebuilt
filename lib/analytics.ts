@@ -39,11 +39,11 @@ export function isAnalyticsConfigured(): boolean {
 
 type Row = Record<string, unknown>
 
-export interface AnalyticsTotals { pageviews: number; visitors: number }
-export interface TopPage        { requestPath: string; pageviews: number; visitors: number }
-export interface DeviceStat     { deviceType: string; pageviews: number }
+interface AnalyticsTotals { pageviews: number; visitors: number }
+interface TopPage        { requestPath: string; pageviews: number; visitors: number }
+interface DeviceStat     { deviceType: string; pageviews: number }
 export interface DailyStat      { timestamp: string; pageviews: number; visitors: number }
-export interface ReferrerStat   { referrerHostname: string; pageviews: number }
+interface ReferrerStat   { referrerHostname: string; pageviews: number }
 export interface CountryStat    { country: string; pageviews: number }
 
 export interface CriticalData {

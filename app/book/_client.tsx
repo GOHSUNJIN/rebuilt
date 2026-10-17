@@ -174,28 +174,7 @@ function BookContent() {
     notes.trim() ? `\nNotes: ${notes.trim()}` : null,
   ].filter((l): l is string => l !== null).join('\n')
 
-  const emailBody = [
-    `Hi Rebuilt Academy,`,
-    ``,
-    `I'd like to book a consultation. Here are my details:`,
-    ``,
-    `BOOKING`,
-    `Service: ${service ?? 'TBC'}`,
-    showLocation ? `Location: ${location}` : null,
-    `Coach: ${coach}`,
-    `Times: ${fmtSlots}`,
-    ``,
-    `CONTACT`,
-    `Name: ${name.trim()}`,
-    phone.trim() ? `Phone: ${phone.trim()}` : null,
-    notes.trim() ? `\nNotes:\n${notes.trim()}` : null,
-    ``,
-    `Thank you`,
-  ].filter((l): l is string => l !== null).join('\n')
-
   const waUrl = `${SITE.contact.whatsapp}?text=${encodeURIComponent(waText)}`
-
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(SITE.contact.email)}&su=${encodeURIComponent('Consultation Booking - Rebuilt')}&body=${encodeURIComponent(emailBody)}`
 
   const displayCategory = formatCategoryDisplay(category)
   const displayService  = formatServiceDisplay(service)

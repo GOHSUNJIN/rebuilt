@@ -160,7 +160,7 @@ export default function Footer() {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
-            <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={28} height={28} style={{ display: 'block' }} />
+            <Image src="/instagram-pfp.jpg" alt="Rebuilt" width={28} height={28} style={{ display: 'block' }} />
             <div>
               <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
               <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>
@@ -207,7 +207,7 @@ export default function Footer() {
         {/* Row 1: logo + socials */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 16, borderBottom: '1px solid #1E1E1E' }}>
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={24} height={24} style={{ display: 'block' }} />
+            <Image src="/instagram-pfp.jpg" alt="Rebuilt" width={24} height={24} style={{ display: 'block' }} />
             <div>
               <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
               <div style={{ marginTop: 3, font: '7px/1 ui-monospace,Menlo,monospace', letterSpacing: '.2em', color: 'var(--accent)' }}>SINGAPORE</div>

@@ -60,7 +60,7 @@ export default function Navbar({ activePage = '' }: NavbarProps) {
       >
         {/* ── Logo ─────────────────────────────────── */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, flexShrink: 0 }}>
-          <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
+          <Image src="/instagram-pfp.jpg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
           <div>
             <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>
               REBUILT ACADEMY

@@ -220,7 +220,7 @@ function BookContent() {
       {/* Nav */}
       <nav className="r-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 70, padding: '0 48px', background: 'rgba(11,12,14,.97)', borderBottom: '1px solid #2A2A2A' }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 13, textDecoration: 'none' }}>
-          <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
+          <Image src="/instagram-pfp.jpg" alt="Rebuilt" width={34} height={34} style={{ display: 'block' }} />
           <div>
             <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
             <div style={{ marginTop: 4, font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.22em', color: 'var(--accent)' }}>SINGAPORE</div>

@@ -175,7 +175,7 @@ function AdminHeader({ activePeriod }: { activePeriod: string }) {
       }}
     >
       <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 11, textDecoration: 'none', flexShrink: 0 }}>
-        <Image src="/rebuilt-mark.svg" alt="Rebuilt" width={28} height={28} style={{ display: 'block' }} />
+        <Image src="/instagram-pfp.jpg" alt="Rebuilt" width={28} height={28} style={{ display: 'block' }} />
         <div className="admin-wordmark">
           <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '.28em', color: '#FFFFFF', lineHeight: 1 }}>REBUILT ACADEMY</div>
           <div style={{ marginTop: 3, font: '8px/1 ui-monospace,Menlo,monospace', letterSpacing: '.22em', color: 'var(--accent)' }}>ANALYTICS</div>

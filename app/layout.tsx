@@ -101,10 +101,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <a href="#main-content" className="skip-link">Skip to main content</a>
         <CursorGlow />
         <ScrollProgress />
-        <div id="main-content">{children}</div>
+        {children}
         <WhatsAppButton />
         {process.env.NODE_ENV === 'development' && <ThemePlayground />}
         <AnalyticsWrapper />

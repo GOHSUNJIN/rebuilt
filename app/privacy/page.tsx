@@ -7,6 +7,7 @@ import { SITE } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'How Rebuilt Academy collects, uses and protects your personal data, in accordance with the PDPA.',
+  alternates: { canonical: '/privacy' },
   openGraph: {
     title: 'Privacy Policy',
     description: 'How Rebuilt Academy collects, uses and protects your personal data, in accordance with the PDPA.',

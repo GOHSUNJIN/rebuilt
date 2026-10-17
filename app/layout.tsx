@@ -26,9 +26,6 @@ export const metadata: Metadata = {
   description:
     'Rebuilt Academy: coached rehabilitation, training and sports performance in Singapore.',
   metadataBase: new URL(SITE.url),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: 'Rebuilt Academy',
     description: 'Coached rehabilitation, training and sports performance in Singapore.',

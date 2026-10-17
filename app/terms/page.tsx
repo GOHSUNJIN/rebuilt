@@ -7,6 +7,7 @@ import { SITE } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description: 'Terms of service for Rebuilt Academy. Read before booking a session or using our website.',
+  alternates: { canonical: '/terms' },
   openGraph: {
     title: 'Terms of Service',
     description: 'Terms of service for Rebuilt Academy. Read before booking a session or using our website.',

@@ -41,11 +41,7 @@ export const metadata: Metadata = {
     description: 'Coached rehabilitation, training and sports performance in Singapore.',
     images: ['/opengraph-image'],
   },
-  icons: {
-    icon: { url: '/favicon.ico', sizes: 'any' },
-    shortcut: '/favicon.ico',
-  },
-  ...(process.env.GOOGLE_SITE_VERIFICATION && {
+...(process.env.GOOGLE_SITE_VERIFICATION && {
     verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
   }),
 }

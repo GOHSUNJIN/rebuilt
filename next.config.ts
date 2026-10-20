@@ -8,12 +8,7 @@ const config: NextConfig = {
       { protocol: 'https', hostname: 'gobeyondrehab.sg' },
     ],
   },
-  async redirects() {
-    return [
-      { source: '/favicon.ico', destination: '/icon.jpg', permanent: true },
-    ]
-  },
-  async headers() {
+async headers() {
     return [
       {
         source: '/(.*)',

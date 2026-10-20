@@ -10,7 +10,7 @@ const config: NextConfig = {
   },
   async redirects() {
     return [
-      { source: '/favicon.ico', destination: '/icon.jpg', permanent: false },
+      { source: '/favicon.ico', destination: '/icon.jpg', permanent: true },
     ]
   },
   async headers() {

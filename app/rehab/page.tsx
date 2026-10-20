@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: 'Coached rehabilitation in Singapore for people coming back from injury or surgery. Post-surgery, long-standing pain and return to sport.',
   alternates: { canonical: '/rehab' },
   openGraph: {
-    title: 'Rehabilitation',
+    title: 'Rehabilitation | Rebuilt Academy',
     description: 'Coached rehab for people coming back from injury or surgery. One team from assessment to return to sport.',
   },
 }

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Answers to common questions about rehab, training, sports performance and physiotherapy at Rebuilt Academy.',
   alternates: { canonical: '/faq' },
   openGraph: {
-    title: 'FAQ',
+    title: 'FAQ | Rebuilt Academy',
     description: 'Common questions about rehabilitation, training, sports performance and physiotherapy at Rebuilt Academy.',
   },
 }

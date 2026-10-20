@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: 'Sports performance training in Singapore. Tested, coached blocks for athletes who need speed, power and the conditioning to repeat it.',
   alternates: { canonical: '/performance' },
   openGraph: {
-    title: 'Performance',
+    title: 'Performance Training | Rebuilt Academy',
     description: 'Sport-specific blocks for athletes. Speed, power and conditioning, tested at the start and end of every programme.',
   },
 }

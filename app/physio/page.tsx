@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: 'Physiotherapy at Rebuilt Academy, delivered in partnership with Rehab & Beyond. Physiotherapy, rehab and training under one roof.',
   alternates: { canonical: '/physio' },
   openGraph: {
-    title: 'Physiotherapy',
+    title: 'Physiotherapy | Rebuilt Academy',
     description: 'Physiotherapy delivered in partnership with Rehab & Beyond. Treatment and training coordinated from the start.',
   },
 }

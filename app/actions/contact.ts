@@ -126,6 +126,10 @@ export async function submitContact(formData: FormData) {
 <span style="display:none;font-size:1px;color:#0B0B0B;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">&#847;</span>
 <div style="max-width:560px;margin:0 auto;padding:40px 20px;">
 
+  <div style="text-align:center;margin-bottom:24px;">
+    <img src="https://www.rebuiltacademy.sg/instagram-pfp.jpg" width="72" height="72" alt="Rebuilt Academy" style="border-radius:50%;display:inline-block;" />
+  </div>
+
   <div style="background:#171717;border:1px solid #2A2A2A;border-bottom:none;padding:28px 32px;">
     <p style="font-family:monospace;font-size:10px;color:#B7F000;letter-spacing:.24em;margin:0 0 10px">REBUILT ACADEMY</p>
     <h1 style="font-size:22px;font-weight:800;color:#ffffff;margin:0;letter-spacing:-.02em">Message Received.</h1>

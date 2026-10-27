@@ -50,15 +50,15 @@ export const TEAM: TeamMember[] = [
     short: 'National floorball representative and co-founder of Rebuilt Academy. Specialises in sports performance, strength training, and rehabilitation with over a decade in the sports industry.',
     mini: 'National floorball representative and co-founder of Rebuilt Academy.',
     bio: [
-      'Joshua represented Singapore\'s national floorball team at the 2019 SEA Games, winning a silver medal, and competed at the World Floorball Championships. He took home MVP at the 2018 World Floorball Championship Qualifiers in Jeju, Korea. That track record at elite level informs everything he programmes for performance clients today.',
-      'Away from training, Joshua coaches the Wonderstick youth floorball team and is a competitive pickleball player, with plans to coach the sport next. The athlete\'s perspective stays at the centre of how he builds programmes.',
-      'With more than a decade in the sports industry, Joshua specialises in sports performance, strength training, and rehabilitation. He holds certifications across personal training, stretch therapy, and massage, and draws on all of them to help clients build strength, recover well, and move better.',
+      'Joshua is a passionate sportsman who has represented Singapore\'s national Floorball team, competing at the 2019 SEA Games and the World Floorball Championships. He won MVP at the 2018 World Floorball Championship Qualifiers in Jeju, Korea, and took home a silver medal at the 2019 SEA Games. Beyond floorball, Joshua is now a competitive and social pickleball player, and coaches the Wonderstick youth floorball team, with plans to coach pickleball next.',
+      'With more than a decade in the sports industry, Joshua specializes in sports performance, strength training, and rehab. He is a Level 2 certified stretch specialist, and holds an NCSF Personal Training certification, Level 2 Core Balance Stretching certification, Swedish massage certification, and basic hand and foot reflexology certification. He combines this background to help clients build strength, recover well, and move better.',
     ],
     credentials: [
       'NCSF Personal Training Certification',
       'Level 2 Certified Stretch Specialist',
       'Level 2 Core Balance Stretching Certification',
       'Swedish Massage Certification',
+      'Basic Hand and Foot Reflexology Certification',
       'Singapore National Floorball Team (2019 SEA Games)',
       '10+ years in the sports industry',
     ],

@@ -88,12 +88,18 @@ export async function fetchSecondary(since: string, until: string): Promise<Seco
       .map(r => ({ requestPath: String(r.requestPath ?? '/'), pageviews: Number(r.pageviews ?? 0), visitors: Number(r.visitors ?? 0) }))
       .sort((a, b) => b.pageviews - a.pageviews),
     devices: ((devicesJson?.data ?? []) as Row[])
-      .map(r => ({ deviceType: String(r.deviceType ?? 'unknown'), pageviews: Number(r.pageviews ?? 0) }))
+      .map(r => ({ deviceType: String(r.deviceType || 'unknown'), pageviews: Number(r.pageviews ?? 0) }))
       .sort((a, b) => b.pageviews - a.pageviews),
-    referrers: ((referrersJson?.data ?? []) as Row[])
-      .map(r => ({ referrerHostname: String(r.referrerHostname ?? ''), pageviews: Number(r.pageviews ?? 0) }))
-      .filter(r => r.referrerHostname)
-      .sort((a, b) => b.pageviews - a.pageviews),
+    referrers: Object.values(
+      ((referrersJson?.data ?? []) as Row[])
+        .map(r => ({ referrerHostname: String(r.referrerHostname ?? ''), pageviews: Number(r.pageviews ?? 0) }))
+        .filter(r => r.referrerHostname)
+        .reduce<Record<string, { referrerHostname: string; pageviews: number }>>((acc, r) => {
+          const root = r.referrerHostname.replace(/^(?:www|m|l)\./i, '')
+          if (acc[root]) { acc[root].pageviews += r.pageviews } else { acc[root] = { referrerHostname: root, pageviews: r.pageviews } }
+          return acc
+        }, {})
+    ).sort((a, b) => b.pageviews - a.pageviews),
     countries: ((countriesJson?.data ?? []) as Row[])
       .map(r => ({ country: String(r.country ?? r.countryCode ?? ''), pageviews: Number(r.pageviews ?? 0) }))
       .filter(r => r.country)

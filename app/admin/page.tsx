@@ -69,6 +69,9 @@ const COUNTRY_NAMES: Record<string, string> = {
   ES: 'Spain',       IT: 'Italy',         AE: 'UAE',          SA: 'Saudi Arabia',
   BD: 'Bangladesh',  PK: 'Pakistan',      LK: 'Sri Lanka',    MM: 'Myanmar',
   NG: 'Nigeria',     ZA: 'South Africa',  BR: 'Brazil',       MX: 'Mexico',
+  PL: 'Poland',      SE: 'Sweden',        NO: 'Norway',       DK: 'Denmark',
+  FI: 'Finland',     PT: 'Portugal',      BE: 'Belgium',      CH: 'Switzerland',
+  AT: 'Austria',     IE: 'Ireland',       CZ: 'Czech Republic', RO: 'Romania',
 }
 
 // ─── tooltip ──────────────────────────────────────────────────────────────────
